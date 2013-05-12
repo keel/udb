@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest android:versionCode="3" android:versionName="1.0" android:installLocation="auto" package="com.game.UnicornDash"
+
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application android:label="@string/app_name" android:icon="@drawable/icon" android:debuggable="false">
+
+        <activity android:label="@string/app_name" android:name=".UnicornDash" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+        <activity android:label="More Games" android:name="com.MoreGames.API.MoreGames" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+
+        <meta-data android:name="APP_ID" android:value="23e54fccd0aaa08b" />
+
+    </application>
+
+    <supports-screens android:anyDensity="false" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" />
+
+    <uses-sdk android:minSdkVersion="7" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+</manifest>
+
