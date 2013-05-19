@@ -14,7 +14,7 @@ public static final int SFX_JUMP = 0x4;
 public static final int SFX_PRISE = 0x6;
 public static final int SFX_RUN = 0x3;
 public static final int[] SoundPlayChannel;
-public static final boolean[] SoundPlayMode = {0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01,0x01};
+public static final boolean[] SoundPlayMode = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
 public static final int[] SoundResIDTBL = {0x7f040003,0x7f040000,0x7f040004,0x7f040009,0x7f040005,0x7f040001,0x7f040008,0x7f040002,0x0000ffff};
 public static int m_AnimalType;
 public static int m_FIXControl;
@@ -55,9 +55,9 @@ public static void Initialize(){
 	int i = 0;
 	while (com.game.UnicornDash.C_Media.SoundResIDTBL[i] != 65535) {
 	//[OTHER] end local v0           #i:I
-	int i = (i + 0x1);
+	i = (i + 0x1);
 	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().addSound(com.game.UnicornDash.C_Media.SoundResIDTBL[i]);
-	i = i;
+	//i = i;
 	//[OTHER] end local v1           #i:I
 	
 	// goto :goto_0
@@ -87,7 +87,7 @@ public static void PlayMenuMusic(){
 }
 
 public static void PlaySound(int SoundResID){
-	if (com.game.UnicornDash.C_Media.SoundPlayMode[SoundResID] != null) {
+	if (com.game.UnicornDash.C_Media.SoundPlayMode[SoundResID] != false) {
 	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().CH_SoundPlay(com.game.UnicornDash.C_Media.SoundPlayChannel[SoundResID],com.game.UnicornDash.C_Media.SoundResIDTBL[SoundResID]);
 	// :cond_0
 	}
@@ -103,9 +103,9 @@ public static void StopAllSound(){
 	int i = 0;
 	while (com.game.UnicornDash.C_Media.SoundResIDTBL[i] != 65535) {
 	//[OTHER] end local v0           #i:I
-	int i = (i + 0x1);
+	 i = (i + 0x1);
 	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().soundStop(com.game.UnicornDash.C_Media.SoundResIDTBL[i]);
-	i = i;
+	//i = i;
 	//[OTHER] end local v1           #i:I
 	
 	// goto :goto_0

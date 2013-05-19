@@ -403,12 +403,14 @@ public void setPlayerCtrl(int Ctrl,int Mode){
 	if (this.c_EVTPlayer.EVT.Ctrl != 0) {
 	com.game.UnicornDash.C_Media.PlaySound(3);
 	this.SetEVTCtrl(0,Mode);
+	}
 	break;
 	case 1: 
 	if (this.c_EVTPlayer.EVT.Ctrl != 4) {
 	com.game.UnicornDash.C_Media.PlaySound(4);
 	this.c_EVTPlayer.EVT.XInc = 0xf;
 	this.SetEVTCtrl(1,1024);
+	}
 	break;
 	case 2: 
 	this.c_EVTPlayer.EVT.XInc = -0x2;
@@ -418,6 +420,7 @@ public void setPlayerCtrl(int Ctrl,int Mode){
 	if (this.c_EVTPlayer.EVT.Ctrl != -0x2 && this.c_EVTPlayer.EVT.Ctrl != 4) {
 	this.SetEVTCtrl(-0x2,0);
 	com.game.UnicornDash.C_Media.PlaySound(0);
+	}
 	break;
 	case 4: 
 	this.EVT.XVal = (this.EVT.XVal + 0x10);
@@ -429,9 +432,6 @@ public void setPlayerCtrl(int Ctrl,int Mode){
 	break;
 	} //end of switch
 	// :cond_1
-	}
-	}
-	}
 	return;
 	
 }

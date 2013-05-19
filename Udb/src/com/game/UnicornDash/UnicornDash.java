@@ -1,10 +1,12 @@
 package com.game.UnicornDash;
 
+import android.os.Handler;
 
-public class UnicornDash extends android.app.Activity implements com.google.ads.AdListener {
+
+public class UnicornDash extends android.app.Activity {
 
 // static fields
-public static com.google.ads.AdView adView;
+//public static com.google.ads.AdView adView;
 private static android.os.Handler mAdHandler;
 private static int mLayoutMode;
 // instance fields
@@ -21,7 +23,7 @@ private android.os.Handler mMoreGames;
 static{
 	com.game.UnicornDash.UnicornDash.mLayoutMode = 10;
 	;
-	com.game.UnicornDash.UnicornDash.mAdHandler = new com.game.UnicornDash.UnicornDash.2();
+	//com.game.UnicornDash.UnicornDash.mAdHandler = new com.game.UnicornDash.UnicornDash.2();
 }
 
 public UnicornDash(){
@@ -32,14 +34,27 @@ public UnicornDash(){
 	this.AdMobID = "a14e71b150de87c";
 	this.mClickMoreGames = false /* 0 */;
 	;
-	this.mHandler = new com.game.UnicornDash.UnicornDash.1(this);
+	this.mHandler = new Handler(){public void handleMessage(android.os.Message msg){
+		// getter for: Lcom/game/UnicornDash/UnicornDash;->adViewStatus:Z;
+		if (UnicornDash.this.adViewStatus) {
+//		com.game.UnicornDash.UnicornDash.adView.setVisibility(0);
+		} else {
+//		com.game.UnicornDash.UnicornDash.adView.setVisibility(8);
+			}
+		// goto :goto_0
+		// :goto_0
+		return;
+	}};
 	;
-	this.mMoreGames = new com.game.UnicornDash.UnicornDash.3(this);
+	this.mMoreGames = new Handler(){public void handleMessage(android.os.Message msg){
+		moreGames();
+		return;
+	}};
 }
 
 public static void AdViewHandler(){
 	;
-	android.widget.RelativeLayout.LayoutParams adWhirlLayoutParams = new android.widget.RelativeLayout.LayoutParams(-1,-2);
+	/*android.widget.RelativeLayout.LayoutParams adWhirlLayoutParams = new android.widget.RelativeLayout.LayoutParams(-1,-2);
 	if (com.game.UnicornDash.UnicornDash.mLayoutMode == 10) {
 	adWhirlLayoutParams.addRule(12,0);
 	adWhirlLayoutParams.addRule(10,-1);
@@ -55,6 +70,7 @@ public static void AdViewHandler(){
 	com.game.UnicornDash.UnicornDash.adView.setLayoutParams(adWhirlLayoutParams);
 	com.game.UnicornDash.UnicornDash.adView.invalidate();
 	return;
+	*/
 }
 
 public static void SetAdViewLayout(int align){
@@ -64,17 +80,17 @@ public static void SetAdViewLayout(int align){
 	return;
 }
 
-static synthetic boolean access$0(com.game.UnicornDash.UnicornDash $$0){
+/*static synthetic boolean access$0(com.game.UnicornDash.UnicornDash $$0){
 	;
 	return $$0.adViewStatus;
 	//return $$0.adViewStatus;
-}
-
+}*/
+/*
 static synthetic void access$1(com.game.UnicornDash.UnicornDash $$0){
 	$$0.moreGames();
 	return;
 }
-
+*/
 private void addContentView(android.view.View view){
 	android.widget.RelativeLayout relativeLayout = (android.widget.RelativeLayout)this.findViewById(2131099648);
 	;
@@ -84,11 +100,12 @@ private void addContentView(android.view.View view){
 }
 
 private void moreGames(){
+	/*
 	this.activityLayout.removeView(com.game.UnicornDash.UnicornDash.adView);
 	;
 	android.content.Intent intent = new android.content.Intent(this,Lcom/MoreGames/API/MoreGames;);
 	this.startActivity(intent);
-	return;
+	return;*/
 }
 // virtual methods
 
@@ -170,17 +187,17 @@ public void onCreate(android.os.Bundle savedInstanceState){
 	this.cView = new oms.GameEngine.GameView(this);
 	this.cView.SetDraw(this.cOPhoneApp.getCLib());
 	this.activityLayout.addView(this.cView);
-	;
+	;/*
 	com.game.UnicornDash.UnicornDash.adView = new com.google.ads.AdView(this,com.google.ads.AdSize.BANNER,this.AdMobID);
 	;
 	com.google.ads.AdRequest request = new com.google.ads.AdRequest();
 	com.game.UnicornDash.UnicornDash.adView.setAdListener(this);
 	com.game.UnicornDash.UnicornDash.adView.loadAd(request);
-	;
+	;*/
 	android.widget.RelativeLayout.LayoutParams adWhirlLayoutParams = new android.widget.RelativeLayout.LayoutParams(-1,-2);
 	adWhirlLayoutParams.addRule(10,-1);
 	com.game.UnicornDash.UnicornDash.mLayoutMode = 10;
-	this.activityLayout.addView(com.game.UnicornDash.UnicornDash.adView,adWhirlLayoutParams);
+//	this.activityLayout.addView(com.game.UnicornDash.UnicornDash.adView,adWhirlLayoutParams);
 	return;
 	//[OTHER] end local v0           #adWhirlLayoutParams:Landroid/widget/RelativeLayout$LayoutParams;
 	//[OTHER] end local v3           #request:Lcom/google/ads/AdRequest;
@@ -189,11 +206,11 @@ public void onCreate(android.os.Bundle savedInstanceState){
 protected void onDestroy(){
 	this.cOPhoneApp.onDestory();
 	this.cView.onDestory();
-	com.game.UnicornDash.UnicornDash.adView.destroy();
+//	com.game.UnicornDash.UnicornDash.adView.destroy();
 	super.onDestroy();
 	return;
 }
-
+/*
 public void onDismissScreen(com.google.ads.Ad arg0){
 	return;
 }
@@ -208,7 +225,7 @@ public void onFailedToReceiveAd(com.google.ads.AdView arg0){
 
 public void onFailedToReceiveRefreshedAd(com.google.ads.AdView arg0){
 	return;
-}
+}*/
 
 public boolean onKeyDown(int keyCode,android.view.KeyEvent event){
 	return this.cOPhoneApp.onKeyDown(keyCode,event);
@@ -224,18 +241,18 @@ public boolean onKeyUp(int keyCode,android.view.KeyEvent event){
 	return this.cOPhoneApp.onKeyUp(keyCode,event);
 	//return this.cOPhoneApp.onKeyUp(keyCode,event);
 }
-
+/*
 public void onLeaveApplication(com.google.ads.Ad arg0){
 	return;
 }
-
+*/
 protected void onPause(){
 	this.cOPhoneApp.onPause();
 	this.cView.onPause();
 	super.onPause();
 	return;
 }
-
+/*
 public void onPresentScreen(com.google.ads.Ad arg0){
 	return;
 }
@@ -251,7 +268,7 @@ public void onReceiveAd(com.google.ads.AdView arg0){
 public void onReceiveRefreshedAd(com.google.ads.AdView arg0){
 	return;
 }
-
+*/
 protected void onResume(){
 	this.FullScreen(true);
 	this.resumeMoreGames();
@@ -271,14 +288,14 @@ public boolean onTouchEvent(android.view.MotionEvent event){
 public void resumeMoreGames(){
 	if (this.mClickMoreGames) {
 	this.mClickMoreGames = false /* 0 */;
-	if (com.game.UnicornDash.UnicornDash.adView != null) {
+	/*if (com.game.UnicornDash.UnicornDash.adView != null) {
 	;
 	android.widget.RelativeLayout.LayoutParams adWhirlLayoutParams = new android.widget.RelativeLayout.LayoutParams(-1,-2);
 	adWhirlLayoutParams.addRule(com.game.UnicornDash.UnicornDash.mLayoutMode,-1);
 	this.activityLayout.addView(com.game.UnicornDash.UnicornDash.adView,adWhirlLayoutParams);
 	//[OTHER] end local v0           #adWhirlLayoutParams:Landroid/widget/RelativeLayout$LayoutParams;
 	// :cond_0
-	}
+	}*/
 	}
 	return;
 }

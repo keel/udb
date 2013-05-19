@@ -50,9 +50,10 @@ public void GameMain(){
 	this.m_isRun = true;
 	com.game.UnicornDash.C_PUB.setGameMode(1);
 	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().SetViewRect(-1024,-2048,1024,1024);
-	if (!this.m_isRun) {
-	return;
-	} else {
+	
+	while (this.m_isRun) {
+	
+
 	com.game.UnicornDash.C_OPhoneApp.cLib.getInput().ReadTouch();
 	;
 	switch(com.game.UnicornDash.C_Global.g_GameMode){
@@ -81,7 +82,7 @@ public void GameMain(){
 	//:pswitch_0
 	this.MsgLoop();
 	com.game.UnicornDash.C_OPhoneApp.cLib.WaitBLK();
-	goto somewhere; //maybe return,continue,break: goto :goto_0
+	//goto somewhere; //maybe return,continue,break: goto :goto_0
 	
 		}
 }

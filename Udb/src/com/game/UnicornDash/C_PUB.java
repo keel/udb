@@ -10,60 +10,63 @@ public C_PUB(){
 }
 
 public static double AngleToRadian(double Angle){
-	double Radian = ((4614256656552045848 * Angle) / 4640537203540230144);
-	return Radian;
+	 return 3.141592653589793D * Angle / 180.0D;
 	//return Radian;
 }
 
-public static boolean CHKIsTouch(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int DACTName,int DXVal,int DYVal){
-	SXHitL = 0 /* 0 */;
-	//[OTHER] end local p1
-	//[OTHER] end local p2
-	int i = SXHitL;
-	SXHitR = 4;
-	while (i < SXHitR) {
-	com.game.UnicornDash.C_Global.g_TouchFlag[i] = (com.game.UnicornDash.C_Global.g_TouchFlag[i] & 0x2);
-	SYHitU = 2;
-	if (com.game.UnicornDash.C_Global.g_TouchFlag[i] == SYHitU) {
-	int Touch_X = com.game.UnicornDash.C_Global.g_Touch_X[i];
-	int Touch_Y = com.game.UnicornDash.C_Global.g_Touch_Y[i];
-	com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
-	if (com.game.UnicornDash.C_OPhoneApp.cLib != null) {
-	i = 1;
-	return true /* 1 */;
+	public static boolean CHKIsTouch(int SXHitL, int SXHitR, int SYHitU,
+			int SYHitD, int DACTName, int DXVal, int DYVal) {
+		SXHitL = 0 /* 0 */;
+		// [OTHER] end local p1
+		// [OTHER] end local p2
+		int i = SXHitL;
+		SXHitR = 4;
+		while (i < SXHitR) {
+			com.game.UnicornDash.C_Global.g_TouchFlag[i] = (com.game.UnicornDash.C_Global.g_TouchFlag[i] & 0x2);
+			SYHitU = 2;
+			if (com.game.UnicornDash.C_Global.g_TouchFlag[i] == SYHitU) {
+				int Touch_X = com.game.UnicornDash.C_Global.g_Touch_X[i];
+				int Touch_Y = com.game.UnicornDash.C_Global.g_Touch_Y[i];
+				// com.game.UnicornDash.C_OPhoneApp.cLib =
+				// com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
+				if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas()
+						.CHKACTTouch(Touch_X, Touch_Y, 2, 2, 2, 2, DACTName,
+								DXVal, DYVal)) {
+					// i = 1;
+					return true /* 1 */;
+				}
+				// goto :goto_1
+				// [OTHER] end local v1 #Touch_X:I
+				// [OTHER] end local v2 #Touch_Y:I
+				// :cond_1
+			}
+			i = (i + 0x1);
+			// goto :goto_0
+			// :cond_0
 		}
-	// goto :goto_1
-	//[OTHER] end local v1           #Touch_X:I
-	//[OTHER] end local v2           #Touch_Y:I
-	// :cond_1
+		// i = 0 /* 0 */;
+		// [OTHER] end local p0 #i:I
+		return false;
+
 	}
-	i = (i + 0x1);
-	// goto :goto_0
-	// :cond_0
-	}
-	i = 0 /* 0 */;
-	//[OTHER] end local p0           #i:I
-	return i;
-	
-}
 
 public static boolean CHKTouchDown(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int DACTName,int DXVal,int DYVal){
 	//[OTHER] end local p0
-	com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchDown();
-	if (com.game.UnicornDash.C_OPhoneApp.cTouch != null) {
-	com.game.UnicornDash.C_OPhoneApp.cTouch = null /* 0 */;
+	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchDown();
+	if (com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchDown()) {
+	//com.game.UnicornDash.C_OPhoneApp.cTouch = null /* 0 */;
 	//[OTHER] end local p1
 	//[OTHER] end local p2
 	int i = 0;
 	SXHitR = 4;
 	while (i < SXHitR) {
-	com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchDownId(i);
+	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchDownId(i);
 	SYHitU = -1;
-	if (com.game.UnicornDash.C_OPhoneApp.cTouch != SYHitU) {
+	if (com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchDownId(i) != SYHitU) {
 	int Touch_X = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchDownX(i);
 	int Touch_Y = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchDownY(i);
-	com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
-	if (com.game.UnicornDash.C_OPhoneApp.cLib != null) {
+	//com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
+	if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal)) {
 	i = 1;
 	return true /* 1 */;
 		}
@@ -79,29 +82,29 @@ public static boolean CHKTouchDown(int SXHitL,int SXHitR,int SYHitU,int SYHitD,i
 	//[OTHER] end local p0           #i:I
 	// :cond_0
 	}
-	i = 0 /* 0 */;
-	return 0 /* 0 */;
+	//i = 0 /* 0 */;
+	return false /* 0 */;
 	//return i;
 	
 }
 
 public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int DACTName,int DXVal,int DYVal){
 	//[OTHER] end local p0
-	com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchUp();
-	if (com.game.UnicornDash.C_OPhoneApp.cTouch != null) {
-	com.game.UnicornDash.C_OPhoneApp.cTouch = null /* 0 */;
+	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchUp();
+	if (com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchUp()) {
+	//com.game.UnicornDash.C_OPhoneApp.cTouch = null /* 0 */;
 	//[OTHER] end local p1
 	//[OTHER] end local p2
 	int i = 0;
 	SXHitR = 4;
 	while (i < SXHitR) {
-	com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchUpId(i);
+	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchUpId(i);
 	SYHitU = -1;
-	if (com.game.UnicornDash.C_OPhoneApp.cTouch != SYHitU) {
+	if (com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchUpId(i) != SYHitU) {
 	int Touch_X = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchUpX(i);
 	int Touch_Y = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchUpY(i);
-	com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
-	if (com.game.UnicornDash.C_OPhoneApp.cLib != null) {
+	//com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
+	if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal)) {
 	i = 1;
 	return true /* 1 */;
 		}
@@ -117,8 +120,8 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 	//[OTHER] end local p0           #i:I
 	// :cond_0
 	}
-	i = 0 /* 0 */;
-	return 0 /* 0 */;
+//	i = 0 /* 0 */;
+	return false /* 0 */;
 	//return i;
 	
 }
@@ -209,53 +212,59 @@ public static boolean CHKisTouch(){
 	//return 0;
 }
 
-public static int GetActPixel(int ACTName,int XVal,int YVal,int Tar_X,int Tar_Y){
-	android.graphics.Bitmap bmp = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().GetSpriteBitmap(ACTName);
-	int DYHitU = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().GetSpriteYHitU(ACTName);
-	int DXHitL = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().GetSpriteXHitL(ACTName);
-	int color = 0;
-	if (DYHitU != -1) {
-	color = 0 /* 0 */;
-	//[OTHER] end local v0           #color:I
-	int color = color;
-	} else {
-	color = color;
-	//[OTHER] end local v0           #color:I
-	
+	public static int GetActPixel(int ACTName, int XVal, int YVal, int Tar_X,
+			int Tar_Y) {
+		android.graphics.Bitmap bmp = com.game.UnicornDash.C_OPhoneApp.cLib
+				.getGameCanvas().GetSpriteBitmap(ACTName);
+		int DYHitU = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas()
+				.GetSpriteYHitU(ACTName);
+		int DXHitL = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas()
+				.GetSpriteXHitL(ACTName);
+		int color = 0;
+		if (DYHitU != -1) {
+			color = 0 /* 0 */;
+			// [OTHER] end local v0 #color:I
+			// int color = color;
+		} else {
+			// color = color;
+			// [OTHER] end local v0 #color:I
+
 		}
-	// goto :goto_0
-	// :goto_0
-	ACTName = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Tar_X,Tar_Y,1,1,1,1,ACTName,XVal,YVal);
-	//[OTHER] end local p0
-	if (ACTName != 0) {
-	ACTName = (Tar_X - XVal);
-	ACTName = (ACTName + DXHitL);
-	ACTName = (ACTName + 0x1);
-	int x = ACTName;
-	XVal = (Tar_Y - YVal);
-	XVal = (XVal + DYHitU);
-	XVal = (XVal + 0x1);
-	int y = XVal;
-	x = bmp.getPixel(x,y);
-	//[OTHER] end local v13           #color:I
-	//[OTHER] end local p1           #y:I
-	int color = x;
-	return color;
-	} else {
-	color = color;
-	//[OTHER] end local v13           #color:I
-	;
-	return color
+		// goto :goto_0
+		// :goto_0
+		// ACTName =
+		// com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Tar_X,Tar_Y,1,1,1,1,ACTName,XVal,YVal);
+		// [OTHER] end local p0
+		if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(
+				Tar_X, Tar_Y, 1, 1, 1, 1, ACTName, XVal, YVal)) {
+			ACTName = (Tar_X - XVal);
+			ACTName = (ACTName + DXHitL);
+			ACTName = (ACTName + 0x1);
+			int x = ACTName;
+			XVal = (Tar_Y - YVal);
+			XVal = (XVal + DYHitU);
+			XVal = (XVal + 0x1);
+			int y = XVal;
+			x = bmp.getPixel(x, y);
+			// [OTHER] end local v13 #color:I
+			// [OTHER] end local p1 #y:I
+			// int color = x;
+			return x;
+		} else {
+			// color = color;
+			// [OTHER] end local v13 #color:I
+			;
+			return color;
 		}
-	// goto :goto_1
-	// :goto_1
-	//return color;
-	//[OTHER] end local p0           #color:I
-	
-	int XVal = y;
-	
-	int ACTName = color;
-}
+		// goto :goto_1
+		// :goto_1
+		// return color;
+		// [OTHER] end local p0 #color:I
+
+		// int XVal = y;
+
+		// int ACTName = color;
+	}
 
 public static void InitTouch(){
 	int i = 0;
@@ -272,8 +281,7 @@ public static void InitTouch(){
 }
 
 public static double RadianToAngle(double Radian){
-	double Angle = ((4640537203540230144 * Radian) / 4614256656552045848);
-	return Angle;
+	 return 180.0D * Radian / 3.141592653589793D;
 	//return Angle;
 }
 
@@ -311,49 +319,44 @@ public static void ShowNum(int number,int x,int y,int s,int NumLenth,int Align,i
 	int Bit = com.game.UnicornDash.C_PUB.getScoreLength(number);
 	y = (y + (Bit * s));
 	int i = 0;
-	if (i < 8) {
-	if (i < NumLenth) {
-	int Num = (number % 0xa);
-	number = (number / 0xa);
-	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
-	//[OTHER] end local v1           #Num:I
-	// :cond_2
-	}
-	i = (i + 0x1);
-	goto somewhere; //maybe return,continue,break: goto :goto_0
+	while (i < 8) {
+		if (number != 0 || i < NumLenth) {
+			int Num = (number % 0xa);
+			number = (number / 0xa);
+			com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
+			//[OTHER] end local v1           #Num:I
+			// :cond_2
+			}
+		i = (i + 0x1);
+	}//goto somewhere; //maybe return,continue,break: goto :goto_0
+	break;
 	case 5: 
 	Bit = com.game.UnicornDash.C_PUB.getScoreLength(number);
-	
 	if (Bit < NumLenth) {
 	Bit = NumLenth;
 	// :cond_3
 	}
 	y = (y + ((s * Bit) / 0x2));
 	i = 0 /* 0 */;
-	
-	if (i < 8) {
-	if (number == 0) {
-	if (i < NumLenth) {
-	// :cond_4
-	}
-	Num = (number % 0xa);
-	
-	number = (number / 0xa);
-	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
+	while (i < 8) {
+		if (number != 0 || i < NumLenth) {
+		// :cond_4
+			int Num = (number % 0xa);
+			number = (number / 0xa);
+			com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
+		}
 	//[OTHER] end local v1           #Num:I
 	// :cond_5
+		i = (i + 0x1);
 	}
-	i = (i + 0x1);
-	goto somewhere; //maybe return,continue,break: goto :goto_1
+	break;//goto somewhere; //maybe return,continue,break: goto :goto_1
 	case 2: 
 	i = 0 /* 0 */;
 	
-	if (i < 8) {
-	if (number == 0) {
-	if (i < NumLenth) {
+	while (i < 8) {
+	if (number != 0 || i < NumLenth) {
 	// :cond_6
-	}
-	Num = (number % 0xa);
+	int Num = (number % 0xa);
 	
 	number = (number / 0xa);
 	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
@@ -361,29 +364,26 @@ public static void ShowNum(int number,int x,int y,int s,int NumLenth,int Align,i
 	// :cond_7
 	}
 	i = (i + 0x1);
-	goto somewhere; //maybe return,continue,break: goto :goto_2
+	}//	goto somewhere; //maybe return,continue,break: goto :goto_2
+	break;
 	} //end of switch
 	//[OTHER] end local v0           #Bit:I
 	//[OTHER] end local v2           #i:I
 	//[OTHER] end local v0           #Bit:I
 	//[OTHER] end local v2           #i:I
-	
-		}
-		}
-		}
 }
 
 public static void ShowNum_Dec(long number,int x,int y,int s){
 	long Value = Math.abs(number);
 	int i = 0;
 	//[OTHER] end local v2           #i:I
-	int i = i;
+	//int i = i;
 	//[OTHER] end local v0           #Value:J
-	long Value = Value;
+	//long Value = Value;
 	//[OTHER] end local v7           #Value:J
-	long Value = Value;
-	Value = 8;
-	while (i < Value) {
+	//long Value = Value;
+	//Value = 8;
+	while (i < 8) {
 	if (((Value - 0) == 0 && i != 0)) {
 	// :cond_3
 	int Num = 10;
@@ -391,8 +391,8 @@ public static void ShowNum_Dec(long number,int x,int y,int s){
 	//[OTHER] end local v0           #Num:I
 	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(com.game.UnicornDash.C_DEF.TESTNUMTBL[Num],x,(y - (i * s)),7);
 	//[OTHER] end local v3           #i:I
-	int i = (i + 0x1);
-	i = i;
+	i = (i + 0x1);
+	//i = i;
 	//[OTHER] end local v0           #i:I
 	
 		}
@@ -403,13 +403,13 @@ public static void ShowNum_Dec(long number,int x,int y,int s){
 	Value = 0;
 	if ((number - Value) < 0) {
 	//[OTHER] end local p0
-	com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas();
+	//com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas();
 	Value = 16;
 	Value = (i + 0x1);
 	s = (s * Value);
 	y = (y - s);
 	s = 7;
-	com.game.UnicornDash.C_OPhoneApp.cLib.WriteSprite(com.game.UnicornDash.C_DEF.TESTNUMTBL[Value],x,y,s);
+	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(com.game.UnicornDash.C_DEF.TESTNUMTBL[Value],x,y,s);
 	//[OTHER] end local p3
 	//[OTHER] end local p4
 	// :cond_1
@@ -483,8 +483,8 @@ public static void setMusicStatus(){
 		}
 	// goto :goto_0
 	} else {
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().CH_MediaStop(5);
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(5);
+	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().CH_MediaStop(1);
+	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(true);
 		}
 	// goto :goto_0
 	// :goto_0

@@ -826,10 +826,11 @@ public void InitSpriteResInfo(int ResId,int ACTLibId,int ACTFrameBeg,int ACTFram
 	} else {
 	this.GetFileHead(ACTLibId);
 	this.GetSpriteHead(0);
+	int End;
 	if (ACTFrameEnd < this.ACTStructInfo.SpriteNum) {
-	int End = ACTFrameEnd;
+	End = ACTFrameEnd;
 	} else {
-	
+	End = this.ACTStructInfo.SpriteNum;
 		}
 	// goto :goto_0
 	// :goto_0
@@ -967,137 +968,159 @@ public boolean LoadSpriteResInfo(int ResId,int ACTLibId){
 	//[OTHER] end local v1           #j:I
 }
 
-public boolean OnDraw(android.graphics.Canvas canvas,int Attrib,int XOff,int YOff,android.graphics.Paint[] paint){
-	if ((Attrib == 0 || this.nCurFlushSpriteNum >= this.nShowSpriteNum)) {
-	// :cond_0
-	this.nCurFlushSpriteNum = 0 /* 0 */;
-	// :cond_1
-	}
-	int SpriteXVal = 0;
-	int SpriteYVal = 0;
-	if (this.nCurFlushSpriteNum < this.nShowSpriteNum) {
-	int i = 0;
-	while (i < this.nShowSpriteNum) {
-	int SpriteIdx = this.Sprite[i].SpriteResID;
-	if (SpriteIdx != -1 && this.SpriteRes[SpriteIdx].Sprite != null) {
-	;
-	if (this.Sprite[i].SpriteAttrib == Attrib) {
-	int XVal = 0;
-	int YVal = 0;
-	switch(this.nScreenOrientation){
-	case 0: 
-	SpriteXVal = (this.Sprite[i].SpriteXVal + XOff);
-	SpriteYVal = (this.Sprite[i].SpriteYVal + YOff);
-	break;
-	case 1: 
-	SpriteXVal = ((oms.GameEngine.GameCanvas.GetScreenWidth() - this.Sprite[i].SpriteYVal) + XOff);
-	SpriteYVal = (this.Sprite[i].SpriteXVal + YOff);
-	break;
-	case 2: 
-	SpriteXVal = ((oms.GameEngine.GameCanvas.GetScreenHeight() - this.Sprite[i].SpriteYVal) + XOff);
-	SpriteYVal = (this.Sprite[i].SpriteXVal + YOff);
-	break;
-	default:
-	SpriteXVal = ((oms.GameEngine.GameCanvas.GetScreenHeight() - this.Sprite[i].SpriteYVal) + XOff);
-	SpriteYVal = ((oms.GameEngine.GameCanvas.GetScreenWidth() - this.Sprite[i].SpriteXVal) + YOff);
-	} //end of switch
-	//:pswitch_0
-	if ((SpriteYVal >= this.nViewRc.top || SpriteYVal <= this.nViewRc.bottom) && (SpriteXVal >= this.nViewRc.left || SpriteXVal <= this.nViewRc.right)) {
-	// :cond_4
-	// :cond_5
-	paint[this.Sprite[i].mPaintId].setAlpha((this.Sprite[i].Alpha & 0xff));
-	if (this.Sprite[i].mTransform != 0) {
-	int saveCount = canvas.save(1);
-	int flipX,flipY;
-	if ((this.Sprite[i].mTransform & 0x1) != 0) {
-		flipX = -1;
-	//(this.Sprite[i].mTransform & 0x1) = -SpriteXVal;
-	XVal = (-(this.Sprite[i].mTransform & 0x1) - this.Sprite[i].SpriteCenterX);
-	} else {
-	flipX = 1;
-	
-	XVal = (SpriteXVal - this.Sprite[i].SpriteCenterX);
+	public boolean OnDraw(android.graphics.Canvas canvas, int Attrib, int XOff,
+			int YOff, android.graphics.Paint[] paint) {
+		if ((Attrib == 0 || this.nCurFlushSpriteNum >= this.nShowSpriteNum)) {
+			// :cond_0
+			this.nCurFlushSpriteNum = 0 /* 0 */;
+			// :cond_1
 		}
-	// goto/16 :goto_4
-	// :goto_4
-	if ((this.Sprite[i].mTransform & 0x2) != 0) {
-		flipY = -1;
-	//(this.Sprite[i].mTransform & 0x2) = -SpriteYVal;
-	YVal = (-(this.Sprite[i].mTransform & 0x2) - this.Sprite[i].SpriteCenterY);
-	} else {
-	flipY = 1;
-	
-	YVal = (SpriteYVal - this.Sprite[i].SpriteCenterY);
+		int SpriteXVal = 0;
+		int SpriteYVal = 0;
+		if (this.nCurFlushSpriteNum < this.nShowSpriteNum) {
+			int i = 0;
+			while (i < this.nShowSpriteNum) {
+				int SpriteIdx = this.Sprite[i].SpriteResID;
+				if (SpriteIdx != -1 && this.SpriteRes[SpriteIdx].Sprite != null) {
+					;
+					if (this.Sprite[i].SpriteAttrib == Attrib) {
+						int XVal = 0;
+						int YVal = 0;
+						switch (this.nScreenOrientation) {
+						case 0:
+							SpriteXVal = (this.Sprite[i].SpriteXVal + XOff);
+							SpriteYVal = (this.Sprite[i].SpriteYVal + YOff);
+							break;
+						case 1:
+							SpriteXVal = ((oms.GameEngine.GameCanvas
+									.GetScreenWidth() - this.Sprite[i].SpriteYVal) + XOff);
+							SpriteYVal = (this.Sprite[i].SpriteXVal + YOff);
+							break;
+						case 2:
+							SpriteXVal = ((oms.GameEngine.GameCanvas
+									.GetScreenHeight() - this.Sprite[i].SpriteYVal) + XOff);
+							SpriteYVal = (this.Sprite[i].SpriteXVal + YOff);
+							break;
+						default:
+							SpriteXVal = ((oms.GameEngine.GameCanvas
+									.GetScreenHeight() - this.Sprite[i].SpriteYVal) + XOff);
+							SpriteYVal = ((oms.GameEngine.GameCanvas
+									.GetScreenWidth() - this.Sprite[i].SpriteXVal) + YOff);
+						} // end of switch
+							// :pswitch_0
+						if ((SpriteYVal >= this.nViewRc.top || SpriteYVal <= this.nViewRc.bottom)
+								&& (SpriteXVal >= this.nViewRc.left || SpriteXVal <= this.nViewRc.right)) {
+							// :cond_4
+							// :cond_5
+							paint[this.Sprite[i].mPaintId]
+									.setAlpha((this.Sprite[i].Alpha & 0xff));
+							if (this.Sprite[i].mTransform != 0) {
+								int saveCount = canvas.save(1);
+								int flipX, flipY;
+								if ((this.Sprite[i].mTransform & 0x1) != 0) {
+									flipX = -1;
+									// (this.Sprite[i].mTransform & 0x1) =
+									// -SpriteXVal;
+									XVal = (-(this.Sprite[i].mTransform & 0x1) - this.Sprite[i].SpriteCenterX);
+								} else {
+									flipX = 1;
+
+									XVal = (SpriteXVal - this.Sprite[i].SpriteCenterX);
+								}
+								// goto/16 :goto_4
+								// :goto_4
+								if ((this.Sprite[i].mTransform & 0x2) != 0) {
+									flipY = -1;
+									// (this.Sprite[i].mTransform & 0x2) =
+									// -SpriteYVal;
+									YVal = (-(this.Sprite[i].mTransform & 0x2) - this.Sprite[i].SpriteCenterY);
+								} else {
+									flipY = 1;
+
+									YVal = (SpriteYVal - this.Sprite[i].SpriteCenterY);
+								}
+								// goto/16 :goto_5
+								// :goto_5
+								if (this.Sprite[i].mTransform != 0) {
+									canvas.scale((float) flipX, (float) flipY);
+									// :cond_6
+								}
+								if ((this.Sprite[i].Rotate - 0) == 0) {
+									if ((this.Sprite[i].ScaleX - 0x3f80) == 0) {
+										if ((this.Sprite[i].ScaleY - 0x3f80) == 0) {
+											canvas.drawBitmap(
+													this.SpriteRes[SpriteIdx].Sprite,
+													(float) XVal,
+													(float) YVal,
+													paint[this.Sprite[i].mPaintId]);
+											if (this.Sprite[i].mTransform != 0) {
+												canvas.restoreToCount(saveCount);
+												// :cond_7
+											}
+											this.nCurFlushSpriteNum = (this.nCurFlushSpriteNum + 0x1);
+											// [OTHER] end local v8 #XVal:I
+											// [OTHER] end local v9 #YVal:I
+											// [OTHER] end local v10 #flipX:I
+											// [OTHER] end local v11 #flipY:I
+											// [OTHER] end local v13
+											// #saveCount:I
+											// :cond_8
+										}
+									}
+								}
+								while (this.nCurFlushSpriteNum != this.nShowSpriteNum) {
+									;
+									return this.Sprite;
+									// goto somewhere; //maybe
+									// return,continue,break: goto/16 :goto_1
+
+									// :cond_9
+								}
+								saveCount = 0 /* 0 */;
+
+							}
+							// goto/16 :goto_3
+							// :cond_c
+							this.cMatrix.setTranslate((float) XVal,
+									(float) YVal);
+							this.cMatrix.postScale(this.Sprite[i].ScaleX,
+									this.Sprite[i].ScaleY, (float) SpriteXVal,
+									(float) SpriteYVal);
+							if (this.Sprite[i].RotateX != -1
+									&& this.Sprite[i].RotateY != -1) {
+								this.cMatrix.postRotate(this.Sprite[i].Rotate,
+										(float) this.Sprite[i].RotateX,
+										(float) this.Sprite[i].RotateY);
+							} else {
+								this.cMatrix.postRotate(this.Sprite[i].Rotate,
+										(float) SpriteXVal, (float) SpriteYVal);
+								// goto :goto_7
+								// [OTHER] end local v8 #XVal:I
+								// [OTHER] end local v9 #YVal:I
+								// [OTHER] end local v10 #flipX:I
+								// [OTHER] end local v11 #flipY:I
+								// [OTHER] end local v13 #saveCount:I
+								i = (i + 0x1);
+								// goto/16 :goto_0
+								// :cond_3
+							}
+							// [OTHER] end local v12 #i:I
+							// :cond_2
+						}
+						;
+						return this.Sprite;
+						// return this.Sprite;
+
+						// op;
+
+					}
+					// :goto_7
+					canvas.drawBitmap(this.SpriteRes[SpriteIdx].Sprite,
+							this.cMatrix, paint[this.Sprite[i].mPaintId]);
+				}
+			}
 		}
-	// goto/16 :goto_5
-	// :goto_5
-	if (this.Sprite[i].mTransform != 0) {
-	canvas.scale((float)flipX,(float)flipY);
-	// :cond_6
 	}
-	if ((this.Sprite[i].Rotate - 0) == 0) {
-	if ((this.Sprite[i].ScaleX - 0x3f80) == 0) {
-	if ((this.Sprite[i].ScaleY - 0x3f80) == 0) {
-	canvas.drawBitmap(this.SpriteRes[SpriteIdx].Sprite,(float)XVal,(float)YVal,paint[this.Sprite[i].mPaintId]);
-	if (this.Sprite[i].mTransform != 0) {
-	canvas.restoreToCount(saveCount);
-	// :cond_7
-	}
-	this.nCurFlushSpriteNum = (this.nCurFlushSpriteNum + 0x1);
-	//[OTHER] end local v8           #XVal:I
-	//[OTHER] end local v9           #YVal:I
-	//[OTHER] end local v10           #flipX:I
-	//[OTHER] end local v11           #flipY:I
-	//[OTHER] end local v13           #saveCount:I
-	// :cond_8
-	}
-	}
-	}
-	while (this.nCurFlushSpriteNum != this.nShowSpriteNum) {
-	;
-	return this.Sprite;
-	goto somewhere; //maybe return,continue,break: goto/16 :goto_1
-	
-	
-	// :cond_9
-	}
-	saveCount = 0 /* 0 */;
-	
-		}
-	// goto/16 :goto_3
-	// :cond_c
-	this.cMatrix.setTranslate((float)XVal,(float)YVal);
-	this.cMatrix.postScale(this.Sprite[i].ScaleX,this.Sprite[i].ScaleY,(float)SpriteXVal,(float)SpriteYVal);
-	if (this.Sprite[i].RotateX != -1 && this.Sprite[i].RotateY != -1) {
-	this.cMatrix.postRotate(this.Sprite[i].Rotate,(float)this.Sprite[i].RotateX,(float)this.Sprite[i].RotateY);
-	} else {
-	this.cMatrix.postRotate(this.Sprite[i].Rotate,(float)SpriteXVal,(float)SpriteYVal);
-	// goto :goto_7
-	//[OTHER] end local v8           #XVal:I
-	//[OTHER] end local v9           #YVal:I
-	//[OTHER] end local v10           #flipX:I
-	//[OTHER] end local v11           #flipY:I
-	//[OTHER] end local v13           #saveCount:I
-	i = (i + 0x1);
-	// goto/16 :goto_0
-	// :cond_3
-	}
-	//[OTHER] end local v12           #i:I
-	// :cond_2
-	}
-	;
-	return this.Sprite;
-	//return this.Sprite;
-	
-	// op;
-	
-		}
-	// :goto_7
-	canvas.drawBitmap(this.SpriteRes[SpriteIdx].Sprite,this.cMatrix,paint[this.Sprite[i].mPaintId]);
-		}
-		}
-		}
-}
 
 public boolean OnDraw(android.graphics.Canvas canvas,int Attrib,android.graphics.Paint paint){
 	if (Attrib == 0) {
@@ -1135,7 +1158,7 @@ public boolean OnDraw(android.graphics.Canvas canvas,int Attrib,android.graphics
 	if (this.nCurFlushSpriteNum == this.nShowSpriteNum) {
 	;
 	return true /* 1 */;
-	goto somewhere; //maybe return,continue,break: goto :goto_1
+	//goto somewhere; //maybe return,continue,break: goto :goto_1
 	// :cond_6
 	}
 	i = (i + 0x1);
@@ -1186,18 +1209,18 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr){
 	int SpriteIdx = -1;
 	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
 	//[OTHER] end local v0           #SpriteIdx:I
-	int SpriteIdx = SpriteIdx;
+	//int SpriteIdx = SpriteIdx;
 	return SpriteIdx;
 	// :cond_0
 	} else if (SpriteResId < 0x7f02) {
-	SpriteIdx = SpriteIdx;
+	//SpriteIdx = SpriteIdx;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 	// goto :goto_0
 	} else {
 	if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
-	SpriteIdx = (SpriteResId & 65535);
+	SpriteIdx = (SpriteResId & 0xffff);
 	// :cond_2
 	}
 	if (SpriteIdx != -1) {
@@ -1221,7 +1244,7 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr){
 	SpriteIdx = this.nShowSpriteNum;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 		}
 	// goto/16 :goto_0
 	//[OTHER] end local v1           #SpriteIdx:I
@@ -1236,14 +1259,14 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,fl
 	int SpriteIdx = -1;
 	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
 	//[OTHER] end local v0           #SpriteIdx:I
-	int SpriteIdx = SpriteIdx;
+	//int SpriteIdx = SpriteIdx;
 	return SpriteIdx;
 	// :cond_0
 	} else if (SpriteResId < 0x7f02) {
 	SpriteIdx = SpriteIdx;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 	// goto :goto_0
 	} else {
 	if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
@@ -1270,7 +1293,7 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,fl
 	SpriteIdx = this.nShowSpriteNum;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 		}
 	// goto/16 :goto_0
 	//[OTHER] end local v1           #SpriteIdx:I
@@ -1285,14 +1308,14 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,fl
 	int SpriteIdx = -1;
 	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
 	//[OTHER] end local v0           #SpriteIdx:I
-	int SpriteIdx = SpriteIdx;
+	//int SpriteIdx = SpriteIdx;
 	return SpriteIdx;
 	// :cond_0
 	} else if (SpriteResId < 0x7f02) {
-	SpriteIdx = SpriteIdx;
+	//SpriteIdx = SpriteIdx;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 	// goto :goto_0
 	} else {
 	if (this.SpriteResACTInfo[(65535 & SpriteResId)].RESACTIdx != -1) {
@@ -1332,7 +1355,7 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,fl
 	SpriteIdx = this.nShowSpriteNum;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 		}
 	// goto/16 :goto_0
 	//[OTHER] end local v1           #SpriteIdx:I
@@ -1349,14 +1372,14 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,fl
 	int SpriteIdx = -1;
 	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
 	//[OTHER] end local v0           #SpriteIdx:I
-	int SpriteIdx = SpriteIdx;
+	//int SpriteIdx = SpriteIdx;
 	return SpriteIdx;
 	// :cond_0
 	} else if (SpriteResId < 0x7f02) {
-	SpriteIdx = SpriteIdx;
+	//SpriteIdx = SpriteIdx;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 	// goto :goto_0
 	} else {
 	if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
@@ -1396,7 +1419,7 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,fl
 	SpriteIdx = this.nShowSpriteNum;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
-	return SpriteIdx
+	return SpriteIdx;
 		}
 	// goto/16 :goto_0
 	//[OTHER] end local v1           #SpriteIdx:I

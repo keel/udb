@@ -64,7 +64,7 @@ public boolean onKeyDown(int keyCode,android.view.KeyEvent event){
 }
 
 public boolean onKeyMultiple(int keyCode,int repeatCount,android.view.KeyEvent event){
-	return 1;
+	return true;
 }
 
 public boolean onKeyUp(int keyCode,android.view.KeyEvent event){
@@ -100,6 +100,42 @@ public boolean onTouchEvent(android.view.MotionEvent event){
 	;
 	return true /* 1 */;
 	//return 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+class C_GameThread extends Thread  {
+
+// annotations
+// value = Lcom/game/UnicornDash/C_OPhoneApp;
+// accessFlags = 0x2
+// name = "C_GameThread"
+// instance fields
+com.game.UnicornDash.C_UnicornDash c_UnicornDash;
+//final synthetic com.game.UnicornDash.C_OPhoneApp this$0 = clib;
+// direct methods
+
+public C_GameThread(com.game.UnicornDash.C_OPhoneApp clib,oms.GameEngine.C_Lib cUnicornDash,com.game.UnicornDash.C_UnicornDash $$2){
+	super();
+	this.c_UnicornDash = $$2;
+}
+// virtual methods
+
+public void run(){
+	this.c_UnicornDash.GameMain();
+	System.exit(0);
+	return;
+}
+
 }
 
 }

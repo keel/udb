@@ -39,15 +39,16 @@ public C_Save(){
 
 private static boolean LoadBln(){
 	com.game.UnicornDash.C_Save.BuffIdx = (com.game.UnicornDash.C_Save.BuffIdx + 0x1);
+	Boolean Data;
 	if (com.game.UnicornDash.C_Save.Buff[com.game.UnicornDash.C_Save.BuffIdx] == 1) {
-	Boolean Data = Boolean.valueOf(true);
+		Data = Boolean.valueOf(true);
 	} else {
 	Data = Boolean.valueOf(false);
 	
 		}
 	// goto :goto_0
 	// :goto_0
-	return Data.booleanValue();
+	return Data;
 	//return Data.booleanValue();
 	//[OTHER] end local v0           #Data:Ljava/lang/Boolean;
 }
