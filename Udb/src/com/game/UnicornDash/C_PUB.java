@@ -383,33 +383,36 @@ public static void ShowNum_Dec(long number,int x,int y,int s){
 	//[OTHER] end local v7           #Value:J
 	//long Value = Value;
 	//Value = 8;
-	while (i < 8) {
-	if (((Value - 0) == 0 && i != 0)) {
-	// :cond_3
-	int Num = 10;
-	Value = (Value / 10);
-	//[OTHER] end local v0           #Num:I
-	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(com.game.UnicornDash.C_DEF.TESTNUMTBL[Num],x,(y - (i * s)),7);
-	//[OTHER] end local v3           #i:I
-	i = (i + 0x1);
-	//i = i;
-	//[OTHER] end local v0           #i:I
-	
+		while (i < 8) {
+			if (((Value - 0) != 0 || i == 0)) {
+				// :cond_3
+				Value = (Value % 10);
+				int Num = (int) Value;
+
+				Value = (Value / 10);
+				// [OTHER] end local v0 #Num:I
+				com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas()
+						.WriteSprite(
+								com.game.UnicornDash.C_DEF.TESTNUMTBL[Num], x,
+								(y - (i * s)), 7);
+				// [OTHER] end local v3 #i:I
+				i = (i + 0x1);
+				// i = i;
+				// [OTHER] end local v0 #i:I
+
+			}
+			// goto :goto_0
+			// :cond_2
 		}
-	// goto :goto_0
-	// :cond_2
-	}
 	// :cond_0
-	Value = 0;
-	if ((number - Value) < 0) {
+	if ((number - 0) < 0) {
 	//[OTHER] end local p0
 	//com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas();
-	Value = 16;
-	Value = (i + 0x1);
-	s = (s * Value);
-	y = (y - s);
-	s = 7;
-	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(com.game.UnicornDash.C_DEF.TESTNUMTBL[Value],x,y,s);
+//	Value = (i + 0x1);
+//	s = (s * Value);
+//	y = (y - s);
+//	s = 7;
+	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(com.game.UnicornDash.C_DEF.TESTNUMTBL[16],x,y-s*(i+1),7);
 	//[OTHER] end local p3
 	//[OTHER] end local p4
 	// :cond_1
