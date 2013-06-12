@@ -217,22 +217,23 @@ public void run(){
 	Thread.sleep(0,500);
 	//end of try
 	} catch (InterruptedException e) {
-		;
 		e.printStackTrace();
 	} //end of catch: goto/16 :goto_0
 	// goto/16 :goto_0
 	// :cond_4
 	}
+	
+	
 	long frameElapse = 0;
 	long frameTick = 0;
 	int rectHeight = ((this.cLib.nRefreshHeight - 480) / 0x2);
 	boolean randerMode = false;
-	if ((oms.GameEngine.C_Lib.mCanvasScaleX - oms.GameEngine.C_Lib.mCanvasScaleY) == 0) {
-	if ((oms.GameEngine.C_Lib.mCanvasScaleX - 0x3f80) == 0) {
+	if ((oms.GameEngine.C_Lib.mCanvasScaleX - oms.GameEngine.C_Lib.mCanvasScaleY) == 0 && (oms.GameEngine.C_Lib.mCanvasScaleX - 0x3f80) == 0) {
 		randerMode = true;
 	// :cond_5
+	}else{
+		randerMode = false /* 0 */;
 	}
-	randerMode = false /* 0 */;
 	
 	// goto/16 :goto_1
 	android.graphics.Bitmap canvasBMP = null;
@@ -241,8 +242,8 @@ public void run(){
 	if (!randerMode) {
 	canvasBMP = Bitmap.createBitmap(this.cLib.nRefreshWidth,this.cLib.nRefreshHeight,Bitmap.Config.ARGB_8888);
 	//[OTHER] end local v6           #canvas:Landroid/graphics/Canvas;
-	
-	new android.graphics.Canvas().setBitmap(canvasBMP);
+	canvas = new android.graphics.Canvas();
+	canvas.setBitmap(canvasBMP);
 	// :cond_0
 	}
 	;
@@ -251,11 +252,31 @@ public void run(){
 	// :cond_1
 	// :goto_2
 	while (this.mRun != false) {
+	
 	frameTick = System.currentTimeMillis();
+	
 	// :goto_3
-	while (this.mRun == false) {
-	if (this.cLib.isReflash()) {
+	while (true) {
+		if(!this.mRun){
+			return;
+		}
+		if(!this.cLib.isReflash()){
+			try {
+				Thread.sleep((long)(this.cLib.getFrameReflashTime() >> 0x2));
+				//end of try
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				Log.v("Test",e.toString());
+			}		
+		}else{
+			break;
+		}
+		
+	}
+	
+	
 	long randerStart = System.currentTimeMillis();
+	
 	try {
 	c = this.mSurfaceHolder.lockCanvas(rc);
 	if (!randerMode) {
@@ -266,44 +287,67 @@ public void run(){
 	// :cond_7
 	}
 	// getter for: Loms/GameEngine/GameView;->drawFilter:Landroid/graphics/PaintFlagsDrawFilter;;
-	new android.graphics.Canvas().setDrawFilter(GameView.this.drawFilter);
+	canvas.setDrawFilter(GameView.this.drawFilter);
 	if (rectHeight > 0) {
-	this.cLib.onDraw(this.cLib,new android.graphics.Canvas(),rectHeight);
+	this.cLib.onDraw(this.cLib,canvas,rectHeight);
 	} else {
 	//:try_start_4
-	this.cLib.OnDraw(new android.graphics.Canvas());
+		try{
+			
+			this.cLib.OnDraw(canvas);
+		}catch (Exception e) {
+			
+			throw e;
+		}
 	//:try_end_4
 	// goto/16 :goto_4
 	// :cond_d
 	}
+	
 	if (c != null) {
-	//:try_start_5
-	// getter for: Loms/GameEngine/GameView;->drawFilter:Landroid/graphics/PaintFlagsDrawFilter;;
-	c.setDrawFilter(GameView.this.drawFilter);
-	// :cond_e
+		c.drawBitmap(canvasBMP,0,0,null);
+		//:try_end_1
+		// :cond_9
+	}
+	}
+	if (c != null) {
+		//:try_start_5
+		// getter for: Loms/GameEngine/GameView;->drawFilter:Landroid/graphics/PaintFlagsDrawFilter;;
+		c.setDrawFilter(GameView.this.drawFilter);
+		// :cond_e
 	}
 	if (rectHeight > 0) {
-	if (c != null) {
-	this.cLib.onDraw(this.cLib,c,rectHeight);
+		if (c != null) {
+			this.cLib.onDraw(this.cLib,c,rectHeight);
 		}
 	// goto/16 :goto_5
 	// :cond_f
 	}
-	if (c != null) {
-	this.cLib.OnDraw(c);
-	//:try_end_5
-		}
-		}
-	// goto/16 :goto_5
-	// :goto_4
-	if (c != null) {
-	c.drawBitmap(canvasBMP,0,0,0);
-	//:try_end_1
-	// :cond_9
+	else if (c != null) {
+		this.cLib.OnDraw(c);
+		//:try_end_5
 	}
+	
+	// :cond_8 
+	//:goto_5
+	}catch (Exception e) {
+		
+		
+		
+	}finally{
+		if (c != null) {
+			this.mSurfaceHolder.unlockCanvasAndPost(c);
+			// :cond_c
+		}
+	}
+	
+
+	
+	
+	
 	this.cLib.nFPS = (int)(System.currentTimeMillis() - randerStart);
 	frameElapse = (System.currentTimeMillis() - frameTick);
-	if ((frameElapse - (long)System.currentTimeMillis().getFrameReflashTime()) < 0) {
+	if ((frameElapse - (long)cLib.getFrameReflashTime()) < 0) {
 	try {
 	oms.GameEngine.GameView.RanderThread.sleep((((long)this.cLib.getFrameReflashTime() - frameElapse) - 1));
 	//end of try
@@ -313,50 +357,17 @@ public void run(){
 		//}
 	// goto/16 :goto_2
 	
-	} else {
-	try {
-	Thread.sleep((long)(this.cLib.getFrameReflashTime() >> 0x2));
-	//end of try
-	} catch (InterruptedException e) {
-		
-		e.printStackTrace();
-		Log.v("Test",e.toString());
-			//}
-	//} //end of catch: goto/16 :goto_3
-	} finally {
-		if (c != null) {
-		this.mSurfaceHolder.unlockCanvasAndPost(c);
-		// :cond_c
+	} 
 	}
-	} //end of finally
-		}
-	// goto/16 :goto_3
-	//[OTHER] end local v9           #e1:Ljava/lang/InterruptedException;
-	//[OTHER] end local v15           #randerStart:J
 	
-	//[OTHER] end local v8           #e:Ljava/lang/InterruptedException;
 	
-	// :cond_6
-	}
 	if (canvasBMP != null) {
-	canvasBMP.recycle();
-	canvasBMP = null /* 0 */;
-	// :cond_2
-	}
-	this.mThreadEnd = true;
-	return;
+		canvasBMP.recycle();
+		canvasBMP = null /* 0 */;
+		// :cond_2
 		}
-	}
-	//[OTHER] end local v5           #c:Landroid/graphics/Canvas;
-	//[OTHER] end local v6           #canvas:Landroid/graphics/Canvas;
-	//[OTHER] end local v7           #canvasBMP:Landroid/graphics/Bitmap;
-	//[OTHER] end local v10           #frameElapse:J
-	//[OTHER] end local v12           #frameTick:J
-	//[OTHER] end local v14           #randerMode:Z
-	//[OTHER] end local v17           #rc:Landroid/graphics/Rect;
-	//[OTHER] end local v18           #rectHeight:I
+	this.mThreadEnd = true;
 	
-	//[OTHER] end local v8           #e:Ljava/lang/InterruptedException;
 	
 	
 	

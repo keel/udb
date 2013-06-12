@@ -284,370 +284,336 @@ private void ExecRUN(){
 	
 }
 
-private void ExecTouch(){
-	if (this.c_EVTPlayer.EVT.Ctrl == 4) {
-	// :cond_0
-	return;
-	} else {
-	int Var1 = (this.getLandSpeed() >> 0x10);
-	int Var2 = (this.c_EVTPlayer.EVT.XInc >> 0x10);
-	if (Var2 > 0) {
-	Var2 = 0 /* 0 */;
-	// :cond_2
-	}
-	int MaxAdjust = ((Var1 - Var2) * 0x2);
-	boolean Front_Test = false;
-	boolean Back_Test = false;
-	if (this.c_EVTLand != null && this.c_EVTPlayer != null) {
-	this.c_EVTPlayer.m_isGround = false /* 0 */;
-	int Feet_X1 = ((((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + 0x0);
-	int Feet_Y1 = (((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_Y);
-	int Feet_X2 = ((((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + 0x0);
-	int Feet_Y2 = (((this.c_EVTPlayer.EVT.YVal >> 0x10) + -0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_Y);
-	int Body_X1 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_X);
-	int Body_Y1 = (((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_Y);
-	int Head_X1 = (com.game.UnicornDash.C_Global.g_SceneFloat_X + ((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x2d));
-	int Head_Y1 = (com.game.UnicornDash.C_Global.g_SceneFloat_Y + ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf));
-	int Front_X = (this.c_EVTPlayer.EVT.XVal >> 0x10);
-	int Back_X = (this.c_EVTPlayer.EVT.XVal >> 0x10);
-	int i = 0;
-	if (i >= 5) {
-	if (this.c_EVTPlayer.m_isGround) {
-	this.c_EVTPlayer.CHKGameOperateClr();
-	Head_X1 = (Front_X + Back_X);
-	Head_X1 = (Head_X1 / 0x2);
-	//[OTHER] end local v6           #Head_X1:I
-	Head_X1 = (Head_X1 << 0x10);
-	this.c_EVTPlayer.EVT.XVal = Head_X1;
-	// :cond_3
-	}
-	if (this.c_EVTPlayer.EVT.Ctrl == 0) {
-	Head_X1 = (Back_X - Front_X);
-	Head_X1 = (Feet_Y1 - Feet_Y2);
-	this.c_EVTPlayer.m_BodyRadian = Math.atan2((double)Head_X1,(double)Head_X1);
-	Head_X1 = this.c_EVTPlayer;
-	this.c_EVTPlayer.EVT.Rotate = (float)com.game.UnicornDash.C_PUB.RadianToAngle(Head_X1.m_BodyRadian);
-	//[OTHER] end local v7           #Head_Y1:I
-	//[OTHER] end local v16           #Feet_X1:I
-	//[OTHER] end local v17           #Feet_Y1:I
-	//[OTHER] end local v19           #Feet_X2:I
-	//[OTHER] end local v20           #Feet_Y2:I
-	//[OTHER] end local v22           #Body_X1:I
-	//[OTHER] end local v23           #Body_Y1:I
-	//[OTHER] end local v40           #Back_X:I
-	//[OTHER] end local v43           #Front_X:I
-	//[OTHER] end local v48           #i:I
-	// :cond_4
-	}
-	} else {
-	this.c_EVTPlayer.EVT.Rotate = 0 /* 0 */;
+	private void ExecTouch() {
+		if (this.c_EVTPlayer.EVT.Ctrl == 4) {
+			// :cond_0
+			return;
 		}
-	// goto/16 :goto_2
-	// :goto_2
-	while (this.c_EVTPlayer != null) {
-	int SACTName = this.c_EVTPlayer.EVT.ACTIdx;
-	int SXVal = (this.c_EVTPlayer.EVT.XVal >> 0x10);
-	int SYVal = (this.c_EVTPlayer.EVT.YVal >> 0x10);
-	if (this.c_EVTPropA != null) {
-	i = 0 /* 0 */;
-	
-	if (i >= 5) {
-	//[OTHER] end local v48           #i:I
-	// :cond_5
-	}
-	while (this.c_EVTEidolon == null) {
-	if (!this.c_EVTPowerBall.EVT.Valid || this.c_EVTPowerBall.EVT.Ctrl != 0) {
-	int DACTName = this.c_EVTPowerBall.EVT.ACTIdx;
-	int DXVal = (this.c_EVTPowerBall.EVT.XVal >> 0x10);
-	int DYVal = (this.c_EVTPowerBall.EVT.YVal >> 0x10);
-	if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(SACTName,SXVal,SYVal,DACTName,DXVal,DYVal)) {
-	Head_Y1 = 0 /* 0 */;
-	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(SACTName,SXVal,SYVal,DACTName,DXVal,DYVal).SetEVTCtrl(1,Head_Y1);
-	com.game.UnicornDash.C_Media.PlaySound(6);
+		int Var1 = (this.getLandSpeed() >> 0x10);
+		int Var2 = (this.c_EVTPlayer.EVT.XInc >> 0x10);
+		if (Var2 > 0) {
+			Var2 = 0 /* 0 */;
+			// :cond_2
 		}
-	// goto/16 :goto_0
-	//[OTHER] end local v25           #SACTName:I
-	//[OTHER] end local v26           #SXVal:I
-	//[OTHER] end local v27           #SYVal:I
-	//[OTHER] end local v28           #DACTName:I
-	//[OTHER] end local v29           #DXVal:I
-	//[OTHER] end local v30           #DYVal:I
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// :cond_7
-	if (this.c_EVTLand[i].EVT.Valid) {
-	if (this.c_EVTPlayer.EVT.Ctrl != 0) {
-	if (this.c_EVTPlayer.EVT.Ctrl == 3) {
-	// :cond_8
-	}
-	switch(this.c_EVTLand[i].EVT.Ctrl){
-	case 5: case 10: 
-	if (MaxAdjust > 32) {
-	MaxAdjust = 32;
-	break;
-	} //end of switch
-	// :cond_9
-	}
-	}
-	int Idx = 0;
-	do {
-	//[OTHER] end local v6           #Head_X1:I
-	int ACTName = this.c_EVTLand[i].EVT.ACTPtr[this.c_EVTLand[i].EVT.Ctrl][Idx];
-	int XVal = (this.c_EVTLand[i].EVT.XVal >> 0x10);
-	int YVal = (this.c_EVTLand[i].EVT.YVal >> 0x10);
-	int Ctrl = this.c_EVTLand[i].EVT.Ctrl;
-	
-	Head_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf);
-	if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch((float)com.game.UnicornDash.C_PUB.RadianToAngle(Head_X1.m_BodyRadian),Head_Y1,1,1,1,1,ACTName,XVal,YVal)) {
-	int Area = 0;
-	while (!com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Feet_X1,Feet_Y1,1,Feet_X2,Feet_Y2,1,Body_X1,Body_Y1,YVal)) {
-	Feet_X2 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + 0x0);
-	
-	Feet_Y2 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + -0xf);
-	
-	Body_X1 = 1;
-	Body_Y1 = 1;
-	SACTName = ACTName;
-	SXVal = XVal;
-	SYVal = YVal;
-	while (!com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Feet_X2,Feet_Y2,1,Body_X1,Body_Y1,1,SACTName,SXVal,SYVal)) {
-	Body_X1 = (Front_X + 0xf);
-	
-	Body_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf);
-	
-	SACTName = 1;
-	SXVal = 1;
-	SYVal = 1;
-	DACTName = ACTName;
-	DXVal = XVal;
-	DYVal = YVal;
-	if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Body_X1,Body_Y1,1,SACTName,SXVal,SYVal,DACTName,DXVal,DYVal) && com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,Body_X1,Body_Y1) != 0 && !Front_Test) {
-	Head_Y1 = 0 /* 0 */;
-	com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,Body_X1,Body_Y1).setPlayerCtrl(4,Head_Y1);
-	// goto/16 :goto_0
-	} else {
-	if ((this.c_EVTPlayer.EVT.Ctrl == 1 || this.c_EVTPlayer.EVT.Ctrl == 2) && this.c_EVTPlayer.m_isGround && this.c_EVTPlayer.EVT.XInc <= 0) {
-	// :cond_19
-	this.c_EVTPlayer.setPlayerCtrl(0,0);
-	// :cond_1a
-	}
-	Idx = (Idx + 0x1);
-	} while (this.GetLandAct(i,Ctrl,Idx) == -1);
-	//[OTHER] end local v12           #ACTName:I
-	//[OTHER] end local v13           #XVal:I
-	//[OTHER] end local v14           #YVal:I
-	//[OTHER] end local v41           #Ctrl:I
-	//[OTHER] end local v44           #Idx:I
+		int MaxAdjust = ((Var1 - Var2) * 0x2);
+		boolean Front_Test = false;
+		boolean Back_Test = false;
+		if (this.c_EVTLand != null && this.c_EVTPlayer != null) {
+			this.c_EVTPlayer.m_isGround = false /* 0 */;
+			int Feet_X1 = ((((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + 0x0);
+			int Feet_Y1 = (((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_Y);
+			int Feet_X2 = ((((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + 0x0);
+			int Feet_Y2 = (((this.c_EVTPlayer.EVT.YVal >> 0x10) + -0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_Y);
+			int Body_X1 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_X);
+			int Body_Y1 = (((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf) + com.game.UnicornDash.C_Global.g_SceneFloat_Y);
+			int Head_X1 = (com.game.UnicornDash.C_Global.g_SceneFloat_X + ((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x2d));
+			int Head_Y1 = (com.game.UnicornDash.C_Global.g_SceneFloat_Y + ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf));
+			int Front_X = (this.c_EVTPlayer.EVT.XVal >> 0x10);
+			int Back_X = (this.c_EVTPlayer.EVT.XVal >> 0x10);
+			int i = 0;
+			while (i < 5) {
+				// :cond_7
+				if (this.c_EVTLand[i].EVT.Valid) {
+					if (this.c_EVTPlayer.EVT.Ctrl == 0
+							|| this.c_EVTPlayer.EVT.Ctrl == 3) {
+						// :cond_8
+						switch (this.c_EVTLand[i].EVT.Ctrl) {
+						case 5:
+						case 10:
+							if (MaxAdjust > 32) {
+								MaxAdjust = 32;
+								break;
+							} // end of switch
+								// :cond_9
+						}
+					}
+
+					int Idx = 0;
+					int Ctrl;
+					do {
+						// [OTHER] end local v6 #Head_X1:I
+						int ACTName = this.c_EVTLand[i].EVT.ACTPtr[this.c_EVTLand[i].EVT.Ctrl][Idx];
+						int XVal = (this.c_EVTLand[i].EVT.XVal >> 0x10);
+						int YVal = (this.c_EVTLand[i].EVT.YVal >> 0x10);
+						Ctrl = this.c_EVTLand[i].EVT.Ctrl;
+
+						// Head_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) +
+						// 0xf);
+						Head_X1 = ((this.c_EVTPlayer.EVT.XVal >> 16) + 45);
+						Head_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 16) + 15);
+
+						if (com.game.UnicornDash.C_OPhoneApp.cLib
+								.getGameCanvas().CHKACTTouch(Head_X1, Head_Y1,
+										1, 1, 1, 1, ACTName, XVal, YVal)) {
+							int Area = 0 /* 0 */;
+							while (com.game.UnicornDash.C_PUB.GetActPixel(
+									ACTName, XVal, YVal, Head_X1, Head_Y1) != 0) {
+								Head_X1 = Head_X1 - 1;
+								Area = (Area + 0x1);
+								if (Area > (MaxAdjust + 0x2)) {
+									// Head_X1=4;
+									// Head_Y1=0;
+									this.c_EVTPlayer.setPlayerCtrl(4, 0);
+									return;
+								}
+							}
+							com.game.UnicornDash.C_Global.g_SceneFloat_X = (com.game.UnicornDash.C_Global.g_SceneFloat_X + Area);
+							this.c_EVTPlayer.EVT.XVal = ((Head_X1 - 45) << 0x10);
+						}
+						Feet_X1 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + 0x0);
+						Feet_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf);
+
+						if (com.game.UnicornDash.C_OPhoneApp.cLib
+								.getGameCanvas().CHKACTTouch(Feet_X1, Feet_Y1,
+										1, 1, 1, 1, ACTName, XVal, YVal)) {
+							if (this.c_EVTPlayer.EVT.Ctrl == 0
+									&& com.game.UnicornDash.C_PUB.GetActPixel(
+											ACTName, XVal, YVal, Feet_X1,
+											Feet_Y1) == 0
+									&& com.game.UnicornDash.C_PUB.GetActPixel(
+											ACTName, XVal, YVal,
+											(Feet_X1 - MaxAdjust), Feet_Y1) != 0) {
+								Front_X = (Front_X - (MaxAdjust / 0x2));
+								Feet_X1 = (Feet_X1 - (MaxAdjust / 0x2));
+								Front_Test = true;
+								// :cond_d
+							}
+							int Area = 0 /* 0 */;
+							// :cond_e
+							while (com.game.UnicornDash.C_PUB.GetActPixel(
+									ACTName, XVal, YVal, Feet_X1, Feet_Y1) != 0) {
+								// [OTHER] end local v38 #Area:I
+								// :cond_1b
+
+								// :cond_14
+								this.c_EVTPlayer.m_isGround = true;
+								Feet_X1 = (Feet_X1 + 0x1);
+								Area = (Area + 0x1);
+								if (Area <= (MaxAdjust + 0x2)) {
+									if (Front_X < Feet_X1) {
+										Front_X = Feet_X1;
+									}
+								} else {
+									this.c_EVTPlayer.setPlayerCtrl(4, 0);
+									return;
+								}
+							}
+						}
+						Feet_X2 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + 0x0);
+
+						Feet_Y2 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + -0xf);
+						if (com.game.UnicornDash.C_OPhoneApp.cLib
+								.getGameCanvas().CHKACTTouch(Feet_X2, Feet_Y2,
+										1, 1, 1, 1, ACTName, XVal, YVal)) {
+							if (this.c_EVTPlayer.EVT.Ctrl == 0
+									&& com.game.UnicornDash.C_PUB.GetActPixel(
+											ACTName, XVal, YVal, Feet_X2,
+											Feet_Y2) == 0
+									&& com.game.UnicornDash.C_PUB.GetActPixel(
+											ACTName, XVal, YVal,
+											(Feet_X2 - MaxAdjust), Feet_Y2) != 0) {
+								Back_X = (Back_X - (MaxAdjust / 0x2));
+								Feet_X2 = (Feet_X2 - (MaxAdjust / 0x2));
+								Back_Test = true;
+								// :cond_10
+							}
+							int Area = 0 /* 0 */;
+							// :cond_11
+							while (com.game.UnicornDash.C_PUB.GetActPixel(
+									ACTName, XVal, YVal, Feet_X2, Feet_Y2) == 0) {
+								// [OTHER] end local v38 #Area:I
+								// :cond_f
+								// :cond_16
+								this.c_EVTPlayer.m_isGround = true;
+								Feet_X2 = (Feet_X2 + 0x1);
+								Area = (Area + 0x1);
+								if (Area > (MaxAdjust + 0x2)) {
+									Head_Y1 = 0 /* 0 */;
+									this.c_EVTPlayer.setPlayerCtrl(4, Head_Y1);
+									return;
+									// :cond_b
+								} else {
+									if (Back_X < Feet_X2) {
+										Back_X = Feet_X2;
+									}
+								}
+
+							}
+
+						}
+						Body_X1 = (Front_X + 0xf);
+
+						Body_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf);
+						if (com.game.UnicornDash.C_OPhoneApp.cLib
+								.getGameCanvas().CHKACTTouch(Body_X1, Body_Y1,
+										1, 1, 1, 1, ACTName, XVal, YVal)
+								&& com.game.UnicornDash.C_PUB.GetActPixel(
+										ACTName, XVal, YVal, Body_X1, Body_Y1) != 0
+								&& !Front_Test) {
+							// Head_Y1 = 0 /* 0 */;
+							this.c_EVTPlayer.setPlayerCtrl(4, 0);
+							return;
+						} else {
+							if ((this.c_EVTPlayer.EVT.Ctrl == 1 || this.c_EVTPlayer.EVT.Ctrl == 2)
+									&& this.c_EVTPlayer.m_isGround
+									&& this.c_EVTPlayer.EVT.XInc <= 0) {
+								// :cond_19
+								this.c_EVTPlayer.setPlayerCtrl(0, 0);
+								// :cond_1a
+							}
+							Idx = (Idx + 0x1);
+						}
+
+					} while (this.GetLandAct(i, Ctrl, Idx) == -1);
+
+				}
+				i++;
+
+			}
+
+			if (this.c_EVTPlayer.m_isGround) {
+				this.c_EVTPlayer.CHKGameOperateClr();
+				// [OTHER] end local v6 #Head_X1:I
+				this.c_EVTPlayer.EVT.XVal = (((Front_X + Back_X) / 0x2) << 0x10);
+				// :cond_3
+			}
+			if (this.c_EVTPlayer.EVT.Ctrl == 0) {
+				this.c_EVTPlayer.m_BodyRadian = Math.atan2(
+						(double) (Back_X - Front_X),
+						(double) (Feet_Y1 - Feet_Y2));
+				this.c_EVTPlayer.EVT.Rotate = (float) com.game.UnicornDash.C_PUB
+						.RadianToAngle(this.c_EVTPlayer.m_BodyRadian);
+				// [OTHER] end local v7 #Head_Y1:I
+				// [OTHER] end local v16 #Feet_X1:I
+				// [OTHER] end local v17 #Feet_Y1:I
+				// [OTHER] end local v19 #Feet_X2:I
+				// [OTHER] end local v20 #Feet_Y2:I
+				// [OTHER] end local v22 #Body_X1:I
+				// [OTHER] end local v23 #Body_Y1:I
+				// [OTHER] end local v40 #Back_X:I
+				// [OTHER] end local v43 #Front_X:I
+				// [OTHER] end local v48 #i:I
+				// goto/16 :goto_2
+			} else {
+				this.c_EVTPlayer.EVT.Rotate = 0 /* 0 */;
+			}
+			// :cond_4
 		}
-	//[OTHER] end local v12           #ACTName:I
-	//[OTHER] end local v13           #XVal:I
-	//[OTHER] end local v14           #YVal:I
-	//[OTHER] end local v41           #Ctrl:I
-	//[OTHER] end local v44           #Idx:I
-	
-	
-	
-	
-	
-	
-	// :cond_13
-	Area = (Area + 0x1);
-	if (Area > (MaxAdjust + 0x2)) {
-	Head_Y1 = 0 /* 0 */;
-	this.c_EVTPlayer.setPlayerCtrl(4,Head_Y1);
-	// goto/16 :goto_0
-	//[OTHER] end local v19           #Feet_X2:I
-	//[OTHER] end local v20           #Feet_Y2:I
-	//[OTHER] end local v22           #Body_X1:I
-	//[OTHER] end local v23           #Body_Y1:I
-	// :cond_14
-	this.c_EVTPlayer.m_isGround = true;
-	Feet_X1 = (Feet_X1 + 0x1);
-	Area = (Area + 0x1);
-	while (Area <= (MaxAdjust + 0x2)) {
-	if (Front_X < Feet_X1) {
-	Front_X = Feet_X1;
+
+		// :goto_2
+		if (this.c_EVTPlayer != null) {
+			int SACTName = this.c_EVTPlayer.EVT.ACTIdx;
+			int SXVal = (this.c_EVTPlayer.EVT.XVal >> 0x10);
+			int SYVal = (this.c_EVTPlayer.EVT.YVal >> 0x10);
+			if (this.c_EVTPropA != null) {
+				int i = 0;
+				while (i < 5) {
+					if (this.c_EVTPropA[i].EVT.Valid
+							&& this.c_EVTPropA[i].EVT.Ctrl == 0) {
+						int DACTName = this.c_EVTPropA[i].EVT.ACTIdx;
+						int DXVal = (this.c_EVTPropA[i].EVT.XVal >> 0x10);
+						int DYVal = (this.c_EVTPropA[i].EVT.YVal >> 0x10);
+						if (com.game.UnicornDash.C_OPhoneApp.cLib
+								.getGameCanvas().CHKACTTouch(SACTName, SXVal,
+										SYVal, DACTName, DXVal, DYVal)) {
+							if (this.c_EVTPlayer.EVT.Ctrl == 3) {
+								this.c_EVTPropA[i].SetEVTCtrl(1, 0);
+								com.game.UnicornDash.C_Media.PlaySound(1);
+								com.game.UnicornDash.C_PUB.setVibratorTime();
+								com.game.UnicornDash.C_OPhoneApp.cLib
+										.getMessageMgr()
+										.SendMessage(
+												40,
+												42,
+												0,
+												0,
+												DXVal,
+												(DYVal - (this.getLandSpeed() >> 0x10)));
+								com.game.UnicornDash.C_OPhoneApp.cLib
+										.getMessageMgr().SendMessage(40, 45, 0);
+
+							} else {
+								if (this.c_EVTPowerBall.EVT.Valid
+										&& this.c_EVTPowerBall.EVT.Ctrl == 1) {
+									this.c_EVTPowerBall.SetEVTCtrl(2, 0);
+									this.c_EVTPropA[i].SetEVTCtrl(1, 0);
+									com.game.UnicornDash.C_Media.PlaySound(1);
+									com.game.UnicornDash.C_PUB
+											.setVibratorTime();
+									com.game.UnicornDash.C_OPhoneApp.cLib
+											.getMessageMgr()
+											.SendMessage(
+													40,
+													42,
+													0,
+													0,
+													DXVal,
+													(DYVal - (this
+															.getLandSpeed() >> 0x10)));
+									com.game.UnicornDash.C_OPhoneApp.cLib
+											.getMessageMgr().SendMessage(40,
+													45, 0);
+								} else {
+									this.c_EVTPlayer.setPlayerCtrl(4, 0);
+									return;
+								}
+
+							}
+						}
+					}
+					i++;
+				}
+			}
+
+			if (this.c_EVTEidolon != null) {
+				int i = 0;
+				while (i < 2) {
+					if (this.c_EVTEidolon[i].EVT.Valid
+							&& this.c_EVTEidolon[i].EVT.Ctrl == 0) {
+						int DACTName = this.c_EVTEidolon[i].EVT.ACTIdx;
+
+						int DXVal = (this.c_EVTEidolon[i].EVT.XVal >> 0x10);
+
+						int DYVal = (this.c_EVTEidolon[i].EVT.YVal >> 0x10);
+						if (com.game.UnicornDash.C_OPhoneApp.cLib
+								.getGameCanvas().CHKACTTouch(SACTName, SXVal,
+										SYVal, DACTName, DXVal, DYVal)) {
+							this.c_EVTEidolon[i].SetEVTCtrl(1, 0);
+							com.game.UnicornDash.C_Media.PlaySound(6);
+							com.game.UnicornDash.C_OPhoneApp.cLib
+									.getMessageMgr()
+									.SendMessage(
+											40,
+											44,
+											0,
+											0,
+											DXVal,
+											(DYVal - (this.getLandSpeed() >> 0x10)));
+						}
+
+					}
+					i++;
+				}
+			}
+
+			if (this.c_EVTPowerBall.EVT.Valid
+					&& this.c_EVTPowerBall.EVT.Ctrl == 0) {
+				int DACTName = this.c_EVTPowerBall.EVT.ACTIdx;
+				int DXVal = (this.c_EVTPowerBall.EVT.XVal >> 0x10);
+				int DYVal = (this.c_EVTPowerBall.EVT.YVal >> 0x10);
+				if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas()
+						.CHKACTTouch(SACTName, SXVal, SYVal, DACTName, DXVal,
+								DYVal)) {
+					this.c_EVTPowerBall.SetEVTCtrl(1, 0);
+					com.game.UnicornDash.C_Media.PlaySound(6);
+					return;
+				}
+
+			}
+
 		}
-	// goto/16 :goto_6
-	
-	
-	// :cond_16
-	this.c_EVTPlayer.m_isGround = true;
-	Feet_X2 = (Feet_X2 + 0x1);
-	Area = (Area + 0x1);
-	if (Area > (MaxAdjust + 0x2)) {
-	Head_Y1 = 0 /* 0 */;
-	this.c_EVTPlayer.setPlayerCtrl(4,Head_Y1);
-	// :cond_b
-	} else if (com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,(float)com.game.UnicornDash.C_PUB.RadianToAngle(Head_X1.m_BodyRadian),Head_Y1) == 0) {
-	com.game.UnicornDash.C_Global.g_SceneFloat_X = (com.game.UnicornDash.C_Global.g_SceneFloat_X + Area);
-	this.c_EVTPlayer.EVT.XVal = (((float)com.game.UnicornDash.C_PUB.RadianToAngle(Head_X1.m_BodyRadian) - 45) << 0x10);
-	//[OTHER] end local v38           #Area:I
-	// :cond_c
+
 	}
-	Feet_X1 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + 0x0);
-	Feet_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf);
-	Feet_X2 = 1;
-	Feet_Y2 = 1;
-	Body_X1 = ACTName;
-	Body_Y1 = XVal;
-	//[OTHER] end local v19           #Feet_X2:I
-	//[OTHER] end local v20           #Feet_Y2:I
-	//[OTHER] end local v22           #Body_X1:I
-	//[OTHER] end local v23           #Body_Y1:I
-	// goto/16 :goto_0
-	// :cond_17
-	} else if (Back_X < Feet_X2) {
-	Back_X = Feet_X2;
-		}
-	// goto/16 :goto_7
-	//[OTHER] end local v38           #Area:I
-	
-	
-	// :cond_15
-	}
-	Head_Y1 = 0 /* 0 */;
-	this.c_EVTPlayer.setPlayerCtrl(4,Head_Y1);
-	// goto/16 :goto_0
-	// :cond_12
-	}
-	if (this.c_EVTPlayer.EVT.Ctrl == 0 && com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,Feet_X2,Feet_Y2) == 0 && com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,(Feet_X2 - MaxAdjust),Feet_Y2) != 0) {
-	Back_X = (Back_X - (MaxAdjust / 0x2));
-	Feet_X2 = (Feet_X2 - (MaxAdjust / 0x2));
-	Back_Test = true;
-	// :cond_10
-	}
-	Area = 0 /* 0 */;
-	
-	// :cond_11
-	if (com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,Feet_X2,Feet_Y2) == 0) {
-	//[OTHER] end local v38           #Area:I
-	// :cond_f
-	}
-	if (this.c_EVTPlayer.EVT.Ctrl == 0 && com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,Feet_X1,Feet_Y1) == 0 && com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,(Feet_X1 - MaxAdjust),Feet_Y1) != 0) {
-	Front_X = (Front_X - (MaxAdjust / 0x2));
-	Feet_X1 = (Feet_X1 - (MaxAdjust / 0x2));
-	Front_Test = true;
-	// :cond_d
-	}
-	Area = 0 /* 0 */;
-	
-	// :cond_e
-	if (com.game.UnicornDash.C_PUB.GetActPixel(ACTName,XVal,YVal,Feet_X1,Feet_Y1) == 0) {
-	//[OTHER] end local v38           #Area:I
-	// :cond_1b
-	}
-	i = (i + 0x1);
-	// goto/16 :goto_1
-	//[OTHER] end local v6           #Head_X1:I
-	//[OTHER] end local v7           #Head_Y1:I
-	//[OTHER] end local v16           #Feet_X1:I
-	//[OTHER] end local v17           #Feet_Y1:I
-	//[OTHER] end local v19           #Feet_X2:I
-	//[OTHER] end local v20           #Feet_Y2:I
-	//[OTHER] end local v22           #Body_X1:I
-	//[OTHER] end local v23           #Body_Y1:I
-	//[OTHER] end local v40           #Back_X:I
-	//[OTHER] end local v43           #Front_X:I
-	
-	
-	
-	// :cond_1d
-	if (this.c_EVTPropA[i].EVT.Valid && this.c_EVTPropA[i].EVT.Ctrl == 0) {
-	DACTName = this.c_EVTPropA[i].EVT.ACTIdx;
-	
-	DXVal = (this.c_EVTPropA[i].EVT.XVal >> 0x10);
-	
-	DYVal = (this.c_EVTPropA[i].EVT.YVal >> 0x10);
-	
-	if (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(SACTName,SXVal,SYVal,DACTName,DXVal,DYVal)) {
-	if (this.c_EVTPlayer.EVT.Ctrl == 3) {
-	Head_Y1 = 0 /* 0 */;
-	this.c_EVTPropA[i].SetEVTCtrl(1,Head_Y1);
-	com.game.UnicornDash.C_Media.PlaySound(1);
-	com.game.UnicornDash.C_PUB.setVibratorTime();
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,42,0,0,DXVal,(DYVal - (this.getLandSpeed() >> 0x10)));
-	Head_Y1 = 45;
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,Head_Y1,0);
-	//[OTHER] end local v28           #DACTName:I
-	//[OTHER] end local v29           #DXVal:I
-	//[OTHER] end local v30           #DYVal:I
-	} else {
-	if (this.c_EVTPowerBall.EVT.Valid && this.c_EVTPowerBall.EVT.Ctrl == 1) {
-	Head_Y1 = 0 /* 0 */;
-	this.c_EVTPowerBall.SetEVTCtrl(2,Head_Y1);
-	Head_Y1 = 0 /* 0 */;
-	this.c_EVTPropA[i].SetEVTCtrl(1,Head_Y1);
-	com.game.UnicornDash.C_Media.PlaySound(1);
-	com.game.UnicornDash.C_PUB.setVibratorTime();
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,42,0,0,DXVal,(DYVal - (this.getLandSpeed() >> 0x10)));
-	Head_Y1 = 45;
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,Head_Y1,0);
-		}
-	// goto :goto_8
-	// :cond_1e
-	}
-	}
-	// :goto_8
-	i = (i + 0x1);
-	// goto/16 :goto_3
-	
-	
-	
-	// :cond_20
-	Head_Y1 = 0 /* 0 */;
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMessageMgr().setPlayerCtrl(4,Head_Y1);
-		}
-	// goto/16 :goto_0
-	//[OTHER] end local v28           #DACTName:I
-	//[OTHER] end local v29           #DXVal:I
-	//[OTHER] end local v30           #DYVal:I
-	// :cond_21
-	}
-	while ((!this.c_EVTEidolon[i].EVT.Valid || this.c_EVTEidolon[i].EVT.Ctrl != 0)) {
-	i = (i + 0x1);
-	// goto/16 :goto_4
-	do {
-	DACTName = this.c_EVTEidolon[i].EVT.ACTIdx;
-	
-	DXVal = (this.c_EVTEidolon[i].EVT.XVal >> 0x10);
-	
-	DYVal = (this.c_EVTEidolon[i].EVT.YVal >> 0x10);
-	
-	} while (com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(SACTName,SXVal,SYVal,DACTName,DXVal,DYVal));
-	Head_Y1 = 0 /* 0 */;
-	this.c_EVTEidolon[i].SetEVTCtrl(1,Head_Y1);
-	com.game.UnicornDash.C_Media.PlaySound(6);
-	com.game.UnicornDash.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,44,0,0,DXVal,(DYVal - (this.getLandSpeed() >> 0x10)));
-	//[OTHER] end local v28           #DACTName:I
-	//[OTHER] end local v29           #DXVal:I
-	//[OTHER] end local v30           #DYVal:I
-	// op;
-	
-		}
-		}
-		}
-		}
-		}
-		}
-	// :cond_6
-	}
-	i = 0 /* 0 */;
-	
-	if (i >= 2) {
-	//[OTHER] end local v48           #i:I
-		}
-		}
-}
 
 private int GetLandAct(int EVTIdx,int EVTCtrl,int ACTIdx){
 	;
@@ -1256,6 +1222,9 @@ private void SceneFloatCtrl(){
 }
 
 private void ShowEVENT(){
+	
+	
+	
 	if (this.c_EVTPlayer != null) {
 	this.c_EVTPlayer.EVT.Status = (this.c_EVTPlayer.EVT.Status | 0x800);
 	this.c_EVTPlayer.EVT.DispX = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + -0x1e);
