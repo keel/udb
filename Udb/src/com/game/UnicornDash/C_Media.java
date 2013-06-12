@@ -55,8 +55,8 @@ public static void Initialize(){
 	int i = 0;
 	while (com.game.UnicornDash.C_Media.SoundResIDTBL[i] != 65535) {
 	//[OTHER] end local v0           #i:I
-	i = (i + 0x1);
 	com.game.UnicornDash.C_OPhoneApp.cLib.getMediaManager().addSound(com.game.UnicornDash.C_Media.SoundResIDTBL[i]);
+	i = (i + 0x1);
 	//i = i;
 	//[OTHER] end local v1           #i:I
 	

@@ -679,21 +679,21 @@ public int GetSpriteZHitF(int SpriteID){
 	//return this.SpriteRes[SpriteIdx].SpriteZHitF;
 }
 
-public void InitACT(int ACTLibId,int ACTFileName){
-	ACTLibId = (ACTLibId + this.mACTLibBeg);
-	if (ACTLibId >= this.nMaxSpriteResNum) {
-	// :cond_0
-	} else {
-	if (this.pSpriteResSegInfo[ACTLibId].SegIdx != ACTLibId) {
-	this.InitSpriteResInfo(ACTFileName,ACTLibId);
-	this.CloseSpriteACTFile();
-	this.pSpriteResSegInfo[ACTLibId].SegIdx = (short)ACTLibId;
+	public void InitACT(int ACTLibId, int ACTFileName) {
+		ACTLibId = (ACTLibId + this.mACTLibBeg);
+		if (ACTLibId >= this.nMaxSpriteResNum) {
+			// :cond_0
+		} else {
+			if (this.pSpriteResSegInfo[ACTLibId].SegIdx != ACTLibId) {
+				this.InitSpriteResInfo(ACTFileName, ACTLibId);
+				this.CloseSpriteACTFile();
+				this.pSpriteResSegInfo[ACTLibId].SegIdx = (short) ACTLibId;
+			}
 		}
-		}
-	// goto :goto_0
-	// :goto_0
-	return;
-}
+		// goto :goto_0
+		// :goto_0
+		return;
+	}
 
 public void InitSprite(int SpriteNum){
 	this.nShowSpriteNum = 0 /* 0 */;
@@ -734,9 +734,9 @@ public void InitSpriteRes(int SpriteResNum){
 	int i = 0;
 	while (i < this.nMaxSpriteResNum) {
 	;
-	this.SpriteRes[0] = new oms.GameEngine.SpriteResDEF();
+	this.SpriteRes[i] = new oms.GameEngine.SpriteResDEF();
 	;
-	this.SpriteResACTInfo[0] = new oms.GameEngine.SpriteManager.SpriteRESACTINFO();
+	this.SpriteResACTInfo[i] = new oms.GameEngine.SpriteManager.SpriteRESACTINFO();
 	i = (i + 0x1);
 	// goto :goto_0
 	// :cond_1
@@ -746,7 +746,7 @@ public void InitSpriteRes(int SpriteResNum){
 	i = 0 /* 0 */;
 	while (i < this.nMaxSpriteResNum) {
 	;
-	this.pSpriteResSegInfo[0] = new oms.GameEngine.SpriteResSeg();
+	this.pSpriteResSegInfo[i] = new oms.GameEngine.SpriteResSeg();
 	i = (i + 0x1);
 	// goto :goto_1
 	// :cond_2

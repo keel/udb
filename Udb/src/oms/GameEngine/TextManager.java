@@ -316,41 +316,53 @@ public void LoadText(String sResPath,int TextLayer,int TextDepth){
 	
 }
 
-public void OnDraw(android.graphics.Canvas canvas,int Attrib,int XOff,int YOff,android.graphics.Paint paint){
-	int i = 0;
-	while (i < this.nTextLayerMax) {
-	if (oms.GameEngine.TextManager.Text[i].Text != null && oms.GameEngine.TextManager.Text[i].TextAttrib == Attrib) {
-	paint.setAlpha((oms.GameEngine.TextManager.Text[i].Alpha & 0xff));
-	if ((oms.GameEngine.TextManager.Text[i].ScaleX - 0x3f80) == 0) {
-	if ((oms.GameEngine.TextManager.Text[i].ScaleY - 0x3f80) == 0) {
-	if ((oms.GameEngine.TextManager.Text[i].Rotate - 0) == 0) {
-	canvas.drawBitmap(oms.GameEngine.TextManager.Text[i].Text,((float)oms.GameEngine.TextManager.Text[i].TextXVal + (float)XOff),((float)oms.GameEngine.TextManager.Text[i].TextYVal + (float)YOff),paint);
-	// :cond_1
-	}
-	// :cond_2
-	}
-	}
-	this.cMatrix.reset();
-	int XVal = (oms.GameEngine.TextManager.Text[i].TextXVal + XOff);
-	int YVal = (oms.GameEngine.TextManager.Text[i].TextYVal + YOff);
-	this.cMatrix.setTranslate((float)XVal,(float)YVal);
-	this.cMatrix.postRotate(oms.GameEngine.TextManager.Text[i].Rotate,(float)(oms.GameEngine.TextManager.Text[i].Text.getWidth() >> 0x1),(float)(oms.GameEngine.TextManager.Text[i].Text.getHeight() >> 0x1));
-	if ((oms.GameEngine.TextManager.Text[i].ScaleX - 0x3f80) == 0) {
-	if ((oms.GameEngine.TextManager.Text[i].ScaleY - 0x3f80) != 0) {
-	// :cond_3
-	}
-	this.cMatrix.postScale(oms.GameEngine.TextManager.Text[i].ScaleX,oms.GameEngine.TextManager.Text[i].ScaleY);
-	// :cond_4
-	}
-	canvas.drawBitmap(oms.GameEngine.TextManager.Text[i].Text,this.cMatrix,paint);
-	// goto :goto_1
-	i = (i + 0x1);
+	public void OnDraw(android.graphics.Canvas canvas, int Attrib, int XOff,
+			int YOff, android.graphics.Paint paint) {
+		int i = 0;
+		while (i < this.nTextLayerMax) {
+			if (oms.GameEngine.TextManager.Text[i].Text != null
+					&& oms.GameEngine.TextManager.Text[i].TextAttrib == Attrib) {
+				paint.setAlpha((oms.GameEngine.TextManager.Text[i].Alpha & 0xff));
+				if ((oms.GameEngine.TextManager.Text[i].ScaleX - 0x3f80) == 0) {
+					if ((oms.GameEngine.TextManager.Text[i].ScaleY - 0x3f80) == 0) {
+						if ((oms.GameEngine.TextManager.Text[i].Rotate - 0) == 0) {
+							canvas.drawBitmap(
+									oms.GameEngine.TextManager.Text[i].Text,
+									((float) oms.GameEngine.TextManager.Text[i].TextXVal + (float) XOff),
+									((float) oms.GameEngine.TextManager.Text[i].TextYVal + (float) YOff),
+									paint);
+							// :cond_1
+						}
+						// :cond_2
+					}
+				}
+				this.cMatrix.reset();
+				int XVal = (oms.GameEngine.TextManager.Text[i].TextXVal + XOff);
+				int YVal = (oms.GameEngine.TextManager.Text[i].TextYVal + YOff);
+				this.cMatrix.setTranslate((float) XVal, (float) YVal);
+				this.cMatrix.postRotate(
+						oms.GameEngine.TextManager.Text[i].Rotate,
+						(float) (oms.GameEngine.TextManager.Text[i].Text
+								.getWidth() >> 0x1),
+						(float) (oms.GameEngine.TextManager.Text[i].Text
+								.getHeight() >> 0x1));
+				if ((oms.GameEngine.TextManager.Text[i].ScaleX - 0x3f80) == 0 || (oms.GameEngine.TextManager.Text[i].ScaleY - 0x3f80) == 0) {
+						// :cond_3
+					this.cMatrix.postScale(
+							oms.GameEngine.TextManager.Text[i].ScaleX,
+							oms.GameEngine.TextManager.Text[i].ScaleY);
+					// :cond_4
+				}
+				canvas.drawBitmap(oms.GameEngine.TextManager.Text[i].Text,
+						this.cMatrix, paint);
+				// goto :goto_1
+			}
+			i = (i + 0x1);
+			// goto :goto_0
+			// :cond_0
 		}
-	// goto :goto_0
-	// :cond_0
+		return;
 	}
-	return;
-}
 
 public void OnDraw(android.graphics.Canvas canvas,int Attrib,android.graphics.Paint paint){
 	int i = 0;

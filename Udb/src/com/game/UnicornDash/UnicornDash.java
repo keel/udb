@@ -7,16 +7,16 @@ public class UnicornDash extends android.app.Activity {
 
 // static fields
 //public static com.google.ads.AdView adView;
-private static android.os.Handler mAdHandler;
+//private static android.os.Handler mAdHandler;
 private static int mLayoutMode;
 // instance fields
-private String AdMobID;
+//private String AdMobID;
 public android.widget.RelativeLayout activityLayout;
-private boolean adViewStatus;
+//private boolean adViewStatus;
 private com.game.UnicornDash.C_OPhoneApp cOPhoneApp;
 private oms.GameEngine.GameView cView;
 private boolean mClickMoreGames;
-private android.os.Handler mHandler;
+//private android.os.Handler mHandler;
 private android.os.Handler mMoreGames;
 // direct methods
 
@@ -30,21 +30,23 @@ public UnicornDash(){
 	super();
 	this.cView = null /* 0 */;
 	this.cOPhoneApp = null /* 0 */;
-	this.adViewStatus = true;
-	this.AdMobID = "a14e71b150de87c";
+//	this.adViewStatus = true;
+//	this.AdMobID = "a14e71b150de87c";
 	this.mClickMoreGames = false /* 0 */;
 	;
+	/*
 	this.mHandler = new Handler(){public void handleMessage(android.os.Message msg){
-		// getter for: Lcom/game/UnicornDash/UnicornDash;->adViewStatus:Z;
-		if (UnicornDash.this.adViewStatus) {
-//		com.game.UnicornDash.UnicornDash.adView.setVisibility(0);
-		} else {
-//		com.game.UnicornDash.UnicornDash.adView.setVisibility(8);
-			}
-		// goto :goto_0
-		// :goto_0
+//		// getter for: Lcom/game/UnicornDash/UnicornDash;->adViewStatus:Z;
+//		if (UnicornDash.this.adViewStatus) {
+////		com.game.UnicornDash.UnicornDash.adView.setVisibility(0);
+//		} else {
+////		com.game.UnicornDash.UnicornDash.adView.setVisibility(8);
+//			}
+//		// goto :goto_0
+//		// :goto_0
 		return;
 	}};
+	*/
 	;
 	this.mMoreGames = new Handler(){public void handleMessage(android.os.Message msg){
 		moreGames();
@@ -74,9 +76,9 @@ public static void AdViewHandler(){
 }
 
 public static void SetAdViewLayout(int align){
-	com.game.UnicornDash.UnicornDash.mLayoutMode = align;
-	android.os.Message msg = com.game.UnicornDash.UnicornDash.mAdHandler.obtainMessage();
-	com.game.UnicornDash.UnicornDash.mAdHandler.sendMessage(msg);
+//	com.game.UnicornDash.UnicornDash.mLayoutMode = align;
+//	android.os.Message msg = com.game.UnicornDash.UnicornDash.mAdHandler.obtainMessage();
+//	com.game.UnicornDash.UnicornDash.mAdHandler.sendMessage(msg);
 	return;
 }
 
@@ -299,12 +301,12 @@ public void resumeMoreGames(){
 	}
 	return;
 }
-
+/*
 public void setAdVisibility(boolean status){
 	this.adViewStatus = status;
 	android.os.Message msg = this.mHandler.obtainMessage();
 	this.mHandler.sendMessage(msg);
 	return;
 }
-
+*/
 }

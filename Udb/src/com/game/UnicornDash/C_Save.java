@@ -30,7 +30,7 @@ static{
 	com.game.UnicornDash.C_Save.g_PlayCount = 0 /* 0 */;
 	com.game.UnicornDash.C_Save.g_HighDistance = 0 /* 0 */;
 	;
-	com.game.UnicornDash.C_Save.Buff = new byte[15];
+	com.game.UnicornDash.C_Save.Buff = new byte[16];
 }
 
 public C_Save(){

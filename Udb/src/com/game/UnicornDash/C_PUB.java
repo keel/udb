@@ -300,6 +300,7 @@ public static void Rate(){
 	return;
 }
 
+/*
 public static void ShowAdView(boolean Flag){
 	com.game.UnicornDash.UnicornDash activity = (com.game.UnicornDash.UnicornDash)com.game.UnicornDash.C_OPhoneApp.cLib.GetActivity();
 	if (activity != null) {
@@ -308,6 +309,7 @@ public static void ShowAdView(boolean Flag){
 	}
 	return;
 }
+ */
 
 public static void ShowNum(int number,int x,int y,int s,int NumLenth,int Align,int[] ACTPtr,int ACT_SPD){
 	number = Math.abs(number);

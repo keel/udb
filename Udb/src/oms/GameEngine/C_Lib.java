@@ -247,35 +247,35 @@ public void ViewOpen(int alphaSpeed){
 	return;
 }
 
-public void WaitBLK(){
-	if (this.nResumeDelay > 0) {
-	this.nResumeDelay = (this.nResumeDelay - 1);
-	} else {
-	this.input.nIsPause = false /* 0 */;
+	public void WaitBLK() {
+		if (this.nResumeDelay > 0) {
+			this.nResumeDelay = (this.nResumeDelay - 1);
+		} else {
+			this.input.nIsPause = false /* 0 */;
 		}
-	// goto :goto_0
-	// :goto_0
-	if (this.gameCanvas != null) {
-	this.gameCanvas.flush();
-	if (this.cView != null) {
-	// :goto_1
-	while (this.gameCanvas != null && this.gameCanvas.getUpdata()) {
-	// :cond_0
+		// goto :goto_0
+		// :goto_0
+		if (this.gameCanvas != null) {
+			this.gameCanvas.flush();
+			if (this.cView != null) {
+				// :goto_1
+				while (this.gameCanvas != null && this.gameCanvas.getUpdata()) {
+					// :cond_0
+					try {
+						Thread.sleep((long) (this.nFrameFlashTime >> 0x1));
+						// end of try
+					} catch (InterruptedException e/* */) {
+						e.printStackTrace();
+					} // end of catch: goto :goto_1
+				}
+			}
+			// goto :goto_1
+			// :cond_2
+		}
+		this.nVBLCount = (this.nVBLCount + 0x1);
+		return;
+
 	}
-	}
-	try {
-	Thread.sleep((long)(this.nFrameFlashTime >> 0x1));
-	//end of try
-	} catch (InterruptedException e/* */) {
-		e.printStackTrace();
-	} //end of catch: goto :goto_1
-	// goto :goto_1
-	// :cond_2
-	}
-	this.nVBLCount = (this.nVBLCount + 0x1);
-	return;
-	
-}
 
 public int getFPS(){
 	;

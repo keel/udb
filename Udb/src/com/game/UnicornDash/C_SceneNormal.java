@@ -891,7 +891,7 @@ private void MakeHorseEff(){
 						break;
 					case 6:
 						if (com.game.UnicornDash.C_Global.g_GameState == 7) {
-							com.game.UnicornDash.C_PUB.ShowAdView(true);
+//							com.game.UnicornDash.C_PUB.ShowAdView(true);
 							com.game.UnicornDash.C_Media.StopSound(3);
 							this.ClearGameBTN(6);
 							this.c_GameBTN.CreateGameBTN(7, 190, 240);
@@ -907,7 +907,7 @@ private void MakeHorseEff(){
 							com.game.UnicornDash.C_Media.PlaySound(3);
 							// :cond_3
 						}
-						com.game.UnicornDash.C_PUB.ShowAdView(false);
+//						com.game.UnicornDash.C_PUB.ShowAdView(false);
 						this.ClearGameBTN(7);
 						this.ClearGameBTN(8);
 						this.ClearGameBTN(3);
@@ -968,7 +968,7 @@ private void MakeHorseEff(){
 						this.ExitEVENT();
 						com.game.UnicornDash.C_PUB.setGameState(12);
 						this.subGameLife();
-						com.game.UnicornDash.C_PUB.ShowAdView(true);
+//						com.game.UnicornDash.C_PUB.ShowAdView(true);
 						break;
 					default:
 						com.game.UnicornDash.C_PUB.setGameState(message);
@@ -1123,7 +1123,7 @@ private void ReadTouch(){
 				com.game.UnicornDash.C_OPhoneApp.cLib.ViewDark(64);
 				break;
 			} // end of switch
-			com.game.UnicornDash.C_PUB.ShowAdView(false);
+//			com.game.UnicornDash.C_PUB.ShowAdView(false);
 			// :cond_4
 		}
 		return;

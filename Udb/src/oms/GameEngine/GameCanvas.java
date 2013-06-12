@@ -515,92 +515,125 @@ public boolean getTextPixels(int TextLayer,int[] pixels){
 public boolean getUpdata(){
 	;
 	return this.bUpdate;
-	//return this.bUpdate;
 }
 
 public boolean isReflash(){
 	;
 	return this.bUpdate;
-	//return this.bUpdate;
 }
 
-public void onDraw(android.graphics.Canvas canvas){
-	oms.GameEngine.GameCanvas.paint.setColor(-0x100);
-	boolean showSprite = true;
-	int CurDepth = 0;
-	int i = 0;
-	while (i < oms.GameEngine.GameCanvas.nMaxLogicLayer) {
-	oms.GameEngine.GameCanvas.TextMgr.OnDraw(canvas,CurDepth,(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nBackXOff),(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nBackYOff),oms.GameEngine.GameCanvas.paint);
-	if (showSprite) {
-	if (oms.GameEngine.GameCanvas.SpriteMgr.OnDraw(canvas,CurDepth,(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nSpriteXOff),(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nSpriteYOff),oms.GameEngine.GameCanvas.cPaint)) {
-	showSprite = false /* 0 */;
-	// :cond_2
-	}
-	}
-	CurDepth = (CurDepth + 0x1);
-	i = (i + 0x1);
-	// goto :goto_0
-	// :cond_1
-	}
-	if (this.nScreenAlpha < 255) {
-	canvas.drawARGB((255 - this.nScreenAlpha),0,0,0);
-	// :cond_0
-	// :cond_3
-	} else if (!this.mFirstOpen) {
-	this.mFirstOpen = true;
-	canvas.drawARGB(0,0,0,0);
+	public void onDraw(android.graphics.Canvas canvas) {
+		oms.GameEngine.GameCanvas.paint.setColor(-0x100);
+		boolean showSprite = true;
+		int CurDepth = 0;
+		int i = 0;
+		while (i < oms.GameEngine.GameCanvas.nMaxLogicLayer) {
+			oms.GameEngine.GameCanvas.TextMgr
+					.OnDraw(canvas,
+							CurDepth,
+							(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nBackXOff),
+							(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nBackYOff),
+							oms.GameEngine.GameCanvas.paint);
+			if (showSprite) {
+				if (oms.GameEngine.GameCanvas.SpriteMgr
+						.OnDraw(canvas,
+								CurDepth,
+								(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nSpriteXOff),
+								(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nSpriteYOff),
+								oms.GameEngine.GameCanvas.cPaint)) {
+					showSprite = false /* 0 */;
+					// :cond_2
+				}
+			}
+			CurDepth = (CurDepth + 0x1);
+			i = (i + 0x1);
+			// goto :goto_0
+			// :cond_1
 		}
-	// goto :goto_1
-	// :goto_1
-	this.bUpdate = false /* 0 */;
-	return;
-}
+		if (this.nScreenAlpha < 255) {
+			canvas.drawARGB((255 - this.nScreenAlpha), 0, 0, 0);
+			// :cond_0
+			// :cond_3
+		} else if (!this.mFirstOpen) {
+			this.mFirstOpen = true;
+			canvas.drawARGB(0, 0, 0, 0);
+		}
+		// goto :goto_1
+		// :goto_1
+		this.bUpdate = false /* 0 */;
+		return;
+	}
 
-public void onDraw(oms.GameEngine.C_Lib cLib,android.graphics.Canvas canvas,int picHeight){
-	oms.GameEngine.GameCanvas.paint.setColor(-0x100);
-	boolean showSprite = true;
-	int CurDepth = 0;
-	if (!cLib.mTop && cLib.mBackground != null) {
-	canvas.drawBitmap(cLib.mBackground,(float)oms.GameEngine.GameCanvas.nScreenXOff,(float)(picHeight - cLib.mBackground.getHeight()),oms.GameEngine.GameCanvas.paint);
-	canvas.drawBitmap(cLib.mBackground,(float)oms.GameEngine.GameCanvas.nScreenXOff,(float)(picHeight + 0x1e0),oms.GameEngine.GameCanvas.paint);
-	// :cond_0
-	}
-	int i = 0;
-	while (i < oms.GameEngine.GameCanvas.nMaxLogicLayer) {
-	oms.GameEngine.GameCanvas.TextMgr.OnDraw(canvas,CurDepth,(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nBackXOff),(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nBackYOff),oms.GameEngine.GameCanvas.paint);
-	if (showSprite) {
-	if (oms.GameEngine.GameCanvas.SpriteMgr.OnDraw(canvas,CurDepth,(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nSpriteXOff),(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nSpriteYOff),oms.GameEngine.GameCanvas.cPaint)) {
-	showSprite = false /* 0 */;
-	// :cond_5
-	}
-	}
-	CurDepth = (CurDepth + 0x1);
-	i = (i + 0x1);
-	// goto :goto_0
-	// :cond_4
-	}
-	if (cLib.mTop && cLib.mBackground != null) {
-	canvas.drawBitmap(cLib.mBackground,(float)oms.GameEngine.GameCanvas.nScreenXOff,(float)(picHeight - cLib.mBackground.getHeight()),oms.GameEngine.GameCanvas.paint);
-	canvas.drawBitmap(cLib.mBackground,(float)oms.GameEngine.GameCanvas.nScreenXOff,(float)(picHeight + 0x1e0),oms.GameEngine.GameCanvas.paint);
-	// :cond_1
-	}
-	if (this.cUserView != null) {
-	this.cUserView.onDraw(canvas,oms.GameEngine.GameCanvas.nScreenXOff,oms.GameEngine.GameCanvas.nScreenYOff);
-	// :cond_2
-	}
-	if (this.nScreenAlpha < 255) {
-	canvas.drawARGB((255 - this.nScreenAlpha),0,0,0);
-	// :cond_3
-	// :cond_6
-	} else if (!this.mFirstOpen) {
-	this.mFirstOpen = true;
-	canvas.drawARGB(0,0,0,0);
+	public void onDraw(oms.GameEngine.C_Lib cLib,
+			android.graphics.Canvas canvas, int picHeight) {
+		oms.GameEngine.GameCanvas.paint.setColor(-0x100);
+		boolean showSprite = true;
+		int CurDepth = 0;
+		if (!cLib.mTop && cLib.mBackground != null) {
+			canvas.drawBitmap(cLib.mBackground,
+					(float) oms.GameEngine.GameCanvas.nScreenXOff,
+					(float) (picHeight - cLib.mBackground.getHeight()),
+					oms.GameEngine.GameCanvas.paint);
+			canvas.drawBitmap(cLib.mBackground,
+					(float) oms.GameEngine.GameCanvas.nScreenXOff,
+					(float) (picHeight + 0x1e0),
+					oms.GameEngine.GameCanvas.paint);
+			// :cond_0
 		}
-	// goto :goto_1
-	// :goto_1
-	this.bUpdate = false /* 0 */;
-	return;
-}
+		int i = 0;
+		while (i < oms.GameEngine.GameCanvas.nMaxLogicLayer) {
+			oms.GameEngine.GameCanvas.TextMgr
+					.OnDraw(canvas,
+							CurDepth,
+							(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nBackXOff),
+							(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nBackYOff),
+							oms.GameEngine.GameCanvas.paint);
+			if (showSprite) {
+				if (oms.GameEngine.GameCanvas.SpriteMgr
+						.OnDraw(canvas,
+								CurDepth,
+								(oms.GameEngine.GameCanvas.nScreenXOff + oms.GameEngine.GameCanvas.nSpriteXOff),
+								(oms.GameEngine.GameCanvas.nScreenYOff + oms.GameEngine.GameCanvas.nSpriteYOff),
+								oms.GameEngine.GameCanvas.cPaint)) {
+					showSprite = false /* 0 */;
+					// :cond_5
+				}
+			}
+			CurDepth = (CurDepth + 0x1);
+			i = (i + 0x1);
+			// goto :goto_0
+			// :cond_4
+		}
+		if (cLib.mTop && cLib.mBackground != null) {
+			canvas.drawBitmap(cLib.mBackground,
+					(float) oms.GameEngine.GameCanvas.nScreenXOff,
+					(float) (picHeight - cLib.mBackground.getHeight()),
+					oms.GameEngine.GameCanvas.paint);
+			canvas.drawBitmap(cLib.mBackground,
+					(float) oms.GameEngine.GameCanvas.nScreenXOff,
+					(float) (picHeight + 0x1e0),
+					oms.GameEngine.GameCanvas.paint);
+			// :cond_1
+		}
+		if (this.cUserView != null) {
+			this.cUserView.onDraw(canvas,
+					oms.GameEngine.GameCanvas.nScreenXOff,
+					oms.GameEngine.GameCanvas.nScreenYOff);
+			// :cond_2
+		}
+		if (this.nScreenAlpha < 255) {
+			canvas.drawARGB((255 - this.nScreenAlpha), 0, 0, 0);
+			// :cond_3
+			// :cond_6
+		} else if (!this.mFirstOpen) {
+			this.mFirstOpen = true;
+			canvas.drawARGB(0, 0, 0, 0);
+		}
+		// goto :goto_1
+		// :goto_1
+		this.bUpdate = false /* 0 */;
+		return;
+	}
 
 public void release(){
 	this.CloseAllText();

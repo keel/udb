@@ -67,12 +67,12 @@ public void GameMain(){
 	com.game.UnicornDash.C_PUB.setGameMode(5);
 	break;
 	case 5: 
-	com.game.UnicornDash.C_PUB.ShowAdView(true);
+//	com.game.UnicornDash.C_PUB.ShowAdView(true);
 	this.c_SceneMenu.GameMain();
 	com.game.UnicornDash.C_PUB.setGameMode(6);
 	break;
 	case 6: 
-	com.game.UnicornDash.C_PUB.ShowAdView(false);
+//	com.game.UnicornDash.C_PUB.ShowAdView(false);
 	this.c_SceneNormal.GameMain();
 	break;
 	case 7: 
