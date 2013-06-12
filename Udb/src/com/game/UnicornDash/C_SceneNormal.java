@@ -1222,9 +1222,6 @@ private void SceneFloatCtrl(){
 }
 
 private void ShowEVENT(){
-	
-	
-	
 	if (this.c_EVTPlayer != null) {
 	this.c_EVTPlayer.EVT.Status = (this.c_EVTPlayer.EVT.Status | 0x800);
 	this.c_EVTPlayer.EVT.DispX = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + -0x1e);
@@ -1233,63 +1230,65 @@ private void ShowEVENT(){
 	// :cond_0
 	}
 	if (this.c_EVTPowerBall != null && this.c_EVTPowerBall.EVT.Valid) {
-	if (this.c_EVTPowerBall.EVT.Ctrl == 0) {
-	this.c_EVTPowerBall.EVT.Status = (this.c_EVTPowerBall.EVT.Status | 0x800);
-	this.c_EVTPowerBall.EVT.DispX = (((this.c_EVTPowerBall.EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + -0x1e);
-	this.c_EVTPowerBall.EVT.DispY = (((this.c_EVTPowerBall.EVT.YVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_Y) + 0x0);
-	} else {
-	int Offset_Y = 0;
-	if (this.c_EVTPlayer.EVT.Ctrl == 3 && (this.c_EVTPlayer.EVT.Status & 32768) != 32768) {
-	Offset_Y = (com.game.UnicornDash.C_SceneNormal.PowerBall_Dash_OffsetTBL[this.c_EVTPlayer.EVT.CurFRM] * 0xa);
-	this.c_EVTPowerBall.EVT.ACTIdx = 2130837688;
-	// :cond_9
-	}
-	this.c_EVTPowerBall.EVT.DispX = (this.c_EVTPlayer.EVT.DispX + 0x19);
-	this.c_EVTPowerBall.EVT.DispY = ((this.c_EVTPlayer.EVT.DispY + Offset_Y) + 0x5);
+		if (this.c_EVTPowerBall.EVT.Ctrl == 0) {
+		this.c_EVTPowerBall.EVT.Status = (this.c_EVTPowerBall.EVT.Status | 0x800);
+		this.c_EVTPowerBall.EVT.DispX = (((this.c_EVTPowerBall.EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + -0x1e);
+		this.c_EVTPowerBall.EVT.DispY = (((this.c_EVTPowerBall.EVT.YVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_Y) + 0x0);
+		} else {
+		int Offset_Y = 0;
+		if (this.c_EVTPlayer.EVT.Ctrl == 3 && (this.c_EVTPlayer.EVT.Status & 32768) != 32768) {
+		Offset_Y = (com.game.UnicornDash.C_SceneNormal.PowerBall_Dash_OffsetTBL[this.c_EVTPlayer.EVT.CurFRM] * 0xa);
+		this.c_EVTPowerBall.EVT.ACTIdx = 2130837688;
+		// :cond_9
 		}
+		this.c_EVTPowerBall.EVT.DispX = (this.c_EVTPlayer.EVT.DispX + 0x19);
+		this.c_EVTPowerBall.EVT.DispY = ((this.c_EVTPlayer.EVT.DispY + Offset_Y) + 0x5);
+			}
 	// goto/16 :goto_0
 	// :goto_0
 	this.c_EVTPowerBall.ShowEVENT(com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas());
 	// :cond_1
 	}
+	
 	if (this.c_EVTLand != null) {
 	int i = 0;
 	while (i < 5) {
-	if (this.c_EVTLand[i].EVT.Valid) {
-	this.c_EVTLand[i].EVT.Status = (this.c_EVTLand[i].EVT.Status | 0x800);
-	this.c_EVTLand[i].EVT.DispX = ((((this.c_EVTLand[i].EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + com.game.UnicornDash.C_Global.g_SceneDash_X) + -0x1e);
-	this.c_EVTLand[i].EVT.DispY = ((((this.c_EVTLand[i].EVT.YVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_Y) + com.game.UnicornDash.C_Global.g_SceneDash_Y) + 0x0);
-	int Idx = 0;
-	int Ctrl = this.c_EVTLand[i].EVT.Ctrl;
-	int Act = this.c_EVTLand[i].EVT.ACTPtr[Ctrl][Idx];
-	while (Act != -1) {
-	if (this.chkACTIsShow_Y(Act,this.c_EVTLand[i].EVT.DispY)) {
-	if (Ctrl == 6) {
-	if (this.chkACTIsShow_X(Act,this.c_EVTLand[i].EVT.DispX)) {
-	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
-	} else {
-	com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
-	// goto :goto_7
-	//[OTHER] end local v0           #Act:I
-	//[OTHER] end local v1           #Ctrl:I
-	//[OTHER] end local v2           #Idx:I
+		if (this.c_EVTLand[i].EVT.Valid) {
+		this.c_EVTLand[i].EVT.Status = (this.c_EVTLand[i].EVT.Status | 0x800);
+		this.c_EVTLand[i].EVT.DispX = ((((this.c_EVTLand[i].EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + com.game.UnicornDash.C_Global.g_SceneDash_X) + -0x1e);
+		this.c_EVTLand[i].EVT.DispY = ((((this.c_EVTLand[i].EVT.YVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_Y) + com.game.UnicornDash.C_Global.g_SceneDash_Y) + 0x0);
+		int Idx = 0;
+		int Ctrl = this.c_EVTLand[i].EVT.Ctrl;
+		while (true) {
+			int Act = this.c_EVTLand[i].EVT.ACTPtr[Ctrl][Idx];
+			if(Act == -1){break;}
+			if (this.chkACTIsShow_Y(Act,this.c_EVTLand[i].EVT.DispY)) {
+			if (Ctrl == 6) {
+			if (this.chkACTIsShow_X(Act,this.c_EVTLand[i].EVT.DispX)) {
+			com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
+			} else {
+			com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
+			// goto :goto_7
+			//[OTHER] end local v0           #Act:I
+			//[OTHER] end local v1           #Ctrl:I
+			//[OTHER] end local v2           #Idx:I
+				}
+			// :cond_d
+			}
+			}
+			// :goto_7
+			Idx = (Idx + 0x1);
+		// goto :goto_6
+		// :cond_c
 		}
-	// :cond_d
-	}
-	}
-	// :goto_7
-	Idx = (Idx + 0x1);
-	// goto :goto_6
-	// :cond_c
-	}
-	//[OTHER] end local v0           #Act:I
-	//[OTHER] end local v1           #Ctrl:I
-	//[OTHER] end local v2           #Idx:I
-	// :cond_b
-	}
-	i = (i + 0x1);
-	// goto/16 :goto_1
-continue someWhile; //if (i < 5) {
+		//[OTHER] end local v0           #Act:I
+		//[OTHER] end local v1           #Ctrl:I
+		//[OTHER] end local v2           #Idx:I
+		// :cond_b
+		}
+		i = (i + 0x1);
+		// goto/16 :goto_1
+	//continue someWhile; //if (i < 5) {
 	// :cond_a
 	}
 	//[OTHER] end local v4           #i:I
@@ -1337,34 +1336,34 @@ continue someWhile; //if (i < 5) {
 	//[OTHER] end local v4           #i:I
 	// :cond_5
 	}
-	if (this.c_EVTEffect != null) {
-	i = 0 /* 0 */;
 	
-	if (i >= 10) {
-	//[OTHER] end local v4           #i:I
+	
+	if (this.c_EVTEffect != null) {
+	int i = 0 /* 0 */;
+	
+	while (i < 10) {
+		
+		switch(this.c_EVTEffect[i].EVT.Ctrl){
+		case 0:  case 3: 
+			this.c_EVTEffect[i].EVT.Status = (this.c_EVTEffect[i].EVT.Status | 0x800);
+			this.c_EVTEffect[i].EVT.DispX = ((((this.c_EVTEffect[i].EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + com.game.UnicornDash.C_Global.g_SceneDash_X) + -0x1e);
+			this.c_EVTEffect[i].EVT.DispY = ((((this.c_EVTEffect[i].EVT.YVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_Y) + com.game.UnicornDash.C_Global.g_SceneDash_Y) + 0x0);
+			break;
+		} //end of switch
+		
+		this.c_EVTEffect[i].ShowEVENT(com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas());
+		i = (i + 0x1);
+		
+		
 	// :cond_6
 	}
 	if (com.game.UnicornDash.C_Global.g_GameState == 7) {
-	this.c_DashBTN.ShowEVENT(com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas());
-	this.c_JumpBTN.ShowEVENT(com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas());
-	// :cond_7
-	}
-	return;
-	} else {
-	;
-	switch(this.c_EVTEffect[i].EVT.Ctrl){
-	case 0:  case 3: 
-	this.c_EVTEffect[i].EVT.Status = (this.c_EVTEffect[i].EVT.Status | 0x800);
-	this.c_EVTEffect[i].EVT.DispX = ((((this.c_EVTEffect[i].EVT.XVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_X) + com.game.UnicornDash.C_Global.g_SceneDash_X) + -0x1e);
-	this.c_EVTEffect[i].EVT.DispY = ((((this.c_EVTEffect[i].EVT.YVal >> 0x10) + com.game.UnicornDash.C_Global.g_SceneFloat_Y) + com.game.UnicornDash.C_Global.g_SceneDash_Y) + 0x0);
-	break;
-	} //end of switch
-	//:pswitch_0
-	this.c_EVTEffect[i].ShowEVENT(com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas());
-	i = (i + 0x1);
-	goto somewhere; //maybe return,continue,break: goto/16 :goto_5
-	
+		this.c_DashBTN.ShowEVENT(com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas());
+		this.c_JumpBTN.ShowEVENT(com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas());
+		// :cond_7
 		}
+		return;
+	}
 	//[OTHER] end local v3           #Offset_Y:I
 	
 	
