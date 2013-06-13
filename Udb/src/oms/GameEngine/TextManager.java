@@ -191,7 +191,7 @@ public void LoadText(int ResTextID,int TextLayer,int TextDepth){
 	} else {
 	this.CloseText(TextLayer);
 	android.graphics.Bitmap bmp = null;
-	bmp = oms.GameEngine.PackageManager.createBitmap(this.mContext,ResTextID);
+	bmp = oms.GameEngine.PackageManager.loadPic(this.mContext,ResTextID);
 	if (bmp != null) {
 	this.nCurBMPRamSize = (this.nCurBMPRamSize + (long)this.GetBitmapSize(bmp));
 	if (this.mIsLogOut) {

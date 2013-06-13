@@ -161,7 +161,7 @@ public void SetBackground(int resID){
 	this.mBackground = null /* 0 */;
 	// :cond_0
 	}
-	this.mBackground = oms.GameEngine.PackageManager.createBitmap(this.mContext,resID);
+	this.mBackground = oms.GameEngine.PackageManager.loadPic(this.mContext,resID);
 	// :cond_1
 	}
 	return;

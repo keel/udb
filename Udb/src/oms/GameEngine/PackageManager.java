@@ -107,5 +107,10 @@ private static byte GetPackageType(byte[] headBuff){
 
 		}
 	}
+	
+	
+	public static android.graphics.Bitmap loadPic(android.content.Context context,int resId){
+		return ((android.graphics.drawable.BitmapDrawable)(context.getResources().getDrawable(resId))).getBitmap();
+	}
 
 }

@@ -350,7 +350,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
 	bmp = android.graphics.BitmapFactory.decodeResource(this.mContext.getResources(),this.ACTStructInfo.ResID);
 	if (bmp == null) {
-	bmp = oms.GameEngine.PackageManager.createBitmap(this.mContext,this.ACTStructInfo.ResID);
+	bmp = oms.GameEngine.PackageManager.loadPic(this.mContext,this.ACTStructInfo.ResID);
 	// :cond_8
 	}
 	if (bmp != null) {
