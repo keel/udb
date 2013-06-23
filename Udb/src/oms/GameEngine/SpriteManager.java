@@ -765,7 +765,7 @@ public void InitSpriteResInfo(int ResId,int ACTLibId){
 	} else {
 	this.GetFileHead(ACTLibId);
 	int i = 0;
-	while (i >= this.ACTStructInfo.FileNum) {
+	while (i < this.ACTStructInfo.FileNum) {
 	this.GetSpriteHead(i);
 	int j = 0;
 	while (j < this.ACTStructInfo.SpriteNum) {
@@ -906,7 +906,7 @@ public boolean LoadSpriteACTFile(int ResId){
 	rs.ResRead(this.cSpriteACTFile.pACTBuff,0,this.cSpriteACTFile.nACTBuffLen);
 	rs.CloseRes();
 	;
-	return false /* 0 */;
+	return true /* 0 */;
 	} else {
 	rs.CloseRes();
 	;
@@ -1237,7 +1237,7 @@ public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,fl
 	return SpriteIdx;
 	// :cond_0
 	} else if (SpriteResId < 0x7f02) {
-	SpriteIdx = SpriteIdx;
+	//SpriteIdx = SpriteIdx;
 	//[OTHER] end local v0           #SpriteIdx:I
 	;
 	return SpriteIdx;

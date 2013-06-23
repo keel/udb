@@ -126,84 +126,96 @@ public void FullScreen(boolean full){
 }
 
 public void clickMoreGames(){
-	this.mClickMoreGames = true;
-	android.os.Message msg = this.mMoreGames.obtainMessage();
-	this.mMoreGames.sendMessage(msg);
+//	this.mClickMoreGames = true;
+//	android.os.Message msg = this.mMoreGames.obtainMessage();
+//	this.mMoreGames.sendMessage(msg);
 	return;
 }
 
-public void onCreate(android.os.Bundle savedInstanceState){
-	super.onCreate(savedInstanceState);
-	this.requestWindowFeature(1);
-	this.getWindow().setFlags(1024,1024);
-	;
-	this.cOPhoneApp = new info.pharos.ly.C_OPhoneApp(this);
-	;
-	android.util.DisplayMetrics dm = new android.util.DisplayMetrics();
-	this.getWindowManager().getDefaultDisplay().getMetrics(dm);
-	this.cOPhoneApp.getCLib().SetActivity(this);
-	boolean hdFlag = false;
-	int scrWidth_Final = 320;
-	int scrHeight_Final = 576;
-	int scrWidth = 320;
-	int scrHeight = 576;
-	if (dm.widthPixels < dm.heightPixels) {
-	} else {
+	public void onCreate(android.os.Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(1);
+		this.getWindow().setFlags(1024, 1024);
+		;
+		this.cOPhoneApp = new info.pharos.ly.C_OPhoneApp(this);
+		;
+		android.util.DisplayMetrics dm = new android.util.DisplayMetrics();
+		this.getWindowManager().getDefaultDisplay().getMetrics(dm);
+		this.cOPhoneApp.getCLib().SetActivity(this);
+		boolean hdFlag = false;
+		int scrWidth_Final = 320;
+		int scrHeight_Final = 576;
+		int scrWidth = 320;
+		int scrHeight = 576;
+		if (dm.widthPixels < dm.heightPixels) {
+			info.pharos.ly.C_Global.g_scrWidth = dm.widthPixels;
+			info.pharos.ly.C_Global.g_scrHeight = dm.heightPixels;
+		} else {
+			info.pharos.ly.C_Global.g_scrWidth = dm.heightPixels;
+			info.pharos.ly.C_Global.g_scrHeight = dm.widthPixels;
+
 		}
-	// goto/16 :goto_0
-	// :goto_0
-	info.pharos.ly.C_Global.g_scrWidth = dm.widthPixels;
-	info.pharos.ly.C_Global.g_scrHeight = dm.heightPixels;
-	if ((dm.widthPixels > 320 || dm.heightPixels > 576)) {
-	// :cond_0
-	hdFlag = true;
-	} else {
-	hdFlag = false /* 0 */;
+		// goto/16 :goto_0
+		// :goto_0
+		if ((dm.widthPixels > 320 || dm.heightPixels > 576)) {
+			// :cond_0
+			hdFlag = true;
+		} else {
+			hdFlag = false /* 0 */;
 		}
-	// goto/16 :goto_1
-	// :goto_1
-	if (hdFlag) {
-	this.cOPhoneApp.getCLib().SetCanvaseSize(dm.widthPixels,576);
-	oms.GameEngine.C_MultiTouch.SetScreenOffset(0,48);
-	this.cOPhoneApp.getCLib().getInput().SetScreenOffset(0,48);
-	oms.GameEngine.C_MultiTouch.SetScreenOffset(0,48);
-	this.cOPhoneApp.getCLib().getGameCanvas().SetBackgroundDrawOffset(0,48);
-	this.cOPhoneApp.getCLib().getGameCanvas().SetSpriteDrawOffset(0,48);
-	this.cOPhoneApp.getCLib().SetCanvasScale(((float)dm.widthPixels / 0x43a0),((float)dm.heightPixels / 0x4410));
-	} else {
-	this.cOPhoneApp.getCLib().SetReflashSize(dm.heightPixels,dm.widthPixels,dm.scaledDensity);
+		// goto/16 :goto_1
+		// :goto_1
+		if (hdFlag) {
+			this.cOPhoneApp.getCLib().SetCanvaseSize(dm.widthPixels, 576);
+			oms.GameEngine.C_MultiTouch.SetScreenOffset(0, 48);
+			this.cOPhoneApp.getCLib().getInput().SetScreenOffset(0, 48);
+			oms.GameEngine.C_MultiTouch.SetScreenOffset(0, 48);
+			this.cOPhoneApp.getCLib().getGameCanvas()
+					.SetBackgroundDrawOffset(0, 48);
+			this.cOPhoneApp.getCLib().getGameCanvas()
+					.SetSpriteDrawOffset(0, 48);
+			this.cOPhoneApp.getCLib().SetCanvasScale(
+					((float) dm.widthPixels / 0x43a0),
+					((float) dm.heightPixels / 0x4410));
+			info.pharos.ly.C_Global.g_scrHeight = 0x240;
+		} else {
+			this.cOPhoneApp.getCLib().SetReflashSize(dm.heightPixels,
+					dm.widthPixels, dm.scaledDensity);
 		}
-	// goto/16 :goto_2
-	// :goto_2
-	info.pharos.ly.C_Global.g_ScreenScale_2_1 = 0 /* 0 */;
-	if (576 > 480) {
-	info.pharos.ly.C_Global.g_ScreenScale_2_1 = ((576 - 480) / 0x2);
-	info.pharos.ly.C_Global.g_ScreenScale_3_1 = ((576 - 480) / 0x3);
-	// :cond_1
+		// goto/16 :goto_2
+		// :goto_2
+		info.pharos.ly.C_Global.g_ScreenScale_2_1 = 0 /* 0 */;
+		if (info.pharos.ly.C_Global.g_scrHeight > 480) {
+			info.pharos.ly.C_Global.g_ScreenScale_2_1 = ((576 - 480) / 0x2);
+			info.pharos.ly.C_Global.g_ScreenScale_3_1 = ((576 - 480) / 0x3);
+			// :cond_1
+		}
+		;
+		this.activityLayout = new android.widget.RelativeLayout(this);
+		this.setContentView(2130903041);
+		this.addContentView(this.activityLayout);
+		;
+		this.cView = new oms.GameEngine.GameView(this);
+		this.cView.SetDraw(this.cOPhoneApp.getCLib());
+		this.activityLayout.addView(this.cView);
+		;/*
+		 * com.game.UnicornDash.UnicornDash.adView = new
+		 * com.google.ads.AdView(this
+		 * ,com.google.ads.AdSize.BANNER,this.AdMobID); ;
+		 * com.google.ads.AdRequest request = new com.google.ads.AdRequest();
+		 * com.game.UnicornDash.UnicornDash.adView.setAdListener(this);
+		 * com.game.UnicornDash.UnicornDash.adView.loadAd(request); ;
+		 */
+//		android.widget.RelativeLayout.LayoutParams adWhirlLayoutParams = new android.widget.RelativeLayout.LayoutParams(
+//				-1, -2);
+//		adWhirlLayoutParams.addRule(10, -1);
+//		info.pharos.ly.UnicornDash.mLayoutMode = 10;
+		// this.activityLayout.addView(com.game.UnicornDash.UnicornDash.adView,adWhirlLayoutParams);
+		return;
+		// [OTHER] end local v0
+		// #adWhirlLayoutParams:Landroid/widget/RelativeLayout$LayoutParams;
+		// [OTHER] end local v3 #request:Lcom/google/ads/AdRequest;
 	}
-	;
-	this.activityLayout = new android.widget.RelativeLayout(this);
-	this.setContentView(2130903041);
-	this.addContentView(this.activityLayout);
-	;
-	this.cView = new oms.GameEngine.GameView(this);
-	this.cView.SetDraw(this.cOPhoneApp.getCLib());
-	this.activityLayout.addView(this.cView);
-	;/*
-	com.game.UnicornDash.UnicornDash.adView = new com.google.ads.AdView(this,com.google.ads.AdSize.BANNER,this.AdMobID);
-	;
-	com.google.ads.AdRequest request = new com.google.ads.AdRequest();
-	com.game.UnicornDash.UnicornDash.adView.setAdListener(this);
-	com.game.UnicornDash.UnicornDash.adView.loadAd(request);
-	;*/
-	android.widget.RelativeLayout.LayoutParams adWhirlLayoutParams = new android.widget.RelativeLayout.LayoutParams(-1,-2);
-	adWhirlLayoutParams.addRule(10,-1);
-	info.pharos.ly.UnicornDash.mLayoutMode = 10;
-//	this.activityLayout.addView(com.game.UnicornDash.UnicornDash.adView,adWhirlLayoutParams);
-	return;
-	//[OTHER] end local v0           #adWhirlLayoutParams:Landroid/widget/RelativeLayout$LayoutParams;
-	//[OTHER] end local v3           #request:Lcom/google/ads/AdRequest;
-}
 
 protected void onDestroy(){
 	this.cOPhoneApp.onDestory();
@@ -273,7 +285,7 @@ public void onReceiveRefreshedAd(com.google.ads.AdView arg0){
 */
 protected void onResume(){
 	this.FullScreen(true);
-	this.resumeMoreGames();
+//	this.resumeMoreGames();
 	this.cOPhoneApp.onResume();
 	this.cView.onResume();
 	super.onResume();
