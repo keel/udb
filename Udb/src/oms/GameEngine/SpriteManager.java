@@ -1179,232 +1179,238 @@ public void SetSpriteTransform(int spriteId,int transform){
 	return;
 }
 
-public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr){
-	int SpriteIdx = -1;
-	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
-	//[OTHER] end local v0           #SpriteIdx:I
-	//int SpriteIdx = SpriteIdx;
-	return SpriteIdx;
-	// :cond_0
-	} else if (SpriteResId < 0x7f02) {
-	//SpriteIdx = SpriteIdx;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
-	// goto :goto_0
-	} else {
-	if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
-	SpriteIdx = (SpriteResId & 0xffff);
-	// :cond_2
-	}
-	if (SpriteIdx != -1) {
-	this.Sprite[this.nShowSpriteNum].SpriteResID = (short)SpriteIdx;
-	this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
-	this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
-	this.Sprite[this.nShowSpriteNum].Rotate = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].ScaleX = 0x3f80;
-	this.Sprite[this.nShowSpriteNum].ScaleY = 0x3f80;
-	this.Sprite[this.nShowSpriteNum].Alpha = 255;
-	this.Sprite[this.nShowSpriteNum].mPaintId = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short)this.SpriteRes[SpriteIdx].SpriteCenterX;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short)this.SpriteRes[SpriteIdx].SpriteCenterY;
-	this.Sprite[this.nShowSpriteNum].RotateX = -1;
-	this.Sprite[this.nShowSpriteNum].RotateY = -1;
-	this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-	this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-	// :cond_3
-	}
-	SpriteIdx = this.nShowSpriteNum;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
+	public int WriteSprite(int SpriteResId, int SpriteX, int SpriteY,
+			int SpriteAttr) {
+		int SpriteIdx = -1;
+		if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
+			// [OTHER] end local v0 #SpriteIdx:I
+			// int SpriteIdx = SpriteIdx;
+			return SpriteIdx;
+			// :cond_0
+		} else if (SpriteResId < 0x7f02) {
+			// SpriteIdx = SpriteIdx;
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
+			// goto :goto_0
+		} else {
+			if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
+				SpriteIdx = (SpriteResId & 0xffff);
+				// :cond_2
+			}
+			if (SpriteIdx != -1) {
+				this.Sprite[this.nShowSpriteNum].SpriteResID = (short) SpriteIdx;
+				this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
+				this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
+				this.Sprite[this.nShowSpriteNum].Rotate = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].ScaleX = 0x3f80;
+				this.Sprite[this.nShowSpriteNum].ScaleY = 0x3f80;
+				this.Sprite[this.nShowSpriteNum].Alpha = 255;
+				this.Sprite[this.nShowSpriteNum].mPaintId = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short) this.SpriteRes[SpriteIdx].SpriteCenterX;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short) this.SpriteRes[SpriteIdx].SpriteCenterY;
+				this.Sprite[this.nShowSpriteNum].RotateX = -1;
+				this.Sprite[this.nShowSpriteNum].RotateY = -1;
+				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
+				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				// :cond_3
+			}
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
 		}
-	// goto/16 :goto_0
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-	// :goto_0
-	//return SpriteIdx;
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-}
+		// goto/16 :goto_0
+		// [OTHER] end local v1 #SpriteIdx:I
 
-public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,float rotate,float scale){
-	int SpriteIdx = -1;
-	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
-	//[OTHER] end local v0           #SpriteIdx:I
-	//int SpriteIdx = SpriteIdx;
-	return SpriteIdx;
-	// :cond_0
-	} else if (SpriteResId < 0x7f02) {
-	//SpriteIdx = SpriteIdx;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
-	// goto :goto_0
-	} else {
-	if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
-	SpriteIdx = (SpriteResId & 65535);
-	// :cond_2
-	}
-	if (SpriteIdx != -1) {
-	this.Sprite[this.nShowSpriteNum].SpriteResID = (short)SpriteIdx;
-	this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
-	this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
-	this.Sprite[this.nShowSpriteNum].Rotate = rotate;
-	this.Sprite[this.nShowSpriteNum].ScaleX = scale;
-	this.Sprite[this.nShowSpriteNum].ScaleY = scale;
-	this.Sprite[this.nShowSpriteNum].Alpha = 255;
-	this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short)this.SpriteRes[SpriteIdx].SpriteCenterX;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short)this.SpriteRes[SpriteIdx].SpriteCenterY;
-	this.Sprite[this.nShowSpriteNum].RotateX = -1;
-	this.Sprite[this.nShowSpriteNum].RotateY = -1;
-	this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-	this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-	// :cond_3
-	}
-	SpriteIdx = this.nShowSpriteNum;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
-		}
-	// goto/16 :goto_0
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-	// :goto_0
-	//return SpriteIdx;
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-}
+		// :goto_0
+		// return SpriteIdx;
+		// [OTHER] end local v1 #SpriteIdx:I
 
-public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,float rotate,float scaleX,float scaleY,short RotateX,short RotateY){
-	int SpriteIdx = -1;
-	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
-	//[OTHER] end local v0           #SpriteIdx:I
-	//int SpriteIdx = SpriteIdx;
-	return SpriteIdx;
-	// :cond_0
-	} else if (SpriteResId < 0x7f02) {
-	//SpriteIdx = SpriteIdx;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
-	// goto :goto_0
-	} else {
-	if (this.SpriteResACTInfo[(65535 & SpriteResId)].RESACTIdx != -1) {
-	SpriteIdx = (SpriteResId & 65535);
-	// :cond_2
 	}
-	if (SpriteIdx != -1) {
-	this.Sprite[this.nShowSpriteNum].SpriteResID = (short)SpriteIdx;
-	this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
-	this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
-	this.Sprite[this.nShowSpriteNum].Rotate = rotate;
-	this.Sprite[this.nShowSpriteNum].ScaleX = scaleX;
-	this.Sprite[this.nShowSpriteNum].ScaleY = scaleY;
-	this.Sprite[this.nShowSpriteNum].Alpha = 255;
-	this.Sprite[this.nShowSpriteNum].mPaintId = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short)this.SpriteRes[SpriteIdx].SpriteCenterX;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short)this.SpriteRes[SpriteIdx].SpriteCenterY;
-	if (RotateX != 65535) {
-	this.Sprite[this.nShowSpriteNum].RotateX = RotateX;
-	} else {
-	this.Sprite[this.nShowSpriteNum].RotateX = this.Sprite[this.nShowSpriteNum].SpriteCenterX;
-		}
-	// goto :goto_1
-	// :goto_1
-	if (RotateX != 65535) {
-	this.Sprite[this.nShowSpriteNum].RotateY = RotateY;
-	} else {
-	this.Sprite[this.nShowSpriteNum].RotateY = this.Sprite[this.nShowSpriteNum].SpriteCenterY;
-		}
-	// goto :goto_2
-	// :goto_2
-	this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-	this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-	// :cond_3
-	}
-	SpriteIdx = this.nShowSpriteNum;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
-		}
-	// goto/16 :goto_0
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-	// :goto_0
-	//return SpriteIdx;
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-}
 
-public int WriteSprite(int SpriteResId,int SpriteX,int SpriteY,int SpriteAttr,float rotate,float scale,short RotateX,short RotateY){
-	int SpriteIdx = -1;
-	if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
-	//[OTHER] end local v0           #SpriteIdx:I
-	//int SpriteIdx = SpriteIdx;
-	return SpriteIdx;
-	// :cond_0
-	} else if (SpriteResId < 0x7f02) {
-	//SpriteIdx = SpriteIdx;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
-	// goto :goto_0
-	} else {
-	if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
-	SpriteIdx = (SpriteResId & 65535);
-	// :cond_2
+	public int WriteSprite(int SpriteResId, int SpriteX, int SpriteY,
+			int SpriteAttr, float rotate, float scale) {
+		int SpriteIdx = -1;
+		if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
+			// [OTHER] end local v0 #SpriteIdx:I
+			// int SpriteIdx = SpriteIdx;
+			return SpriteIdx;
+			// :cond_0
+		} else if (SpriteResId < 0x7f02) {
+			// SpriteIdx = SpriteIdx;
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
+			// goto :goto_0
+		} else {
+			if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
+				SpriteIdx = (SpriteResId & 65535);
+				// :cond_2
+			}
+			if (SpriteIdx != -1) {
+				this.Sprite[this.nShowSpriteNum].SpriteResID = (short) SpriteIdx;
+				this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
+				this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
+				this.Sprite[this.nShowSpriteNum].Rotate = rotate;
+				this.Sprite[this.nShowSpriteNum].ScaleX = scale;
+				this.Sprite[this.nShowSpriteNum].ScaleY = scale;
+				this.Sprite[this.nShowSpriteNum].Alpha = 255;
+				this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short) this.SpriteRes[SpriteIdx].SpriteCenterX;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short) this.SpriteRes[SpriteIdx].SpriteCenterY;
+				this.Sprite[this.nShowSpriteNum].RotateX = -1;
+				this.Sprite[this.nShowSpriteNum].RotateY = -1;
+				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
+				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				// :cond_3
+			}
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
+		}
+		// goto/16 :goto_0
+		// [OTHER] end local v1 #SpriteIdx:I
+
+		// :goto_0
+		// return SpriteIdx;
+		// [OTHER] end local v1 #SpriteIdx:I
+
 	}
-	if (SpriteIdx != -1) {
-	this.Sprite[this.nShowSpriteNum].SpriteResID = (short)SpriteIdx;
-	this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
-	this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
-	this.Sprite[this.nShowSpriteNum].Rotate = rotate;
-	this.Sprite[this.nShowSpriteNum].ScaleX = scale;
-	this.Sprite[this.nShowSpriteNum].ScaleY = scale;
-	this.Sprite[this.nShowSpriteNum].Alpha = 255;
-	this.Sprite[this.nShowSpriteNum].mPaintId = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short)this.SpriteRes[SpriteIdx].SpriteCenterX;
-	this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short)this.SpriteRes[SpriteIdx].SpriteCenterY;
-	if (RotateX != 65535) {
-	this.Sprite[this.nShowSpriteNum].RotateX = RotateX;
-	} else {
-	this.Sprite[this.nShowSpriteNum].RotateX = this.Sprite[this.nShowSpriteNum].SpriteCenterX;
+
+	public int WriteSprite(int SpriteResId, int SpriteX, int SpriteY,
+			int SpriteAttr, float rotate, float scaleX, float scaleY,
+			short RotateX, short RotateY) {
+		int SpriteIdx = -1;
+		if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
+			// [OTHER] end local v0 #SpriteIdx:I
+			// int SpriteIdx = SpriteIdx;
+			return SpriteIdx;
+			// :cond_0
+		} else if (SpriteResId < 0x7f02) {
+			// SpriteIdx = SpriteIdx;
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
+			// goto :goto_0
+		} else {
+			if (this.SpriteResACTInfo[(65535 & SpriteResId)].RESACTIdx != -1) {
+				SpriteIdx = (SpriteResId & 65535);
+				// :cond_2
+			}
+			if (SpriteIdx != -1) {
+				this.Sprite[this.nShowSpriteNum].SpriteResID = (short) SpriteIdx;
+				this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
+				this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
+				this.Sprite[this.nShowSpriteNum].Rotate = rotate;
+				this.Sprite[this.nShowSpriteNum].ScaleX = scaleX;
+				this.Sprite[this.nShowSpriteNum].ScaleY = scaleY;
+				this.Sprite[this.nShowSpriteNum].Alpha = 255;
+				this.Sprite[this.nShowSpriteNum].mPaintId = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short) this.SpriteRes[SpriteIdx].SpriteCenterX;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short) this.SpriteRes[SpriteIdx].SpriteCenterY;
+				if (RotateX != 65535) {
+					this.Sprite[this.nShowSpriteNum].RotateX = RotateX;
+				} else {
+					this.Sprite[this.nShowSpriteNum].RotateX = this.Sprite[this.nShowSpriteNum].SpriteCenterX;
+				}
+				// goto :goto_1
+				// :goto_1
+				if (RotateX != 65535) {
+					this.Sprite[this.nShowSpriteNum].RotateY = RotateY;
+				} else {
+					this.Sprite[this.nShowSpriteNum].RotateY = this.Sprite[this.nShowSpriteNum].SpriteCenterY;
+				}
+				// goto :goto_2
+				// :goto_2
+				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
+				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				// :cond_3
+			}
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
 		}
-	// goto :goto_1
-	// :goto_1
-	if (RotateX != 65535) {
-	this.Sprite[this.nShowSpriteNum].RotateY = RotateY;
-	} else {
-	this.Sprite[this.nShowSpriteNum].RotateY = this.Sprite[this.nShowSpriteNum].SpriteCenterY;
-		}
-	// goto :goto_2
-	// :goto_2
-	this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-	this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-	// :cond_3
+		// goto/16 :goto_0
+		// [OTHER] end local v1 #SpriteIdx:I
+
+		// [OTHER] end local v1 #SpriteIdx:I
+
+		// :goto_0
+		// return SpriteIdx;
+		// [OTHER] end local v1 #SpriteIdx:I
+
 	}
-	SpriteIdx = this.nShowSpriteNum;
-	//[OTHER] end local v0           #SpriteIdx:I
-	;
-	return SpriteIdx;
+
+	public int WriteSprite(int SpriteResId, int SpriteX, int SpriteY,
+			int SpriteAttr, float rotate, float scale, short RotateX,
+			short RotateY) {
+		int SpriteIdx = -1;
+		if (this.nShowSpriteNum >= this.nMaxSpriteNum) {
+			// [OTHER] end local v0 #SpriteIdx:I
+			// int SpriteIdx = SpriteIdx;
+			return SpriteIdx;
+			// :cond_0
+		} else if (SpriteResId < 0x7f02) {
+			// SpriteIdx = SpriteIdx;
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
+			// goto :goto_0
+		} else {
+			if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
+				SpriteIdx = (SpriteResId & 65535);
+				// :cond_2
+			}
+			if (SpriteIdx != -1) {
+				this.Sprite[this.nShowSpriteNum].SpriteResID = (short) SpriteIdx;
+				this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
+				this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
+				this.Sprite[this.nShowSpriteNum].Rotate = rotate;
+				this.Sprite[this.nShowSpriteNum].ScaleX = scale;
+				this.Sprite[this.nShowSpriteNum].ScaleY = scale;
+				this.Sprite[this.nShowSpriteNum].Alpha = 255;
+				this.Sprite[this.nShowSpriteNum].mPaintId = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterX = (short) this.SpriteRes[SpriteIdx].SpriteCenterX;
+				this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short) this.SpriteRes[SpriteIdx].SpriteCenterY;
+				if (RotateX != 65535) {
+					this.Sprite[this.nShowSpriteNum].RotateX = RotateX;
+				} else {
+					this.Sprite[this.nShowSpriteNum].RotateX = this.Sprite[this.nShowSpriteNum].SpriteCenterX;
+				}
+				// goto :goto_1
+				// :goto_1
+				if (RotateX != 65535) {
+					this.Sprite[this.nShowSpriteNum].RotateY = RotateY;
+				} else {
+					this.Sprite[this.nShowSpriteNum].RotateY = this.Sprite[this.nShowSpriteNum].SpriteCenterY;
+				}
+				// goto :goto_2
+				// :goto_2
+				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
+				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				// :cond_3
+			}
+			// [OTHER] end local v0 #SpriteIdx:I
+			;
+			return SpriteIdx;
 		}
-	// goto/16 :goto_0
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-	// :goto_0
-	//return SpriteIdx;
-	//[OTHER] end local v1           #SpriteIdx:I
-	
-}
+		// goto/16 :goto_0
+		// [OTHER] end local v1 #SpriteIdx:I
+
+		// [OTHER] end local v1 #SpriteIdx:I
+
+		// :goto_0
+		// return SpriteIdx;
+		// [OTHER] end local v1 #SpriteIdx:I
+
+	}
 
 public void release(){
 	if (this.SpriteRes != null) {

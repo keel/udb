@@ -191,7 +191,7 @@ public void GameMain(){
 	this.Initialize();
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().LoadText(2130837742,0,0);
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().SetTextYVal(0,-48);
-	this.ReadTouch();
+	//this.ReadTouch();
 	this.ReadTouch();
 	this.ExecEVENT();
 	this.ShowEVENT();

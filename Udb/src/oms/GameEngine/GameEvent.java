@@ -270,22 +270,24 @@ public void ShowEVENT(oms.GameEngine.GameCanvas canvas){
 	if (this.EVT.Valid) {
 	int Status = (this.EVT.Status & 0x1000);
 	if (Status == 0) {
-	if ((this.EVT.Status & 0x800) != 2048) {
-	this.EVT.DispX = (this.EVT.XVal >> 0x10);
-	this.EVT.DispY = (this.EVT.YVal >> 0x10);
-	// :cond_2
-	}
+		if ((this.EVT.Status & 0x800) != 2048) {
+		this.EVT.DispX = (this.EVT.XVal >> 0x10);
+		this.EVT.DispY = (this.EVT.YVal >> 0x10);
+		// :cond_2
+		}
 	// :cond_3
-	}
+	}else{
 //	this.EVT.DispX = ((this.EVT.XVal - canvas.GetTextXVal(this.EVT.Rotate)) >> 0x10);
 //	this.EVT.DispY = ((this.EVT.YVal - canvas.GetTextYVal(this.EVT.Rotate)) >> 0x10);
-	this.EVT.DispX = ((this.EVT.XVal - canvas.GetTextXVal(0)) >> 0x10);
-	this.EVT.DispY = ((this.EVT.YVal - canvas.GetTextYVal(0)) >> 0x10);
+		this.EVT.DispX = ((this.EVT.XVal - canvas.GetTextXVal(0)) >> 0x10);
+		this.EVT.DispY = ((this.EVT.YVal - canvas.GetTextYVal(0)) >> 0x10);
+		
+	}
 		}
 	// goto :goto_1
 	int DispX = this.EVT.DispX;
 	int DispY = this.EVT.DispY;
-	while ((this.EVT.ACTIdx > 0 && (DispX < this.mRc.right && (DispX >= this.mRc.left && (DispY < this.mRc.bottom && DispY >= this.mRc.top))))) {
+	if ((this.EVT.ACTIdx > 0 && (DispX < this.mRc.right && (DispX >= this.mRc.left && (DispY < this.mRc.bottom && DispY >= this.mRc.top))))) {
 	int spriteId = canvas.WriteSprite(this.EVT.ACTIdx,DispX,DispY,this.EVT.Attrib,this.EVT.Rotate,this.EVT.Scale);
 	if (spriteId != -1) {
 	canvas.SetPaintId(spriteId,this.EVT.mPaintId);
