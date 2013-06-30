@@ -71,8 +71,8 @@ public TextDEF(){
 	this.TextYInc = 0 /* 0 */;
 	this.Alpha = 255;
 	this.Rotate = 0 /* 0 */;
-	this.ScaleX = 0x3f80;
-	this.ScaleY = 0x3f80;
+//	this.ScaleX = 0x3f80;
+//	this.ScaleY = 0x3f80;
 }
 
 }

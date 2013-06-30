@@ -1,6 +1,7 @@
 package info.pharos.ly;
 
 import android.os.Handler;
+import android.util.Log;
 
 
 public class UnicornDash extends android.app.Activity {
@@ -148,13 +149,14 @@ public void clickMoreGames(){
 		int scrWidth = 320;
 		int scrHeight = 576;
 		if (dm.widthPixels < dm.heightPixels) {
-			info.pharos.ly.C_Global.g_scrWidth = dm.widthPixels;
-			info.pharos.ly.C_Global.g_scrHeight = dm.heightPixels;
+			scrWidth = dm.widthPixels;
+			scrHeight = dm.heightPixels;
 		} else {
-			info.pharos.ly.C_Global.g_scrWidth = dm.heightPixels;
-			info.pharos.ly.C_Global.g_scrHeight = dm.widthPixels;
-
+			scrWidth = dm.heightPixels;
+			scrHeight = dm.widthPixels;
 		}
+		info.pharos.ly.C_Global.g_scrWidth = scrWidth;
+		info.pharos.ly.C_Global.g_scrHeight = scrHeight;
 		// goto/16 :goto_0
 		// :goto_0
 		if ((dm.widthPixels > 320 || dm.heightPixels > 576)) {
@@ -175,12 +177,12 @@ public void clickMoreGames(){
 			this.cOPhoneApp.getCLib().getGameCanvas()
 					.SetSpriteDrawOffset(0, 48);
 			this.cOPhoneApp.getCLib().SetCanvasScale(
-					((float) dm.widthPixels / 0x43a0),
-					((float) dm.heightPixels / 0x4410));
+					((float) scrWidth / 0x43a0),
+					((float) scrHeight / 0x4410));
 			info.pharos.ly.C_Global.g_scrHeight = 0x240;
 		} else {
-			this.cOPhoneApp.getCLib().SetReflashSize(dm.heightPixels,
-					dm.widthPixels, dm.scaledDensity);
+			this.cOPhoneApp.getCLib().SetReflashSize(
+					scrWidth, scrHeight,dm.scaledDensity);
 		}
 		// goto/16 :goto_2
 		// :goto_2
@@ -197,6 +199,7 @@ public void clickMoreGames(){
 		;
 		this.cView = new oms.GameEngine.GameView(this);
 		this.cView.SetDraw(this.cOPhoneApp.getCLib());
+		
 		this.activityLayout.addView(this.cView);
 		;/*
 		 * com.game.UnicornDash.UnicornDash.adView = new

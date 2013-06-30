@@ -16,9 +16,10 @@ public C_CompanyLogo(){
 public void GameMain(){
 	int RunTime = 0;
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().LoadText(2130837741,0,0);
-	//GameCanvas gcv = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas();
+	GameCanvas gcv = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas();
 	//Log.e("C_comp",gcv.GetTextXVal(0)+" "+ gcv.GetTextYVal(0));
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().SetTextYVal(0,-48);
+	KLog.logObj(gcv.GetViewRect());
 	info.pharos.ly.C_OPhoneApp.cLib.ViewOpen(64);
 	info.pharos.ly.C_Global.g_chkVersion = 1;
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().InitACT(0,2130968583);
