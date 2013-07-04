@@ -1,5 +1,6 @@
 package oms.GameEngine;
 
+import info.pharos.ly.KLog;
 import android.graphics.Bitmap;
 import android.util.Log;
 
@@ -248,6 +249,7 @@ public void run(){
 	}
 	;
 	android.graphics.Rect rc = new android.graphics.Rect(0,0,(int)((float)this.cLib.nRefreshWidth * oms.GameEngine.C_Lib.mCanvasScaleX),(int)((float)this.cLib.nRefreshHeight * oms.GameEngine.C_Lib.mCanvasScaleY));
+	KLog.logObj(rc);
 	//android.graphics.Rect rc = new android.graphics.Rect;
 	// :cond_1
 	// :goto_2

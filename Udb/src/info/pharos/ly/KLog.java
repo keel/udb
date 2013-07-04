@@ -18,6 +18,10 @@ public class KLog {
 	public KLog() {
 	}
 	
+	public static void printTrace(){
+		new Exception("KLog print trace").printStackTrace();
+	}
+	
 	
 	public static void log(String tag,String msg){
 		Log.e(tag, msg);
