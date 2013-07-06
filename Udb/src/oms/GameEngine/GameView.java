@@ -282,7 +282,7 @@ public void run(){
 		long randerStart = System.currentTimeMillis();
 		
 		try {
-			KLog.logObj("GameView_rc",rc);
+			//KLog.logObj("GameView_rc",rc);
 		c = this.mSurfaceHolder.lockCanvas(rc);
 		if (!randerMode) {
 		if (c != null) {

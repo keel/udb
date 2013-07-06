@@ -625,7 +625,7 @@ private int GetLandPara(int LandIdx,int Type){
 	if (info.pharos.ly.C_Global.g_LandACTNum == -1) {
 	do {
 	info.pharos.ly.C_Global.g_LandACTNum = (info.pharos.ly.C_Global.g_LandACTNum + 0x1);
-	} while (info.pharos.ly.C_EVTLand.NPCLandACT[LandIdx][(info.pharos.ly.C_Global.g_LandACTNum + 0x1)] == -1);
+	} while (info.pharos.ly.C_EVTLand.NPCLandACT[LandIdx][(info.pharos.ly.C_Global.g_LandACTNum + 0x1)] != -1);
 	// :cond_1
 	}
 	switch(Type){
@@ -681,7 +681,7 @@ private void getLandMakeArea(){
 	int LandIdx;
 	do {
 	LandIdx = info.pharos.ly.C_EVTLand.UNUseLandTBL[info.pharos.ly.C_Global.g_chkVersion][(info.pharos.ly.C_PUB.Random(LandMakeArea) + 0x1)];
-	} while (LandIdx != info.pharos.ly.C_Global.g_LandIdx);
+	} while (LandIdx == info.pharos.ly.C_Global.g_LandIdx);
 	info.pharos.ly.C_Global.g_LandIdx = LandIdx;
 	return;
 }
@@ -816,7 +816,7 @@ public int GetTopBlockParaWidth(){
 	int Result = 0;
 	do {
 	Idx = (Idx + 0x1);
-	} while (info.pharos.ly.C_EVTLand.NPCLandACT[6][Idx] == -1);
+	} while (info.pharos.ly.C_EVTLand.NPCLandACT[6][Idx] != -1);
 	Result = (info.pharos.ly.C_EVTLand.NPCLandACT[6][(Idx + 0x2)] - 16);
 	return Result;
 	//return Result;

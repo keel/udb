@@ -463,7 +463,7 @@ public static int getScoreLength(int num){
 	do {
 	bit = (bit + 0x1);
 	num = (num / 0xa);
-	} while (num == 0);
+	} while (num != 0);
 	return bit;
 }
 

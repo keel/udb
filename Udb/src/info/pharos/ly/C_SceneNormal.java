@@ -464,7 +464,7 @@ private void ExecRUN(){
 							Idx = (Idx + 0x1);
 						}
 
-					} while (this.GetLandAct(i, Ctrl, Idx) == -1);
+					} while (this.GetLandAct(i, Ctrl, Idx) != -1);
 
 				}
 				i++;

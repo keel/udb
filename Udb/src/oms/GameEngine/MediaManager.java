@@ -215,17 +215,17 @@ public void SetSoundStopEn(boolean status){
 }
 
 public void SetSystemVolume(int Type){
-	if (Type == 0) {
-	oms.GameEngine.MediaManager.SoundVolume = (oms.GameEngine.MediaManager.SoundVolume + oms.GameEngine.MediaManager.VolumeInc);
-	if ((oms.GameEngine.MediaManager.SoundVolume - oms.GameEngine.MediaManager.MaxVolume) >= 0) {
-	oms.GameEngine.MediaManager.SoundVolume = oms.GameEngine.MediaManager.MaxVolume;
-	// :cond_0
-	}
-	} else {
-	oms.GameEngine.MediaManager.SoundVolume = (oms.GameEngine.MediaManager.SoundVolume - oms.GameEngine.MediaManager.VolumeInc);
-	if ((oms.GameEngine.MediaManager.SoundVolume - 0) <= 0) {
-	oms.GameEngine.MediaManager.SoundVolume = 0 /* 0 */;
-		}
+		if (Type == 0) {
+			oms.GameEngine.MediaManager.SoundVolume = (oms.GameEngine.MediaManager.SoundVolume + oms.GameEngine.MediaManager.VolumeInc);
+			if ((oms.GameEngine.MediaManager.SoundVolume - oms.GameEngine.MediaManager.MaxVolume) >= 0) {
+				oms.GameEngine.MediaManager.SoundVolume = oms.GameEngine.MediaManager.MaxVolume;
+				// :cond_0
+			}
+		} else {
+			oms.GameEngine.MediaManager.SoundVolume = (oms.GameEngine.MediaManager.SoundVolume - oms.GameEngine.MediaManager.VolumeInc);
+			if ((oms.GameEngine.MediaManager.SoundVolume - 0) <= 0) {
+				oms.GameEngine.MediaManager.SoundVolume = 0 /* 0 */;
+			}
 		}
 	// goto :goto_0
 	// :goto_0
@@ -398,12 +398,12 @@ public void removeSound(int resid){
 public void setAllMediaVolume(float Volume){
 	if ((Volume - oms.GameEngine.MediaManager.MaxVolume) >= 0) {
 	// :cond_0
+		oms.GameEngine.MediaManager.SoundVolume = oms.GameEngine.MediaManager.MaxVolume;
 	}
-	oms.GameEngine.MediaManager.SoundVolume = oms.GameEngine.MediaManager.MaxVolume;
 	android.media.AudioManager mgr = (android.media.AudioManager)this.mContext.getSystemService("audio");
-	mgr.setStreamVolume(3,(int)oms.GameEngine.MediaManager.MaxVolume,1);
+	mgr.setStreamVolume(3,(int)oms.GameEngine.MediaManager.SoundVolume,1);
 	if (oms.GameEngine.MediaManager._GameMedia != null) {
-	oms.GameEngine.MediaManager._GameMedia.setAllMediaVolume((oms.GameEngine.MediaManager.MaxVolume / oms.GameEngine.MediaManager.MaxVolume));
+	oms.GameEngine.MediaManager._GameMedia.setAllMediaVolume((oms.GameEngine.MediaManager.SoundVolume / oms.GameEngine.MediaManager.MaxVolume));
 	// :cond_1
 	}
 	return;
@@ -412,12 +412,12 @@ public void setAllMediaVolume(float Volume){
 public void setAllSoundVolume(float Volume){
 	if ((Volume - oms.GameEngine.MediaManager.MaxVolume) >= 0) {
 	// :cond_0
+		oms.GameEngine.MediaManager.SoundVolume = oms.GameEngine.MediaManager.MaxVolume;
 	}
-	oms.GameEngine.MediaManager.SoundVolume = oms.GameEngine.MediaManager.MaxVolume;
 	android.media.AudioManager mgr = (android.media.AudioManager)this.mContext.getSystemService("audio");
-	mgr.setStreamVolume(3,(int)oms.GameEngine.MediaManager.MaxVolume,1);
+	mgr.setStreamVolume(3,(int)oms.GameEngine.MediaManager.SoundVolume,1);
 	if (oms.GameEngine.MediaManager._GameSound != null) {
-	oms.GameEngine.MediaManager._GameSound.setAllSoundVolume((oms.GameEngine.MediaManager.MaxVolume / oms.GameEngine.MediaManager.MaxVolume));
+	oms.GameEngine.MediaManager._GameSound.setAllSoundVolume((oms.GameEngine.MediaManager.SoundVolume / oms.GameEngine.MediaManager.MaxVolume));
 	// :cond_1
 	}
 	return;
