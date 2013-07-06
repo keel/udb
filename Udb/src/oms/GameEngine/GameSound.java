@@ -23,7 +23,7 @@ public float volume;
 
 public GameSound(android.content.Context context,int size){
 	super();
-	this.volume = 0x3f80;
+	this.volume = 1.0F;
 	this.SoundStopEn = true;
 	this.mContext = context;
 	;
@@ -107,7 +107,7 @@ public void CH_Play(int Channel,int Resid){
 	// :cond_2
 	}
 	}
-	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,0,0x3f80);
+	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,0,1.0F);
 	this.cSoundPlay[MapIdx].nSteamID = streamID;
 	this.cSoundPlay[MapIdx].nLoop = false /* 0 */;
 	this.cSoundPlay[MapIdx].nPlaying = true;
@@ -138,7 +138,7 @@ public void CH_PlayLoop(int Channel,int Resid){
 	// :cond_2
 	}
 	}
-	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,-1,0x3f80);
+	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,-1,1.0F);
 	this.cSoundPlay[MapIdx].nSteamID = streamID;
 	this.cSoundPlay[MapIdx].nLoop = true;
 	this.cSoundPlay[MapIdx].nPlaying = true;
@@ -303,7 +303,7 @@ public void play(int resid){
 	this.cSoundPlay[MapIdx].nPlaying = false /* 0 */;
 	// :cond_1
 	}
-	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,0,0x3f80);
+	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,0,1.0F);
 	this.cSoundPlay[MapIdx].nSteamID = streamID;
 	this.cSoundPlay[MapIdx].nLoop = false /* 0 */;
 	this.cSoundPlay[MapIdx].nPlaying = true;
@@ -326,7 +326,7 @@ public void playLoop(int resid){
 	this.cSoundPlay[MapIdx].nPlaying = false /* 0 */;
 	// :cond_1
 	}
-	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,-1,0x3f80);
+	int streamID = this.soundPool.play(this.cSoundPlay[MapIdx].nLoadedID,this.volume,this.volume,0,-1,1.0F);
 	this.cSoundPlay[MapIdx].nSteamID = streamID;
 	this.cSoundPlay[MapIdx].nLoop = true;
 	this.cSoundPlay[MapIdx].nPlaying = true;
@@ -463,12 +463,12 @@ public void setRate(int streamID,float rate){
 	int MapIdx = this.GetMapIdx(streamID);
 	if (MapIdx == -1) {
 	// :cond_0
-	} else if (((double)rate - 0x3fe0) < 0) {
-	rate = 0x3f00;
+	} else if (((double)rate - 1.75) < 0) {
+	rate = 1.75F;
 	// :cond_1
 	// :cond_2
-	} else if (((double)rate - 0x4000) > 0) {
-	rate = 0x4000;
+	} else if (((double)rate - 2.0) > 0) {
+	rate = 2.0F;
 		}
 	// goto :goto_1
 	// :goto_1

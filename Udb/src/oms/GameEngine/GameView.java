@@ -229,7 +229,7 @@ public void run(){
 	long frameTick = 0;
 	int rectHeight = ((this.cLib.nRefreshHeight - 480) / 0x2);
 	boolean randerMode = false;
-	if ((oms.GameEngine.C_Lib.mCanvasScaleX - oms.GameEngine.C_Lib.mCanvasScaleY) == 0 && (oms.GameEngine.C_Lib.mCanvasScaleX - 0x3f80) == 0) {
+	if ((oms.GameEngine.C_Lib.mCanvasScaleX - oms.GameEngine.C_Lib.mCanvasScaleY) == 0 && (oms.GameEngine.C_Lib.mCanvasScaleX - 1.0F) == 0) {
 		randerMode = true;
 	// :cond_5
 	}else{
@@ -248,8 +248,10 @@ public void run(){
 	// :cond_0
 	}
 	;
-	android.graphics.Rect rc = new android.graphics.Rect(0,0,(int)((float)this.cLib.nRefreshWidth * oms.GameEngine.C_Lib.mCanvasScaleX),(int)((float)this.cLib.nRefreshHeight * oms.GameEngine.C_Lib.mCanvasScaleY));
-	KLog.logObj(rc);
+	int a = (int)((float)this.cLib.nRefreshWidth * oms.GameEngine.C_Lib.mCanvasScaleX);
+	int b = (int)((float)this.cLib.nRefreshHeight * oms.GameEngine.C_Lib.mCanvasScaleY);
+	android.graphics.Rect rc = new android.graphics.Rect(0,0,a,b);
+	//KLog.logObj(rc);
 	//android.graphics.Rect rc = new android.graphics.Rect;
 	// :cond_1
 	// :goto_2
@@ -280,6 +282,7 @@ public void run(){
 		long randerStart = System.currentTimeMillis();
 		
 		try {
+			KLog.logObj("GameView_rc",rc);
 		c = this.mSurfaceHolder.lockCanvas(rc);
 		if (!randerMode) {
 		if (c != null) {
@@ -311,23 +314,25 @@ public void run(){
 			//:try_end_1
 			// :cond_9
 		}
-		}
-		if (c != null) {
-			//:try_start_5
-			// getter for: Loms/GameEngine/GameView;->drawFilter:Landroid/graphics/PaintFlagsDrawFilter;;
-			c.setDrawFilter(GameView.this.drawFilter);
-			// :cond_e
-		}
-		if (rectHeight > 0) {
+		}else{
+			
 			if (c != null) {
-				this.cLib.onDraw(this.cLib,c,rectHeight);
+				//:try_start_5
+				// getter for: Loms/GameEngine/GameView;->drawFilter:Landroid/graphics/PaintFlagsDrawFilter;;
+				c.setDrawFilter(GameView.this.drawFilter);
+				// :cond_e
 			}
-		// goto/16 :goto_5
-		// :cond_f
-		}
-		else if (c != null) {
-			this.cLib.OnDraw(c);
-			//:try_end_5
+			if (rectHeight > 0) {
+				if (c != null) {
+					this.cLib.onDraw(this.cLib,c,rectHeight);
+				}
+				// goto/16 :goto_5
+				// :cond_f
+			}
+			else if (c != null) {
+				this.cLib.OnDraw(c);
+				//:try_end_5
+			}
 		}
 		
 		// :cond_8 

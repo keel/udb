@@ -1,5 +1,7 @@
 package oms.GameEngine;
 
+import info.pharos.ly.KLog;
+
 
 public class SpriteManager extends Object  {
 
@@ -447,8 +449,8 @@ public void ClearACT(){
 	this.Sprite[i].SpriteResID = -1;
 	this.Sprite[i].Alpha = 255;
 	this.Sprite[i].Rotate = 0 /* 0 */;
-	this.Sprite[i].ScaleX = 0x3f80;
-	this.Sprite[i].ScaleY = 0x3f80;
+	this.Sprite[i].ScaleX = 1.0F;
+	this.Sprite[i].ScaleY = 1.0F;
 	i = (i + 0x1);
 	// goto :goto_0
 	// :cond_0
@@ -1044,8 +1046,8 @@ public boolean LoadSpriteResInfo(int ResId,int ACTLibId){
 						}
 
 						if ((this.Sprite[i].Rotate - 0) == 0
-								&& (this.Sprite[i].ScaleX - 0x3f80) == 0
-								&& (this.Sprite[i].ScaleY - 0x3f80) == 0) {
+								&& (this.Sprite[i].ScaleX - 1.0F) == 0
+								&& (this.Sprite[i].ScaleY - 1.0F) == 0) {
 							canvas.drawBitmap(this.SpriteRes[SpriteIdx].Sprite,
 									(float) XVal, (float) YVal,
 									paint[this.Sprite[i].mPaintId]);
@@ -1194,7 +1196,7 @@ public void SetSpriteTransform(int spriteId,int transform){
 			return SpriteIdx;
 			// goto :goto_0
 		} else {
-			if (this.SpriteResACTInfo[(SpriteResId & 65535)].RESACTIdx != -1) {
+			if (this.SpriteResACTInfo[(SpriteResId & 0xffff)].RESACTIdx != -1) {
 				SpriteIdx = (SpriteResId & 0xffff);
 				// :cond_2
 			}
@@ -1203,8 +1205,8 @@ public void SetSpriteTransform(int spriteId,int transform){
 				this.Sprite[this.nShowSpriteNum].SpriteXVal = SpriteX;
 				this.Sprite[this.nShowSpriteNum].SpriteYVal = SpriteY;
 				this.Sprite[this.nShowSpriteNum].Rotate = 0 /* 0 */;
-				this.Sprite[this.nShowSpriteNum].ScaleX = 0x3f80;
-				this.Sprite[this.nShowSpriteNum].ScaleY = 0x3f80;
+				this.Sprite[this.nShowSpriteNum].ScaleX = 1.0F;
+				this.Sprite[this.nShowSpriteNum].ScaleY = 1.0F;
 				this.Sprite[this.nShowSpriteNum].Alpha = 255;
 				this.Sprite[this.nShowSpriteNum].mPaintId = 0 /* 0 */;
 				this.Sprite[this.nShowSpriteNum].mTransform = 0 /* 0 */;

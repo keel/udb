@@ -51,7 +51,7 @@ public GameMedia(android.content.Context context,int StreamNum){
 	// :cond_0
 	}
 	this.loadStreamNum = 0 /* 0 */;
-	this.volume = 0x3f80;
+	this.volume = 1.0F;
 }
 // virtual methods
 
@@ -388,7 +388,7 @@ public void resume(int StreamID){
 }
 
 public void setAllMediaVolume(float Volume){
-	this.volume = 0x3f80;
+	this.volume = 1.0F;
 	return;
 }
 
@@ -416,7 +416,7 @@ public void setLoop(int StreamID,boolean loop){
 }
 
 public void setMediaVolume(int StreamID,float Volume){
-	this.volume = 0x3f80;
+	this.volume = 1.0F;
 	return;
 }
 

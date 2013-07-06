@@ -177,8 +177,8 @@ public void clickMoreGames(){
 			this.cOPhoneApp.getCLib().getGameCanvas()
 					.SetSpriteDrawOffset(0, 48);
 			this.cOPhoneApp.getCLib().SetCanvasScale(
-					((float) scrWidth / 0x43a0),
-					((float) scrHeight / 0x4410));
+					((float) scrWidth / 320),
+					((float) scrHeight / 576));
 			info.pharos.ly.C_Global.g_scrHeight = 0x240;
 		} else {
 			this.cOPhoneApp.getCLib().SetReflashSize(

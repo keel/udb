@@ -173,8 +173,8 @@ public void LoadPicture(int ResTextID,int TextLayer,int TextDepth){
 	oms.GameEngine.TextManager.Text[TextLayer].TextXVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextYVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].Alpha = 255;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 0x3f80;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 0x3f80;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 1.0F;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 1.0F;
 	oms.GameEngine.TextManager.Text[TextLayer].Rotate = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextAttrib = TextDepth;
 	oms.GameEngine.TextManager.Text[TextLayer].TextCtrl = 15;
@@ -208,8 +208,8 @@ public void LoadText(int ResTextID,int TextLayer,int TextDepth){
 	oms.GameEngine.TextManager.Text[TextLayer].TextXVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextYVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].Alpha = 255;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 0x3f80;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 0x3f80;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 1.0F;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 1.0F;
 	oms.GameEngine.TextManager.Text[TextLayer].Rotate = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextAttrib = TextDepth;
 	oms.GameEngine.TextManager.Text[TextLayer].TextCtrl = 15;
@@ -244,8 +244,8 @@ public void LoadText(int Width,int Height,int TextLayer,int TextDepth){
 	oms.GameEngine.TextManager.Text[TextLayer].TextXVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextYVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].Alpha = 255;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 0x3f80;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 0x3f80;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 1.0F;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 1.0F;
 	oms.GameEngine.TextManager.Text[TextLayer].Rotate = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextAttrib = TextDepth;
 	oms.GameEngine.TextManager.Text[TextLayer].TextCtrl = 15;
@@ -303,8 +303,8 @@ public void LoadText(String sResPath,int TextLayer,int TextDepth){
 	oms.GameEngine.TextManager.Text[TextLayer].TextXVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextYVal = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].Alpha = 255;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 0x3f80;
-	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 0x3f80;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleX = 1.0F;
+	oms.GameEngine.TextManager.Text[TextLayer].ScaleY = 1.0F;
 	oms.GameEngine.TextManager.Text[TextLayer].Rotate = 0 /* 0 */;
 	oms.GameEngine.TextManager.Text[TextLayer].TextAttrib = TextDepth;
 	oms.GameEngine.TextManager.Text[TextLayer].TextCtrl = 15;
@@ -323,8 +323,8 @@ public void LoadText(String sResPath,int TextLayer,int TextDepth){
 			if (oms.GameEngine.TextManager.Text[i].Text != null
 					&& oms.GameEngine.TextManager.Text[i].TextAttrib == Attrib) {
 				paint.setAlpha((oms.GameEngine.TextManager.Text[i].Alpha & 0xff));
-				if ((oms.GameEngine.TextManager.Text[i].ScaleX - 0x3f80) == 0) {
-					if ((oms.GameEngine.TextManager.Text[i].ScaleY - 0x3f80) == 0) {
+				if ((oms.GameEngine.TextManager.Text[i].ScaleX - 1.0F) == 0) {
+					if ((oms.GameEngine.TextManager.Text[i].ScaleY - 1.0F) == 0) {
 						if ((oms.GameEngine.TextManager.Text[i].Rotate - 0) == 0) {
 							canvas.drawBitmap(
 									oms.GameEngine.TextManager.Text[i].Text,
@@ -346,7 +346,7 @@ public void LoadText(String sResPath,int TextLayer,int TextDepth){
 								.getWidth() >> 0x1),
 						(float) (oms.GameEngine.TextManager.Text[i].Text
 								.getHeight() >> 0x1));
-				if ((oms.GameEngine.TextManager.Text[i].ScaleX - 0x3f80) == 0 || (oms.GameEngine.TextManager.Text[i].ScaleY - 0x3f80) == 0) {
+				if ((oms.GameEngine.TextManager.Text[i].ScaleX - 1.0F) == 0 || (oms.GameEngine.TextManager.Text[i].ScaleY - 1.0F) == 0) {
 						// :cond_3
 					this.cMatrix.postScale(
 							oms.GameEngine.TextManager.Text[i].ScaleX,

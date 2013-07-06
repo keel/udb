@@ -175,7 +175,7 @@ private void ShowEVENT(){
 }
 
 private void ShowInfo(){
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(0x7f02,28,220,6);
+	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(0x7f020000,28,220,6);
 	info.pharos.ly.C_PUB.ShowNum(info.pharos.ly.C_Save.g_HighScore,30,220,15,1,1,info.pharos.ly.C_DEF.ResultNUM2TBL,7);
 	if ((info.pharos.ly.C_OPhoneApp.cLib.nVBLCount % 0xa) == 0) {
 	this.m_StarFRM = (this.m_StarFRM + 0x1);

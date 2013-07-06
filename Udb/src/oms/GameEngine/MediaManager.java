@@ -27,7 +27,7 @@ public MediaManager(android.content.Context context){
 	android.media.AudioManager mgr = (android.media.AudioManager)this.mContext.getSystemService("audio");
 	oms.GameEngine.MediaManager.SoundVolume = (float)mgr.getStreamVolume(3);
 	oms.GameEngine.MediaManager.MaxVolume = (float)mgr.getStreamMaxVolume(3);
-	oms.GameEngine.MediaManager.VolumeInc = (oms.GameEngine.MediaManager.MaxVolume / 0x41a0);
+	oms.GameEngine.MediaManager.VolumeInc = (oms.GameEngine.MediaManager.MaxVolume / 20);
 }
 // virtual methods
 

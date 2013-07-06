@@ -44,8 +44,8 @@ public SpriteDEF(){
 	this.SpriteCenterX = 0 /* 0 */;
 	this.SpriteCenterY = 0 /* 0 */;
 	this.Rotate = 0 /* 0 */;
-	this.ScaleX = 0x3f80;
-	this.ScaleY = 0x3f80;
+	this.ScaleX = 1.0F;
+	this.ScaleY = 1.0F;
 	this.release();
 }
 // virtual methods
@@ -58,8 +58,8 @@ public void release(){
 	this.SpriteCenterX = 0 /* 0 */;
 	this.SpriteCenterY = 0 /* 0 */;
 	this.Rotate = 0 /* 0 */;
-	this.ScaleX = 0x3f80;
-	this.ScaleY = 0x3f80;
+	this.ScaleX = 1.0F;
+	this.ScaleY = 1.0F;
 	this.Alpha = 255;
 	this.RotateX = 0 /* 0 */;
 	this.RotateY = 0 /* 0 */;

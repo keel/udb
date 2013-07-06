@@ -33,8 +33,8 @@ public int nVBLCount;
 // direct methods
 
 static{
-	oms.GameEngine.C_Lib.mCanvasScaleX = 0x3f80;
-	oms.GameEngine.C_Lib.mCanvasScaleY = 0x3f80;
+	oms.GameEngine.C_Lib.mCanvasScaleX = 1;
+	oms.GameEngine.C_Lib.mCanvasScaleY = 1 /* 0x3f80 */;
 	;
 	oms.GameEngine.C_Lib.bitmapOptions = new android.graphics.BitmapFactory.Options();
 }
@@ -58,7 +58,7 @@ public C_Lib(android.content.Context context,int TextLayer,int SpriteResNum,int 
 	this.nVBLCount = 0 /* 0 */;
 	this.nRefreshWidth = 320;
 	this.nRefreshHeight = 480;
-	this.nScaledDensity = 0x3f80;
+	this.nScaledDensity = 1.0F;
 	this.cView = null /* 0 */;
 	this.cThread = null /* 0 */;
 	this.mBackground = null /* 0 */;
@@ -202,7 +202,7 @@ public void SetReflashSize(int Width,int Height,float scaledDensity){
 	int xOff = ((this.nRefreshWidth - 320) / 0x2);
 	int yOff = ((this.nRefreshHeight - 480) / 0x2);
 	this.SetScreenOffset(xOff,yOff);
-	this.SetCanvasScale(0x3f80,0x3f80);
+	this.SetCanvasScale(1,1);
 	return;
 }
 

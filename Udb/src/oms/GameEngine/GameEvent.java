@@ -246,7 +246,7 @@ public boolean MakeEVENT(int x,int y,int z){
 	this.EVT.TouchEVTIdx = 0 /* 0 */;
 	this.EVT.TouchEVTName = "";
 	this.EVT.Rotate = 0 /* 0 */;
-	this.EVT.Scale = 0x3f80;
+	this.EVT.Scale = 1.0F;
 	this.EVT.mPaintId = 0 /* 0 */;
 	;
 	return true /* 1 */;
@@ -427,7 +427,7 @@ public EventDEF(){
 	this.Valid = false /* 0 */;
 	this.mPaintId = 0 /* 0 */;
 	this.Rotate = 0 /* 0 */;
-	this.Scale = 0x3f80;
+	this.Scale = 1.0F;
 }
 
 }

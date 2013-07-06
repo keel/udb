@@ -18,6 +18,7 @@ public void GameMain(){
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().LoadText(2130837741,0,0);
 //	GameCanvas gcv = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas();
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().SetTextYVal(0,-48);
+//
 //	KLog.logObj(gcv.GetViewRect());
 //	KLog.printTrace();
 	info.pharos.ly.C_OPhoneApp.cLib.ViewOpen(64);

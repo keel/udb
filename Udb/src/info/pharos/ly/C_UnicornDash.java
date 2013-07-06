@@ -51,6 +51,8 @@ public void GameMain(){
 	info.pharos.ly.C_PUB.setGameMode(1);
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().SetViewRect(-1024,-2048,1024,1024);
 	
+	
+	
 	while (this.m_isRun) {
 	
 

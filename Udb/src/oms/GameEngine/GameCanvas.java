@@ -576,7 +576,7 @@ public boolean isReflash(){
 					oms.GameEngine.GameCanvas.paint);
 			canvas.drawBitmap(cLib.mBackground,
 					(float) oms.GameEngine.GameCanvas.nScreenXOff,
-					(float) (picHeight + 0x1e0),
+					(float) (picHeight + 480),
 					oms.GameEngine.GameCanvas.paint);
 			// :cond_0
 		}
@@ -611,7 +611,7 @@ public boolean isReflash(){
 					oms.GameEngine.GameCanvas.paint);
 			canvas.drawBitmap(cLib.mBackground,
 					(float) oms.GameEngine.GameCanvas.nScreenXOff,
-					(float) (picHeight + 0x1e0),
+					(float) (picHeight + 480),
 					oms.GameEngine.GameCanvas.paint);
 			// :cond_1
 		}

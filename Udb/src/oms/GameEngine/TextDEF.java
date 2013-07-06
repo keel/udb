@@ -60,8 +60,8 @@ public int TextYVal;
 public TextDEF(){
 	super();
 	this.Rotate = 0 /* 0 */;
-	this.ScaleX = 0x3f80;
-	this.ScaleY = 0x3f80;
+	this.ScaleX = 1.0F;
+	this.ScaleY = 1.0F;
 	this.Text = null /* 0 */;
 	this.TextAttrib = 0 /* 0 */;
 	this.TextCtrl = 0 /* 0 */;
