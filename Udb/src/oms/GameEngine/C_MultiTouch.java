@@ -251,10 +251,10 @@ public boolean CHKTouchUp(){
 				this.mTouchDownReadCount = (this.mTouchDownReadCount + 0x1);
 				// :cond_1
 			}
-			this.mTouchDownReadId[0] = this.mTouchDownWriteId[i];
-			this.mTouchDownReadXVal[0] = this.mTouchDownWriteXVal[i];
-			this.mTouchDownReadYVal[0] = this.mTouchDownWriteYVal[i];
-			this.mTouchDownWriteId[0] = -1;
+			this.mTouchDownReadId[i] = this.mTouchDownWriteId[i];
+			this.mTouchDownReadXVal[i] = this.mTouchDownWriteXVal[i];
+			this.mTouchDownReadYVal[i] = this.mTouchDownWriteYVal[i];
+			this.mTouchDownWriteId[i] = -1;
 			i = (i + 0x1);
 			// goto :goto_0
 			// :cond_0
@@ -266,10 +266,10 @@ public boolean CHKTouchUp(){
 				this.mTouchUpReadCount = (this.mTouchUpReadCount + 0x1);
 				// :cond_3
 			}
-			this.mTouchUpReadId[0] = this.mTouchUpWriteId[i];
-			this.mTouchUpReadXVal[0] = this.mTouchUpWriteXVal[i];
-			this.mTouchUpReadYVal[0] = this.mTouchUpWriteYVal[i];
-			this.mTouchUpWriteId[0] = -1;
+			this.mTouchUpReadId[i] = this.mTouchUpWriteId[i];
+			this.mTouchUpReadXVal[i] = this.mTouchUpWriteXVal[i];
+			this.mTouchUpReadYVal[i] = this.mTouchUpWriteYVal[i];
+			this.mTouchUpWriteId[i] = -1;
 			i = (i + 0x1);
 			// goto :goto_1
 			// :cond_2
@@ -281,7 +281,7 @@ public boolean CHKTouchUp(){
 				this.mTouchMove = true;
 				// :cond_5
 			}
-			this.mTouchMoveReadId[0] = this.mTouchMoveWriteId[i];
+			this.mTouchMoveReadId[i] = this.mTouchMoveWriteId[i];
 			if (this.mTouchMoveWriteId[i] != -1) {
 				this.mTouchMove = true;
 				// :cond_6
@@ -294,9 +294,9 @@ public boolean CHKTouchUp(){
 				// goto :goto_3
 				// :cond_7
 			}
-			this.mTouchMoveReadCount[0] = this.mTouchMoveWriteCount[i];
-			this.mTouchMoveWriteCount[0] = 0 /* 0 */;
-			this.mTouchMoveWriteId[0] = -1;
+			this.mTouchMoveReadCount[i] = this.mTouchMoveWriteCount[i];
+			this.mTouchMoveWriteCount[i] = 0 /* 0 */;
+			this.mTouchMoveWriteId[i] = -1;
 			i = (i + 0x1);
 			// goto/16 :goto_2
 			// :cond_4
@@ -489,43 +489,44 @@ protected void handleSDK8MultiTouch(android.view.MotionEvent event){
 	int pointerCount = oms.GameEngine.C_MotionEventWrapper8.getPointerCount(event);
 	int action = event.getAction();
 	int idx = 0;
-	if (idx >= pointerCount) {
-	return;
-	} else {
-	int id = oms.GameEngine.C_MotionEventWrapper8.getPointerId(event,idx);
-	float realX = oms.GameEngine.C_MotionEventWrapper8.getX(event,idx);
-	float realY = oms.GameEngine.C_MotionEventWrapper8.getY(event,idx);
-	int X = (int)(realX - (float)oms.GameEngine.C_MultiTouch.nScreenXOff);
-	int Y = (int)(realY - (float)oms.GameEngine.C_MultiTouch.nScreenYOff);
-	int x = this.ChangeToLpX(oms.GameEngine.GameMath.convertToRealX(X),oms.GameEngine.GameMath.convertToRealY(Y));
-	int y = this.ChangeToLpY(oms.GameEngine.GameMath.convertToRealX(X),oms.GameEngine.GameMath.convertToRealY(Y));
-	switch((action & 0xff)){
-	case 0: 
-	this.onTouchDown((float)x,(float)y,pointerCount,id);
-	break;
-	case 1: 
-	this.onTouchUp((float)x,(float)y,pointerCount,id);
-	break;
-	case 2: 
-	this.onTouchMove((float)x,(float)y,pointerCount,id);
-	break;
-	case 5: 
-	if (((action & 65280) >> 0x8) == idx) {
-	this.onTouchDown((float)x,(float)y,pointerCount,id);
-	}
-	break;
-	case 6: 
-	if (((action & 65280) >> 0x8) == idx) {
-	this.onTouchUp((float)x,(float)y,pointerCount,id);
-	break;
-	} //end of switch
-	// :cond_1
-	}
-	//:pswitch_0
-	idx = (idx + 0x1);
-	//goto somewhere; //maybe return,continue,break: goto :goto_0
-	// op;
-	
+		while (idx < pointerCount) {
+			int id = oms.GameEngine.C_MotionEventWrapper8.getPointerId(event,
+					idx);
+			float realX = oms.GameEngine.C_MotionEventWrapper8.getX(event, idx);
+			float realY = oms.GameEngine.C_MotionEventWrapper8.getY(event, idx);
+			int X = (int) (realX - (float) oms.GameEngine.C_MultiTouch.nScreenXOff);
+			int Y = (int) (realY - (float) oms.GameEngine.C_MultiTouch.nScreenYOff);
+			int x = this.ChangeToLpX(oms.GameEngine.GameMath.convertToRealX(X),
+					oms.GameEngine.GameMath.convertToRealY(Y));
+			int y = this.ChangeToLpY(oms.GameEngine.GameMath.convertToRealX(X),
+					oms.GameEngine.GameMath.convertToRealY(Y));
+			switch ((action & 0xff)) {
+			case 0:
+				this.onTouchDown((float) x, (float) y, pointerCount, id);
+				break;
+			case 1:
+				this.onTouchUp((float) x, (float) y, pointerCount, id);
+				break;
+			case 2:
+				this.onTouchMove((float) x, (float) y, pointerCount, id);
+				break;
+			case 5:
+				if (((action & 65280) >> 0x8) == idx) {
+					this.onTouchDown((float) x, (float) y, pointerCount, id);
+				}
+				break;
+			case 6:
+				if (((action & 65280) >> 0x8) == idx) {
+					this.onTouchUp((float) x, (float) y, pointerCount, id);
+					break;
+				} // end of switch
+					// :cond_1
+			}
+			// :pswitch_0
+			idx = (idx + 0x1);
+			// goto somewhere; //maybe return,continue,break: goto :goto_0
+			// op;
+
 		}
 }
 
