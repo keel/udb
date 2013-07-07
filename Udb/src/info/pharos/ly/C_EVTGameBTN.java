@@ -244,28 +244,28 @@ private void setSoundBNTACT(){
 }
 // virtual methods
 
-public void CreateGameBTN(int BTNType,int XVal,int YVal){
-	int i = 0;
-	while (i < 5) {
-	if (!this.c_EVTGameBTN[i].EVT.Valid) {
-	this.c_EVTGameBTN[i].MakeEVENT(XVal,YVal,0);
-	this.c_EVTGameBTN[i].EVT.Flag = 2;
-	this.c_EVTGameBTN[i].EVT.Attrib = 7;
-	this.c_EVTGameBTN[i].EVT.Status = (this.c_EVTGameBTN[i].EVT.Status | 0x2000);
-	this.c_EVTGameBTN[i].m_BTNType = BTNType;
-	this.c_EVTGameBTN[i].m_isTouch = false /* 0 */;
-	this.SetGameBTNType(i,BTNType);
-	info.pharos.ly.C_Global.g_BtnIsValid = true;
-	// goto :goto_1
-break ; //
-	} else {
-	i = (i + 0x1);
+	public void CreateGameBTN(int BTNType, int XVal, int YVal) {
+		int i = 0;
+		while (i < 5) {
+			if (!this.c_EVTGameBTN[i].EVT.Valid) {
+				this.c_EVTGameBTN[i].MakeEVENT(XVal, YVal, 0);
+				this.c_EVTGameBTN[i].EVT.Flag = 2;
+				this.c_EVTGameBTN[i].EVT.Attrib = 7;
+				this.c_EVTGameBTN[i].EVT.Status = (this.c_EVTGameBTN[i].EVT.Status | 0x2000);
+				this.c_EVTGameBTN[i].m_BTNType = BTNType;
+				this.c_EVTGameBTN[i].m_isTouch = false /* 0 */;
+				this.SetGameBTNType(i, BTNType);
+				info.pharos.ly.C_Global.g_BtnIsValid = true;
+				// goto :goto_1
+				break; //
+			} else {
+				i = (i + 0x1);
+			}
+			// goto :goto_0
+			// :cond_0
 		}
-	// goto :goto_0
-	// :cond_0
+		return;
 	}
-	return;
-}
 
 public void EVTRUN(){
 	;

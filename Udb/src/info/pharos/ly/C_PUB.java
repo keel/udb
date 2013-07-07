@@ -126,73 +126,85 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 	
 }
 
-public static void CHKTouch_Input(){
-	int i = 0;
-	while (i < 4) {
-	if ((info.pharos.ly.C_Global.g_TouchFlag[i] & 0x8) == 8) {
-	info.pharos.ly.C_Global.g_TouchId[0] = -1;
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x3);
-	// :cond_4
+	public static void CHKTouch_Input() {
+		int i = 0;
+		while (i < 4) {
+			if ((info.pharos.ly.C_Global.g_TouchFlag[i] & 0x8) == 8) {
+				info.pharos.ly.C_Global.g_TouchId[0] = -1;
+				info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x3);
+				// :cond_4
+			}
+			info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x5);
+			info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x9);
+			i = (i + 0x1);
+			// goto :goto_0
+			// :cond_3
+		}
+		if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchDown()) {
+			i = 0 /* 0 */;
+			while (i < 4) {
+				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownId(i) != -1) {
+					info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
+					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
+					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x4);
+					info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch
+							.getTouchDownX(i);
+					info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch
+							.getTouchDownY(i);
+					// :cond_6
+				}
+				i = (i + 0x1);
+				// goto :goto_1
+				// :cond_5
+			}
+			// :cond_0
+		}
+		if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchMove()) {
+			i = 0 /* 0 */;
+			while (i < 4) {
+				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveId(i) != -1
+						&& info.pharos.ly.C_OPhoneApp.cTouch
+								.getTouchMoveCount(i) > 0) {
+					info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
+					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
+					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x10);
+					info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch
+							.getTouchMoveX(i,
+									(info.pharos.ly.C_OPhoneApp.cTouch
+											.getTouchMoveCount(i) - 1));
+					info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch
+							.getTouchMoveY(i,
+									(info.pharos.ly.C_OPhoneApp.cTouch
+											.getTouchMoveCount(i) - 1));
+					// :cond_8
+				}
+				i = (i + 0x1);
+				// goto/16 :goto_2
+				// :cond_7
+			}
+			// :cond_1
+		}
+		if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchUp()) {
+			i = 0 /* 0 */;
+			while (i < 4) {
+				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpId(i) != -1) {
+					info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
+					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
+					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x8);
+					info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch
+							.getTouchUpX(i);
+					info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch
+							.getTouchUpY(i);
+					// :cond_a
+				}
+				i = (i + 0x1);
+				// goto/16 :goto_3
+				// :cond_9
+			}
+			// :cond_2
+		}
+		return;
 	}
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x5);
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x9);
-	i = (i + 0x1);
-	// goto :goto_0
-	// :cond_3
-	}
-	if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchDown()) {
-	i = 0 /* 0 */;
-	while (i < 4) {
-	if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownId(i) != -1) {
-	info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x4);
-	info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownX(i);
-	info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownY(i);
-	// :cond_6
-	}
-	i = (i + 0x1);
-	// goto :goto_1
-	// :cond_5
-	}
-	// :cond_0
-	}
-	if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchMove()) {
-	i = 0 /* 0 */;
-	while (i < 4) {
-	if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveId(i) != -1 && info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveCount(i) > 0) {
-	info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x10);
-	info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveX(i,(info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveCount(i) - 1));
-	info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveY(i,(info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveCount(i) - 1));
-	// :cond_8
-	}
-	i = (i + 0x1);
-	// goto/16 :goto_2
-	// :cond_7
-	}
-	// :cond_1
-	}
-	if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchUp()) {
-	i = 0 /* 0 */;
-	while (i < 4) {
-	if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpId(i) != -1) {
-	info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
-	info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x8);
-	info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpX(i);
-	info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpY(i);
-	// :cond_a
-	}
-	i = (i + 0x1);
-	// goto/16 :goto_3
-	// :cond_9
-	}
-	// :cond_2
-	}
-	return;
-}
 
 public static boolean CHKisTouch(){
 	int i = 0;

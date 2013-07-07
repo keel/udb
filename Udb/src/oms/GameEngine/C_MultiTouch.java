@@ -243,66 +243,66 @@ public boolean CHKTouchUp(){
 	//return 1;
 }
 
-public void ReadTouch(){
-	this.mTouchDownReadCount = 0 /* 0 */;
-	int i = 0;
-	while (i < 4) {
-	if (this.mTouchDownWriteId[i] != -1) {
-	this.mTouchDownReadCount = (this.mTouchDownReadCount + 0x1);
-	// :cond_1
+	public void ReadTouch() {
+		this.mTouchDownReadCount = 0 /* 0 */;
+		int i = 0;
+		while (i < 4) {
+			if (this.mTouchDownWriteId[i] != -1) {
+				this.mTouchDownReadCount = (this.mTouchDownReadCount + 0x1);
+				// :cond_1
+			}
+			this.mTouchDownReadId[0] = this.mTouchDownWriteId[i];
+			this.mTouchDownReadXVal[0] = this.mTouchDownWriteXVal[i];
+			this.mTouchDownReadYVal[0] = this.mTouchDownWriteYVal[i];
+			this.mTouchDownWriteId[0] = -1;
+			i = (i + 0x1);
+			// goto :goto_0
+			// :cond_0
+		}
+		this.mTouchUpReadCount = 0 /* 0 */;
+		i = 0 /* 0 */;
+		while (i < 4) {
+			if (this.mTouchUpWriteId[i] != -1) {
+				this.mTouchUpReadCount = (this.mTouchUpReadCount + 0x1);
+				// :cond_3
+			}
+			this.mTouchUpReadId[0] = this.mTouchUpWriteId[i];
+			this.mTouchUpReadXVal[0] = this.mTouchUpWriteXVal[i];
+			this.mTouchUpReadYVal[0] = this.mTouchUpWriteYVal[i];
+			this.mTouchUpWriteId[0] = -1;
+			i = (i + 0x1);
+			// goto :goto_1
+			// :cond_2
+		}
+		this.mTouchMove = false /* 0 */;
+		i = 0 /* 0 */;
+		while (i < 4) {
+			if (this.mTouchMoveWriteId[i] != -1) {
+				this.mTouchMove = true;
+				// :cond_5
+			}
+			this.mTouchMoveReadId[0] = this.mTouchMoveWriteId[i];
+			if (this.mTouchMoveWriteId[i] != -1) {
+				this.mTouchMove = true;
+				// :cond_6
+			}
+			int j = 0;
+			while (j < 10) {
+				this.mTouchMoveReadXVal[i][j] = this.mTouchMoveWriteXVal[i][j];
+				this.mTouchMoveReadYVal[i][j] = this.mTouchMoveWriteYVal[i][j];
+				j = (j + 0x1);
+				// goto :goto_3
+				// :cond_7
+			}
+			this.mTouchMoveReadCount[0] = this.mTouchMoveWriteCount[i];
+			this.mTouchMoveWriteCount[0] = 0 /* 0 */;
+			this.mTouchMoveWriteId[0] = -1;
+			i = (i + 0x1);
+			// goto/16 :goto_2
+			// :cond_4
+		}
+		return;
 	}
-	this.mTouchDownReadId[0] = this.mTouchDownWriteId[i];
-	this.mTouchDownReadXVal[0] = this.mTouchDownWriteXVal[i];
-	this.mTouchDownReadYVal[0] = this.mTouchDownWriteYVal[i];
-	this.mTouchDownWriteId[0] = -1;
-	i = (i + 0x1);
-	// goto :goto_0
-	// :cond_0
-	}
-	this.mTouchUpReadCount = 0 /* 0 */;
-	i = 0 /* 0 */;
-	while (i < 4) {
-	if (this.mTouchUpWriteId[i] != -1) {
-	this.mTouchUpReadCount = (this.mTouchUpReadCount + 0x1);
-	// :cond_3
-	}
-	this.mTouchUpReadId[0] = this.mTouchUpWriteId[i];
-	this.mTouchUpReadXVal[0] = this.mTouchUpWriteXVal[i];
-	this.mTouchUpReadYVal[0] = this.mTouchUpWriteYVal[i];
-	this.mTouchUpWriteId[0] = -1;
-	i = (i + 0x1);
-	// goto :goto_1
-	// :cond_2
-	}
-	this.mTouchMove = false /* 0 */;
-	i = 0 /* 0 */;
-	while (i < 4) {
-	if (this.mTouchMoveWriteId[i] != -1) {
-	this.mTouchMove = true;
-	// :cond_5
-	}
-	this.mTouchMoveReadId[0] = this.mTouchMoveWriteId[i];
-	if (this.mTouchMoveWriteId[i] != -1) {
-	this.mTouchMove = true;
-	// :cond_6
-	}
-	int j = 0;
-	while (j < 10) {
-	this.mTouchMoveReadXVal[i][j] = this.mTouchMoveWriteXVal[i][j];
-	this.mTouchMoveReadYVal[i][j] = this.mTouchMoveWriteYVal[i][j];
-	j = (j + 0x1);
-	// goto :goto_3
-	// :cond_7
-	}
-	this.mTouchMoveReadCount[0] = this.mTouchMoveWriteCount[i];
-	this.mTouchMoveWriteCount[0] = 0 /* 0 */;
-	this.mTouchMoveWriteId[0] = -1;
-	i = (i + 0x1);
-	// goto/16 :goto_2
-	// :cond_4
-	}
-	return;
-}
 
 public void SetScreenOrientation(int orientation){
 	this.nScreenOrientation = orientation;

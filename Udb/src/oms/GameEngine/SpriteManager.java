@@ -362,11 +362,11 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	} else {
 	this.nCurBMPRamSize = (this.nCurBMPRamSize + (long)this.GetBitmapSize(bmp));
 	if (this.mIsLogOut) {
-	android.util.Log.v("GameEngine",new StringBuilder("ResID: ").append(this.ACTStructInfo.ResID).toString());
-	android.util.Log.v("GameEngine",new StringBuilder("Width: ").append(bmp.getWidth()).toString());
-	android.util.Log.v("GameEngine",new StringBuilder("Height: ").append(bmp.getHeight()).toString());
-	android.util.Log.v("GameEngine",new StringBuilder("OPtions: ").append(bmp.getConfig()).toString());
-	android.util.Log.v("GameEngine",new StringBuilder("Picture use RAM: ").append((this.nCurBMPRamSize / 1024)).append(" KBytes").toString());
+	android.util.Log.v("Sprite",new StringBuilder("ResID: ").append(this.ACTStructInfo.ResID).toString());
+	android.util.Log.v("Sprite",new StringBuilder("Width: ").append(bmp.getWidth()).toString());
+	android.util.Log.v("Sprite",new StringBuilder("Height: ").append(bmp.getHeight()).toString());
+	android.util.Log.v("Sprite",new StringBuilder("OPtions: ").append(bmp.getConfig()).toString());
+	android.util.Log.v("Sprite",new StringBuilder("Picture use RAM: ").append((this.nCurBMPRamSize / 1024)).append(" KBytes").toString());
 	// :cond_14
 	}
 	this.SpriteRes[nResId].Sprite = bmp;
@@ -1086,7 +1086,7 @@ public boolean LoadSpriteResInfo(int ResId,int ACTLibId){
 					}
 				}
 				// cond 8
-				if (this.nCurFlushSpriteNum != this.nShowSpriteNum) {
+				if (this.nCurFlushSpriteNum == this.nShowSpriteNum) {
 					;
 					return true;
 				}
@@ -1214,9 +1214,9 @@ public void SetSpriteTransform(int spriteId,int transform){
 				this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short) this.SpriteRes[SpriteIdx].SpriteCenterY;
 				this.Sprite[this.nShowSpriteNum].RotateX = -1;
 				this.Sprite[this.nShowSpriteNum].RotateY = -1;
-				SpriteIdx = this.nShowSpriteNum;
+				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
 				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				SpriteIdx = this.nShowSpriteNum;
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I
@@ -1264,9 +1264,9 @@ public void SetSpriteTransform(int spriteId,int transform){
 				this.Sprite[this.nShowSpriteNum].SpriteCenterY = (short) this.SpriteRes[SpriteIdx].SpriteCenterY;
 				this.Sprite[this.nShowSpriteNum].RotateX = -1;
 				this.Sprite[this.nShowSpriteNum].RotateY = -1;
-				SpriteIdx = this.nShowSpriteNum;
+				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
 				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				SpriteIdx = this.nShowSpriteNum;
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I
@@ -1328,9 +1328,9 @@ public void SetSpriteTransform(int spriteId,int transform){
 				}
 				// goto :goto_2
 				// :goto_2
-				SpriteIdx = this.nShowSpriteNum;
+				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
 				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				SpriteIdx = this.nShowSpriteNum;
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I
@@ -1394,9 +1394,9 @@ public void SetSpriteTransform(int spriteId,int transform){
 				}
 				// goto :goto_2
 				// :goto_2
-				SpriteIdx = this.nShowSpriteNum;
+				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
 				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
-				this.Sprite[SpriteIdx].SpriteAttrib = SpriteAttr;
+				SpriteIdx = this.nShowSpriteNum;
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I

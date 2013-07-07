@@ -181,7 +181,9 @@ private void ShowInfo(){
 	this.m_StarFRM = (this.m_StarFRM + 0x1);
 	// :cond_0
 	}
+		
 	this.m_StarFRM = (this.m_StarFRM % 0x5);
+	
 	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(info.pharos.ly.C_SceneMenu.StarACTTBL[this.m_StarFRM],296,210,6);
 	return;
 }
