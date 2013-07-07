@@ -1215,8 +1215,8 @@ public void SetSpriteTransform(int spriteId,int transform){
 				this.Sprite[this.nShowSpriteNum].RotateX = -1;
 				this.Sprite[this.nShowSpriteNum].RotateY = -1;
 				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I
@@ -1265,8 +1265,8 @@ public void SetSpriteTransform(int spriteId,int transform){
 				this.Sprite[this.nShowSpriteNum].RotateX = -1;
 				this.Sprite[this.nShowSpriteNum].RotateY = -1;
 				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I
@@ -1329,8 +1329,8 @@ public void SetSpriteTransform(int spriteId,int transform){
 				// goto :goto_2
 				// :goto_2
 				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I
@@ -1395,8 +1395,8 @@ public void SetSpriteTransform(int spriteId,int transform){
 				// goto :goto_2
 				// :goto_2
 				this.Sprite[this.nShowSpriteNum].SpriteAttrib = SpriteAttr;
-				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				SpriteIdx = this.nShowSpriteNum;
+				this.nShowSpriteNum = (this.nShowSpriteNum + 0x1);
 				// :cond_3
 			}
 			// [OTHER] end local v0 #SpriteIdx:I
