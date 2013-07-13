@@ -676,7 +676,7 @@ private void Initialize(){
 	int i = 0;
 	while (i < 5) {
 	;
-	this.c_EVTLand[0] = new info.pharos.ly.C_EVTLand();
+	this.c_EVTLand[i] = new info.pharos.ly.C_EVTLand();
 	i = (i + 0x1);
 	// goto :goto_0
 	// :cond_0
@@ -686,7 +686,7 @@ private void Initialize(){
 	i = 0 /* 0 */;
 	while (i < 5) {
 	;
-	this.c_EVTGameBTN[0] = new info.pharos.ly.C_EVTGameBTN();
+	this.c_EVTGameBTN[i] = new info.pharos.ly.C_EVTGameBTN();
 	i = (i + 0x1);
 	// goto :goto_1
 	// :cond_1
@@ -696,7 +696,7 @@ private void Initialize(){
 	i = 0 /* 0 */;
 	while (i < 5) {
 	;
-	this.c_EVTPropA[0] = new info.pharos.ly.C_EVTPropA();
+	this.c_EVTPropA[i] = new info.pharos.ly.C_EVTPropA();
 	i = (i + 0x1);
 	// goto :goto_2
 	// :cond_2
@@ -706,7 +706,7 @@ private void Initialize(){
 	i = 0 /* 0 */;
 	while (i < 2) {
 	;
-	this.c_EVTEidolon[0] = new info.pharos.ly.C_EVTEidolon();
+	this.c_EVTEidolon[i] = new info.pharos.ly.C_EVTEidolon();
 	i = (i + 0x1);
 	// goto :goto_3
 	// :cond_3
@@ -716,7 +716,7 @@ private void Initialize(){
 	i = 0 /* 0 */;
 	while (i < 10) {
 	;
-	this.c_EVTEffect[0] = new info.pharos.ly.C_EVTEffect();
+	this.c_EVTEffect[i] = new info.pharos.ly.C_EVTEffect();
 	i = (i + 0x1);
 	// goto :goto_4
 	// :cond_4

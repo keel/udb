@@ -94,14 +94,14 @@ public TouchPannel(){
 	this.mTouchUpBuff[0] = 0 /* 0 */;
 	int i = 0;
 	while (i < 20) {
-	this.mTouchXBuff[0] = 0 /* 0 */;
-	this.mTouchYBuff[0] = 0 /* 0 */;
-	this.mTouchXReadBuff[0] = 0 /* 0 */;
-	this.mTouchYReadBuff[0] = 0 /* 0 */;
-	this.mTouchUpXBuff[0] = 0 /* 0 */;
-	this.mTouchUpYBuff[0] = 0 /* 0 */;
-	this.mTouchUpXReadBuff[0] = 0 /* 0 */;
-	this.mTouchUpYReadBuff[0] = 0 /* 0 */;
+	this.mTouchXBuff[i] = 0 /* 0 */;
+	this.mTouchYBuff[i] = 0 /* 0 */;
+	this.mTouchXReadBuff[i] = 0 /* 0 */;
+	this.mTouchYReadBuff[i] = 0 /* 0 */;
+	this.mTouchUpXBuff[i] = 0 /* 0 */;
+	this.mTouchUpYBuff[i] = 0 /* 0 */;
+	this.mTouchUpXReadBuff[i] = 0 /* 0 */;
+	this.mTouchUpYReadBuff[i] = 0 /* 0 */;
 	i = (i + 0x1);
 	// goto :goto_0
 	// :cond_0
@@ -109,10 +109,10 @@ public TouchPannel(){
 	this.mTouchMoveBuff[0] = 0 /* 0 */;
 	i = 0 /* 0 */;
 	while (i < 20) {
-	this.mTouchMoveXBuff[0] = 0 /* 0 */;
-	this.mTouchMoveYBuff[0] = 0 /* 0 */;
-	this.mTouchMoveXReadBuff[0] = 0 /* 0 */;
-	this.mTouchMoveYReadBuff[0] = 0 /* 0 */;
+	this.mTouchMoveXBuff[i] = 0 /* 0 */;
+	this.mTouchMoveYBuff[i] = 0 /* 0 */;
+	this.mTouchMoveXReadBuff[i] = 0 /* 0 */;
+	this.mTouchMoveYReadBuff[i] = 0 /* 0 */;
 	i = (i + 0x1);
 	// goto :goto_1
 	// :cond_1
@@ -336,8 +336,8 @@ public void ReadTouch(){
 	this.mTouchDownBuff[0] = 0 /* 0 */;
 	int i = 0;
 	while (i < this.mTouchDownWriteCount) {
-	this.mTouchXReadBuff[0] = this.mTouchXBuff[i];
-	this.mTouchYReadBuff[0] = this.mTouchYBuff[i];
+	this.mTouchXReadBuff[i] = this.mTouchXBuff[i];
+	this.mTouchYReadBuff[i] = this.mTouchYBuff[i];
 	i = (i + 0x1);
 	// goto :goto_1
 	// :cond_1
@@ -363,10 +363,10 @@ public void ReadTouch(){
 	// :goto_3
 	i = 0 /* 0 */;
 	while (i < this.mTouchMoveWriteCount) {
-	this.mTouchMoveXReadBuff[0] = this.mTouchMoveXBuff[i];
-	this.mTouchMoveYReadBuff[0] = this.mTouchMoveYBuff[i];
-	this.mTouchMoveXBuff[0] = 0 /* 0 */;
-	this.mTouchMoveYBuff[0] = 0 /* 0 */;
+	this.mTouchMoveXReadBuff[i] = this.mTouchMoveXBuff[i];
+	this.mTouchMoveYReadBuff[i] = this.mTouchMoveYBuff[i];
+	this.mTouchMoveXBuff[i] = 0 /* 0 */;
+	this.mTouchMoveYBuff[i] = 0 /* 0 */;
 	i = (i + 0x1);
 	// goto :goto_4
 	// :cond_4
@@ -385,10 +385,10 @@ public void ReadTouch(){
 	this.mTouchUpBuff[0] = 0 /* 0 */;
 	i = 0 /* 0 */;
 	while (i < this.mTouchUpWriteCount) {
-	this.mTouchUpXReadBuff[0] = this.mTouchUpXBuff[i];
-	this.mTouchUpYReadBuff[0] = this.mTouchUpYBuff[i];
-	this.mTouchUpXBuff[0] = 0 /* 0 */;
-	this.mTouchUpYBuff[0] = 0 /* 0 */;
+	this.mTouchUpXReadBuff[i] = this.mTouchUpXBuff[i];
+	this.mTouchUpYReadBuff[i] = this.mTouchUpYBuff[i];
+	this.mTouchUpXBuff[i] = 0 /* 0 */;
+	this.mTouchUpYBuff[i] = 0 /* 0 */;
 	i = (i + 0x1);
 	// goto :goto_6
 	// :cond_6
