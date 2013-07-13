@@ -46,8 +46,11 @@ public C_MultiTouch(){
 }
 
 private int ChangeToLpX(int X,int Y){
-	;
+	
 	switch(this.nScreenOrientation){
+	case 0: 
+	case 3:
+		return X;
 	case 1: 
 	X = Y;
 	return X;
@@ -69,6 +72,9 @@ private int ChangeToLpX(int X,int Y){
 private int ChangeToLpY(int X,int Y){
 	;
 	switch(this.nScreenOrientation){
+	case 0: 
+	case 3:
+		return Y;
 	case 1: 
 	Y = (oms.GameEngine.GameCanvas.GetScreenWidth() - X);
 	return Y;

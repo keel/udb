@@ -55,23 +55,23 @@ public void CheckEVTFun(oms.GameEngine.GameCanvas canvas){
 	return;
 }
 
-public void EVTACT(){
-	if ((this.EVT.Status & 32768) != 32768) {
-	this.EVT.ACTIdx = this.EVT.ACTPtr[this.EVT.Ctrl][this.EVT.CurFRM];
-	if ((this.EVT.Status & 0x80) != 128) {
-	this.EVT.CurCNT = (this.EVT.CurCNT + 0x1);
-	if ((this.EVT.CurCNT + 0x1) >= this.EVT.MaxCNT) {
-	this.EVT.CurCNT = 0 /* 0 */;
-	this.EVT.CurFRM = (this.EVT.CurFRM + 0x1);
-	if ((this.EVT.CurFRM + 0x1) >= this.EVT.MaxFRM) {
-	this.EVT.CurFRM = 0 /* 0 */;
-	// :cond_0
+	public void EVTACT() {
+		if ((this.EVT.Status & 32768) != 32768) {
+			this.EVT.ACTIdx = this.EVT.ACTPtr[this.EVT.Ctrl][this.EVT.CurFRM];
+			if ((this.EVT.Status & 0x80) != 128) {
+				this.EVT.CurCNT = (this.EVT.CurCNT + 0x1);
+				if (this.EVT.CurCNT >= this.EVT.MaxCNT) {
+					this.EVT.CurCNT = 0 /* 0 */;
+					this.EVT.CurFRM = (this.EVT.CurFRM + 0x1);
+					if (this.EVT.CurFRM >= this.EVT.MaxFRM) {
+						this.EVT.CurFRM = 0 /* 0 */;
+						// :cond_0
+					}
+				}
+			}
+		}
+		return;
 	}
-	}
-	}
-	}
-	return;
-}
 
 public void EVTCLR(){
 	this.EVT.Valid = false /* 0 */;

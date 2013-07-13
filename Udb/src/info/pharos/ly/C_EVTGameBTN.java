@@ -149,8 +149,9 @@ private void GameBTNExe00(){
 	;
 	switch(this.m_BTNType){
 	default:
+		break;
 	case 6:  case 7:  case 8:  case 9: 
-	info.pharos.ly.C_Global.g_BtnIsValid = false /* 0 */;
+		info.pharos.ly.C_Global.g_BtnIsValid = false /* 0 */;
 	} //end of switch
 		}
 	// goto :goto_0

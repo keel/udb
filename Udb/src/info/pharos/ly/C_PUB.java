@@ -130,12 +130,12 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 		int i = 0;
 		while (i < 4) {
 			if ((info.pharos.ly.C_Global.g_TouchFlag[i] & 0x8) == 8) {
-				info.pharos.ly.C_Global.g_TouchId[0] = -1;
-				info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x3);
+				info.pharos.ly.C_Global.g_TouchId[i] = -1;
+				info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x3);
 				// :cond_4
 			}
-			info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x5);
-			info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x9);
+			info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x5);
+			info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] & -0x9);
 			i = (i + 0x1);
 			// goto :goto_0
 			// :cond_3
@@ -144,12 +144,12 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 			i = 0 /* 0 */;
 			while (i < 4) {
 				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownId(i) != -1) {
-					info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
-					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
-					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x4);
-					info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_TouchId[i] = 0 /* i */;
+					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
+					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x4);
+					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_OPhoneApp.cTouch
 							.getTouchDownX(i);
-					info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_OPhoneApp.cTouch
 							.getTouchDownY(i);
 					// :cond_6
 				}
@@ -165,14 +165,14 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveId(i) != -1
 						&& info.pharos.ly.C_OPhoneApp.cTouch
 								.getTouchMoveCount(i) > 0) {
-					info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
-					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
-					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x10);
-					info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_TouchId[i] = 0 /* i */;
+					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
+					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x10);
+					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_OPhoneApp.cTouch
 							.getTouchMoveX(i,
 									(info.pharos.ly.C_OPhoneApp.cTouch
 											.getTouchMoveCount(i) - 1));
-					info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_OPhoneApp.cTouch
 							.getTouchMoveY(i,
 									(info.pharos.ly.C_OPhoneApp.cTouch
 											.getTouchMoveCount(i) - 1));
@@ -188,12 +188,12 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 			i = 0 /* 0 */;
 			while (i < 4) {
 				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpId(i) != -1) {
-					info.pharos.ly.C_Global.g_TouchId[0] = 0 /* i */;
-					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
-					info.pharos.ly.C_Global.g_TouchFlag[0] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x8);
-					info.pharos.ly.C_Global.g_Touch_X[0] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_TouchId[i] = 0 /* i */;
+					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
+					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x8);
+					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_OPhoneApp.cTouch
 							.getTouchUpX(i);
-					info.pharos.ly.C_Global.g_Touch_Y[0] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_OPhoneApp.cTouch
 							.getTouchUpY(i);
 					// :cond_a
 				}
