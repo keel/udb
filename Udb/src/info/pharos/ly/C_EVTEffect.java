@@ -74,7 +74,7 @@ private void Effect00(){
 }
 
 private void Effect01(){
-	this.EVT.XVal = (this.EVT.XVal + 0x1);
+	this.EVT.XVal = (this.EVT.XVal + 0x10000);
 	int XVal = ((this.EVT.XVal >> 0x10) + 0x14);
 	int YVal = ((this.EVT.YVal >> 0x10) - 50);
 	int SceneFloat_X = 0;
@@ -94,7 +94,7 @@ private void Effect01(){
 }
 
 private void Effect02(){
-	this.EVT.XVal = (this.EVT.XVal + 0x1);
+	this.EVT.XVal = (this.EVT.XVal + 0x10000);
 	int XVal = (this.EVT.XVal >> 0x10);
 	int YVal = ((this.EVT.YVal >> 0x10) - 50);
 	int SceneFloat_X = 0;
@@ -108,7 +108,7 @@ private void Effect02(){
 }
 
 private void Effect03(){
-	if (this.EVT.YVal < -0x100) {
+	if (this.EVT.YVal < -0x1000000) {
 	this.EVTCLR();
 	// :cond_0
 	}
@@ -169,7 +169,7 @@ public void CreateHorse_Eff(int XVal,int YVal,int Speed){
 	this.c_EVTEffect[i].MakeEVENT(XVal,YVal,0);
 	this.c_EVTEffect[i].EVT.Attrib = 6;
 	this.c_EVTEffect[i].EVT.Status = (this.c_EVTEffect[i].EVT.Status | 0x2400);
-	this.c_EVTEffect[i].EVT.YInc = -0x5;
+	this.c_EVTEffect[i].EVT.YInc = -0x50000;
 	// goto :goto_1
 break ; //
 	} else {

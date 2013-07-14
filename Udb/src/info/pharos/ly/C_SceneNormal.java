@@ -627,7 +627,7 @@ private void InitAgain(){
 	info.pharos.ly.C_Global.g_LandSpace = 0 /* 0 */;
 	info.pharos.ly.C_Global.g_RunLength = 0 /* 0 */;
 	info.pharos.ly.C_Global.g_CurDistance = 0 /* 0 */;
-	info.pharos.ly.C_Global.g_LandMoveSpeed = 0xa;
+	info.pharos.ly.C_Global.g_LandMoveSpeed = 0xa0000;
 	info.pharos.ly.C_Global.g_DashSpeedArea = 0 /* 0 */;
 	info.pharos.ly.C_Global.g_EidolonCount = 0 /* 0 */;
 	info.pharos.ly.C_Global.g_PropACount = 0 /* 0 */;
@@ -733,118 +733,127 @@ private void Initialize(){
 }
 
 private void LandMain(){
-	if (!this.c_EVTPlayer.EVT.Valid) {
-	// :cond_0
-	} else {
-	if (this.c_EVTPlayer.EVT.Ctrl != 4) {
-	if (info.pharos.ly.C_Global.g_LandMoveSpeed < 0x14) {
-	info.pharos.ly.C_Global.g_LandMoveSpeed = (info.pharos.ly.C_Global.g_LandMoveSpeed + 0x100);
-	// :cond_2
-	}
-	if (this.c_EVTPlayer.EVT.Ctrl == 3) {
-	info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea + 0x1);
-	if (info.pharos.ly.C_Global.g_DashSpeedArea > 0x8) {
-	info.pharos.ly.C_Global.g_DashSpeedArea = 0x8;
-	// :cond_3
-	}
-	// :cond_9
-	}
-	info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea - 480);
-	if (info.pharos.ly.C_Global.g_DashSpeedArea < 0) {
-	info.pharos.ly.C_Global.g_DashSpeedArea = 0 /* 0 */;
+		if (!this.c_EVTPlayer.EVT.Valid) {
+			// :cond_0
+		} else {
+			if (this.c_EVTPlayer.EVT.Ctrl != 4) {
+				if (info.pharos.ly.C_Global.g_LandMoveSpeed < 0x140000) {
+					info.pharos.ly.C_Global.g_LandMoveSpeed = (info.pharos.ly.C_Global.g_LandMoveSpeed + 0x100);
+					// :cond_2
+				}
+				if (this.c_EVTPlayer.EVT.Ctrl == 3) {
+					info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea + 0x10000);
+					if (info.pharos.ly.C_Global.g_DashSpeedArea > 0x80000) {
+						info.pharos.ly.C_Global.g_DashSpeedArea = 0x80000;
+						// :cond_3
+					}
+					// :cond_9
+				}
+				info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea - 480);
+				if (info.pharos.ly.C_Global.g_DashSpeedArea < 0) {
+					info.pharos.ly.C_Global.g_DashSpeedArea = 0 /* 0 */;
+				}
+				// goto :goto_1
+
+				if (this.c_EVTLand != null) {
+					int i = 0;
+					while (i < 5) {
+						if (this.c_EVTLand[i].EVT.Valid) {
+							this.c_EVTLand[i].EVT.YVal = (this.c_EVTLand[i].EVT.YVal - this
+									.getLandSpeed());
+							int YVal = (this.c_EVTLand[i].EVT.YVal >> 0x10);
+							// this.c_EVTLand[i].m_LandLen =
+							// -this.c_EVTLand[i].m_LandLen;
+							if (YVal < -this.c_EVTLand[i].m_LandLen) {
+								this.c_EVTLand[i].EVTCLR();
+								// [OTHER] end local v0 #YVal:I
+								// :cond_b
+							}
+						}
+						i = (i + 0x1);
+						// goto/16 :goto_2
+						// :cond_a
+					}
+					// [OTHER] end local v1 #i:I
+					// :cond_4
+				}
+				if (this.c_EVTPowerBall.EVT.Valid) {
+					this.c_EVTPowerBall.EVT.YVal = (this.c_EVTPowerBall.EVT.YVal - this
+							.getLandSpeed());
+					// :cond_5
+				}
+				if (this.c_EVTPropA != null) {
+					int i = 0 /* 0 */;
+
+					while (i < 5) {
+						if (this.c_EVTPropA[i].EVT.Valid) {
+							if (this.c_EVTPropA[i].EVT.Ctrl == 0) {
+								this.c_EVTPropA[i].EVT.YVal = (this.c_EVTPropA[i].EVT.YVal - this
+										.getLandSpeed());
+							} else {
+								this.c_EVTPropA[i].EVT.YVal = (this.c_EVTPropA[i].EVT.YVal - ((this
+										.getLandSpeed() * 0x2) / 0x3));
+							}
+							// goto :goto_6
+							// :cond_d
+						}
+						// :goto_6
+						i = (i + 0x1);
+						// goto/16 :goto_3
+						// :cond_c
+					}
+					// [OTHER] end local v1 #i:I
+					// :cond_6
+				}
+				if (this.c_EVTEffect != null) {
+					int i = 0 /* 0 */;
+
+					while (i < 10) {
+						if (this.c_EVTEffect[i].EVT.Ctrl == 3) {
+							this.c_EVTEffect[i].EVT.YVal = (int) ((double) this.c_EVTEffect[i].EVT.YVal - ((double) this
+									.getLandSpeed() * 1.5D));
+							// :cond_10
+						}
+						i = (i + 0x1);
+						// goto/16 :goto_4
+						// :cond_f
+					}
+					// [OTHER] end local v1 #i:I
+					// :cond_7
+				}
+				if (this.c_EVTEidolon != null) {
+					int i = 0 /* 0 */;
+
+					while (i < 2) {
+						if (this.c_EVTEidolon[i].EVT.Valid) {
+							if (this.c_EVTEidolon[i].EVT.Ctrl == 0) {
+								this.c_EVTEidolon[i].EVT.YVal = (this.c_EVTEidolon[i].EVT.YVal - this
+										.getLandSpeed());
+							} else {
+								this.c_EVTEidolon[i].EVT.YVal = (this.c_EVTEidolon[i].EVT.YVal - ((this
+										.getLandSpeed() * 0x2) / 0x3));
+							}
+							// goto :goto_7
+							// :cond_12
+						}
+						// :goto_7
+						i = (i + 0x1);
+						// goto/16 :goto_5
+						// :cond_11
+					}
+					// [OTHER] end local v1 #i:I
+					// :cond_8
+				}
+				info.pharos.ly.C_Global.g_LandSpace = (info.pharos.ly.C_Global.g_LandSpace - this
+						.getLandSpeed());
+				if (info.pharos.ly.C_Global.g_LandSpace <= 0) {
+					this.c_Land.CreateLand(30, 480, true);
+				}
+			}
 		}
-	// goto :goto_1
-	
-	if (this.c_EVTLand != null) {
-	int i = 0;
-	while (i < 5) {
-	if (this.c_EVTLand[i].EVT.Valid) {
-	this.c_EVTLand[i].EVT.YVal = (this.c_EVTLand[i].EVT.YVal - this.getLandSpeed());
-	int YVal = (this.c_EVTLand[i].EVT.YVal >> 0x10);
-	//this.c_EVTLand[i].m_LandLen = -this.c_EVTLand[i].m_LandLen;
-	if (YVal < -this.c_EVTLand[i].m_LandLen) {
-	this.c_EVTLand[i].EVTCLR();
-	//[OTHER] end local v0           #YVal:I
-	// :cond_b
-	}
-	}
-	i = (i + 0x1);
-	// goto/16 :goto_2
-	// :cond_a
-	}
-	//[OTHER] end local v1           #i:I
-	// :cond_4
-	}
-	if (this.c_EVTPowerBall.EVT.Valid) {
-	this.c_EVTPowerBall.EVT.YVal = (this.c_EVTPowerBall.EVT.YVal - this.getLandSpeed());
-	// :cond_5
-	}
-	if (this.c_EVTPropA != null) {
-	int i = 0 /* 0 */;
-	
-	while (i < 5) {
-	if (this.c_EVTPropA[i].EVT.Valid) {
-	if (this.c_EVTPropA[i].EVT.Ctrl == 0) {
-	this.c_EVTPropA[i].EVT.YVal = (this.c_EVTPropA[i].EVT.YVal - this.getLandSpeed());
-	} else {
-	this.c_EVTPropA[i].EVT.YVal = (this.c_EVTPropA[i].EVT.YVal - ((this.getLandSpeed() * 0x2) / 0x3));
-		}
-	// goto :goto_6
-	// :cond_d
-	}
-	// :goto_6
-	i = (i + 0x1);
-	// goto/16 :goto_3
-	// :cond_c
-	}
-	//[OTHER] end local v1           #i:I
-	// :cond_6
-	}
-	if (this.c_EVTEffect != null) {
-	int i = 0 /* 0 */;
-	
-	while (i < 10) {
-	if (this.c_EVTEffect[i].EVT.Ctrl == 3) {
-	this.c_EVTEffect[i].EVT.YVal = (int)((double)this.c_EVTEffect[i].EVT.YVal - ((double)this.getLandSpeed() * 1.5D));
-	// :cond_10
-	}
-	i = (i + 0x1);
-	// goto/16 :goto_4
-	// :cond_f
-	}
-	//[OTHER] end local v1           #i:I
-	// :cond_7
-	}
-	if (this.c_EVTEidolon != null) {
-	int i = 0 /* 0 */;
-	
-	while (i < 2) {
-	if (this.c_EVTEidolon[i].EVT.Valid) {
-	if (this.c_EVTEidolon[i].EVT.Ctrl == 0) {
-	this.c_EVTEidolon[i].EVT.YVal = (this.c_EVTEidolon[i].EVT.YVal - this.getLandSpeed());
-	} else {
-	this.c_EVTEidolon[i].EVT.YVal = (this.c_EVTEidolon[i].EVT.YVal - ((this.getLandSpeed() * 0x2) / 0x3));
-		}
-	// goto :goto_7
-	// :cond_12
-	}
-	// :goto_7
-	i = (i + 0x1);
-	// goto/16 :goto_5
-	// :cond_11
-	}
-	//[OTHER] end local v1           #i:I
-	// :cond_8
-	}
-	info.pharos.ly.C_Global.g_LandSpace = (info.pharos.ly.C_Global.g_LandSpace - this.getLandSpeed());
-	if (info.pharos.ly.C_Global.g_LandSpace <= 0) {
-	this.c_Land.CreateLand(30,480,true);
-		}
-		}
-		}
-	// goto :goto_0
-	// :goto_0
-	return;
+		// goto :goto_0
+		// :goto_0
+		return;
 }
 
 private void MakeHorseEff(){

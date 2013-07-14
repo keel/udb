@@ -45,7 +45,7 @@ public C_EVTPropA(){
 }
 
 private void PropA00(){
-	if (this.EVT.YVal < -0x40) {
+	if (this.EVT.YVal < -0x400000) {
 	info.pharos.ly.C_Global.g_PropACount = 0 /* 0 */;
 	this.EVTCLR();
 	// :cond_0

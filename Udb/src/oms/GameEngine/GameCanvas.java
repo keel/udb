@@ -523,7 +523,7 @@ public boolean isReflash(){
 }
 
 	public void onDraw(android.graphics.Canvas canvas) {
-		oms.GameEngine.GameCanvas.paint.setColor(-0x100);
+		oms.GameEngine.GameCanvas.paint.setColor(-0x1000000);
 		boolean showSprite = true;
 		int CurDepth = 0;
 		int i = 0;
@@ -566,7 +566,7 @@ public boolean isReflash(){
 
 	public void onDraw(oms.GameEngine.C_Lib cLib,
 			android.graphics.Canvas canvas, int picHeight) {
-		oms.GameEngine.GameCanvas.paint.setColor(-0x100);
+		oms.GameEngine.GameCanvas.paint.setColor(-0x1000000);
 		boolean showSprite = true;
 		int CurDepth = 0;
 		if (!cLib.mTop && cLib.mBackground != null) {

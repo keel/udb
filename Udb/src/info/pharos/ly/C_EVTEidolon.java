@@ -44,7 +44,7 @@ public C_EVTEidolon(){
 }
 
 private void Eidolon00(){
-	if (this.EVT.YVal < -0x40) {
+	if (this.EVT.YVal < -0x400000) {
 	info.pharos.ly.C_Global.g_EidolonCount = 0 /* 0 */;
 	this.EVTCLR();
 	// :cond_0

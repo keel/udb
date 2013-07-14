@@ -666,7 +666,7 @@ private void NPCLand00(){
 
 private void getLandMakeArea(){
 	int LandMakeArea = 0;
-	int CurSpeed = ((info.pharos.ly.C_Global.g_LandMoveSpeed - 0xa) >> 0x10);
+	int CurSpeed = ((info.pharos.ly.C_Global.g_LandMoveSpeed - 0xa0000) >> 0x10);
 	int MaxSpeed = 10;
 	LandMakeArea = ((CurSpeed * 0x13) / MaxSpeed);
 	if (LandMakeArea < 4) {
@@ -750,39 +750,42 @@ private boolean setLandProp(int EVTIdx,int XVal,int YVal){
 // virtual methods
 
 public void CreateLand(int X,int Y,boolean Flag){
-	info.pharos.ly.C_Global.g_LandACTNum = -1;
-	int i = 0;
-	while (i < 5) {
-	if (!this.c_EVTLand[i].EVT.Valid) {
-	int XVal = (X - this.GetLandPara(info.pharos.ly.C_Global.g_LandIdx,2));
-	XVal = (XVal + (info.pharos.ly.C_PUB.Random(20) - 10));
-	int YVal = Y;
-	this.c_EVTLand[i].MakeEVENT(XVal,YVal,0);
-	this.c_EVTLand[i].EVT.Attrib = 2;
-	this.c_EVTLand[i].EVT.Status = (this.c_EVTLand[i].EVT.Status | 0x2400);
-	this.c_EVTLand[i].m_LandLen = this.GetLandPara(info.pharos.ly.C_Global.g_LandIdx,1);
-	this.c_EVTLand[i].SetEVTCtrl(info.pharos.ly.C_Global.g_LandIdx,0);
-	if (this.setLandProp(i,XVal,YVal)) {
-	this.setLandPowerBall(i,XVal,YVal);
-	// :cond_1
-	}
-	this.getLandTopBlock(XVal,YVal);
-	if (Flag) {
-	this.MakeLandEidolon(i,XVal,YVal);
-	// :cond_2
-	}
-	this.getLandSpaceArea(YVal);
-	this.getLandMakeArea();
-	// goto :goto_1
-break ; //
-	} else {
-	i = (i + 0x1);
+		info.pharos.ly.C_Global.g_LandACTNum = -1;
+		int i = 0;
+		while (i < 5) {
+			if (!this.c_EVTLand[i].EVT.Valid) {
+				int XVal = (X - this.GetLandPara(
+						info.pharos.ly.C_Global.g_LandIdx, 2));
+				XVal = (XVal + (info.pharos.ly.C_PUB.Random(20) - 10));
+				int YVal = Y;
+				this.c_EVTLand[i].MakeEVENT(XVal, YVal, 0);
+				this.c_EVTLand[i].EVT.Attrib = 2;
+				this.c_EVTLand[i].EVT.Status = (this.c_EVTLand[i].EVT.Status | 0x2400);
+				this.c_EVTLand[i].m_LandLen = this.GetLandPara(
+						info.pharos.ly.C_Global.g_LandIdx, 1);
+				this.c_EVTLand[i].SetEVTCtrl(info.pharos.ly.C_Global.g_LandIdx,
+						0);
+				if (this.setLandProp(i, XVal, YVal)) {
+					this.setLandPowerBall(i, XVal, YVal);
+					// :cond_1
+				}
+				this.getLandTopBlock(XVal, YVal);
+				if (Flag) {
+					this.MakeLandEidolon(i, XVal, YVal);
+					// :cond_2
+				}
+				this.getLandSpaceArea(YVal);
+				this.getLandMakeArea();
+				// goto :goto_1
+				break; //
+			} else {
+				i = (i + 0x1);
+			}
+			// goto :goto_0
+			// [OTHER] end local v0 #XVal:I
+			// [OTHER] end local v1 #YVal:I
+			// :cond_0
 		}
-	// goto :goto_0
-	//[OTHER] end local v0           #XVal:I
-	//[OTHER] end local v1           #YVal:I
-	// :cond_0
-	}
 	return;
 }
 

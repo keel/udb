@@ -307,7 +307,7 @@ public static void Rate(){
 	android.net.Uri uri = android.net.Uri.parse("market://details?id=com.RunnerGames.game.PumpkinsVsMonster_AD");
 	;
 	android.content.Intent it = new android.content.Intent("android.intent.action.VIEW",uri);
-	it.addFlags(0x1000);
+	it.addFlags(0x10000000);
 	info.pharos.ly.C_OPhoneApp.cLib.GetActivity().startActivity(it);
 	return;
 }
@@ -454,7 +454,7 @@ public static void To_Buy(){
 	android.net.Uri uri = android.net.Uri.parse("market://details?id=com.wuzla.game.UnicornDash_Paid_L");
 	;
 	android.content.Intent it = new android.content.Intent("android.intent.action.VIEW",uri);
-	it.addFlags(0x1000);
+	it.addFlags(0x10000000);
 	info.pharos.ly.C_OPhoneApp.cLib.GetActivity().startActivity(it);
 	info.pharos.ly.C_PUB.InitTouch();
 	return;

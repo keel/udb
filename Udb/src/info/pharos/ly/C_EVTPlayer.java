@@ -129,46 +129,46 @@ private void JumpConctrl(){
 	;
 	switch(this.EVT.ACTIdx){
 	case 2130837558: 
-	this.EVT.XInc = 0x8;
+	this.EVT.XInc = 0x80000;
 	break;
 	case 2130837559: 
-	this.EVT.XInc = 0x6;
+	this.EVT.XInc = 0x60000;
 	break;
 	case 2130837560: 
-	this.EVT.XInc = 0x4;
+	this.EVT.XInc = 0x40000;
 	break;
 	case 2130837561: 
-	this.EVT.XInc = 0x2;
+	this.EVT.XInc = 0x20000;
 	break;
 	case 2130837562: 
-	this.EVT.XInc = 0x1;
+	this.EVT.XInc = 0x10000;
 	break;
 	case 2130837563: 
 	this.EVT.XInc = 0 /* 0 */;
 	break;
 	case 2130837564: 
-	this.EVT.XInc = -0x1;
+	this.EVT.XInc = -0x10000;
 	break;
 	case 2130837565: 
-	this.EVT.XInc = -0x2;
+	this.EVT.XInc = -0x20000;
 	break;
 	case 2130837566: 
-	this.EVT.XInc = -0x4;
+	this.EVT.XInc = -0x40000;
 	break;
 	case 2130837567: 
-	this.EVT.XInc = -0x6;
+	this.EVT.XInc = -0x60000;
 	break;
 	case 2130837568: 
-	this.EVT.XInc = -0x8;
+	this.EVT.XInc = -0x80000;
 	break;
 	case 2130837569: 
-	this.EVT.XInc = -0xa;
+	this.EVT.XInc = -0xa0000;
 	break;
 	case 2130837570: 
-	this.EVT.XInc = -0xc;
+	this.EVT.XInc = -0xc0000;
 	break;
 	case 2130837571: 
-	this.EVT.XInc = -0x10;
+	this.EVT.XInc = -0x100000;
 	break;
 	} //end of switch
 	break;
@@ -307,7 +307,7 @@ private void PlayerExe04(){
 }
 
 private void chkGameSide(){
-	if (this.EVT.Ctrl != 4 && this.c_EVTPlayer.EVT.XVal < -0x200) {
+	if (this.EVT.Ctrl != 4 && this.c_EVTPlayer.EVT.XVal < -0x2000000) {
 	this.setPlayerCtrl(4,0);
 	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,45,0);
 	// :cond_0
@@ -349,12 +349,12 @@ public void CreatePlayer(){
 public void EVTRUN(){
 	this.EVT.Status = (this.EVT.Status & -0x401);
 	this.EVT.XAdc = -114688;
-	if (this.EVT.XInc < -0x2 && this.c_EVTPlayer.m_isGround) {
-	this.EVT.XInc = -0x2;
+	if (this.EVT.XInc < -0x20000 && this.c_EVTPlayer.m_isGround) {
+	this.EVT.XInc = -0x20000;
 	// :cond_0
 	}
-	if (this.EVT.XInc < -0x14) {
-	this.EVT.XInc = -0x14;
+	if (this.EVT.XInc < -0x140000) {
+	this.EVT.XInc = -0x140000;
 	// :cond_1
 	}
 	if (this.c_EVTPlayer.m_DashDly != 0) {
@@ -408,12 +408,12 @@ public void setPlayerCtrl(int Ctrl,int Mode){
 	case 1: 
 	if (this.c_EVTPlayer.EVT.Ctrl != 4) {
 	info.pharos.ly.C_Media.PlaySound(4);
-	this.c_EVTPlayer.EVT.XInc = 0xf;
+	this.c_EVTPlayer.EVT.XInc = 0xf0000;
 	this.SetEVTCtrl(1,1024);
 	}
 	break;
 	case 2: 
-	this.c_EVTPlayer.EVT.XInc = -0x2;
+	this.c_EVTPlayer.EVT.XInc = -0x20000;
 	this.SetEVTCtrl(2,1024);
 	break;
 	case 3: 
@@ -423,7 +423,7 @@ public void setPlayerCtrl(int Ctrl,int Mode){
 	}
 	break;
 	case 4: 
-	this.EVT.XVal = (this.EVT.XVal + 0x10);
+	this.EVT.XVal = (this.EVT.XVal + 0x100000);
 	info.pharos.ly.C_PUB.setVibratorTime();
 	info.pharos.ly.C_Media.PlaySound(1);
 	this.SetEVTCtrl(4,1024);

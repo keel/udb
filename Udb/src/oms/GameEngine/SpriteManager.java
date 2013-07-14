@@ -227,7 +227,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.CenterX & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.CenterX) = -(0x1 - this.ACTStructInfo.CenterX);
-	this.ACTStructInfo.CenterX = -(0x1 - this.ACTStructInfo.CenterX);
+	this.ACTStructInfo.CenterX = -(0x10000 - this.ACTStructInfo.CenterX);
 	// :cond_0
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -244,7 +244,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.CenterY & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.CenterY) = -(0x1 - this.ACTStructInfo.CenterY);
-	this.ACTStructInfo.CenterY = -(0x1 - this.ACTStructInfo.CenterY);
+	this.ACTStructInfo.CenterY = -(0x10000 - this.ACTStructInfo.CenterY);
 	// :cond_1
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -261,7 +261,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.XHitL & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.XHitL) = -(0x1 - this.ACTStructInfo.XHitL);
-	this.ACTStructInfo.XHitL = -(0x1 - this.ACTStructInfo.XHitL);
+	this.ACTStructInfo.XHitL = -(0x10000 - this.ACTStructInfo.XHitL);
 	// :cond_2
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -278,7 +278,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.XHitR & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.XHitR) = -(0x1 - this.ACTStructInfo.XHitR);
-	this.ACTStructInfo.XHitR = -(0x1 - this.ACTStructInfo.XHitR);
+	this.ACTStructInfo.XHitR = -(0x10000 - this.ACTStructInfo.XHitR);
 	// :cond_3
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -295,7 +295,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.YHitU & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.YHitU) = -(0x1 - this.ACTStructInfo.YHitU);
-	this.ACTStructInfo.YHitU = -(0x1 - this.ACTStructInfo.YHitU);
+	this.ACTStructInfo.YHitU = -(0x10000 - this.ACTStructInfo.YHitU);
 	// :cond_4
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -312,7 +312,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.YHitD & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.YHitD) = -(0x1 - this.ACTStructInfo.YHitD);
-	this.ACTStructInfo.YHitD = -(0x1 - this.ACTStructInfo.YHitD);
+	this.ACTStructInfo.YHitD = -(0x10000 - this.ACTStructInfo.YHitD);
 	// :cond_5
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -329,7 +329,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.ZHitF & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.ZHitF) = -(0x1 - this.ACTStructInfo.ZHitF);
-	this.ACTStructInfo.ZHitF = -(0x1 - this.ACTStructInfo.ZHitF);
+	this.ACTStructInfo.ZHitF = -(0x10000 - this.ACTStructInfo.ZHitF);
 	// :cond_6
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -346,7 +346,7 @@ private void ReadSpriteResInfo(int ACTFileId,int ACTLibId){
 	}
 	if ((this.ACTStructInfo.ZHitB & 32768) == 32768) {
 	//(0x1 - this.ACTStructInfo.ZHitB) = -(0x1 - this.ACTStructInfo.ZHitB);
-	this.ACTStructInfo.ZHitB = -(0x1 - this.ACTStructInfo.ZHitB);
+	this.ACTStructInfo.ZHitB = -(0x10000 - this.ACTStructInfo.ZHitB);
 	// :cond_7
 	}
 	SpriteInfoOffset = (SpriteInfoOffset + 0x2);
@@ -496,7 +496,7 @@ public void FreeACT(int ACTLibIdx){
 }
 
 public void FreeACT(int ACTLibId,int ACTFrameID){
-	if (ACTFrameID < 0x7f02) {
+	if (ACTFrameID < 0x7f020000) {
 	// :cond_0
 	} else {
 	ACTLibId = (ACTLibId + this.mACTLibBeg);
@@ -565,7 +565,7 @@ public long GetBMPRamSize(){
 
 public android.graphics.Bitmap GetSpriteBitmap(int resId){
 	int SpriteIdx = -1;
-	if (resId < 0x7f02) {
+	if (resId < 0x7f020000) {
 	;
 	return null /* 0 */;
 	} else {
@@ -1189,7 +1189,7 @@ public void SetSpriteTransform(int spriteId,int transform){
 			// int SpriteIdx = SpriteIdx;
 			return SpriteIdx;
 			// :cond_0
-		} else if (SpriteResId < 0x7f02) {
+		} else if (SpriteResId < 0x7f020000) {
 			// SpriteIdx = SpriteIdx;
 			// [OTHER] end local v0 #SpriteIdx:I
 			;
@@ -1240,7 +1240,7 @@ public void SetSpriteTransform(int spriteId,int transform){
 			// int SpriteIdx = SpriteIdx;
 			return SpriteIdx;
 			// :cond_0
-		} else if (SpriteResId < 0x7f02) {
+		} else if (SpriteResId < 0x7f020000) {
 			// SpriteIdx = SpriteIdx;
 			// [OTHER] end local v0 #SpriteIdx:I
 			;
@@ -1291,7 +1291,7 @@ public void SetSpriteTransform(int spriteId,int transform){
 			// int SpriteIdx = SpriteIdx;
 			return SpriteIdx;
 			// :cond_0
-		} else if (SpriteResId < 0x7f02) {
+		} else if (SpriteResId < 0x7f020000) {
 			// SpriteIdx = SpriteIdx;
 			// [OTHER] end local v0 #SpriteIdx:I
 			;
@@ -1357,7 +1357,7 @@ public void SetSpriteTransform(int spriteId,int transform){
 			// int SpriteIdx = SpriteIdx;
 			return SpriteIdx;
 			// :cond_0
-		} else if (SpriteResId < 0x7f02) {
+		} else if (SpriteResId < 0x7f020000) {
 			// SpriteIdx = SpriteIdx;
 			// [OTHER] end local v0 #SpriteIdx:I
 			;

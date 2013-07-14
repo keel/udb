@@ -47,7 +47,7 @@ public C_EVTPowerBall(){
 }
 
 private void PowerBallExe00(){
-	if (this.EVT.YVal < -0x40) {
+	if (this.EVT.YVal < -0x400000) {
 	this.EVTCLR();
 	// :cond_0
 	}
