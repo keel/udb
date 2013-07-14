@@ -748,10 +748,12 @@ private void LandMain(){
 						// :cond_3
 					}
 					// :cond_9
-				}
-				info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea - 480);
-				if (info.pharos.ly.C_Global.g_DashSpeedArea < 0) {
-					info.pharos.ly.C_Global.g_DashSpeedArea = 0 /* 0 */;
+				}else{
+					
+					info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea - 480);
+					if (info.pharos.ly.C_Global.g_DashSpeedArea < 0) {
+						info.pharos.ly.C_Global.g_DashSpeedArea = 0 /* 0 */;
+					}
 				}
 				// goto :goto_1
 

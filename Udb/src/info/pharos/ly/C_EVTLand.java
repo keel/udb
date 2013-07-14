@@ -625,7 +625,7 @@ private int GetLandPara(int LandIdx,int Type){
 	if (info.pharos.ly.C_Global.g_LandACTNum == -1) {
 	do {
 	info.pharos.ly.C_Global.g_LandACTNum = (info.pharos.ly.C_Global.g_LandACTNum + 0x1);
-	} while (info.pharos.ly.C_EVTLand.NPCLandACT[LandIdx][(info.pharos.ly.C_Global.g_LandACTNum + 0x1)] != -1);
+	} while (info.pharos.ly.C_EVTLand.NPCLandACT[LandIdx][info.pharos.ly.C_Global.g_LandACTNum] != -1);
 	// :cond_1
 	}
 	switch(Type){
@@ -643,7 +643,7 @@ private int GetLandPara(int LandIdx,int Type){
 	//break;
 	case 3: 
 	;
-	return ((info.pharos.ly.C_EVTLand.NPCLandACT[LandIdx][(info.pharos.ly.C_Global.g_LandACTNum + 0x5)] - 16) + 0x96);
+	return info.pharos.ly.C_EVTLand.NPCLandACT[LandIdx][(info.pharos.ly.C_Global.g_LandACTNum + 0x4)];
 	//break;
 	case 4: 
 	;
