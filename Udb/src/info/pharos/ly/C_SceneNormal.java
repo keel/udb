@@ -1275,16 +1275,16 @@ private void ShowEVENT(){
 			if(Act == -1){break;}
 			if (this.chkACTIsShow_Y(Act,this.c_EVTLand[i].EVT.DispY)) {
 			if (Ctrl == 6) {
-			if (this.chkACTIsShow_X(Act,this.c_EVTLand[i].EVT.DispX)) {
-			info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
-			} else {
-			info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
+				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
 			// goto :goto_7
 			//[OTHER] end local v0           #Act:I
 			//[OTHER] end local v1           #Ctrl:I
 			//[OTHER] end local v2           #Idx:I
-				}
 			// :cond_d
+			}else{
+				if (this.chkACTIsShow_X(Act,this.c_EVTLand[i].EVT.DispX)) {
+					info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
+				}
 			}
 			}
 			// :goto_7
@@ -1434,25 +1434,27 @@ private boolean chkACTIsShow_X(int Act,int XVal){
 }
 
 private boolean chkACTIsShow_Y(int Act,int YVal){
-	int Area = ((info.pharos.ly.C_Global.g_scrHeight - 480) / 0x2);
-	int YHitU = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().GetSpriteYHitU(Act);
-	int YHitD = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().GetSpriteYHitD(Act);
-	int Y1 = (YVal + YHitD);
-	int Y2 = (YVal - YHitU);
-	//com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas() = -Area;
-	if (Y1 >= -Area && Y1 <= (Area + 0x1e0)) {
-	;
-	return true /* 1 */;
-	} else {
-	//1 = -Area;
-	if (Y2 >= -1 && Y2 <= (Area + 0x1e0)) {
-	;
-	return true /* 1 */;
-	// goto :goto_0
-	} else {
-	;
-	return false /* 0 */;
-		}
+		int Area = ((info.pharos.ly.C_Global.g_scrHeight - 480) / 0x2);
+		int YHitU = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				.GetSpriteYHitU(Act);
+		int YHitD = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				.GetSpriteYHitD(Act);
+		int Y1 = (YVal + YHitD);
+		int Y2 = (YVal - YHitU);
+		// com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas() = -Area;
+		if (Y1 >= -Area && Y1 <= (Area + 0x1e0)) {
+			;
+			return true /* 1 */;
+		} else {
+			// 1 = -Area;
+			if (Y2 >= -1 && Y2 <= (Area + 0x1e0)) {
+				;
+				return true /* 1 */;
+				// goto :goto_0
+			} else {
+				;
+				return false /* 0 */;
+			}
 		}
 	// goto :goto_0
 	// :goto_0
