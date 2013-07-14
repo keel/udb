@@ -1200,6 +1200,8 @@ private void SceneFloatCtrl(){
 	}
 	info.pharos.ly.C_Global.g_SceneFloat_X = (info.pharos.ly.C_Global.g_SceneFloat_X - (int)((double)(this.c_EVTPlayer.EVT.XInc >> 0x10) * info.pharos.ly.C_SceneNormal.ScaleTBL[Rate]));
 	break;
+	case 3:
+		break;
 	default:
 	Cur_X = (Cur_X + info.pharos.ly.C_Global.g_SceneFloat_X);
 	Rate = (Math.abs((Cur_X - 140)) / 0xa);
