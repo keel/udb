@@ -253,6 +253,9 @@ private void JumpFeetOffset(){
 	
 }
 
+/**
+ * 降落？？
+ */
 private void PlayerExe00(){
 	if (!this.c_EVTPlayer.m_isGround) {
 	this.setPlayerCtrl(2,0);
@@ -261,6 +264,9 @@ private void PlayerExe00(){
 	return;
 }
 
+/**
+ * Jump??
+ */
 private void PlayerExe01(){
 	if (this.CHKEVTACTEnd()) {
 	this.EVT.Status = (this.EVT.Status | 0x80);
@@ -284,6 +290,9 @@ private void PlayerExe02(){
 	return;
 }
 
+/**
+ * dash??
+ */
 private void PlayerExe03(){
 	this.EVT.Status = (this.EVT.Status | 0x400);
 	this.c_EVTPlayer.m_DashDly = 10;
@@ -295,10 +304,14 @@ private void PlayerExe03(){
 	return;
 }
 
+/**
+ * 退出
+ */
 private void PlayerExe04(){
 	this.EVT.Attrib = 5;
 	this.EVT.Status = (this.EVT.Status | 0x400);
 	if (this.CHKEVTACTEnd()) {
+		//退出
 	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(20,9,0);
 	this.EVTCLR();
 	// :cond_0

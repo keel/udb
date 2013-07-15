@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Unicorn Dash!</string>
-    <string name="app_name">Unicorn Dash</string>
+    <string name="hello">hello</string>
+    <string name="app_name">Moon</string>
 </resources>

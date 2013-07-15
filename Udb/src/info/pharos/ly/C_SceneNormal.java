@@ -211,77 +211,87 @@ private void ExecEVT(){
 }
 
 private void ExecRUN(){
-	if (info.pharos.ly.C_Global.g_GameState == 7) {
-	if (this.c_EVTPlayer != null) {
-	this.c_EVTPlayer.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	// :cond_0
-	}
-	if (this.c_EVTLand != null) {
-	int i = 0;
-	while (i < 5) {
-	this.c_EVTLand[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	i = (i + 0x1);
-	// goto :goto_0
-	// :cond_7
-	}
-	//[OTHER] end local v0           #i:I
-	// :cond_1
-	}
-	if (this.c_EVTPropA != null) {
-		int i = 0 /* 0 */;
-	
-	while (i < 5) {
-	this.c_EVTPropA[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	i = (i + 0x1);
-	// goto :goto_1
-	// :cond_8
-	}
-	//[OTHER] end local v0           #i:I
-	// :cond_2
-	}
-	if (this.c_EVTEidolon != null) {
-		int i = 0 /* 0 */;
-	
-	while (i < 2) {
-	this.c_EVTEidolon[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	i = (i + 0x1);
-	// goto :goto_2
-	// :cond_9
-	}
-	//[OTHER] end local v0           #i:I
-	// :cond_3
-	}
-	if (this.c_EVTEffect != null) {
-		int i = 0 /* 0 */;
-	
-	while (i < 10) {
-	this.c_EVTEffect[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	i = (i + 0x1);
-	// goto :goto_3
-	// :cond_a
-	}
-	//[OTHER] end local v0           #i:I
-	// :cond_4
-	}
-	this.c_DashBTN.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	this.c_JumpBTN.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	this.c_EVTPowerBall.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	// :cond_5
-	}
-	if (this.c_EVTGameBTN != null) {
-		int i = 0 /* 0 */;
-	
-	while (i < 5) {
-	this.c_EVTGameBTN[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	i = (i + 0x1);
-	// goto :goto_4
-	// :cond_b
-	}
-	//[OTHER] end local v0           #i:I
-	// :cond_6
-	}
-	return;
-	
+		if (info.pharos.ly.C_Global.g_GameState == 7) {
+			if (this.c_EVTPlayer != null) {
+				this.c_EVTPlayer.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+						.getGameCanvas());
+				// :cond_0
+			}
+			if (this.c_EVTLand != null) {
+				int i = 0;
+				while (i < 5) {
+					this.c_EVTLand[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+							.getGameCanvas());
+					i = (i + 0x1);
+					// goto :goto_0
+					// :cond_7
+				}
+				// [OTHER] end local v0 #i:I
+				// :cond_1
+			}
+			if (this.c_EVTPropA != null) {
+				int i = 0 /* 0 */;
+
+				while (i < 5) {
+					this.c_EVTPropA[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+							.getGameCanvas());
+					i = (i + 0x1);
+					// goto :goto_1
+					// :cond_8
+				}
+				// [OTHER] end local v0 #i:I
+				// :cond_2
+			}
+			if (this.c_EVTEidolon != null) {
+				int i = 0 /* 0 */;
+
+				while (i < 2) {
+					this.c_EVTEidolon[i]
+							.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+									.getGameCanvas());
+					i = (i + 0x1);
+					// goto :goto_2
+					// :cond_9
+				}
+				// [OTHER] end local v0 #i:I
+				// :cond_3
+			}
+			if (this.c_EVTEffect != null) {
+				int i = 0 /* 0 */;
+
+				while (i < 10) {
+					this.c_EVTEffect[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+							.getGameCanvas());
+					i = (i + 0x1);
+					// goto :goto_3
+					// :cond_a
+				}
+				// [OTHER] end local v0 #i:I
+				// :cond_4
+			}
+			this.c_DashBTN.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+					.getGameCanvas());
+			this.c_JumpBTN.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+					.getGameCanvas());
+			this.c_EVTPowerBall.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+					.getGameCanvas());
+			// :cond_5
+		}
+		if (this.c_EVTGameBTN != null) {
+			int i = 0 /* 0 */;
+
+			while (i < 5) {
+				this.c_EVTGameBTN[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+						.getGameCanvas());
+				i = (i + 0x1);
+				// goto :goto_4
+				// :cond_b
+			}
+			// [OTHER] end local v0 #i:I
+			// :cond_6
+		}
+		return;
+
 }
 
 	private void ExecTouch() {
@@ -901,6 +911,7 @@ private void MakeHorseEff(){
 						info.pharos.ly.C_PUB.setSoundStatus();
 						break;
 					case 6:
+						//暂停
 						if (info.pharos.ly.C_Global.g_GameState == 7) {
 //							com.game.UnicornDash.C_PUB.ShowAdView(true);
 							info.pharos.ly.C_Media.StopSound(3);
