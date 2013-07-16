@@ -982,8 +982,8 @@ private void MakeHorseEff(){
 						break;
 					case 45:
 						this.setSceneDash();
-						break;
 					} // end of switch
+					break;
 				case 20:
 					switch (message) {
 					case 9:

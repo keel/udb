@@ -93,32 +93,37 @@ public C_EVTPlayer(){
 }
 
 private void CHKGameOperate(){
-	if (this.c_EVTPlayer.m_OperateCount >= 7) {
-	// :cond_0
-	} else {
-	if ((info.pharos.ly.C_Global.g_JumpBTNTouch & 0x4) == 4) {
-	this.c_EVTPlayer.m_DashCount = 0 /* 0 */;
-	this.c_EVTPlayer.m_OperateCount = (this.c_EVTPlayer.m_OperateCount + 0x1);
-	if ((this.c_EVTPlayer.m_JumpCount >= 1 && this.c_EVTPlayer.m_OperateCount >= 4) || this.c_EVTPlayer.m_JumpCount >= 2) {
-	// :cond_2
-	this.c_EVTPlayer.m_JumpCount = (this.c_EVTPlayer.m_JumpCount + 0x1);
-	this.setPlayerCtrl(1,0);
-	// :cond_3
-	}
-	if ((info.pharos.ly.C_Global.g_DashBTNTouch & 0x4) != 4 || this.c_EVTPlayer.m_DashDly != 0) {
-	this.c_EVTPlayer.m_JumpCount = 0 /* 0 */;
-	this.c_EVTPlayer.m_OperateCount = (this.c_EVTPlayer.m_OperateCount + 0x1);
-	if ((this.c_EVTPlayer.m_DashCount >= 1 && this.c_EVTPlayer.m_OperateCount >= 4) || this.c_EVTPlayer.m_DashCount >= 2) {
-	// :cond_4
-	this.c_EVTPlayer.m_DashCount = (this.c_EVTPlayer.m_DashCount + 0x1);
-	this.setPlayerCtrl(3,0);
+		if (this.c_EVTPlayer.m_OperateCount >= 7) {
+			// :cond_0
+		} else {
+			if ((info.pharos.ly.C_Global.g_JumpBTNTouch & 0x4) == 4) {
+				this.c_EVTPlayer.m_DashCount = 0 /* 0 */;
+				this.c_EVTPlayer.m_OperateCount = (this.c_EVTPlayer.m_OperateCount + 0x1);
+				if ((this.c_EVTPlayer.m_JumpCount >= 1 && this.c_EVTPlayer.m_OperateCount >= 4)
+						|| this.c_EVTPlayer.m_JumpCount >= 2) {
+					return;
+				} else {
+					// :cond_2
+					this.c_EVTPlayer.m_JumpCount = (this.c_EVTPlayer.m_JumpCount + 0x1);
+					this.setPlayerCtrl(1, 0);
+					// :cond_3
+				}
+			}
+			if ((info.pharos.ly.C_Global.g_DashBTNTouch & 0x4) == 4
+					&& this.c_EVTPlayer.m_DashDly == 0) {
+				this.c_EVTPlayer.m_JumpCount = 0 /* 0 */;
+				this.c_EVTPlayer.m_OperateCount = (this.c_EVTPlayer.m_OperateCount + 0x1);
+				if ((this.c_EVTPlayer.m_DashCount < 1 || this.c_EVTPlayer.m_OperateCount < 4)
+						&& this.c_EVTPlayer.m_DashCount < 2) {
+					// :cond_4
+					this.c_EVTPlayer.m_DashCount = (this.c_EVTPlayer.m_DashCount + 0x1);
+					this.setPlayerCtrl(3, 0);
+				}
+			}
 		}
-		}
-		}
-		}
-	// goto :goto_0
-	// :goto_0
-	return;
+		// goto :goto_0
+		// :goto_0
+		return;
 }
 
 private void JumpConctrl(){
@@ -430,8 +435,8 @@ public void setPlayerCtrl(int Ctrl,int Mode){
 	this.SetEVTCtrl(2,1024);
 	break;
 	case 3: 
-	if (this.c_EVTPlayer.EVT.Ctrl != -0x2 && this.c_EVTPlayer.EVT.Ctrl != 4) {
-	this.SetEVTCtrl(-0x2,0);
+	if (this.c_EVTPlayer.EVT.Ctrl != 3 && this.c_EVTPlayer.EVT.Ctrl != 4) {
+	this.SetEVTCtrl(3,0);
 	info.pharos.ly.C_Media.PlaySound(0);
 	}
 	break;
