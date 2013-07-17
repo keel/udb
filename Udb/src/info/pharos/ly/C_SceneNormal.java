@@ -438,8 +438,8 @@ private void ExecRUN(){
 								Feet_X2 = (Feet_X2 + 0x1);
 								Area = (Area + 0x1);
 								if (Area > (MaxAdjust + 0x2)) {
-									Head_Y1 = 0 /* 0 */;
-									this.c_EVTPlayer.setPlayerCtrl(4, Head_Y1);
+									//Head_Y1 = 0 /* 0 */;
+									this.c_EVTPlayer.setPlayerCtrl(4, 0);
 									return;
 									// :cond_b
 								} else {

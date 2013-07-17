@@ -500,8 +500,8 @@ public static void setMusicStatus(){
 		}
 	// goto :goto_0
 	} else {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaStop(1);
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(true);
+	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaStop(0);
+	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(false);
 		}
 	// goto :goto_0
 	// :goto_0
