@@ -366,7 +366,7 @@ public void CreatePlayer(){
 
 public void EVTRUN(){
 	this.EVT.Status = (this.EVT.Status & -0x401);
-	this.EVT.XAdc = -114688;
+	this.EVT.XAdc = -0x1C000;
 	if (this.EVT.XInc < -0x20000 && this.c_EVTPlayer.m_isGround) {
 	this.EVT.XInc = -0x20000;
 	// :cond_0

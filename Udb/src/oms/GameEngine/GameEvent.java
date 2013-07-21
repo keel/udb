@@ -81,31 +81,31 @@ public void EVTCLR(){
 public void EVTCVT(){
 	int Status = this.EVT.Status;
 	int Ctrl = this.EVT.Ctrl;
-	if ((Status & 32768) == 32768) {
-	if ((Status & 0x200) != 512) {
+	if ((Status & 0x8000) == 0x8000) {
+	if ((Status & 0x200) != 0x200) {
 	this.EVT.XAdc = this.EVT.EVTPtr[Ctrl][3];
 	this.EVT.YAdc = this.EVT.EVTPtr[Ctrl][4];
 	this.EVT.ZAdc = this.EVT.EVTPtr[Ctrl][5];
 	// :cond_0
 	}
-	if ((Status & 0x400) != 1024) {
+	if ((Status & 0x400) != 0x400) {
 	this.EVT.XInc = this.EVT.EVTPtr[Ctrl][0];
 	this.EVT.YInc = this.EVT.EVTPtr[Ctrl][1];
 	this.EVT.ZInc = this.EVT.EVTPtr[Ctrl][2];
 	// :cond_1
 	}
-	if ((Status & 0x80) != 128) {
+	if ((Status & 0x80) != 0x80) {
 	this.EVT.CurCNT = 0 /* 0 */;
 	this.EVT.CurFRM = 0 /* 0 */;
 	// :cond_2
 	}
 	this.EVT.MaxCNT = this.EVT.EVTPtr[Ctrl][6];
 	this.EVT.MaxFRM = this.EVT.EVTPtr[Ctrl][7];
-	if ((Status & 0x100) != 256) {
+	if ((Status & 0x100) != 0x100) {
 	this.EVT.ACTIdx = this.EVT.ACTPtr[Ctrl][this.EVT.CurFRM];
 	// :cond_3
 	}
-	this.EVT.Status = (this.EVT.Status & -34689);
+	this.EVT.Status = (this.EVT.Status & -0x8781);
 	// :cond_4
 	}
 	return;

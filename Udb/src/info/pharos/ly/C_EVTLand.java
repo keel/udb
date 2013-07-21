@@ -763,8 +763,7 @@ public void CreateLand(int X,int Y,boolean Flag){
 				this.c_EVTLand[i].EVT.Status = (this.c_EVTLand[i].EVT.Status | 0x2400);
 				this.c_EVTLand[i].m_LandLen = this.GetLandPara(
 						info.pharos.ly.C_Global.g_LandIdx, 1);
-				this.c_EVTLand[i].SetEVTCtrl(info.pharos.ly.C_Global.g_LandIdx,
-						0);
+				this.c_EVTLand[i].SetEVTCtrl(info.pharos.ly.C_Global.g_LandIdx,0);
 				if (this.setLandProp(i, XVal, YVal)) {
 					this.setLandPowerBall(i, XVal, YVal);
 					// :cond_1

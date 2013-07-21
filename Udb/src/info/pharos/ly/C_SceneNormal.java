@@ -430,7 +430,7 @@ private void ExecRUN(){
 							int Area = 0 /* 0 */;
 							// :cond_11
 							while (info.pharos.ly.C_PUB.GetActPixel(
-									ACTName, XVal, YVal, Feet_X2, Feet_Y2) == 0) {
+									ACTName, XVal, YVal, Feet_X2, Feet_Y2) != 0) {
 								// [OTHER] end local v38 #Area:I
 								// :cond_f
 								// :cond_16
