@@ -760,7 +760,7 @@ private void LandMain(){
 					// :cond_9
 				}else{
 					
-					info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea - 480);
+					info.pharos.ly.C_Global.g_DashSpeedArea = (info.pharos.ly.C_Global.g_DashSpeedArea - 0x10000);
 					if (info.pharos.ly.C_Global.g_DashSpeedArea < 0) {
 						info.pharos.ly.C_Global.g_DashSpeedArea = 0 /* 0 */;
 					}
