@@ -117,27 +117,29 @@ private void Effect03(){
 // virtual methods
 
 public void CreateCloud_Eff(int XVal,int YVal,int Speed){
-	if (info.pharos.ly.C_Global.g_chkVersion != 1) {
-	return;
-	// :cond_1
-	} else if (info.pharos.ly.C_Global.g_MakeCloudDly != 0) {
-	info.pharos.ly.C_Global.g_MakeCloudDly = (info.pharos.ly.C_Global.g_MakeCloudDly - 1);
-	// goto :goto_0
-	} else {
-	info.pharos.ly.C_Global.g_MakeCloudDly = (info.pharos.ly.C_PUB.Random(120) + 0x40);
-	int i = 0;
-	while (i < 10) {
-	if (!this.c_EVTEffect[i].EVT.Valid) {
-	XVal = (info.pharos.ly.C_PUB.Random(160) + 0x28);
-	YVal = 680;
-	this.c_EVTEffect[i].MakeEVENT(XVal,YVal,0);
-	this.c_EVTEffect[i].EVT.Attrib = 5;
-	this.c_EVTEffect[i].SetEVTCtrl(3,9216);
-	// goto :goto_0
-	} else {
-	i = (i + 0x1);
-		}
-		}
+		if (info.pharos.ly.C_Global.g_chkVersion != 1) {
+			return;
+			// :cond_1
+		} else if (info.pharos.ly.C_Global.g_MakeCloudDly != 0) {
+			info.pharos.ly.C_Global.g_MakeCloudDly = (info.pharos.ly.C_Global.g_MakeCloudDly - 1);
+			// goto :goto_0
+		} else {
+			info.pharos.ly.C_Global.g_MakeCloudDly = (info.pharos.ly.C_PUB
+					.Random(120) + 0x40);
+			int i = 0;
+			while (i < 10) {
+				if (!this.c_EVTEffect[i].EVT.Valid) {
+					XVal = (info.pharos.ly.C_PUB.Random(160) + 0x28);
+					YVal = 680;
+					this.c_EVTEffect[i].MakeEVENT(XVal, YVal, 0);
+					this.c_EVTEffect[i].EVT.Attrib = 5;
+					this.c_EVTEffect[i].SetEVTCtrl(3, 9216);
+					// goto :goto_0
+					return;
+				} else {
+					i = (i + 0x1);
+				}
+			}
 		}
 	// goto :goto_1
 }
