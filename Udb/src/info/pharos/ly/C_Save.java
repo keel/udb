@@ -38,9 +38,9 @@ public C_Save(){
 }
 
 private static boolean LoadBln(){
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	//info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
 	Boolean Data;
-	if (info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx] == 1) {
+	if (info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++] == 1) {
 		Data = Boolean.valueOf(true);
 	} else {
 	Data = Boolean.valueOf(false);
@@ -76,7 +76,7 @@ private static void LoadBuff(){
 public static void LoadData(){
 	;
 	oms.GameEngine.DataAccess UserData = new oms.GameEngine.DataAccess();
-	if (UserData.OpenInputFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),"Unicorn_02.ini")) {
+	if (UserData.OpenInputFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),FILENAME)) {
 	UserData.read(info.pharos.ly.C_Save.Buff);
 	info.pharos.ly.C_Save.checkInputFileSize(UserData.inputFileLen);
 	info.pharos.ly.C_Save.LoadBuff();
@@ -90,14 +90,14 @@ public static void LoadData(){
 }
 
 private static int LoadInt(){
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	byte a = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx];
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	byte b = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx];
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	byte c = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx];
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	byte d = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx];
+	//info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	byte a = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++];
+	//info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	byte b = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++];
+	//info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	byte c = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++];
+	//info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	byte d = info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++];
 	int Data = ((((a & 0xff) | ((b & 0xff) << 0x8)) | ((c & 0xff) << 0x10)) | ((d & 0xff) << 0x18));
 	return Data;
 	//return Data;
@@ -113,7 +113,7 @@ private static void ResetData(){
 	info.pharos.ly.C_Save.SaveBuff();
 	;
 	oms.GameEngine.DataAccess UserData = new oms.GameEngine.DataAccess();
-	if (UserData.OpenOutFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),"Unicorn_02.ini")) {
+	if (UserData.OpenOutFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),FILENAME)) {
 	UserData.write(info.pharos.ly.C_Save.Buff);
 	UserData.CloseOutputFile();
 	// :cond_0
@@ -123,11 +123,11 @@ private static void ResetData(){
 
 private static void SaveBln(boolean Data){
 	if (Data) {
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx] = 1;
+	//info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++] = 1;
 	} else {
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx] = 0 /* 0 */;
+	//info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++] = 0 /* 0 */;
 		}
 	// goto :goto_0
 	// :goto_0
@@ -150,14 +150,14 @@ private static void SaveInt(int Data){
 	byte b = (byte)((Data >> 0x8) & 0xff);
 	byte c = (byte)((Data >> 0x10) & 0xff);
 	byte d = (byte)((Data >> 0x18) & 0xff);
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx] = a;
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx] = b;
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx] = c;
-	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
-	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx] = d;
+//	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++] = a;
+//	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++] = b;
+//	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++] = c;
+//	info.pharos.ly.C_Save.BuffIdx = (info.pharos.ly.C_Save.BuffIdx + 0x1);
+	info.pharos.ly.C_Save.Buff[info.pharos.ly.C_Save.BuffIdx++] = d;
 	return;
 }
 
@@ -165,7 +165,7 @@ public static void UpdataData(){
 	info.pharos.ly.C_Save.SaveBuff();
 	;
 	oms.GameEngine.DataAccess UserData = new oms.GameEngine.DataAccess();
-	if (UserData.OpenOutFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),"Unicorn_02.ini")) {
+	if (UserData.OpenOutFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),FILENAME)) {
 	UserData.write(info.pharos.ly.C_Save.Buff);
 	UserData.CloseOutputFile();
 	// :cond_0
