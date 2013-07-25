@@ -95,7 +95,7 @@ public void onResume(){
 	if (this.thread != null) {
 	this.thread.setRunning(true);
 	if (this.thread.isAlive()) {
-	this.thread.resume();
+	//this.thread.resume();
 	} else {
 	try {
 	this.thread.join();

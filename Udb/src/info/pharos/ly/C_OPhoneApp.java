@@ -87,7 +87,7 @@ public void onResume(){
 	this.cGameThread = new info.pharos.ly.C_OPhoneApp.C_GameThread(this,info.pharos.ly.C_OPhoneApp.cLib,this.c_UnicornDash);
 	this.cGameThread.start();
 	} else {
-	this.cGameThread.resume();
+	//this.cGameThread.resume();
 		}
 	// goto :goto_0
 	// :goto_0

@@ -163,6 +163,7 @@ private void GameBTNExe00(){
 private void GameBTNExe01(){
 	if (this.CHKEVTACTEnd()) {
 	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(10,this.m_BTNType,0);
+	
 	this.SetEVTCtrl(0,0);
 	// :cond_0
 	}
@@ -208,40 +209,42 @@ private void SetGameBTNType(int Idx,int type){
 }
 
 private void setSoundBNTACT(){
-	if (this.m_BTNType == 3) {
-	info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().GetSoundStatus();
-	if (info.pharos.ly.C_Save.g_SoundStatus) {
-	this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_SoundONACT;
-	} else {
-	this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_SoundOFFACT;
+		if (this.m_BTNType == 3) {
+			info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_OPhoneApp.cLib
+					.getMediaManager().GetSoundStatus();
+			if (info.pharos.ly.C_Save.g_SoundStatus) {
+				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_SoundONACT;
+			} else {
+				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_SoundOFFACT;
+			}
+			// goto :goto_0
+			// :cond_0
 		}
-	// goto :goto_0
-	// :cond_0
-	}
-	// :goto_0
-	if (this.m_BTNType == 4) {
-	info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().GetMediaStatus();
-	if (info.pharos.ly.C_Save.g_MusicStatus) {
-	this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_MusicONACT;
-	} else {
-	this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_MusicOFFACT;
+		// :goto_0
+		else if (this.m_BTNType == 4) {
+			info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_OPhoneApp.cLib
+					.getMediaManager().GetMediaStatus();
+			if (info.pharos.ly.C_Save.g_MusicStatus) {
+				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_MusicONACT;
+			} else {
+				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_MusicOFFACT;
+			}
+			// goto :goto_1
+			// :cond_1
 		}
-	// goto :goto_1
-	// :cond_1
-	}
-	// :goto_1
-	if (this.m_BTNType == 5) {
-	info.pharos.ly.C_Save.g_ShakeStatus = info.pharos.ly.Vibrator.enabled;
-	if (info.pharos.ly.C_Save.g_ShakeStatus) {
-	this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_ShakeONACT;
-	} else {
-	this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_ShakeOFFACT;
+		// :goto_1
+		else if (this.m_BTNType == 5) {
+			info.pharos.ly.C_Save.g_ShakeStatus = info.pharos.ly.Vibrator.enabled;
+			if (info.pharos.ly.C_Save.g_ShakeStatus) {
+				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_ShakeONACT;
+			} else {
+				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_ShakeOFFACT;
+			}
+			// goto :goto_2
+			// :cond_2
 		}
-	// goto :goto_2
-	// :cond_2
-	}
-	// :goto_2
-	return;
+		// :goto_2
+		return;
 }
 // virtual methods
 

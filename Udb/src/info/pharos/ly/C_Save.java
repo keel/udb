@@ -1,5 +1,7 @@
 package info.pharos.ly;
 
+import android.util.Log;
+
 
 public class C_Save extends Object  {
 
@@ -169,6 +171,7 @@ public static void UpdataData(){
 	UserData.write(info.pharos.ly.C_Save.Buff);
 	UserData.CloseOutputFile();
 	// :cond_0
+	//Log.e("C_Save", "updateData succeed:"+Buff[0]+Buff[1]+Buff[2]);
 	}
 	return;
 }

@@ -493,6 +493,7 @@ public static void setMusicStatus(){
 	info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().GetMediaStatus();
 	if (!info.pharos.ly.C_Save.g_MusicStatus) {
 	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(true);
+	info.pharos.ly.C_Save.g_MusicStatus = true;
 	if (info.pharos.ly.C_Global.g_GameMode == 5) {
 	info.pharos.ly.C_Media.PlayMenuMusic();
 	} else {
@@ -502,9 +503,12 @@ public static void setMusicStatus(){
 	} else {
 	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaStop(0);
 	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(false);
+	info.pharos.ly.C_Save.g_MusicStatus = false;
 		}
 	// goto :goto_0
 	// :goto_0
+	
+	C_Save.UpdataData();
 	return;
 }
 
@@ -512,12 +516,15 @@ public static void setSoundStatus(){
 	info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().GetSoundStatus();
 	if (!info.pharos.ly.C_Save.g_SoundStatus) {
 	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetSoundEnable(true);
+	info.pharos.ly.C_Save.g_SoundStatus = true;
 	info.pharos.ly.C_Media.PlaySound(5);
 	} else {
 	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetSoundEnable(false);
+	info.pharos.ly.C_Save.g_SoundStatus = false;
 		}
 	// goto :goto_0
 	// :goto_0
+	C_Save.UpdataData();
 	return;
 }
 
@@ -525,12 +532,15 @@ public static void setVibratorStatus(){
 	info.pharos.ly.C_Save.g_ShakeStatus = info.pharos.ly.Vibrator.enabled;
 	if (!info.pharos.ly.C_Save.g_ShakeStatus) {
 	info.pharos.ly.Vibrator.enable();
+	info.pharos.ly.C_Save.g_ShakeStatus = true;
 	} else {
 	info.pharos.ly.Vibrator.disable();
+	info.pharos.ly.C_Save.g_ShakeStatus = false;
 		}
 	// goto :goto_0
 	// :goto_0
 	info.pharos.ly.C_PUB.setVibratorTime();
+	C_Save.UpdataData();
 	return;
 }
 
