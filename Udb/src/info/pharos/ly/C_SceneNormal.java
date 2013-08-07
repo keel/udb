@@ -102,7 +102,7 @@ private void AddScoreMain(int AddScore){
 }
 
 private void ClearACT(){
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().ClearACT();
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().ClearACT();
 	return;
 }
 
@@ -137,14 +137,14 @@ private void ExecEVT(){
 	switch(info.pharos.ly.C_Global.g_GameState){
 	case 3: case 7: 
 	if (this.c_EVTPlayer != null) {
-	this.c_EVTPlayer.ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTPlayer.ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	// :cond_1
 	}
 	if (this.c_EVTLand != null) {
 	int i = 0 /* 0 */;
 	
 	while (i < 5) {
-	this.c_EVTLand[i].ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTLand[i].ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	i = (i + 0x1);
 	// goto :goto_2
 	// :cond_6
@@ -156,7 +156,7 @@ private void ExecEVT(){
 		int i = 0 /* 0 */;
 	
 	while (i < 5) {
-	this.c_EVTPropA[i].ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTPropA[i].ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	i = (i + 0x1);
 	// goto :goto_3
 	// :cond_7
@@ -168,7 +168,7 @@ private void ExecEVT(){
 		int i = 0 /* 0 */;
 	
 	while (i < 2) {
-	this.c_EVTEidolon[i].ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTEidolon[i].ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
  i = (i + 0x1);
 	// goto :goto_4
 	// :cond_8
@@ -180,7 +180,7 @@ private void ExecEVT(){
 		int i = 0 /* 0 */;
 	
 	while (i < 10) {
-	this.c_EVTEffect[i].ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTEffect[i].ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	i = (i + 0x1);
 	// goto :goto_5
 	// :cond_9
@@ -188,15 +188,15 @@ private void ExecEVT(){
 	//[OTHER] end local v0           #i:I
 	// :cond_5
 	}
-	this.c_DashBTN.ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	this.c_JumpBTN.ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-	this.c_EVTPowerBall.ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_DashBTN.ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
+	this.c_JumpBTN.ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
+	this.c_EVTPowerBall.ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	break;
 	} //end of switch
 	if (this.c_EVTGameBTN != null) {
 	int i = 0;
 	while (i < 5) {
-	this.c_EVTGameBTN[i].ExecEVT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTGameBTN[i].ExecEVT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	i = (i + 0x1);
 	// goto/16 :goto_1
 	// :cond_a
@@ -213,14 +213,14 @@ private void ExecEVT(){
 private void ExecRUN(){
 		if (info.pharos.ly.C_Global.g_GameState == 7) {
 			if (this.c_EVTPlayer != null) {
-				this.c_EVTPlayer.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+				this.c_EVTPlayer.ExecRUN(info.pharos.ly.C_GameMain.cLib
 						.getGameCanvas());
 				// :cond_0
 			}
 			if (this.c_EVTLand != null) {
 				int i = 0;
 				while (i < 5) {
-					this.c_EVTLand[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+					this.c_EVTLand[i].ExecRUN(info.pharos.ly.C_GameMain.cLib
 							.getGameCanvas());
 					i = (i + 0x1);
 					// goto :goto_0
@@ -233,7 +233,7 @@ private void ExecRUN(){
 				int i = 0 /* 0 */;
 
 				while (i < 5) {
-					this.c_EVTPropA[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+					this.c_EVTPropA[i].ExecRUN(info.pharos.ly.C_GameMain.cLib
 							.getGameCanvas());
 					i = (i + 0x1);
 					// goto :goto_1
@@ -247,7 +247,7 @@ private void ExecRUN(){
 
 				while (i < 2) {
 					this.c_EVTEidolon[i]
-							.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+							.ExecRUN(info.pharos.ly.C_GameMain.cLib
 									.getGameCanvas());
 					i = (i + 0x1);
 					// goto :goto_2
@@ -260,7 +260,7 @@ private void ExecRUN(){
 				int i = 0 /* 0 */;
 
 				while (i < 10) {
-					this.c_EVTEffect[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+					this.c_EVTEffect[i].ExecRUN(info.pharos.ly.C_GameMain.cLib
 							.getGameCanvas());
 					i = (i + 0x1);
 					// goto :goto_3
@@ -269,11 +269,11 @@ private void ExecRUN(){
 				// [OTHER] end local v0 #i:I
 				// :cond_4
 			}
-			this.c_DashBTN.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+			this.c_DashBTN.ExecRUN(info.pharos.ly.C_GameMain.cLib
 					.getGameCanvas());
-			this.c_JumpBTN.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+			this.c_JumpBTN.ExecRUN(info.pharos.ly.C_GameMain.cLib
 					.getGameCanvas());
-			this.c_EVTPowerBall.ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+			this.c_EVTPowerBall.ExecRUN(info.pharos.ly.C_GameMain.cLib
 					.getGameCanvas());
 			// :cond_5
 		}
@@ -281,7 +281,7 @@ private void ExecRUN(){
 			int i = 0 /* 0 */;
 
 			while (i < 5) {
-				this.c_EVTGameBTN[i].ExecRUN(info.pharos.ly.C_OPhoneApp.cLib
+				this.c_EVTGameBTN[i].ExecRUN(info.pharos.ly.C_GameMain.cLib
 						.getGameCanvas());
 				i = (i + 0x1);
 				// goto :goto_4
@@ -352,7 +352,7 @@ private void ExecRUN(){
 						Head_X1 = ((this.c_EVTPlayer.EVT.XVal >> 16) + 45);
 						Head_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 16) + 15);
 
-						if (info.pharos.ly.C_OPhoneApp.cLib
+						if (info.pharos.ly.C_GameMain.cLib
 								.getGameCanvas().CHKACTTouch(Head_X1, Head_Y1,
 										1, 1, 1, 1, ACTName, XVal, YVal)) {
 							int Area = 0 /* 0 */;
@@ -373,7 +373,7 @@ private void ExecRUN(){
 						Feet_X1 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + 0x0);
 						Feet_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf);
 
-						if (info.pharos.ly.C_OPhoneApp.cLib
+						if (info.pharos.ly.C_GameMain.cLib
 								.getGameCanvas().CHKACTTouch(Feet_X1, Feet_Y1,
 										1, 1, 1, 1, ACTName, XVal, YVal)) {
 							if (this.c_EVTPlayer.EVT.Ctrl == 0
@@ -412,7 +412,7 @@ private void ExecRUN(){
 						Feet_X2 = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + 0x0) + 0x0);
 
 						Feet_Y2 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + -0xf);
-						if (info.pharos.ly.C_OPhoneApp.cLib
+						if (info.pharos.ly.C_GameMain.cLib
 								.getGameCanvas().CHKACTTouch(Feet_X2, Feet_Y2,
 										1, 1, 1, 1, ACTName, XVal, YVal)) {
 							if (this.c_EVTPlayer.EVT.Ctrl == 0
@@ -454,7 +454,7 @@ private void ExecRUN(){
 						Body_X1 = (Front_X + 0xf);
 
 						Body_Y1 = ((this.c_EVTPlayer.EVT.YVal >> 0x10) + 0xf);
-						if (info.pharos.ly.C_OPhoneApp.cLib
+						if (info.pharos.ly.C_GameMain.cLib
 								.getGameCanvas().CHKACTTouch(Body_X1, Body_Y1,
 										1, 1, 1, 1, ACTName, XVal, YVal)
 								&& info.pharos.ly.C_PUB.GetActPixel(
@@ -523,14 +523,14 @@ private void ExecRUN(){
 						int DACTName = this.c_EVTPropA[i].EVT.ACTIdx;
 						int DXVal = (this.c_EVTPropA[i].EVT.XVal >> 0x10);
 						int DYVal = (this.c_EVTPropA[i].EVT.YVal >> 0x10);
-						if (info.pharos.ly.C_OPhoneApp.cLib
+						if (info.pharos.ly.C_GameMain.cLib
 								.getGameCanvas().CHKACTTouch(SACTName, SXVal,
 										SYVal, DACTName, DXVal, DYVal)) {
 							if (this.c_EVTPlayer.EVT.Ctrl == 3) {
 								this.c_EVTPropA[i].SetEVTCtrl(1, 0);
 								info.pharos.ly.C_Media.PlaySound(1);
 								info.pharos.ly.C_PUB.setVibratorTime();
-								info.pharos.ly.C_OPhoneApp.cLib
+								info.pharos.ly.C_GameMain.cLib
 										.getMessageMgr()
 										.SendMessage(
 												40,
@@ -539,7 +539,7 @@ private void ExecRUN(){
 												0,
 												DXVal,
 												(DYVal - (this.getLandSpeed() >> 0x10)));
-								info.pharos.ly.C_OPhoneApp.cLib
+								info.pharos.ly.C_GameMain.cLib
 										.getMessageMgr().SendMessage(40, 45, 0);
 
 							} else {
@@ -550,7 +550,7 @@ private void ExecRUN(){
 									info.pharos.ly.C_Media.PlaySound(1);
 									info.pharos.ly.C_PUB
 											.setVibratorTime();
-									info.pharos.ly.C_OPhoneApp.cLib
+									info.pharos.ly.C_GameMain.cLib
 											.getMessageMgr()
 											.SendMessage(
 													40,
@@ -560,7 +560,7 @@ private void ExecRUN(){
 													DXVal,
 													(DYVal - (this
 															.getLandSpeed() >> 0x10)));
-									info.pharos.ly.C_OPhoneApp.cLib
+									info.pharos.ly.C_GameMain.cLib
 											.getMessageMgr().SendMessage(40,
 													45, 0);
 								} else {
@@ -585,12 +585,12 @@ private void ExecRUN(){
 						int DXVal = (this.c_EVTEidolon[i].EVT.XVal >> 0x10);
 
 						int DYVal = (this.c_EVTEidolon[i].EVT.YVal >> 0x10);
-						if (info.pharos.ly.C_OPhoneApp.cLib
+						if (info.pharos.ly.C_GameMain.cLib
 								.getGameCanvas().CHKACTTouch(SACTName, SXVal,
 										SYVal, DACTName, DXVal, DYVal)) {
 							this.c_EVTEidolon[i].SetEVTCtrl(1, 0);
 							info.pharos.ly.C_Media.PlaySound(6);
-							info.pharos.ly.C_OPhoneApp.cLib
+							info.pharos.ly.C_GameMain.cLib
 									.getMessageMgr()
 									.SendMessage(
 											40,
@@ -611,7 +611,7 @@ private void ExecRUN(){
 				int DACTName = this.c_EVTPowerBall.EVT.ACTIdx;
 				int DXVal = (this.c_EVTPowerBall.EVT.XVal >> 0x10);
 				int DYVal = (this.c_EVTPowerBall.EVT.YVal >> 0x10);
-				if (info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				if (info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.CHKACTTouch(SACTName, SXVal, SYVal, DACTName, DXVal,
 								DYVal)) {
 					this.c_EVTPowerBall.SetEVTCtrl(1, 0);
@@ -882,7 +882,7 @@ private void MakeHorseEff(){
 	// :cond_1
 	}
 	}
-	if ((this.c_EVTPlayer.EVT.Ctrl == 1 || this.c_EVTPlayer.EVT.Ctrl == 2) && (info.pharos.ly.C_OPhoneApp.cLib.getVBLCount() % 0x5) == 0) {
+	if ((this.c_EVTPlayer.EVT.Ctrl == 1 || this.c_EVTPlayer.EVT.Ctrl == 2) && (info.pharos.ly.C_GameMain.cLib.getVBLCount() % 0x5) == 0) {
 	// :cond_2
 	this.c_Effect.CreateHorse_Eff(((this.c_EVTPlayer.m_FeetOffset_B + XVal) + 0x14),(YVal - 20),Speed);
 	// :cond_3
@@ -893,11 +893,11 @@ private void MakeHorseEff(){
 	private void MsgLoop() {
 		if (!this.m_isMsgRun) {
 		} else {
-			int MSGCount = info.pharos.ly.C_OPhoneApp.cLib
+			int MSGCount = info.pharos.ly.C_GameMain.cLib
 					.getMessageMgr().GetMessageQueueLength();
 			int i = 0;
 			while (i < MSGCount) {
-				oms.GameEngine.C_MSG Msg = info.pharos.ly.C_OPhoneApp.cLib
+				info.pharos.gameEngine.C_MSG Msg = info.pharos.ly.C_GameMain.cLib
 						.getMessageMgr().GetMessageQueue(i);
 				int hWnd = Msg.GetMsgHWnd();
 				int message = Msg.GetMsgMessage();
@@ -1007,7 +1007,7 @@ private void MakeHorseEff(){
 				// goto :goto_1
 				// :cond_1
 			}
-			info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr()
+			info.pharos.ly.C_GameMain.cLib.getMessageMgr()
 					.RemoveAllMsgQueue();
 		}
 		// goto :goto_0
@@ -1017,18 +1017,18 @@ private void MakeHorseEff(){
 	}
 
 private void ReadTouch(){
-	info.pharos.ly.C_OPhoneApp.cTouch.ReadTouch();
+	info.pharos.ly.C_GameMain.cTouch.ReadTouch();
 	info.pharos.ly.C_PUB.CHKTouch_Input();
-	info.pharos.ly.C_OPhoneApp.cLib.getInput().ReadKeyBoard();
-	if (info.pharos.ly.C_OPhoneApp.cLib.getInput().CHKUpKey(4)) {
+	info.pharos.ly.C_GameMain.cLib.getInput().ReadKeyBoard();
+	if (info.pharos.ly.C_GameMain.cLib.getInput().CHKUpKey(4)) {
 	if (info.pharos.ly.C_Global.g_GameState == 7) {
 	info.pharos.ly.C_Media.PlaySound(5);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(10,6,0);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(10,6,0);
 	// :cond_0
 	}
 	if (info.pharos.ly.C_Global.g_GameState == 11) {
 	info.pharos.ly.C_Media.PlaySound(5);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(10,7,0);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(10,7,0);
 	// :cond_1
 	}
 	}
@@ -1074,25 +1074,25 @@ private void ReadTouch(){
 				// :cond_0
 		}
 		if (!CountEnd
-				&& (info.pharos.ly.C_OPhoneApp.cLib.nVBLCount % 0x3) == 0) {
+				&& (info.pharos.ly.C_GameMain.cLib.nVBLCount % 0x3) == 0) {
 			info.pharos.ly.C_Media.PlaySound(7);
 			// :cond_1
 		}
 		info.pharos.ly.C_PUB.showPauseSCR();
-		info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(
+		info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(
 				2130837718, 160, 240, 6);
 		if (CountEnd) {
 			if (info.pharos.ly.C_Global.g_GameLife == 0) {
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.WriteSprite(2130837721, 20, 240, 6);
 			} else {
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.WriteSprite(2130837720, 20, 240, 6);
 			}
 			// goto/16 :goto_1
 			// :goto_1
-			if ((info.pharos.ly.C_OPhoneApp.cLib.nVBLCount % 0x10) > 8) {
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+			if ((info.pharos.ly.C_GameMain.cLib.nVBLCount % 0x10) > 8) {
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.WriteSprite(2130837719, 20, 76, 6);
 				// :cond_2
 			}
@@ -1110,7 +1110,7 @@ private void ReadTouch(){
 				// :cond_6
 			}
 			if (this.m_FinalCount >= info.pharos.ly.C_Save.g_HighScore) {
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.WriteSprite(2130837722, 300, 240, 6);
 				// :cond_7
 			}
@@ -1126,7 +1126,7 @@ private void ReadTouch(){
 				info.pharos.ly.C_Save.g_HighScore, 70, 320, 15, 1, 5,
 				info.pharos.ly.C_DEF.ResultNUM1TBL, 7);
 		if (CountEnd
-				&& (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchDown() || info.pharos.ly.C_OPhoneApp.cLib
+				&& (info.pharos.ly.C_GameMain.cTouch.CHKTouchDown() || info.pharos.ly.C_GameMain.cLib
 						.getInput().CHKUpKey(4))) {
 			// :cond_3
 			this.ExitEVENT();
@@ -1142,7 +1142,7 @@ private void ReadTouch(){
 			case 2:
 				this.ExitEVENT();
 				info.pharos.ly.C_PUB.setGameState(1);
-				info.pharos.ly.C_OPhoneApp.cLib.ViewDark(64);
+				info.pharos.ly.C_GameMain.cLib.ViewDark(64);
 				break;
 			} // end of switch
 //			com.game.UnicornDash.C_PUB.ShowAdView(false);
@@ -1166,8 +1166,8 @@ private void SCRPullCtrl(){
 	XVal = 0 /* 0 */;
 	// :cond_1
 	}
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().SetTextXVal(0,(XVal - (info.pharos.ly.C_Global.g_SceneDash_X / 0x2)));
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().SetTextYVal(0,(-48 - (info.pharos.ly.C_Global.g_SceneDash_Y / 0x2)));
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().SetTextXVal(0,(XVal - (info.pharos.ly.C_Global.g_SceneDash_X / 0x2)));
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().SetTextYVal(0,(-48 - (info.pharos.ly.C_Global.g_SceneDash_Y / 0x2)));
 	return;
 }
 
@@ -1250,7 +1250,7 @@ private void ShowEVENT(){
 	this.c_EVTPlayer.EVT.Status = (this.c_EVTPlayer.EVT.Status | 0x800);
 	this.c_EVTPlayer.EVT.DispX = (((this.c_EVTPlayer.EVT.XVal >> 0x10) + info.pharos.ly.C_Global.g_SceneFloat_X) + -0x1e);
 	this.c_EVTPlayer.EVT.DispY = (((this.c_EVTPlayer.EVT.YVal >> 0x10) + info.pharos.ly.C_Global.g_SceneFloat_Y) + 0x0);
-	this.c_EVTPlayer.ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTPlayer.ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	// :cond_0
 	}
 	if (this.c_EVTPowerBall != null && this.c_EVTPowerBall.EVT.Valid) {
@@ -1270,7 +1270,7 @@ private void ShowEVENT(){
 			}
 	// goto/16 :goto_0
 	// :goto_0
-	this.c_EVTPowerBall.ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTPowerBall.ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	// :cond_1
 	}
 	
@@ -1288,7 +1288,7 @@ private void ShowEVENT(){
 			if(Act == -1){break;}
 			if (this.chkACTIsShow_Y(Act,this.c_EVTLand[i].EVT.DispY)) {
 			if (Ctrl == 6) {
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
 			// goto :goto_7
 			//[OTHER] end local v0           #Act:I
 			//[OTHER] end local v1           #Ctrl:I
@@ -1296,7 +1296,7 @@ private void ShowEVENT(){
 			// :cond_d
 			}else{
 				if (this.chkACTIsShow_X(Act,this.c_EVTLand[i].EVT.DispX)) {
-					info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
+					info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(Act,this.c_EVTLand[i].EVT.DispX,this.c_EVTLand[i].EVT.DispY,this.c_EVTLand[i].EVT.Attrib);
 				}
 			}
 			}
@@ -1325,7 +1325,7 @@ private void ShowEVENT(){
 	this.c_EVTPropA[i].EVT.Status = (this.c_EVTPropA[i].EVT.Status | 0x800);
 	this.c_EVTPropA[i].EVT.DispX = ((((this.c_EVTPropA[i].EVT.XVal >> 0x10) + info.pharos.ly.C_Global.g_SceneFloat_X) + info.pharos.ly.C_Global.g_SceneDash_X) + -0x1e);
 	this.c_EVTPropA[i].EVT.DispY = ((((this.c_EVTPropA[i].EVT.YVal >> 0x10) + info.pharos.ly.C_Global.g_SceneFloat_Y) + info.pharos.ly.C_Global.g_SceneDash_Y) + 0x0);
-	this.c_EVTPropA[i].ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTPropA[i].ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	i = (i + 0x1);
 	// goto/16 :goto_2
 	// :cond_f
@@ -1337,7 +1337,7 @@ private void ShowEVENT(){
 	int i = 0 /* 0 */;
 	
 	while (i < 5) {
-	this.c_EVTGameBTN[i].ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTGameBTN[i].ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	i = (i + 0x1);
 	// goto/16 :goto_3
 	// :cond_10
@@ -1352,7 +1352,7 @@ private void ShowEVENT(){
 	this.c_EVTEidolon[i].EVT.Status = (this.c_EVTEidolon[i].EVT.Status | 0x800);
 	this.c_EVTEidolon[i].EVT.DispX = ((((this.c_EVTEidolon[i].EVT.XVal >> 0x10) + info.pharos.ly.C_Global.g_SceneFloat_X) + info.pharos.ly.C_Global.g_SceneDash_X) + -0x1e);
 	this.c_EVTEidolon[i].EVT.DispY = ((((this.c_EVTEidolon[i].EVT.YVal >> 0x10) + info.pharos.ly.C_Global.g_SceneFloat_Y) + info.pharos.ly.C_Global.g_SceneDash_Y) + 0x0);
-	this.c_EVTEidolon[i].ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+	this.c_EVTEidolon[i].ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 	i = (i + 0x1);
 	// goto/16 :goto_4
 	// :cond_11
@@ -1375,15 +1375,15 @@ private void ShowEVENT(){
 			break;
 		} //end of switch
 		
-		this.c_EVTEffect[i].ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+		this.c_EVTEffect[i].ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 		i = (i + 0x1);
 		
 		
 	// :cond_6
 	}
 	if (info.pharos.ly.C_Global.g_GameState == 7) {
-		this.c_DashBTN.ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
-		this.c_JumpBTN.ShowEVENT(info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas());
+		this.c_DashBTN.ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
+		this.c_JumpBTN.ShowEVENT(info.pharos.ly.C_GameMain.cLib.getGameCanvas());
 		// :cond_7
 		}
 		return;
@@ -1402,9 +1402,9 @@ private void ShowLife(){
 	int i = 0;
 	while (i < 3) {
 	if (info.pharos.ly.C_Global.g_GameLife > i) {
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(2130837515,x,((i * s) + y),5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837515,x,((i * s) + y),5);
 	} else {
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(2130837516,x,((i * s) + y),5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837516,x,((i * s) + y),5);
 		}
 	// goto :goto_1
 	// :goto_1
@@ -1425,8 +1425,8 @@ private void ShowScore(){
 }
 
 private boolean chkACTIsShow_X(int Act,int XVal){
-	int XHitL = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().GetSpriteXHitL(Act);
-	int XHitR = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().GetSpriteXHitR(Act);
+	int XHitL = info.pharos.ly.C_GameMain.cLib.getGameCanvas().GetSpriteXHitL(Act);
+	int XHitR = info.pharos.ly.C_GameMain.cLib.getGameCanvas().GetSpriteXHitR(Act);
 	int X1 = (XVal - XHitL);
 	int X2 = (XVal + XHitR);
 	if (X1 >= 0 && X1 <= 320) {
@@ -1448,9 +1448,9 @@ private boolean chkACTIsShow_X(int Act,int XVal){
 
 private boolean chkACTIsShow_Y(int Act,int YVal){
 		int Area = ((info.pharos.ly.C_Global.g_scrHeight - 480) / 0x2);
-		int YHitU = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+		int YHitU = info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 				.GetSpriteYHitU(Act);
-		int YHitD = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+		int YHitD = info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 				.GetSpriteYHitD(Act);
 		int Y1 = (YVal + YHitD);
 		int Y2 = (YVal - YHitU);
@@ -1529,8 +1529,8 @@ private void showHightRecord(){
 	int RunLength = (int)(info.pharos.ly.C_Global.g_CurDistance >> 16);
 	int YVal = (info.pharos.ly.C_Save.g_HighDistance - RunLength);
 	if (info.pharos.ly.C_Save.g_HighDistance == 0 || YVal < -48 || YVal > 576) {
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(2130837537,0,YVal,5);
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(2130837538,160,YVal,5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837537,0,YVal,5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837538,160,YVal,5);
 		}
 		}
 	// goto :goto_0
@@ -1655,16 +1655,16 @@ public void ExitEVENT(){
 				info.pharos.ly.C_PUB.setGameState(3);
 				break;
 			case 3:
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().LoadText(
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(
 						info.pharos.ly.C_DEF.SceSceneTBL[this.m_SCRIdx],
 						0, 0);
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.SetTextYVal(0, -48);
 				this.SCRPullCtrl();
 				this.ShowEVENT();
 				this.ShowScore();
 				this.ShowLife();
-				info.pharos.ly.C_OPhoneApp.cLib.ViewOpen(64);
+				info.pharos.ly.C_GameMain.cLib.ViewOpen(64);
 				info.pharos.ly.C_PUB.setGameState(7);
 				break;
 			case 4:
@@ -1675,12 +1675,12 @@ public void ExitEVENT(){
 				this.LandMain();
 				this.SceneFloatCtrl();
 				this.SCRPullCtrl();
-				this.MakeHorseEff();
+				//this.MakeHorseEff();
 				this.c_Effect.CreateCloud_Eff(160, 240, this.getLandSpeed());
 				break;
 			case 11:
 				info.pharos.ly.C_PUB.showPauseSCR();
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.WriteSprite(2130837677, 260, 240, 6);
 				break;
 			case 12:
@@ -1698,15 +1698,15 @@ public void ExitEVENT(){
 			this.MsgLoop();
 			this.ExecEVENT();
 			this.ShowEVENT();
-			info.pharos.ly.C_OPhoneApp.cLib.WaitBLK();
+			info.pharos.ly.C_GameMain.cLib.WaitBLK();
 			// goto somewhere; //maybe return,continue,break: goto :goto_0
 			// op;
 
 		}
 
 		this.ExitEVENT();
-		info.pharos.ly.C_OPhoneApp.cLib.ViewDark(64);
-		info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(0,
+		info.pharos.ly.C_GameMain.cLib.ViewDark(64);
+		info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(0,
 				30, 5);
 	}
 

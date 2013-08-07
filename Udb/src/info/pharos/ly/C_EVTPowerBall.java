@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTPowerBall extends oms.GameEngine.GameEvent  {
+public class C_EVTPowerBall extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 private static final int[] PowerBall00;

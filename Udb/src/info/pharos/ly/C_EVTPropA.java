@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTPropA extends oms.GameEngine.GameEvent  {
+public class C_EVTPropA extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 public static final int CTRL_BLAST = 0x1;
@@ -55,7 +55,7 @@ private void PropA00(){
 
 private void PropA01(){
 	this.EVT.Attrib = 5;
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(info.pharos.ly.C_EVTPropA.PropA01ACT[this.EVT.CurFRM],this.EVT.DispX,(this.EVT.DispY + 0x1e),this.EVT.Attrib);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(info.pharos.ly.C_EVTPropA.PropA01ACT[this.EVT.CurFRM],this.EVT.DispX,(this.EVT.DispY + 0x1e),this.EVT.Attrib);
 	if (this.CHKEVTACTEnd()) {
 	this.EVTCLR();
 	// :cond_0

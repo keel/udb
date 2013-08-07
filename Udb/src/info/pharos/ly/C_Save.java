@@ -60,8 +60,8 @@ private static void LoadBuff(){
 	info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_Save.LoadBln();
 	info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_Save.LoadBln();
 	info.pharos.ly.C_Save.g_ShakeStatus = info.pharos.ly.C_Save.LoadBln();
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetSoundEnable(info.pharos.ly.C_Save.g_SoundStatus);
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(info.pharos.ly.C_Save.g_MusicStatus);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().SetSoundEnable(info.pharos.ly.C_Save.g_SoundStatus);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().SetMediaEnable(info.pharos.ly.C_Save.g_MusicStatus);
 	if (info.pharos.ly.C_Save.g_ShakeStatus) {
 	info.pharos.ly.Vibrator.enable();
 	} else {
@@ -77,8 +77,8 @@ private static void LoadBuff(){
 
 public static void LoadData(){
 	;
-	oms.GameEngine.DataAccess UserData = new oms.GameEngine.DataAccess();
-	if (UserData.OpenInputFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),FILENAME)) {
+	info.pharos.gameEngine.DataAccess UserData = new info.pharos.gameEngine.DataAccess();
+	if (UserData.OpenInputFile(info.pharos.ly.C_GameMain.cLib.getMContext(),FILENAME)) {
 	UserData.read(info.pharos.ly.C_Save.Buff);
 	info.pharos.ly.C_Save.checkInputFileSize(UserData.inputFileLen);
 	info.pharos.ly.C_Save.LoadBuff();
@@ -114,8 +114,8 @@ private static void ResetData(){
 	info.pharos.ly.C_Save.g_HighDistance = 0 /* 0 */;
 	info.pharos.ly.C_Save.SaveBuff();
 	;
-	oms.GameEngine.DataAccess UserData = new oms.GameEngine.DataAccess();
-	if (UserData.OpenOutFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),FILENAME)) {
+	info.pharos.gameEngine.DataAccess UserData = new info.pharos.gameEngine.DataAccess();
+	if (UserData.OpenOutFile(info.pharos.ly.C_GameMain.cLib.getMContext(),FILENAME)) {
 	UserData.write(info.pharos.ly.C_Save.Buff);
 	UserData.CloseOutputFile();
 	// :cond_0
@@ -166,8 +166,8 @@ private static void SaveInt(int Data){
 public static void UpdataData(){
 	info.pharos.ly.C_Save.SaveBuff();
 	;
-	oms.GameEngine.DataAccess UserData = new oms.GameEngine.DataAccess();
-	if (UserData.OpenOutFile(info.pharos.ly.C_OPhoneApp.cLib.getMContext(),FILENAME)) {
+	info.pharos.gameEngine.DataAccess UserData = new info.pharos.gameEngine.DataAccess();
+	if (UserData.OpenOutFile(info.pharos.ly.C_GameMain.cLib.getMContext(),FILENAME)) {
 	UserData.write(info.pharos.ly.C_Save.Buff);
 	UserData.CloseOutputFile();
 	// :cond_0

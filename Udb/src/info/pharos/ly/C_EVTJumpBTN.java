@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTJumpBTN extends oms.GameEngine.GameEvent  {
+public class C_EVTJumpBTN extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 private static final int[] BTN_Jump00 = {0x7f020007,0x7f02000d};

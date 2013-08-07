@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTEidolon extends oms.GameEngine.GameEvent  {
+public class C_EVTEidolon extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 public static final int CTRL_BLAST = 0x1;

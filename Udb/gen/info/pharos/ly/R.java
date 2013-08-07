@@ -356,6 +356,7 @@ containing a value of this type.
         public static final int opeapp=0x7f040007;
         public static final int prise=0x7f040008;
         public static final int run=0x7f040009;
+        public static final int sp=0x7f04000a;
     }
     public static final class string {
         public static final int app_name=0x7f050001;

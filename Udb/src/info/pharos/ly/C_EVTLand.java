@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTLand extends oms.GameEngine.GameEvent  {
+public class C_EVTLand extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 public static final int CTRL_ATTACKTRACK = 0x1;
@@ -656,7 +656,7 @@ private int GetLandPara(int LandIdx,int Type){
 
 private void MakeLandEidolon(int EVTIdx,int XVal,int YVal){
 	XVal = ((this.GetLandPara(info.pharos.ly.C_Global.g_LandIdx,2) + XVal) + 0x96);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,43,EVTIdx,0,(XVal - 16),(YVal - 16));
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(40,43,EVTIdx,0,(XVal - 16),(YVal - 16));
 	return;
 }
 
@@ -718,7 +718,7 @@ private boolean setLandProp(int EVTIdx,int XVal,int YVal){
 	if (Setoff_X != 0 && Setoff_X != 0) {
 	X = ((XVal + Setoff_X) - 16);
 	Y = ((YVal + Setoff_Y) - 16);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,41,EVTIdx,0,X,Y);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(40,41,EVTIdx,0,X,Y);
 	//[OTHER] end local v8           #Setoff_X:I
 	//[OTHER] end local v9           #Setoff_Y:I
 	// :cond_0
@@ -843,7 +843,7 @@ void setLandPowerBall(int EVTIdx,int XVal,int YVal){
 	int Setoff_Y = info.pharos.ly.C_EVTLand.LandParaPosTBL[info.pharos.ly.C_Global.g_LandIdx][2][1];
 	int X = (((XVal + Setoff_X) - 16) + 0x28);
 	int Y = ((YVal + Setoff_Y) - 16);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,48,EVTIdx,0,X,Y);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(40,48,EVTIdx,0,X,Y);
 		}
 	// goto :goto_0
 	// :goto_0

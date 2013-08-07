@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTDashBTN extends oms.GameEngine.GameEvent  {
+public class C_EVTDashBTN extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 private static final int[][] BTN_DashACT;

@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTPlayer extends oms.GameEngine.GameEvent  {
+public class C_EVTPlayer extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 public static final int CTRL_DASH = 0x3;
@@ -317,7 +317,7 @@ private void PlayerExe04(){
 	this.EVT.Status = (this.EVT.Status | 0x400);
 	if (this.CHKEVTACTEnd()) {
 		//退出
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(20,9,0);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(20,9,0);
 	this.EVTCLR();
 	// :cond_0
 	}
@@ -327,7 +327,7 @@ private void PlayerExe04(){
 private void chkGameSide(){
 	if (this.EVT.Ctrl != 4 && this.c_EVTPlayer.EVT.XVal < -0x2000000) {
 	this.setPlayerCtrl(4,0);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,45,0);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(40,45,0);
 	// :cond_0
 	}
 	return;
@@ -445,8 +445,8 @@ public void setPlayerCtrl(int Ctrl,int Mode){
 	info.pharos.ly.C_PUB.setVibratorTime();
 	info.pharos.ly.C_Media.PlaySound(1);
 	this.SetEVTCtrl(4,1024);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,45,0);
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(40,49,0);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(40,45,0);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(40,49,0);
 	break;
 	} //end of switch
 	// :cond_1

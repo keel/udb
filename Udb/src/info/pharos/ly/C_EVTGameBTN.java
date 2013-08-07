@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTGameBTN extends oms.GameEngine.GameEvent  {
+public class C_EVTGameBTN extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 private static final int[] BTN_BuyNow00 = new int[0];
@@ -162,7 +162,7 @@ private void GameBTNExe00(){
 
 private void GameBTNExe01(){
 	if (this.CHKEVTACTEnd()) {
-	info.pharos.ly.C_OPhoneApp.cLib.getMessageMgr().SendMessage(10,this.m_BTNType,0);
+	info.pharos.ly.C_GameMain.cLib.getMessageMgr().SendMessage(10,this.m_BTNType,0);
 	
 	this.SetEVTCtrl(0,0);
 	// :cond_0
@@ -210,7 +210,7 @@ private void SetGameBTNType(int Idx,int type){
 
 private void setSoundBNTACT(){
 		if (this.m_BTNType == 3) {
-			info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_OPhoneApp.cLib
+			info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_GameMain.cLib
 					.getMediaManager().GetSoundStatus();
 			if (info.pharos.ly.C_Save.g_SoundStatus) {
 				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_SoundONACT;
@@ -222,7 +222,7 @@ private void setSoundBNTACT(){
 		}
 		// :goto_0
 		else if (this.m_BTNType == 4) {
-			info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_OPhoneApp.cLib
+			info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_GameMain.cLib
 					.getMediaManager().GetMediaStatus();
 			if (info.pharos.ly.C_Save.g_MusicStatus) {
 				this.EVT.ACTPtr = info.pharos.ly.C_EVTGameBTN.BTN_MusicONACT;

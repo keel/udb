@@ -29,7 +29,7 @@ public static double AngleToRadian(double Angle){
 				int Touch_Y = info.pharos.ly.C_Global.g_Touch_Y[i];
 				// com.game.UnicornDash.C_OPhoneApp.cLib =
 				// com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
-				if (info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				if (info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.CHKACTTouch(Touch_X, Touch_Y, 2, 2, 2, 2, DACTName,
 								DXVal, DYVal)) {
 					// i = 1;
@@ -53,7 +53,7 @@ public static double AngleToRadian(double Angle){
 public static boolean CHKTouchDown(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int DACTName,int DXVal,int DYVal){
 	//[OTHER] end local p0
 	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchDown();
-	if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchDown()) {
+	if (info.pharos.ly.C_GameMain.cTouch.CHKTouchDown()) {
 	//com.game.UnicornDash.C_OPhoneApp.cTouch = null /* 0 */;
 	//[OTHER] end local p1
 	//[OTHER] end local p2
@@ -62,11 +62,11 @@ public static boolean CHKTouchDown(int SXHitL,int SXHitR,int SYHitU,int SYHitD,i
 	while (i < SXHitR) {
 	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchDownId(i);
 	SYHitU = -1;
-	if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownId(i) != SYHitU) {
-	int Touch_X = info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownX(i);
-	int Touch_Y = info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownY(i);
+	if (info.pharos.ly.C_GameMain.cTouch.getTouchDownId(i) != SYHitU) {
+	int Touch_X = info.pharos.ly.C_GameMain.cTouch.getTouchDownX(i);
+	int Touch_Y = info.pharos.ly.C_GameMain.cTouch.getTouchDownY(i);
 	//com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
-	if (info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal)) {
+	if (info.pharos.ly.C_GameMain.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal)) {
 	i = 1;
 	return true /* 1 */;
 		}
@@ -91,7 +91,7 @@ public static boolean CHKTouchDown(int SXHitL,int SXHitR,int SYHitU,int SYHitD,i
 public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int DACTName,int DXVal,int DYVal){
 	//[OTHER] end local p0
 	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.CHKTouchUp();
-	if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchUp()) {
+	if (info.pharos.ly.C_GameMain.cTouch.CHKTouchUp()) {
 	//com.game.UnicornDash.C_OPhoneApp.cTouch = null /* 0 */;
 	//[OTHER] end local p1
 	//[OTHER] end local p2
@@ -100,11 +100,11 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 	while (i < SXHitR) {
 	//com.game.UnicornDash.C_OPhoneApp.cTouch = com.game.UnicornDash.C_OPhoneApp.cTouch.getTouchUpId(i);
 	SYHitU = -1;
-	if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpId(i) != SYHitU) {
-	int Touch_X = info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpX(i);
-	int Touch_Y = info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpY(i);
+	if (info.pharos.ly.C_GameMain.cTouch.getTouchUpId(i) != SYHitU) {
+	int Touch_X = info.pharos.ly.C_GameMain.cTouch.getTouchUpX(i);
+	int Touch_Y = info.pharos.ly.C_GameMain.cTouch.getTouchUpY(i);
 	//com.game.UnicornDash.C_OPhoneApp.cLib = com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal);
-	if (info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal)) {
+	if (info.pharos.ly.C_GameMain.cLib.getGameCanvas().CHKACTTouch(Touch_X,Touch_Y,2,2,2,2,DACTName,DXVal,DYVal)) {
 	i = 1;
 	return true /* 1 */;
 		}
@@ -140,16 +140,16 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 			// goto :goto_0
 			// :cond_3
 		}
-		if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchDown()) {
+		if (info.pharos.ly.C_GameMain.cTouch.CHKTouchDown()) {
 			i = 0 /* 0 */;
 			while (i < 4) {
-				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchDownId(i) != -1) {
+				if (info.pharos.ly.C_GameMain.cTouch.getTouchDownId(i) != -1) {
 					info.pharos.ly.C_Global.g_TouchId[i] = i /* i */;
 					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
 					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x4);
-					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_GameMain.cTouch
 							.getTouchDownX(i);
-					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_GameMain.cTouch
 							.getTouchDownY(i);
 					// :cond_6
 				}
@@ -159,22 +159,22 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 			}
 			// :cond_0
 		}
-		if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchMove()) {
+		if (info.pharos.ly.C_GameMain.cTouch.CHKTouchMove()) {
 			i = 0 /* 0 */;
 			while (i < 4) {
-				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchMoveId(i) != -1
-						&& info.pharos.ly.C_OPhoneApp.cTouch
+				if (info.pharos.ly.C_GameMain.cTouch.getTouchMoveId(i) != -1
+						&& info.pharos.ly.C_GameMain.cTouch
 								.getTouchMoveCount(i) > 0) {
 					info.pharos.ly.C_Global.g_TouchId[i] = i /* i */;
 					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
 					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x10);
-					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_GameMain.cTouch
 							.getTouchMoveX(i,
-									(info.pharos.ly.C_OPhoneApp.cTouch
+									(info.pharos.ly.C_GameMain.cTouch
 											.getTouchMoveCount(i) - 1));
-					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_GameMain.cTouch
 							.getTouchMoveY(i,
-									(info.pharos.ly.C_OPhoneApp.cTouch
+									(info.pharos.ly.C_GameMain.cTouch
 											.getTouchMoveCount(i) - 1));
 					// :cond_8
 				}
@@ -184,16 +184,16 @@ public static boolean CHKTouchUp(int SXHitL,int SXHitR,int SYHitU,int SYHitD,int
 			}
 			// :cond_1
 		}
-		if (info.pharos.ly.C_OPhoneApp.cTouch.CHKTouchUp()) {
+		if (info.pharos.ly.C_GameMain.cTouch.CHKTouchUp()) {
 			i = 0 /* 0 */;
 			while (i < 4) {
-				if (info.pharos.ly.C_OPhoneApp.cTouch.getTouchUpId(i) != -1) {
+				if (info.pharos.ly.C_GameMain.cTouch.getTouchUpId(i) != -1) {
 					info.pharos.ly.C_Global.g_TouchId[i] = i /* i */;
 					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x2);
 					info.pharos.ly.C_Global.g_TouchFlag[i] = (info.pharos.ly.C_Global.g_TouchFlag[i] | 0x8);
-					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_X[i] = info.pharos.ly.C_GameMain.cTouch
 							.getTouchUpX(i);
-					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_OPhoneApp.cTouch
+					info.pharos.ly.C_Global.g_Touch_Y[i] = info.pharos.ly.C_GameMain.cTouch
 							.getTouchUpY(i);
 					// :cond_a
 				}
@@ -226,11 +226,11 @@ public static boolean CHKisTouch(){
 
 	public static int GetActPixel(int ACTName, int XVal, int YVal, int Tar_X,
 			int Tar_Y) {
-		android.graphics.Bitmap bmp = info.pharos.ly.C_OPhoneApp.cLib
+		android.graphics.Bitmap bmp = info.pharos.ly.C_GameMain.cLib
 				.getGameCanvas().GetSpriteBitmap(ACTName);
-		int DYHitU = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+		int DYHitU = info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 				.GetSpriteYHitU(ACTName);
-		int DXHitL = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+		int DXHitL = info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 				.GetSpriteXHitL(ACTName);
 		int color = 0;
 		if (DYHitU != -1) {
@@ -247,7 +247,7 @@ public static boolean CHKisTouch(){
 		// ACTName =
 		// com.game.UnicornDash.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(Tar_X,Tar_Y,1,1,1,1,ACTName,XVal,YVal);
 		// [OTHER] end local p0
-		if (info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().CHKACTTouch(
+		if (info.pharos.ly.C_GameMain.cLib.getGameCanvas().CHKACTTouch(
 				Tar_X, Tar_Y, 1, 1, 1, 1, ACTName, XVal, YVal)) {
 			ACTName = (Tar_X - XVal);
 			ACTName = (ACTName + DXHitL);
@@ -308,7 +308,7 @@ public static void Rate(){
 	;
 	android.content.Intent it = new android.content.Intent("android.intent.action.VIEW",uri);
 	it.addFlags(0x10000000);
-	info.pharos.ly.C_OPhoneApp.cLib.GetActivity().startActivity(it);
+	info.pharos.ly.C_GameMain.cLib.GetActivity().startActivity(it);
 	return;
 }
 
@@ -337,7 +337,7 @@ public static void ShowNum(int number,int x,int y,int s,int NumLenth,int Align,i
 		if (number != 0 || i < NumLenth) {
 			int Num = (number % 0xa);
 			number = (number / 0xa);
-			info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
+			info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
 			//[OTHER] end local v1           #Num:I
 			// :cond_2
 			}
@@ -357,7 +357,7 @@ public static void ShowNum(int number,int x,int y,int s,int NumLenth,int Align,i
 		// :cond_4
 			int Num = (number % 0xa);
 			number = (number / 0xa);
-			info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
+			info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
 		}
 	//[OTHER] end local v1           #Num:I
 	// :cond_5
@@ -373,7 +373,7 @@ public static void ShowNum(int number,int x,int y,int s,int NumLenth,int Align,i
 	int Num = (number % 0xa);
 	
 	number = (number / 0xa);
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(ACTPtr[Num],x,(y - (i * s)),ACT_SPD);
 	//[OTHER] end local v1           #Num:I
 	// :cond_7
 	}
@@ -405,7 +405,7 @@ public static void ShowNum_Dec(long number,int x,int y,int s){
 
 				Value = (Value / 10);
 				// [OTHER] end local v0 #Num:I
-				info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas()
+				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
 						.WriteSprite(
 								info.pharos.ly.C_DEF.TESTNUMTBL[Num], x,
 								(y - (i * s)), 7);
@@ -426,7 +426,7 @@ public static void ShowNum_Dec(long number,int x,int y,int s){
 //	s = (s * Value);
 //	y = (y - s);
 //	s = 7;
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(info.pharos.ly.C_DEF.TESTNUMTBL[16],x,y-s*(i+1),7);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(info.pharos.ly.C_DEF.TESTNUMTBL[16],x,y-s*(i+1),7);
 	//[OTHER] end local p3
 	//[OTHER] end local p4
 	// :cond_1
@@ -441,7 +441,7 @@ public static void ShowNum_Hex(long number,int x,int y,int s){
 	int i = 0;
 	while (i < 8) {
 	int Value = 15;
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(info.pharos.ly.C_DEF.TESTNUMTBL[Value],x,(y - (i * s)),7);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(info.pharos.ly.C_DEF.TESTNUMTBL[Value],x,(y - (i * s)),7);
 	number = (number >> 4);
 	i = (i + 0x1);
 	// goto :goto_0
@@ -455,13 +455,13 @@ public static void To_Buy(){
 	;
 	android.content.Intent it = new android.content.Intent("android.intent.action.VIEW",uri);
 	it.addFlags(0x10000000);
-	info.pharos.ly.C_OPhoneApp.cLib.GetActivity().startActivity(it);
+	info.pharos.ly.C_GameMain.cLib.GetActivity().startActivity(it);
 	info.pharos.ly.C_PUB.InitTouch();
 	return;
 }
 
 public static void To_More(){
-	info.pharos.ly.UnicornDash activity = (info.pharos.ly.UnicornDash)info.pharos.ly.C_OPhoneApp.cLib.GetActivity();
+	info.pharos.ly.LongMoon activity = (info.pharos.ly.LongMoon)info.pharos.ly.C_GameMain.cLib.GetActivity();
 	if (activity != null) {
 	activity.clickMoreGames();
 	// :cond_0
@@ -490,9 +490,9 @@ public static void setGameState(int mGameState){
 }
 
 public static void setMusicStatus(){
-	info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().GetMediaStatus();
+	info.pharos.ly.C_Save.g_MusicStatus = info.pharos.ly.C_GameMain.cLib.getMediaManager().GetMediaStatus();
 	if (!info.pharos.ly.C_Save.g_MusicStatus) {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(true);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().SetMediaEnable(true);
 	info.pharos.ly.C_Save.g_MusicStatus = true;
 	if (info.pharos.ly.C_Global.g_GameMode == 5) {
 	info.pharos.ly.C_Media.PlayMenuMusic();
@@ -501,8 +501,8 @@ public static void setMusicStatus(){
 		}
 	// goto :goto_0
 	} else {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaStop(0);
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetMediaEnable(false);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaStop(0);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().SetMediaEnable(false);
 	info.pharos.ly.C_Save.g_MusicStatus = false;
 		}
 	// goto :goto_0
@@ -513,13 +513,13 @@ public static void setMusicStatus(){
 }
 
 public static void setSoundStatus(){
-	info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().GetSoundStatus();
+	info.pharos.ly.C_Save.g_SoundStatus = info.pharos.ly.C_GameMain.cLib.getMediaManager().GetSoundStatus();
 	if (!info.pharos.ly.C_Save.g_SoundStatus) {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetSoundEnable(true);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().SetSoundEnable(true);
 	info.pharos.ly.C_Save.g_SoundStatus = true;
 	info.pharos.ly.C_Media.PlaySound(5);
 	} else {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().SetSoundEnable(false);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().SetSoundEnable(false);
 	info.pharos.ly.C_Save.g_SoundStatus = false;
 		}
 	// goto :goto_0
@@ -552,7 +552,7 @@ public static void setVibratorTime(){
 public static void showPauseSCR(){
 	int i = 0;
 	while (i < 36) {
-	info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas().WriteSprite(2130837682,160,((i * 0x10) - 48),6);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837682,160,((i * 0x10) - 48),6);
 	i = (i + 0x1);
 	// goto :goto_0
 	// :cond_0

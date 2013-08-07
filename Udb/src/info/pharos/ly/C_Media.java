@@ -41,9 +41,9 @@ static{
 	;
 }
 
-public C_Media(oms.GameEngine.C_Lib clib){
+public C_Media(info.pharos.gameEngine.C_Lib clib){
 	super();
-	info.pharos.ly.C_OPhoneApp.cLib = clib;
+	info.pharos.ly.C_GameMain.cLib = clib;
 }
 
 public static void InitMedia(){
@@ -55,7 +55,7 @@ public static void Initialize(){
 	int i = 0;
 	while (info.pharos.ly.C_Media.SoundResIDTBL[i] != 65535) {
 	//[OTHER] end local v0           #i:I
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().addSound(info.pharos.ly.C_Media.SoundResIDTBL[i]);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().addSound(info.pharos.ly.C_Media.SoundResIDTBL[i]);
 	i = (i + 0x1);
 	//i = i;
 	//[OTHER] end local v1           #i:I
@@ -71,16 +71,16 @@ public static void MediaContrl(){
 }
 
 public static void PlayGameMusic(){
-	if (!info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaIsPlaying(0)) {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaPlay(0,2130968582,true);
+	if (!info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaIsPlaying(0)) {
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaPlay(0,2130968582,true);
 	// :cond_0
 	}
 	return;
 }
 
 public static void PlayMenuMusic(){
-	if (!info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaIsPlaying(0)) {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_MediaPlay(0,2130968582,true);
+	if (!info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaIsPlaying(0)) {
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaPlay(0,2130968582,true);
 	// :cond_0
 	}
 	return;
@@ -88,7 +88,7 @@ public static void PlayMenuMusic(){
 
 public static void PlaySound(int SoundResID){
 	if (info.pharos.ly.C_Media.SoundPlayMode[SoundResID] != false) {
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_SoundPlay(info.pharos.ly.C_Media.SoundPlayChannel[SoundResID],info.pharos.ly.C_Media.SoundResIDTBL[SoundResID]);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_SoundPlay(info.pharos.ly.C_Media.SoundPlayChannel[SoundResID],info.pharos.ly.C_Media.SoundResIDTBL[SoundResID]);
 	// :cond_0
 	}
 	return;
@@ -104,7 +104,7 @@ public static void StopAllSound(){
 	while (info.pharos.ly.C_Media.SoundResIDTBL[i] != 65535) {
 	//[OTHER] end local v0           #i:I
 	 i = (i + 0x1);
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().soundStop(info.pharos.ly.C_Media.SoundResIDTBL[i]);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().soundStop(info.pharos.ly.C_Media.SoundResIDTBL[i]);
 	//i = i;
 	//[OTHER] end local v1           #i:I
 	
@@ -115,7 +115,7 @@ public static void StopAllSound(){
 }
 
 public static void StopSound(int SoundResID){
-	info.pharos.ly.C_OPhoneApp.cLib.getMediaManager().CH_SoundStop(info.pharos.ly.C_Media.SoundPlayChannel[SoundResID]);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_SoundStop(info.pharos.ly.C_Media.SoundPlayChannel[SoundResID]);
 	return;
 }
 

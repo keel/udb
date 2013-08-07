@@ -29,7 +29,7 @@ public static void enable(){
 private static void prepareVibrator(){
 	if (info.pharos.ly.Vibrator.vibrator != null) {
 	} else {
-	info.pharos.ly.Vibrator.vibrator = (android.os.Vibrator)info.pharos.ly.C_OPhoneApp.cLib.GetActivity().getSystemService("vibrator");
+	info.pharos.ly.Vibrator.vibrator = (android.os.Vibrator)info.pharos.ly.C_GameMain.cLib.GetActivity().getSystemService("vibrator");
 		}
 	// goto :goto_0
 	// :goto_0

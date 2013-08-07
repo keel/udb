@@ -1,7 +1,7 @@
 package info.pharos.ly;
 
 
-public class C_EVTEffect extends oms.GameEngine.GameEvent  {
+public class C_EVTEffect extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 public static final int CTRL_CLOUD_EFF = 0x3;
