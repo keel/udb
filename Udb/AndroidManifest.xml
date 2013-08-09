@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<manifest android:versionCode="3" android:versionName="1.0" package="info.pharos.ly"
+<manifest android:versionCode="5" android:versionName="2.1" package="info.pharos.ly"
 
   xmlns:android="http://schemas.android.com/apk/res/android">
 

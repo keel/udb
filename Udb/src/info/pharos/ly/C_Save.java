@@ -8,7 +8,7 @@ public class C_Save extends Object  {
 // static fields
 private static byte[] Buff = null;
 private static int BuffIdx = 0x0;
-private static final String FILENAME = "Unicorn_02.ini";
+private static final String FILENAME = "LongMoon.ini";
 public static final int HIGHDISTANCE = 0x1;
 public static final int HIGHSCORE = 0x1;
 public static final int MUSICSTATUS = 0x1;

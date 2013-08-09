@@ -451,22 +451,22 @@ public static void ShowNum_Hex(long number,int x,int y,int s){
 }
 
 public static void To_Buy(){
-	android.net.Uri uri = android.net.Uri.parse("market://details?id=com.wuzla.game.UnicornDash_Paid_L");
-	;
-	android.content.Intent it = new android.content.Intent("android.intent.action.VIEW",uri);
-	it.addFlags(0x10000000);
-	info.pharos.ly.C_GameMain.cLib.GetActivity().startActivity(it);
-	info.pharos.ly.C_PUB.InitTouch();
-	return;
+//	android.net.Uri uri = android.net.Uri.parse("market://details?id=com.wuzla.game.UnicornDash_Paid_L");
+//	;
+//	android.content.Intent it = new android.content.Intent("android.intent.action.VIEW",uri);
+//	it.addFlags(0x10000000);
+//	info.pharos.ly.C_GameMain.cLib.GetActivity().startActivity(it);
+//	info.pharos.ly.C_PUB.InitTouch();
+//	return;
 }
 
 public static void To_More(){
-	info.pharos.ly.LongMoon activity = (info.pharos.ly.LongMoon)info.pharos.ly.C_GameMain.cLib.GetActivity();
-	if (activity != null) {
-	activity.clickMoreGames();
-	// :cond_0
-	}
-	return;
+//	info.pharos.ly.LongMoon activity = (info.pharos.ly.LongMoon)info.pharos.ly.C_GameMain.cLib.GetActivity();
+//	if (activity != null) {
+//	activity.clickMoreGames();
+//	// :cond_0
+//	}
+//	return;
 }
 
 public static int getScoreLength(int num){
