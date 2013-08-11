@@ -664,6 +664,11 @@ private void NPCLand00(){
 	return;
 }
 
+/**
+ * 创建新的Land,根据速度生成不同类型的Land
+ * 
+ * 
+ * */
 private void getLandMakeArea(){
 	int LandMakeArea = 0;
 	int CurSpeed = ((info.pharos.ly.C_Global.g_LandMoveSpeed - 0xa0000) >> 0x10);

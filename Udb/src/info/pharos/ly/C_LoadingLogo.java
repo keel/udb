@@ -1,14 +1,13 @@
 package info.pharos.ly;
 
-import info.pharos.gameEngine.GameCanvas;
 import android.util.Log;
 
 
-public class C_CompanyLogo extends Object  {
+public class C_LoadingLogo extends Object  {
 
 // direct methods
 
-public C_CompanyLogo(){
+public C_LoadingLogo(){
 	super();
 }
 // virtual methods
@@ -23,6 +22,15 @@ public void GameMain(){
 //	KLog.printTrace();
 	info.pharos.ly.C_GameMain.cLib.ViewOpen(64);
 	info.pharos.ly.C_Global.g_chkVersion = 1;
+	while (RunTime <= 30) {
+	RunTime = (RunTime + 0x1);
+	info.pharos.ly.C_GameMain.cLib.WaitBLK();
+	}
+	info.pharos.ly.C_GameMain.cLib.ViewDark(64);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(2130837741,0,0);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().SetTextYVal(0,-48);
+	info.pharos.ly.C_GameMain.cLib.ViewOpen(64);
+	
 	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(0,2130968583);
 	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(1,2130968583);
 	try {
@@ -36,12 +44,10 @@ public void GameMain(){
 	// :goto_0
 	info.pharos.ly.C_GameMain.cLib.ClearACT();
 	info.pharos.ly.C_GameMain.cTouch.ReadTouch();
-	while (RunTime <= 60) {
-	RunTime = (RunTime + 0x1);
-	info.pharos.ly.C_GameMain.cLib.WaitBLK();
-	// goto :goto_0
-	// :cond_0
-	}
+//	while (RunTime <= 30) {
+//	RunTime = (RunTime + 0x1);
+//	info.pharos.ly.C_GameMain.cLib.WaitBLK();
+//	}
 	info.pharos.ly.C_GameMain.cLib.ViewDark(64);
 	return;
 	

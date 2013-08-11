@@ -4,7 +4,7 @@ package info.pharos.ly;
 public class C_LongMoon extends Object  {
 
 // instance fields
-private info.pharos.ly.C_CompanyLogo c_CompanyLogo;
+private info.pharos.ly.C_LoadingLogo c_CompanyLogo;
 private info.pharos.ly.C_SceneMenu c_SceneMenu;
 private info.pharos.ly.C_SceneNormal c_SceneNormal;
 private boolean m_isRun;
@@ -21,7 +21,7 @@ public C_LongMoon(){
 	;
 	this.c_SceneMenu = new info.pharos.ly.C_SceneMenu();
 	;
-	this.c_CompanyLogo = new info.pharos.ly.C_CompanyLogo();
+	this.c_CompanyLogo = new info.pharos.ly.C_LoadingLogo();
 }
 
 private void MsgLoop(){
