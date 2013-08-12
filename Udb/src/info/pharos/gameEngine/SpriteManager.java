@@ -1,5 +1,7 @@
 package info.pharos.gameEngine;
 
+import org.json.JSONException;
+
 import info.pharos.ly.KLog;
 
 public class SpriteManager extends Object {
@@ -30,7 +32,7 @@ public class SpriteManager extends Object {
 	private int nShowSpriteNum;
 	private android.graphics.Rect nViewRc;
 	public info.pharos.gameEngine.SpriteResSeg[] pSpriteResSegInfo;
-
+	private org.json.JSONArray spList;
 	// direct methods
 
 	public SpriteManager(android.content.Context context, int SpriteResNum,
@@ -78,31 +80,41 @@ public class SpriteManager extends Object {
 	}
 
 	private void GetFileHead(int ACTLibId) {
-		int nBuffBeg = 0;
-		nBuffBeg = (ACTLibId * 0x4);
-		byte[] buff = this.cSpriteACTFile.pACTBuff;
-		this.ACTStructInfo.FileNum = 0 /* 0 */;
-		int i = 0;
-		while (i < 2) {
-			int temp = (buff[(nBuffBeg + i)] & 0xff);
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.FileNum = (this.ACTStructInfo.FileNum + temp);
-			i = (i + 0x1);
-			// goto :goto_0
-			// :cond_0
-		}
-		this.ACTStructInfo.FileIndexAddr = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[((nBuffBeg + 0x2) + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.FileIndexAddr = (this.ACTStructInfo.FileIndexAddr + temp);
-			i = (i + 0x1);
-			// goto :goto_1
-			// :cond_1
-		}
-		return;
+		
+		try {
+			this.ACTStructInfo.FileNum = this.spList.getJSONObject(ACTLibId).getJSONArray("sprite").length();
+			this.ACTStructInfo.FileIndexAddr = this.spList.getJSONObject(ACTLibId).getInt("FileIndexAddr");
+			//end of try
+			} catch (org.json.JSONException e/* */) {
+				android.util.Log.e("GetFileHead","JSONException"+e.getCause());
+			} 
+		
+		
+//		int nBuffBeg = 0;
+//		nBuffBeg = (ACTLibId * 0x4);
+//		byte[] buff = this.cSpriteACTFile.pACTBuff;
+//		this.ACTStructInfo.FileNum = 0 /* 0 */;
+//		int i = 0;
+//		while (i < 2) {
+//			int temp = (buff[(nBuffBeg + i)] & 0xff);
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.FileNum = (this.ACTStructInfo.FileNum + temp);
+//			i = (i + 0x1);
+//			// goto :goto_0
+//			// :cond_0
+//		}
+//		this.ACTStructInfo.FileIndexAddr = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[((nBuffBeg + 0x2) + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.FileIndexAddr = (this.ACTStructInfo.FileIndexAddr + temp);
+//			i = (i + 0x1);
+//			// goto :goto_1
+//			// :cond_1
+//		}
+//		return;
 		// [OTHER] end local v3 #temp:I
 	}
 
@@ -137,48 +149,66 @@ public class SpriteManager extends Object {
 	}
 
 	private void GetSpriteHead(int ACTLibId) {
-		int nBuffBeg = ((ACTLibId * 0x8) + this.ACTStructInfo.FileIndexAddr);
-		byte[] buff = this.cSpriteACTFile.pACTBuff;
-		this.ACTStructInfo.SpriteNum = 0 /* 0 */;
-		int i = 0;
-		while (i < 4) {
-			int temp = (buff[(nBuffBeg + i)] & 0xff);
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.SpriteNum = (this.ACTStructInfo.SpriteNum + temp);
-			i = (i + 0x1);
-			// goto :goto_0
-			// :cond_0
-		}
-		this.ACTStructInfo.SpriteIndexAddr = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 4) {
-			int temp = (buff[((nBuffBeg + i) + 0x4)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.SpriteIndexAddr = (this.ACTStructInfo.SpriteIndexAddr + temp);
-			i = (i + 0x1);
-			// goto :goto_1
-			// :cond_1
-		}
-		return;
+		
+		try {
+			this.ACTStructInfo.SpriteNum = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(ACTLibId).getJSONArray("res").length();
+			this.ACTStructInfo.SpriteIndexAddr = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(ACTLibId).getInt("ACTLibId");
+			//end of try
+			} catch (org.json.JSONException e/* */) {
+				android.util.Log.e("GetSpriteHead","JSONException"+e.getCause());
+			} 
+		
+		
+//		int nBuffBeg = ((ACTLibId * 0x8) + this.ACTStructInfo.FileIndexAddr);
+//		byte[] buff = this.cSpriteACTFile.pACTBuff;
+//		this.ACTStructInfo.SpriteNum = 0 /* 0 */;
+//		int i = 0;
+//		while (i < 4) {
+//			int temp = (buff[(nBuffBeg + i)] & 0xff);
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.SpriteNum = (this.ACTStructInfo.SpriteNum + temp);
+//			i = (i + 0x1);
+//			// goto :goto_0
+//			// :cond_0
+//		}
+//		this.ACTStructInfo.SpriteIndexAddr = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 4) {
+//			int temp = (buff[((nBuffBeg + i) + 0x4)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.SpriteIndexAddr = (this.ACTStructInfo.SpriteIndexAddr + temp);
+//			i = (i + 0x1);
+//			// goto :goto_1
+//			// :cond_1
+//		}
+//		return;
 		// [OTHER] end local v3 #temp:I
 	}
 
 	private int GetSpriteResID(int ACTFileId) {
-		int SpriteInfoOffset = 20;
-		byte[] buff = this.cSpriteACTFile.pACTBuff;
-		SpriteInfoOffset = ((ACTFileId * SpriteInfoOffset) + this.ACTStructInfo.SpriteIndexAddr);
-		int ResID = 0;
-		int i = 0;
-		while (i < 4) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-			temp = (temp << (i * 0x8));
-			ResID = (ResID + temp);
-			i = (i + 0x1);
-			// goto :goto_0
-			// :cond_0
+		try {
+			return this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("resID");
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return -1;
 		}
-		return ResID;
+		
+		
+//		int SpriteInfoOffset = 20;
+//		byte[] buff = this.cSpriteACTFile.pACTBuff;
+//		SpriteInfoOffset = ((ACTFileId * SpriteInfoOffset) + this.ACTStructInfo.SpriteIndexAddr);
+//		int ResID = 0;
+//		int i = 0;
+//		while (i < 4) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//			temp = (temp << (i * 0x8));
+//			ResID = (ResID + temp);
+//			i = (i + 0x1);
+//			// goto :goto_0
+//			// :cond_0
+//		}
+//		return ResID;
 	}
 
 	private void Init() {
@@ -200,219 +230,248 @@ public class SpriteManager extends Object {
 	}
 
 	private void ReadSpriteResInfo(int ACTFileId, int ACTLibId) {
-		android.graphics.Bitmap bmp = null;
-		int SpriteInfoOffset = 20;
-		byte[] buff = this.cSpriteACTFile.pACTBuff;
-		SpriteInfoOffset = ((ACTFileId * SpriteInfoOffset) + this.ACTStructInfo.SpriteIndexAddr);
-		this.ACTStructInfo.ResID = 0 /* 0 */;
-		int i = 0;
-		while (i < 4) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.ResID = (this.ACTStructInfo.ResID + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_0
-			// :cond_a
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x4);
-		this.ACTStructInfo.CenterX = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.CenterX = (this.ACTStructInfo.CenterX + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_1
-			// :cond_b
-		}
-		if ((this.ACTStructInfo.CenterX & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.CenterX) = -(0x1 -
-			// this.ACTStructInfo.CenterX);
-			this.ACTStructInfo.CenterX = -(0x10000 - this.ACTStructInfo.CenterX);
-			// :cond_0
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		this.ACTStructInfo.CenterY = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.CenterY = (this.ACTStructInfo.CenterY + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_2
-			// :cond_c
-		}
-		if ((this.ACTStructInfo.CenterY & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.CenterY) = -(0x1 -
-			// this.ACTStructInfo.CenterY);
-			this.ACTStructInfo.CenterY = -(0x10000 - this.ACTStructInfo.CenterY);
-			// :cond_1
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		this.ACTStructInfo.XHitL = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.XHitL = (this.ACTStructInfo.XHitL + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_3
-			// :cond_d
-		}
-		if ((this.ACTStructInfo.XHitL & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.XHitL) = -(0x1 -
-			// this.ACTStructInfo.XHitL);
-			this.ACTStructInfo.XHitL = -(0x10000 - this.ACTStructInfo.XHitL);
-			// :cond_2
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		this.ACTStructInfo.XHitR = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.XHitR = (this.ACTStructInfo.XHitR + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_4
-			// :cond_e
-		}
-		if ((this.ACTStructInfo.XHitR & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.XHitR) = -(0x1 -
-			// this.ACTStructInfo.XHitR);
-			this.ACTStructInfo.XHitR = -(0x10000 - this.ACTStructInfo.XHitR);
-			// :cond_3
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		this.ACTStructInfo.YHitU = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.YHitU = (this.ACTStructInfo.YHitU + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_5
-			// :cond_f
-		}
-		if ((this.ACTStructInfo.YHitU & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.YHitU) = -(0x1 -
-			// this.ACTStructInfo.YHitU);
-			this.ACTStructInfo.YHitU = -(0x10000 - this.ACTStructInfo.YHitU);
-			// :cond_4
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		this.ACTStructInfo.YHitD = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.YHitD = (this.ACTStructInfo.YHitD + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_6
-			// :cond_10
-		}
-		if ((this.ACTStructInfo.YHitD & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.YHitD) = -(0x1 -
-			// this.ACTStructInfo.YHitD);
-			this.ACTStructInfo.YHitD = -(0x10000 - this.ACTStructInfo.YHitD);
-			// :cond_5
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		this.ACTStructInfo.ZHitF = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.ZHitF = (this.ACTStructInfo.ZHitF + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_7
-			// :cond_11
-		}
-		if ((this.ACTStructInfo.ZHitF & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.ZHitF) = -(0x1 -
-			// this.ACTStructInfo.ZHitF);
-			this.ACTStructInfo.ZHitF = -(0x10000 - this.ACTStructInfo.ZHitF);
-			// :cond_6
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		this.ACTStructInfo.ZHitB = 0 /* 0 */;
-		i = 0 /* 0 */;
-		while (i < 2) {
-			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
-
-			temp = (temp << (i * 0x8));
-			this.ACTStructInfo.ZHitB = (this.ACTStructInfo.ZHitB + temp);
-			i = (i + 0x1);
-			// goto/16 :goto_8
-			// :cond_12
-		}
-		if ((this.ACTStructInfo.ZHitB & 32768) == 32768) {
-			// (0x1 - this.ACTStructInfo.ZHitB) = -(0x1 -
-			// this.ACTStructInfo.ZHitB);
-			this.ACTStructInfo.ZHitB = -(0x10000 - this.ACTStructInfo.ZHitB);
-			// :cond_7
-		}
-		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
-		bmp = android.graphics.BitmapFactory.decodeResource(
-				this.mContext.getResources(), this.ACTStructInfo.ResID);
-		if (bmp == null) {
-			bmp = info.pharos.gameEngine.PackageManager.loadPic(this.mContext,
-					this.ACTStructInfo.ResID);
-			// :cond_8
-		}
-		if (bmp != null) {
-			int nResId = (this.ACTStructInfo.ResID & 65535);
-			if (nResId >= this.nMaxSpriteResNum) {
-				// [OTHER] end local v4 #nResId:I
-			} else {
-				this.nCurBMPRamSize = (this.nCurBMPRamSize + (long) this
-						.GetBitmapSize(bmp));
-				if (this.mIsLogOut) {
-					/*
-					 * android.util.Log.v("Sprite",new
-					 * StringBuilder("ResID: ").append
-					 * (this.ACTStructInfo.ResID).toString());
-					 * android.util.Log.v("Sprite",new
-					 * StringBuilder("Width: ").append
-					 * (bmp.getWidth()).toString());
-					 * android.util.Log.v("Sprite",new
-					 * StringBuilder("Height: ").
-					 * append(bmp.getHeight()).toString());
-					 * android.util.Log.v("Sprite",new
-					 * StringBuilder("OPtions: ")
-					 * .append(bmp.getConfig()).toString());
-					 * android.util.Log.v("Sprite",new
-					 * StringBuilder("Picture use RAM: "
-					 * ).append((this.nCurBMPRamSize /
-					 * 1024)).append(" KBytes").toString()); // :cond_14
-					 */
-				}
-				this.SpriteRes[nResId].Sprite = bmp;
-				this.SpriteRes[nResId].SpriteResID = this.ACTStructInfo.ResID;
-				this.SpriteRes[nResId].SpriteCenterX = this.ACTStructInfo.CenterX;
-				this.SpriteRes[nResId].SpriteCenterY = this.ACTStructInfo.CenterY;
-				this.SpriteRes[nResId].SpriteXHitL = this.ACTStructInfo.XHitL;
-				this.SpriteRes[nResId].SpriteXHitR = this.ACTStructInfo.XHitR;
-				this.SpriteRes[nResId].SpriteYHitU = this.ACTStructInfo.YHitU;
-				this.SpriteRes[nResId].SpriteYHitD = this.ACTStructInfo.YHitD;
-				this.SpriteRes[nResId].SpriteZHitF = this.ACTStructInfo.ZHitF;
-				this.SpriteRes[nResId].SpriteZHitB = this.ACTStructInfo.ZHitB;
-				this.SpriteResACTInfo[nResId].RESACTIdx = (short) ACTLibId;
-				this.pSpriteResSegInfo[ACTLibId].SegSize = (this.pSpriteResSegInfo[ACTLibId].SegSize + (((bmp
-						.getWidth() * bmp.getHeight()) * 0x4) + 0x80));
-				bmp = null /* 0 */;
-			}
-			// goto/16 :goto_9
-			// :cond_9
-		}
-		// :goto_9
-		return;
+		try {
+			this.ACTStructInfo.ResID = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("resID");
+			this.ACTStructInfo.CenterX = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("CenterX");
+			this.ACTStructInfo.CenterY = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("CenterY");
+			this.ACTStructInfo.XHitL = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("XHitL");
+			this.ACTStructInfo.XHitR = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("XHitR");
+			this.ACTStructInfo.YHitU = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("YHitU");
+			this.ACTStructInfo.YHitD = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("YHitD");
+			this.ACTStructInfo.ZHitF = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("ZHitF");
+			this.ACTStructInfo.ZHitB = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("ZHitB");
+			//android.util.Log.d("ReadSpriteResInfo",new StringBuilder("ResID: ").append(this.ACTStructInfo.ResID).append(",AlibID: ").append(ACTFileId).append(",i23: ").append((0xffff & this.ACTStructInfo.ResID)).toString());
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].Sprite = android.graphics.BitmapFactory.decodeResource(this.mContext.getResources(),this.ACTStructInfo.ResID);
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteResID = this.ACTStructInfo.ResID;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteCenterX = this.ACTStructInfo.CenterX;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteCenterY = this.ACTStructInfo.CenterY;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteXHitL = this.ACTStructInfo.XHitL;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteXHitR = this.ACTStructInfo.XHitR;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteYHitU = this.ACTStructInfo.YHitU;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteYHitD = this.ACTStructInfo.YHitD;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteZHitF = this.ACTStructInfo.ZHitF;
+			this.SpriteRes[(0xffff & this.ACTStructInfo.ResID)].SpriteZHitB = this.ACTStructInfo.ZHitB;
+			this.SpriteResACTInfo[(0xffff & this.ACTStructInfo.ResID)].RESACTIdx = (short)ACTLibId;
+			this.pSpriteResSegInfo[ACTLibId].SegSize = (this.pSpriteResSegInfo[ACTLibId].SegSize + (((android.graphics.BitmapFactory.decodeResource(this.mContext.getResources(),this.ACTStructInfo.ResID).getWidth() * android.graphics.BitmapFactory.decodeResource(this.mContext.getResources(),this.ACTStructInfo.ResID).getHeight()) * 0x4) + 0x80));
+			this.nCurBMPRamSize = ((long)this.GetBitmapSize(android.graphics.BitmapFactory.decodeResource(this.mContext.getResources(),this.ACTStructInfo.ResID)) + this.nCurBMPRamSize);
+			//end of try
+			} catch (org.json.JSONException e/* */) {
+				android.util.Log.e("ReadSpriteResInfo","Exception",e);
+			} 
+		
+//		android.graphics.Bitmap bmp = null;
+//		int SpriteInfoOffset = 20;
+//		byte[] buff = this.cSpriteACTFile.pACTBuff;
+//		SpriteInfoOffset = ((ACTFileId * SpriteInfoOffset) + this.ACTStructInfo.SpriteIndexAddr);
+//		this.ACTStructInfo.ResID = 0 /* 0 */;
+//		int i = 0;
+//		while (i < 4) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.ResID = (this.ACTStructInfo.ResID + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_0
+//			// :cond_a
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x4);
+//		this.ACTStructInfo.CenterX = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.CenterX = (this.ACTStructInfo.CenterX + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_1
+//			// :cond_b
+//		}
+//		if ((this.ACTStructInfo.CenterX & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.CenterX) = -(0x1 -
+//			// this.ACTStructInfo.CenterX);
+//			this.ACTStructInfo.CenterX = -(0x10000 - this.ACTStructInfo.CenterX);
+//			// :cond_0
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		this.ACTStructInfo.CenterY = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.CenterY = (this.ACTStructInfo.CenterY + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_2
+//			// :cond_c
+//		}
+//		if ((this.ACTStructInfo.CenterY & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.CenterY) = -(0x1 -
+//			// this.ACTStructInfo.CenterY);
+//			this.ACTStructInfo.CenterY = -(0x10000 - this.ACTStructInfo.CenterY);
+//			// :cond_1
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		this.ACTStructInfo.XHitL = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.XHitL = (this.ACTStructInfo.XHitL + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_3
+//			// :cond_d
+//		}
+//		if ((this.ACTStructInfo.XHitL & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.XHitL) = -(0x1 -
+//			// this.ACTStructInfo.XHitL);
+//			this.ACTStructInfo.XHitL = -(0x10000 - this.ACTStructInfo.XHitL);
+//			// :cond_2
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		this.ACTStructInfo.XHitR = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.XHitR = (this.ACTStructInfo.XHitR + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_4
+//			// :cond_e
+//		}
+//		if ((this.ACTStructInfo.XHitR & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.XHitR) = -(0x1 -
+//			// this.ACTStructInfo.XHitR);
+//			this.ACTStructInfo.XHitR = -(0x10000 - this.ACTStructInfo.XHitR);
+//			// :cond_3
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		this.ACTStructInfo.YHitU = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.YHitU = (this.ACTStructInfo.YHitU + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_5
+//			// :cond_f
+//		}
+//		if ((this.ACTStructInfo.YHitU & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.YHitU) = -(0x1 -
+//			// this.ACTStructInfo.YHitU);
+//			this.ACTStructInfo.YHitU = -(0x10000 - this.ACTStructInfo.YHitU);
+//			// :cond_4
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		this.ACTStructInfo.YHitD = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.YHitD = (this.ACTStructInfo.YHitD + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_6
+//			// :cond_10
+//		}
+//		if ((this.ACTStructInfo.YHitD & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.YHitD) = -(0x1 -
+//			// this.ACTStructInfo.YHitD);
+//			this.ACTStructInfo.YHitD = -(0x10000 - this.ACTStructInfo.YHitD);
+//			// :cond_5
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		this.ACTStructInfo.ZHitF = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.ZHitF = (this.ACTStructInfo.ZHitF + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_7
+//			// :cond_11
+//		}
+//		if ((this.ACTStructInfo.ZHitF & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.ZHitF) = -(0x1 -
+//			// this.ACTStructInfo.ZHitF);
+//			this.ACTStructInfo.ZHitF = -(0x10000 - this.ACTStructInfo.ZHitF);
+//			// :cond_6
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		this.ACTStructInfo.ZHitB = 0 /* 0 */;
+//		i = 0 /* 0 */;
+//		while (i < 2) {
+//			int temp = (buff[(SpriteInfoOffset + i)] & 0xff);
+//
+//			temp = (temp << (i * 0x8));
+//			this.ACTStructInfo.ZHitB = (this.ACTStructInfo.ZHitB + temp);
+//			i = (i + 0x1);
+//			// goto/16 :goto_8
+//			// :cond_12
+//		}
+//		if ((this.ACTStructInfo.ZHitB & 32768) == 32768) {
+//			// (0x1 - this.ACTStructInfo.ZHitB) = -(0x1 -
+//			// this.ACTStructInfo.ZHitB);
+//			this.ACTStructInfo.ZHitB = -(0x10000 - this.ACTStructInfo.ZHitB);
+//			// :cond_7
+//		}
+//		SpriteInfoOffset = (SpriteInfoOffset + 0x2);
+//		bmp = android.graphics.BitmapFactory.decodeResource(
+//				this.mContext.getResources(), this.ACTStructInfo.ResID);
+//		if (bmp == null) {
+//			bmp = info.pharos.gameEngine.PackageManager.loadPic(this.mContext,
+//					this.ACTStructInfo.ResID);
+//			// :cond_8
+//		}
+//		if (bmp != null) {
+//			int nResId = (this.ACTStructInfo.ResID & 65535);
+//			if (nResId >= this.nMaxSpriteResNum) {
+//				// [OTHER] end local v4 #nResId:I
+//			} else {
+//				this.nCurBMPRamSize = (this.nCurBMPRamSize + (long) this
+//						.GetBitmapSize(bmp));
+//				if (this.mIsLogOut) {
+//					/*
+//					 * android.util.Log.v("Sprite",new
+//					 * StringBuilder("ResID: ").append
+//					 * (this.ACTStructInfo.ResID).toString());
+//					 * android.util.Log.v("Sprite",new
+//					 * StringBuilder("Width: ").append
+//					 * (bmp.getWidth()).toString());
+//					 * android.util.Log.v("Sprite",new
+//					 * StringBuilder("Height: ").
+//					 * append(bmp.getHeight()).toString());
+//					 * android.util.Log.v("Sprite",new
+//					 * StringBuilder("OPtions: ")
+//					 * .append(bmp.getConfig()).toString());
+//					 * android.util.Log.v("Sprite",new
+//					 * StringBuilder("Picture use RAM: "
+//					 * ).append((this.nCurBMPRamSize /
+//					 * 1024)).append(" KBytes").toString()); // :cond_14
+//					 */
+//				}
+//				this.SpriteRes[nResId].Sprite = bmp;
+//				this.SpriteRes[nResId].SpriteResID = this.ACTStructInfo.ResID;
+//				this.SpriteRes[nResId].SpriteCenterX = this.ACTStructInfo.CenterX;
+//				this.SpriteRes[nResId].SpriteCenterY = this.ACTStructInfo.CenterY;
+//				this.SpriteRes[nResId].SpriteXHitL = this.ACTStructInfo.XHitL;
+//				this.SpriteRes[nResId].SpriteXHitR = this.ACTStructInfo.XHitR;
+//				this.SpriteRes[nResId].SpriteYHitU = this.ACTStructInfo.YHitU;
+//				this.SpriteRes[nResId].SpriteYHitD = this.ACTStructInfo.YHitD;
+//				this.SpriteRes[nResId].SpriteZHitF = this.ACTStructInfo.ZHitF;
+//				this.SpriteRes[nResId].SpriteZHitB = this.ACTStructInfo.ZHitB;
+//				this.SpriteResACTInfo[nResId].RESACTIdx = (short) ACTLibId;
+//				this.pSpriteResSegInfo[ACTLibId].SegSize = (this.pSpriteResSegInfo[ACTLibId].SegSize + (((bmp
+//						.getWidth() * bmp.getHeight()) * 0x4) + 0x80));
+//				bmp = null /* 0 */;
+//			}
+//			// goto/16 :goto_9
+//			// :cond_9
+//		}
+//		// :goto_9
+//		return;
 		// [OTHER] end local v5 #temp:I
 		// [OTHER] end local v5 #temp:I
 		// [OTHER] end local v5 #temp:I
@@ -942,24 +1001,48 @@ public class SpriteManager extends Object {
 	}
 
 	public boolean LoadSpriteACTFile(int ResId) {
-		;
-		info.pharos.gameEngine.RESApp rs = new info.pharos.gameEngine.RESApp(
-				this.mContext);
-		rs.OpenRes(ResId);
-		if (rs.getLength() > 0) {
-			this.cSpriteACTFile.nACTBuffLen = rs.getLength();
-			;
-			this.cSpriteACTFile.pACTBuff = new byte[this.cSpriteACTFile.nACTBuffLen];
-			rs.ResRead(this.cSpriteACTFile.pACTBuff, 0,
-					this.cSpriteACTFile.nACTBuffLen);
-			rs.CloseRes();
-			;
-			return true /* 0 */;
-		} else {
-			rs.CloseRes();
-			;
-			return false /* 0 */;
-		}
+		
+		
+		try {
+			String s = IO.readRaw(this.mContext, ResId);
+			if (!s.equals("")) {
+				org.json.JSONObject j = new org.json.JSONObject(s);
+				if (j == null) {
+					android.util.Log.e("loadSpConfig", "JSON.read failed.");
+				} else {
+					this.spList = j.getJSONArray("root");
+					android.util.Log.e("spList size",
+							String.valueOf(this.spList.length()));
+					// end of try
+					;
+					return true;
+				}
+				// goto :goto_0
+				// :cond_0
+			}
+		} catch (org.json.JSONException e/* */) {
+			android.util.Log.e("loadSpConfig","JSONException",e);
+		} //end of catch: goto :goto_0
+		return false;
+		
+//		;
+//		info.pharos.gameEngine.RESApp rs = new info.pharos.gameEngine.RESApp(
+//				this.mContext);
+//		rs.OpenRes(ResId);
+//		if (rs.getLength() > 0) {
+//			this.cSpriteACTFile.nACTBuffLen = rs.getLength();
+//			;
+//			this.cSpriteACTFile.pACTBuff = new byte[this.cSpriteACTFile.nACTBuffLen];
+//			rs.ResRead(this.cSpriteACTFile.pACTBuff, 0,
+//					this.cSpriteACTFile.nACTBuffLen);
+//			rs.CloseRes();
+//			;
+//			return true /* 0 */;
+//		} else {
+//			rs.CloseRes();
+//			;
+//			return false /* 0 */;
+//		}
 		// goto :goto_0
 		// :goto_0
 		// return 0;

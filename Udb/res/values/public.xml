@@ -261,7 +261,7 @@
     <public type="raw" name="horse" id="0x7f040004" />
     <public type="raw" name="jump" id="0x7f040005" />
     <public type="raw" name="music2" id="0x7f040006" />
-    <public type="raw" name="opeapp" id="0x7f040007" />
+    <public type="raw" name="sp" id="0x7f040007" />
     <public type="raw" name="prise" id="0x7f040008" />
     <public type="raw" name="run" id="0x7f040009" />
     <public type="string" name="hello" id="0x7f050000" />

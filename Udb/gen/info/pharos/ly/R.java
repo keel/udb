@@ -353,10 +353,10 @@ containing a value of this type.
         public static final int horse=0x7f040004;
         public static final int jump=0x7f040005;
         public static final int music2=0x7f040006;
-        public static final int opeapp=0x7f040007;
+        public static final int opeapp=0x7f04000a;
         public static final int prise=0x7f040008;
         public static final int run=0x7f040009;
-        public static final int sp=0x7f04000a;
+        public static final int sp=0x7f040007;
     }
     public static final class string {
         public static final int app_name=0x7f050001;
