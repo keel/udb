@@ -2,8 +2,6 @@ package info.pharos.gameEngine;
 
 import org.json.JSONException;
 
-import info.pharos.ly.KLog;
-
 public class SpriteManager extends Object {
 
 	// annotations
@@ -84,9 +82,8 @@ public class SpriteManager extends Object {
 		try {
 			this.ACTStructInfo.FileNum = this.spList.getJSONObject(ACTLibId).getJSONArray("sprite").length();
 			this.ACTStructInfo.FileIndexAddr = this.spList.getJSONObject(ACTLibId).getInt("FileIndexAddr");
-			//end of try
 			} catch (org.json.JSONException e/* */) {
-				android.util.Log.e("GetFileHead","JSONException"+e.getCause());
+				android.util.Log.e("GetFileHead","JSONException",e);
 			} 
 		
 		
@@ -155,7 +152,7 @@ public class SpriteManager extends Object {
 			this.ACTStructInfo.SpriteIndexAddr = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(ACTLibId).getInt("ACTLibId");
 			//end of try
 			} catch (org.json.JSONException e/* */) {
-				android.util.Log.e("GetSpriteHead","JSONException"+e.getCause());
+				android.util.Log.e("GetSpriteHead","JSONException",e);
 			} 
 		
 		
@@ -1007,18 +1004,11 @@ public class SpriteManager extends Object {
 			String s = IO.readRaw(this.mContext, ResId);
 			if (!s.equals("")) {
 				org.json.JSONObject j = new org.json.JSONObject(s);
-				if (j == null) {
-					android.util.Log.e("loadSpConfig", "JSON.read failed.");
-				} else {
 					this.spList = j.getJSONArray("root");
-					android.util.Log.e("spList size",
-							String.valueOf(this.spList.length()));
-					// end of try
-					;
+					android.util.Log.d("spList size",String.valueOf(this.spList.length()));
 					return true;
-				}
-				// goto :goto_0
-				// :cond_0
+			}else{
+				android.util.Log.e("loadSpConfig", "JSON.read failed.");
 			}
 		} catch (org.json.JSONException e/* */) {
 			android.util.Log.e("loadSpConfig","JSONException",e);
