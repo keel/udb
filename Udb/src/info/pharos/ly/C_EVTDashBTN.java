@@ -5,7 +5,7 @@ public class C_EVTDashBTN extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 private static final int[][] BTN_DashACT;
-private static final int[] BTN_Rush00 = {0x7f020008,0x7f02000e};
+private static final int[] BTN_Rush00 = {R.drawable.act_btna01,R.drawable.act_btna07};
 public static final int[][] DashBTNSpriteEVT = new int[2][];
 // instance fields
 public int m_BTNType;

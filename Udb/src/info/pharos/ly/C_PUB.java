@@ -552,7 +552,7 @@ public static void setVibratorTime(){
 public static void showPauseSCR(){
 	int i = 0;
 	while (i < 36) {
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837682,160,((i * 0x10) - 48),6);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(R.drawable.act_pausescr00,160,((i * 0x10) - 48),6);
 	i = (i + 0x1);
 	// goto :goto_0
 	// :cond_0

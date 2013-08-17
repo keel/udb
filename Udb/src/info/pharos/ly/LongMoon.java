@@ -95,7 +95,7 @@ static synthetic void access$1(com.game.UnicornDash.UnicornDash $$0){
 }
 */
 private void addContentView(android.view.View view){
-	android.widget.RelativeLayout relativeLayout = (android.widget.RelativeLayout)this.findViewById(2131099648);
+	android.widget.RelativeLayout relativeLayout = (android.widget.RelativeLayout)this.findViewById(R.id.relativeLayout);
 	;
 	android.widget.RelativeLayout.LayoutParams layoutParams = new android.widget.RelativeLayout.LayoutParams(-1,-1);
 	relativeLayout.addView(view,0,layoutParams);
@@ -194,7 +194,7 @@ public void clickMoreGames(){
 		}
 		;
 		this.activityLayout = new android.widget.RelativeLayout(this);
-		this.setContentView(2130903041);
+		this.setContentView(R.layout.main_game);
 		this.addContentView(this.activityLayout);
 		;
 		this.cView = new info.pharos.gameEngine.GameView(this);

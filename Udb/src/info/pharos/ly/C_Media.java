@@ -15,7 +15,7 @@ public static final int SFX_PRISE = 0x6;
 public static final int SFX_RUN = 0x3;
 public static final int[] SoundPlayChannel;
 public static final boolean[] SoundPlayMode = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
-public static final int[] SoundResIDTBL = {0x7f040003,0x7f040000,0x7f040004,0x7f040009,0x7f040005,0x7f040001,0x7f040008,0x7f040002,0x0000ffff};
+public static final int[] SoundResIDTBL = {R.raw.dash,R.raw.blast,R.raw.horse,R.raw.run,R.raw.jump,R.raw.click,R.raw.prise,R.raw.count,0x0000ffff};
 public static int m_AnimalType;
 public static int m_FIXControl;
 // direct methods
@@ -72,7 +72,7 @@ public static void MediaContrl(){
 
 public static void PlayGameMusic(){
 	if (!info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaIsPlaying(0)) {
-	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaPlay(0,2130968582,true);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaPlay(0,R.raw.music2,true);
 	// :cond_0
 	}
 	return;
@@ -80,7 +80,7 @@ public static void PlayGameMusic(){
 
 public static void PlayMenuMusic(){
 	if (!info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaIsPlaying(0)) {
-	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaPlay(0,2130968582,true);
+	info.pharos.ly.C_GameMain.cLib.getMediaManager().CH_MediaPlay(0,R.raw.music2,true);
 	// :cond_0
 	}
 	return;

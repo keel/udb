@@ -7,8 +7,8 @@ public class C_EVTEidolon extends info.pharos.gameEngine.GameEvent  {
 public static final int CTRL_BLAST = 0x1;
 public static final int CTRL_NORMALL = 0;
 public static final int[][] EIDOLONAEVT = new int[2][];
-private static final int[] Eidolon00ACT = {0x7f02002b,0x7f02002c,0x7f02002d,0x7f02002e,0x7f02002f,0x7f020030,0x7f02002f,0x7f02002e,0x7f02002d,0x7f02002c};
-private static final int[] Eidolon01ACT = {0x7f020031,0x7f020032,0x7f020033,0x7f020034,0x7f020035};
+private static final int[] Eidolon00ACT = {R.drawable.act_eidolon100,R.drawable.act_eidolon101,R.drawable.act_eidolon102,R.drawable.act_eidolon103,R.drawable.act_eidolon104,R.drawable.act_eidolon105,R.drawable.act_eidolon104,R.drawable.act_eidolon103,R.drawable.act_eidolon102,R.drawable.act_eidolon101};
+private static final int[] Eidolon01ACT = {R.drawable.act_eidolon200,R.drawable.act_eidolon201,R.drawable.act_eidolon202,R.drawable.act_eidolon203,R.drawable.act_eidolon204};
 private static final int[][] EidolonACT;
 // instance fields
 private info.pharos.ly.C_EVTEidolon[] c_EVTEidolon;

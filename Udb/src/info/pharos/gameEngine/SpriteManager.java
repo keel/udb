@@ -82,6 +82,7 @@ public class SpriteManager extends Object {
 		try {
 			this.ACTStructInfo.FileNum = this.spList.getJSONObject(ACTLibId).getJSONArray("sprite").length();
 			this.ACTStructInfo.FileIndexAddr = this.spList.getJSONObject(ACTLibId).getInt("FileIndexAddr");
+			//end of try
 			} catch (org.json.JSONException e/* */) {
 				android.util.Log.e("GetFileHead","JSONException",e);
 			} 

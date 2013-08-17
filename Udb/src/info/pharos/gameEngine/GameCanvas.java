@@ -1,5 +1,7 @@
 package info.pharos.gameEngine;
 
+import android.R;
+
 
 public class GameCanvas extends Object  {
 

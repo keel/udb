@@ -16,10 +16,10 @@ public static final int JUMP_JUMP = 0xf0000;
 public static final int JUMP_MAXFALL = -0x140000;
 public static final int JUMP_MINFALL = -0x20000;
 public static final int[][] PLANEEVT = new int[5][];
-private static final int[] Plane00ACT = {0x7f0200db,0x7f0200dc,0x7f0200dd,0x7f0200de,0x7f0200df,0x7f0200e0,0x7f0200e1,0x7f0200e2,0x7f0200e3,0x7f0200e4,0x7f0200e5,0x7f0200e6};
-private static final int[] Plane01ACT = {0x7f020036,0x7f020036,0x7f020036,0x7f020037,0x7f020037,0x7f020038,0x7f020039,0x7f02003a,0x7f02003b,0x7f02003c,0x7f02003d,0x7f02003e,0x7f02003f,0x7f020040,0x7f020041,0x7f020042,0x7f020043};
-private static final int[] Plane02ACT = {0x7f02003e,0x7f02003f,0x7f020040,0x7f020041,0x7f020042,0x7f020043};
-private static final int[] Plane03ACT = {0x7f02001a,0x7f02001b,0x7f02001c,0x7f02001d,0x7f02001e,0x7f02001f,0x7f020020,0x7f020020,0x7f02001f,0x7f02001e,0x7f02001d,0x7f02001c,0x7f02001a};
+private static final int[] Plane00ACT = {R.drawable.act_running00,R.drawable.act_running01,R.drawable.act_running02,R.drawable.act_running03,R.drawable.act_running04,R.drawable.act_running05,R.drawable.act_running06,R.drawable.act_running07,R.drawable.act_running08,R.drawable.act_running09,R.drawable.act_running0a,R.drawable.act_running0b};
+private static final int[] Plane01ACT = {R.drawable.act_jumping00,R.drawable.act_jumping00,R.drawable.act_jumping00,R.drawable.act_jumping01,R.drawable.act_jumping01,R.drawable.act_jumping02,R.drawable.act_jumping03,R.drawable.act_jumping04,R.drawable.act_jumping05,R.drawable.act_jumping06,R.drawable.act_jumping07,R.drawable.act_jumping08,R.drawable.act_jumping09,R.drawable.act_jumping0a,R.drawable.act_jumping0b,R.drawable.act_jumping0c,R.drawable.act_jumping0d};
+private static final int[] Plane02ACT = {R.drawable.act_jumping08,R.drawable.act_jumping09,R.drawable.act_jumping0a,R.drawable.act_jumping0b,R.drawable.act_jumping0c,R.drawable.act_jumping0d};
+private static final int[] Plane03ACT = {R.drawable.act_dash00,R.drawable.act_dash01,R.drawable.act_dash02,R.drawable.act_dash03,R.drawable.act_dash04,R.drawable.act_dash05,R.drawable.act_dash06,R.drawable.act_dash06,R.drawable.act_dash05,R.drawable.act_dash04,R.drawable.act_dash03,R.drawable.act_dash02,R.drawable.act_dash00};
 private static final int[] Plane04ACT;
 private static final int[][] PlaneACT;
 // instance fields
@@ -40,14 +40,14 @@ static{
 	;
 	;
 	int[] v0v134 = new int[28];
-	v0v134[0] = 2130837505;
-	v0v134[1] = 2130837506;
-	v0v134[2] = 2130837507;
-	v0v134[3] = 2130837508;
-	v0v134[4] = 2130837507;
-	v0v134[5] = 2130837508;
-	v0v134[6] = 2130837509;
-	v0v134[7] = 2130837510;
+	v0v134[0] = R.drawable.act_blast00;
+	v0v134[1] = R.drawable.act_blast01;
+	v0v134[2] = R.drawable.act_blast02;
+	v0v134[3] = R.drawable.act_blast03;
+	v0v134[4] = R.drawable.act_blast02;
+	v0v134[5] = R.drawable.act_blast03;
+	v0v134[6] = R.drawable.act_blast04;
+	v0v134[7] = R.drawable.act_blast05;
 	Plane04ACT = v0v134;
 	int[][] v0v146 = new int[5][];
 	v0v146[0] = info.pharos.ly.C_EVTPlayer.Plane00ACT;
@@ -133,46 +133,46 @@ private void JumpConctrl(){
 	this.EVT.Status = (this.EVT.Status | 0x200);
 	;
 	switch(this.EVT.ACTIdx){
-	case 2130837558: 
+	case R.drawable.act_jumping00: 
 	this.EVT.XInc = 0x80000;
 	break;
-	case 2130837559: 
+	case R.drawable.act_jumping01: 
 	this.EVT.XInc = 0x60000;
 	break;
-	case 2130837560: 
+	case R.drawable.act_jumping02: 
 	this.EVT.XInc = 0x40000;
 	break;
-	case 2130837561: 
+	case R.drawable.act_jumping03: 
 	this.EVT.XInc = 0x20000;
 	break;
-	case 2130837562: 
+	case R.drawable.act_jumping04: 
 	this.EVT.XInc = 0x10000;
 	break;
-	case 2130837563: 
+	case R.drawable.act_jumping05: 
 	this.EVT.XInc = 0 /* 0 */;
 	break;
-	case 2130837564: 
+	case R.drawable.act_jumping06: 
 	this.EVT.XInc = -0x10000;
 	break;
-	case 2130837565: 
+	case R.drawable.act_jumping07: 
 	this.EVT.XInc = -0x20000;
 	break;
-	case 2130837566: 
+	case R.drawable.act_jumping08: 
 	this.EVT.XInc = -0x40000;
 	break;
-	case 2130837567: 
+	case R.drawable.act_jumping09: 
 	this.EVT.XInc = -0x60000;
 	break;
-	case 2130837568: 
+	case R.drawable.act_jumping0a: 
 	this.EVT.XInc = -0x80000;
 	break;
-	case 2130837569: 
+	case R.drawable.act_jumping0b: 
 	this.EVT.XInc = -0xa0000;
 	break;
-	case 2130837570: 
+	case R.drawable.act_jumping0c: 
 	this.EVT.XInc = -0xc0000;
 	break;
-	case 2130837571: 
+	case R.drawable.act_jumping0d: 
 	this.EVT.XInc = -0x100000;
 	break;
 	} //end of switch
@@ -193,59 +193,59 @@ private void JumpFeetOffset(){
 	this.EVT.Status = (this.EVT.Status | 0x200);
 	;
 	switch(this.EVT.ACTIdx){
-	case 2130837558: 
+	case R.drawable.act_jumping00: 
 	this.c_EVTPlayer.m_FeetOffset_F = 28;
 	this.c_EVTPlayer.m_FeetOffset_B = 0 /* 0 */;
 	break;
-	case 2130837559: 
+	case R.drawable.act_jumping01: 
 	this.c_EVTPlayer.m_FeetOffset_F = 26;
 	this.c_EVTPlayer.m_FeetOffset_B = 2;
 	break;
-	case 2130837560: 
+	case R.drawable.act_jumping02: 
 	this.c_EVTPlayer.m_FeetOffset_F = 24;
 	this.c_EVTPlayer.m_FeetOffset_B = 4;
 	break;
-	case 2130837561: 
+	case R.drawable.act_jumping03: 
 	this.c_EVTPlayer.m_FeetOffset_F = 22;
 	this.c_EVTPlayer.m_FeetOffset_B = 6;
 	break;
-	case 2130837562: 
+	case R.drawable.act_jumping04: 
 	this.c_EVTPlayer.m_FeetOffset_F = 20;
 	this.c_EVTPlayer.m_FeetOffset_B = 8;
 	break;
-	case 2130837563: 
+	case R.drawable.act_jumping05: 
 	this.c_EVTPlayer.m_FeetOffset_F = 18;
 	this.c_EVTPlayer.m_FeetOffset_B = 10;
 	break;
-	case 2130837564: 
+	case R.drawable.act_jumping06: 
 	this.c_EVTPlayer.m_FeetOffset_F = 16;
 	this.c_EVTPlayer.m_FeetOffset_B = 12;
 	break;
-	case 2130837565: 
+	case R.drawable.act_jumping07: 
 	this.c_EVTPlayer.m_FeetOffset_F = 14;
 	this.c_EVTPlayer.m_FeetOffset_B = 14;
 	break;
-	case 2130837566: 
+	case R.drawable.act_jumping08: 
 	this.c_EVTPlayer.m_FeetOffset_F = 12;
 	this.c_EVTPlayer.m_FeetOffset_B = 16;
 	break;
-	case 2130837567: 
+	case R.drawable.act_jumping09: 
 	this.c_EVTPlayer.m_FeetOffset_F = 10;
 	this.c_EVTPlayer.m_FeetOffset_B = 18;
 	break;
-	case 2130837568: 
+	case R.drawable.act_jumping0a: 
 	this.c_EVTPlayer.m_FeetOffset_F = 8;
 	this.c_EVTPlayer.m_FeetOffset_B = 20;
 	break;
-	case 2130837569: 
+	case R.drawable.act_jumping0b: 
 	this.c_EVTPlayer.m_FeetOffset_F = 6;
 	this.c_EVTPlayer.m_FeetOffset_B = 22;
 	break;
-	case 2130837570: 
+	case R.drawable.act_jumping0c: 
 	this.c_EVTPlayer.m_FeetOffset_F = 4;
 	this.c_EVTPlayer.m_FeetOffset_B = 24;
 	break;
-	case 2130837571: 
+	case R.drawable.act_jumping0d: 
 	this.c_EVTPlayer.m_FeetOffset_F = 2;
 	this.c_EVTPlayer.m_FeetOffset_B = 26;
 	break;

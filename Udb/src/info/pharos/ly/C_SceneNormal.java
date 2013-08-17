@@ -1119,20 +1119,20 @@ private void ReadTouch(){
 		}
 		info.pharos.ly.C_PUB.showPauseSCR();
 		info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(
-				2130837718, 160, 240, 6);
+				R.drawable.act_result14, 160, 240, 6);
 		if (CountEnd) {
 			if (info.pharos.ly.C_Global.g_GameLife == 0) {
 				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
-						.WriteSprite(2130837721, 20, 240, 6);
+						.WriteSprite(R.drawable.act_result17, 20, 240, 6);
 			} else {
 				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
-						.WriteSprite(2130837720, 20, 240, 6);
+						.WriteSprite(R.drawable.act_result16, 20, 240, 6);
 			}
 			// goto/16 :goto_1
 			// :goto_1
 			if ((info.pharos.ly.C_GameMain.cLib.nVBLCount % 0x10) > 8) {
 				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
-						.WriteSprite(2130837719, 20, 76, 6);
+						.WriteSprite(R.drawable.act_result15, 20, 76, 6);
 				// :cond_2
 			}
 		}
@@ -1150,7 +1150,7 @@ private void ReadTouch(){
 			}
 			if (this.m_FinalCount >= info.pharos.ly.C_Save.g_HighScore) {
 				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
-						.WriteSprite(2130837722, 300, 240, 6);
+						.WriteSprite(R.drawable.act_result18, 300, 240, 6);
 				// :cond_7
 			}
 		case 1:
@@ -1170,7 +1170,7 @@ private void ReadTouch(){
 			}
 			if (this.m_FinalCount >= info.pharos.ly.C_Save.g_HighScore) {
 				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
-						.WriteSprite(2130837722, 300, 240, 6);
+						.WriteSprite(R.drawable.act_result18, 300, 240, 6);
 				// :cond_7
 			}
 			 break;
@@ -1319,7 +1319,7 @@ private void ShowEVENT(){
 		int Offset_Y = 0;
 		if (this.c_EVTPlayer.EVT.Ctrl == 3 && (this.c_EVTPlayer.EVT.Status & 32768) != 32768) {
 		Offset_Y = (info.pharos.ly.C_SceneNormal.PowerBall_Dash_OffsetTBL[this.c_EVTPlayer.EVT.CurFRM] * 0xa);
-		this.c_EVTPowerBall.EVT.ACTIdx = 2130837688;
+		this.c_EVTPowerBall.EVT.ACTIdx = R.drawable.act_powerball05;
 		// :cond_9
 		}
 		this.c_EVTPowerBall.EVT.DispX = (this.c_EVTPlayer.EVT.DispX + 0x19);
@@ -1459,9 +1459,9 @@ private void ShowLife(){
 	int i = 0;
 	while (i < 3) {
 	if (info.pharos.ly.C_Global.g_GameLife > i) {
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837515,x,((i * s) + y),5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(R.drawable.act_btna04,x,((i * s) + y),5);
 	} else {
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837516,x,((i * s) + y),5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(R.drawable.act_btna05,x,((i * s) + y),5);
 		}
 	// goto :goto_1
 	// :goto_1
@@ -1586,8 +1586,8 @@ private void showHightRecord(){
 	int RunLength = (int)(info.pharos.ly.C_Global.g_CurDistance >> 16);
 	int YVal = (info.pharos.ly.C_Save.g_HighDistance - RunLength);
 	if (info.pharos.ly.C_Save.g_HighDistance == 0 || YVal < -48 || YVal > 576) {
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837537,0,YVal,5);
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(2130837538,160,YVal,5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(R.drawable.act_dottedline00,0,YVal,5);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(R.drawable.act_dottedline01,160,YVal,5);
 		}
 		}
 	// goto :goto_0
@@ -1749,7 +1749,7 @@ public void ExitEVENT(){
 			case 11:
 				info.pharos.ly.C_PUB.showPauseSCR();
 				info.pharos.ly.C_GameMain.cLib.getGameCanvas()
-						.WriteSprite(2130837677, 260, 240, 6);
+						.WriteSprite(R.drawable.act_pausebtn00, 260, 240, 6);
 				
 				break;
 			case 12:

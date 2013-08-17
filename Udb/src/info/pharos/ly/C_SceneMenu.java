@@ -4,7 +4,7 @@ package info.pharos.ly;
 public class C_SceneMenu extends Object  {
 
 // static fields
-public static final int[] StarACTTBL = {0x7f0200e7,0x7f0200e8,0x7f0200e9,0x7f0200ea,0x7f0200eb};
+public static final int[] StarACTTBL = {R.drawable.act_star00,R.drawable.act_star01,R.drawable.act_star02,R.drawable.act_star03,R.drawable.act_star04};
 // instance fields
 private info.pharos.ly.C_EVTGameBTN[] c_EVTGameBTN;
 private info.pharos.ly.C_EVTGameBTN c_GameBTN;
@@ -175,7 +175,7 @@ private void ShowEVENT(){
 }
 
 private void ShowInfo(){
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(0x7f020000,28,220,6);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().WriteSprite(R.drawable.act_best00,28,220,6);
 	info.pharos.ly.C_PUB.ShowNum(info.pharos.ly.C_Save.g_HighScore,30,220,15,1,1,info.pharos.ly.C_DEF.ResultNUM2TBL,7);
 //	if ((info.pharos.ly.C_GameMain.cLib.nVBLCount % 0xa) == 0) {
 //	this.m_StarFRM = (this.m_StarFRM + 0x1);
@@ -191,7 +191,7 @@ private void ShowInfo(){
 
 public void GameMain(){
 	this.Initialize();
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(2130837742,0,0);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(R.drawable.scr_menu,0,0);
 	info.pharos.ly.C_GameMain.cLib.getGameCanvas().SetTextYVal(0,-48);
 	//this.ReadTouch();
 	this.ReadTouch();

@@ -10,7 +10,7 @@ public static final int CTRL_HORSE_EFF = 0x0;
 public static final int CTRL_PROPASCORE_EFF = 0x1;
 public static final double[] CloudScaleCTBL = {0.8D,0.9D,1.0D,1.1D,1.2D,1.3D,1.4D,1.5D};
 public static final int[][] EFFECTEVT = new int[4][];
-private static final int[] Effect00ACT = {0x7f020023,0x7f020024,0x7f020025,0x7f020026,0x7f020027,0x7f020028,0x7f020029,0x7f02002a};
+private static final int[] Effect00ACT = {R.drawable.act_effhorse00,R.drawable.act_effhorse01,R.drawable.act_effhorse02,R.drawable.act_effhorse03,R.drawable.act_effhorse04,R.drawable.act_effhorse05,R.drawable.act_effhorse06,R.drawable.act_effhorse07};
 private static final int[] Effect01ACT = new int[16];
 private static final int[] Effect02ACT = new int[16];
 private static final int[] Effect03ACT;
@@ -26,7 +26,7 @@ static{
 	;
 	;
 	int[] v0v165 = new int[1];
-	v0v165[0] = 2130837529;
+	v0v165[0] = R.drawable.act_cloud00;
 	Effect03ACT = v0v165;
 	int[][] v0v140 = new int[4][];
 	v0v140[0] = info.pharos.ly.C_EVTEffect.Effect00ACT;

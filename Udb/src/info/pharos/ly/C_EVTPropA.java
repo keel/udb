@@ -8,7 +8,7 @@ public static final int CTRL_BLAST = 0x1;
 public static final int CTRL_NORMALL = 0;
 public static final int[][] PROPAEVT = new int[2][];
 private static final int[] PropA00ACT;
-private static final int[] PropA01ACT = {0x7f0200ba,0x7f0200bb,0x7f0200bc,0x7f0200bd,0x7f0200be,0x7f0200bf,0x7f0200c0,0x7f0200c1};
+private static final int[] PropA01ACT = {R.drawable.act_propclr00,R.drawable.act_propclr01,R.drawable.act_propclr02,R.drawable.act_propclr03,R.drawable.act_propclr04,R.drawable.act_propclr05,R.drawable.act_propclr06,R.drawable.act_propclr07};
 private static final int[][] PropAACT;
 // instance fields
 private info.pharos.ly.C_EVTPropA[] c_EVTPropA;
@@ -17,7 +17,7 @@ public int m_EVTIdx;
 
 static{
 	int[] v0v535 = new int[1];
-	v0v535[0] = 2130837689;
+	v0v535[0] = R.drawable.act_prop00;
 	PropA00ACT = v0v535;
 	;
 	int[][] v0v551 = new int[2][];

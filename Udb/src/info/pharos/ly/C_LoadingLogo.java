@@ -17,7 +17,7 @@ public C_LoadingLogo(){
 
 public void GameMain(){
 	int RunTime = 0;
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(2130837741,0,0);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(R.drawable.scr_logo,0,0);
 //	GameCanvas gcv = info.pharos.ly.C_OPhoneApp.cLib.getGameCanvas();
 	info.pharos.ly.C_GameMain.cLib.getGameCanvas().SetTextYVal(0,-48);
 //
@@ -30,11 +30,11 @@ public void GameMain(){
 	info.pharos.ly.C_GameMain.cLib.WaitBLK();
 	}
 	info.pharos.ly.C_GameMain.cLib.ViewDark(64);
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(2130837741,0,0);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().LoadText(R.drawable.scr_logo,0,0);
 	info.pharos.ly.C_GameMain.cLib.getGameCanvas().SetTextYVal(0,-48);
 	info.pharos.ly.C_GameMain.cLib.ViewOpen(64);
 
-	
+	/*
 	Thread load = new LoadThread();
 	boolean loadEnd = true;
 	int star = 0;
@@ -54,12 +54,12 @@ public void GameMain(){
 		}
 		info.pharos.ly.C_GameMain.cLib.WaitBLK();
 		
-	}
-	/*
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(0,2130968583);
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(1,2130968583);
+	}*/
+	
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(0,R.raw.sp);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(1,R.raw.sp);
 	try {
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(2,2130968583);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(2,R.raw.sp);
 	//end of try
 	} catch (OutOfMemoryError e) {
 		e.printStackTrace();
@@ -67,7 +67,7 @@ public void GameMain(){
 		info.pharos.ly.C_GameMain.cLib.getGameCanvas().FreeACT(2);
 	} //end of catch: goto :goto_0
 	
-	*/
+	
 	// :goto_0
 	info.pharos.ly.C_GameMain.cLib.ClearACT();
 	//info.pharos.ly.C_GameMain.cTouch.ReadTouch();
@@ -80,17 +80,17 @@ public void GameMain(){
 	
 	//[OTHER] end local v1           #e:Ljava/lang/OutOfMemoryError;
 }
-
+/*
 private static boolean loading = true;
 
 class LoadThread extends Thread  {
 
 	@Override
 	public void run() {
-		info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(0,2130968583);
-		info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(1,2130968583);
+		info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(0,R.raw.sp);
+		info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(1,R.raw.sp);
 		try {
-		info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(2,2130968583);
+		info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(2,R.raw.sp);
 		//end of try
 		} catch (OutOfMemoryError e) {
 			e.printStackTrace();
@@ -101,5 +101,5 @@ class LoadThread extends Thread  {
 	}
 	
 }
-
+*/
 }

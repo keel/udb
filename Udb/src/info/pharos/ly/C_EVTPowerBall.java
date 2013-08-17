@@ -5,15 +5,15 @@ public class C_EVTPowerBall extends info.pharos.gameEngine.GameEvent  {
 
 // static fields
 private static final int[] PowerBall00;
-private static final int[] PowerBall01 = {0x7f0200b4,0x7f0200b5,0x7f0200b6,0x7f0200b7,0x7f0200b4};
-private static final int[] PowerBall02 = {0x7f0200ba,0x7f0200bb,0x7f0200bc,0x7f0200bd,0x7f0200be,0x7f0200bf,0x7f0200c0,0x7f0200c1};
+private static final int[] PowerBall01 = {R.drawable.act_powerball01,R.drawable.act_powerball02,R.drawable.act_powerball03,R.drawable.act_powerball04,R.drawable.act_powerball01};
+private static final int[] PowerBall02 = {R.drawable.act_propclr00,R.drawable.act_propclr01,R.drawable.act_propclr02,R.drawable.act_propclr03,R.drawable.act_propclr04,R.drawable.act_propclr05,R.drawable.act_propclr06,R.drawable.act_propclr07};
 private static final int[][] PowerBallACT;
 public static final int[][] PowerBallSpriteEVT = new int[3][];
 // direct methods
 
 static{
 	int[] v0v388 = new int[1];
-	v0v388[0] = 2130837683;
+	v0v388[0] = R.drawable.act_powerball00;
 	PowerBall00 = v0v388;
 	;
 	;
