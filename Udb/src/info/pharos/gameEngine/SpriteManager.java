@@ -2,6 +2,9 @@ package info.pharos.gameEngine;
 
 import org.json.JSONException;
 
+import android.content.Context;
+import android.util.Log;
+
 public class SpriteManager extends Object {
 
 	// annotations
@@ -41,6 +44,7 @@ public class SpriteManager extends Object {
 		this.nScreenOrientation = 0 /* 0 */;
 		this.mACTLibBeg = 0 /* 0 */;
 		this.mContext = context;
+		packageName = this.mContext.getPackageName();
 		this.Init();
 		this.InitSpriteRes(SpriteResNum);
 		this.InitSprite(SpriteNum);
@@ -186,7 +190,10 @@ public class SpriteManager extends Object {
 
 	private int GetSpriteResID(int ACTFileId) {
 		try {
-			return this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("resID");
+			String resName = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getString("resID");
+			int resID = resId(resName,"drawable");//LongMoon.getResources().getIdentifier("imageName", "drawable", "com.test.image"); 
+			return resID;
+//			return this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("resID");
 		} catch (JSONException e) {
 			e.printStackTrace();
 			return -1;
@@ -229,7 +236,7 @@ public class SpriteManager extends Object {
 
 	private void ReadSpriteResInfo(int ACTFileId, int ACTLibId) {
 		try {
-			this.ACTStructInfo.ResID = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("resID");
+			this.ACTStructInfo.ResID = resId(this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getString("resID"),"drawable");
 			this.ACTStructInfo.CenterX = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("CenterX");
 			this.ACTStructInfo.CenterY = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("CenterY");
 			this.ACTStructInfo.XHitL = this.spList.getJSONObject(this.ACTStructInfo.FileIndexAddr).getJSONArray("sprite").getJSONObject(this.ACTStructInfo.SpriteIndexAddr).getJSONArray("res").getJSONObject(ACTFileId).getInt("XHitL");
@@ -779,6 +786,13 @@ public class SpriteManager extends Object {
 		// return this.SpriteRes[SpriteIdx].SpriteZHitF;
 	}
 
+private String packageName;
+public int resId(String resName,String type){
+	int resID = this.mContext.getResources().getIdentifier(resName, type, this.packageName); 
+	return resID;
+}
+	
+	
 	public void InitACT(int ACTLibId, int ACTFileName) {
 		ACTLibId = (ACTLibId + this.mACTLibBeg);
 		if (ACTLibId >= this.nMaxSpriteResNum) {
@@ -1000,7 +1014,9 @@ public class SpriteManager extends Object {
 
 	public boolean LoadSpriteACTFile(int ResId) {
 		
-		
+		if(this.spList !=null){
+			return true;
+		}
 		try {
 			String s = IO.readRaw(this.mContext, ResId);
 			if (!s.equals("")) {

@@ -67,6 +67,7 @@ public C_Lib(android.content.Context context,int TextLayer,int SpriteResNum,int 
 	info.pharos.gameEngine.C_Lib.bitmapOptions.inSampleSize = 1;
 }
 
+
 private void InitCanvas(int TextLayer,int SpriteResNum,int SpriteNum){
 	if (this.gameCanvas == null) {
 	;

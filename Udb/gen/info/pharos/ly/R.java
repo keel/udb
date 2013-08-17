@@ -338,8 +338,8 @@ containing a value of this type.
         public static final int scr_scene3=0x7f0200f1;
     }
     public static final class id {
-        public static final int ad1=0x7f060001;
-        public static final int relativeLayout=0x7f060000;
+        public static final int ad1=0x7f050001;
+        public static final int relativeLayout=0x7f050000;
     }
     public static final class layout {
         public static final int main=0x7f030000;
@@ -353,13 +353,13 @@ containing a value of this type.
         public static final int horse=0x7f040004;
         public static final int jump=0x7f040005;
         public static final int music2=0x7f040006;
-        public static final int opeapp=0x7f04000a;
+        public static final int opeapp=0x7f040007;
         public static final int prise=0x7f040008;
         public static final int run=0x7f040009;
-        public static final int sp=0x7f040007;
+        public static final int sps=0x7f04000a;
     }
     public static final class string {
-        public static final int app_name=0x7f050001;
-        public static final int hello=0x7f050000;
+        public static final int app_name=0x7f060001;
+        public static final int hello=0x7f060000;
     }
 }

@@ -55,6 +55,8 @@ public LongMoon(){
 	}};
 }
 
+
+
 public static void AdViewHandler(){
 	;
 	/*android.widget.RelativeLayout.LayoutParams adWhirlLayoutParams = new android.widget.RelativeLayout.LayoutParams(-1,-2);

@@ -56,10 +56,10 @@ public void GameMain(){
 		
 	}*/
 	
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(0,R.raw.sp);
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(1,R.raw.sp);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(0,R.raw.sps);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(1,R.raw.sps);
 	try {
-	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(2,R.raw.sp);
+	info.pharos.ly.C_GameMain.cLib.getGameCanvas().InitACT(2,R.raw.sps);
 	//end of try
 	} catch (OutOfMemoryError e) {
 		e.printStackTrace();
