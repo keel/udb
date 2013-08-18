@@ -101,6 +101,8 @@ private void Initialize(){
 	this.c_GameBTN.CreateGameBTN(3,70,((info.pharos.ly.C_Global.g_ScreenScale_3_1 + 0x186) - 50));
 	this.c_GameBTN.CreateGameBTN(4,70,(info.pharos.ly.C_Global.g_ScreenScale_3_1 + 0x186));
 	this.c_GameBTN.CreateGameBTN(5,70,((info.pharos.ly.C_Global.g_ScreenScale_3_1 + 0x186) + 0x32));
+	info.pharos.ly.C_GameMain.cTouch.setTouchRead(true);
+	info.pharos.ly.C_GameMain.cTouch.ReadTouch();
 	info.pharos.ly.C_PUB.InitTouch();
 	return;
 }

@@ -14,10 +14,14 @@ public static info.pharos.gameEngine.C_MultiTouch cTouch;
 private info.pharos.ly.C_GameMain.C_GameThread cGameThread;
 private info.pharos.ly.C_LongMoon c_LongMoon;
 // direct methods
-
+/**
+ * 这里初始化关键的参数值
+ * 
+ * */
 public C_GameMain(android.content.Context context){
 	super();
 	;
+	//这里直接定义了sprite的最大数量和资源数量
 	info.pharos.ly.C_GameMain.cLib = new info.pharos.gameEngine.C_Lib(context,3,2048,256);
 	;
 	this.c_LongMoon = new info.pharos.ly.C_LongMoon();
@@ -28,7 +32,7 @@ public C_GameMain(android.content.Context context){
 	this.cGameThread = null /* 0 */;
 	;
 	info.pharos.ly.C_GameMain.cTouch = new info.pharos.gameEngine.C_MultiTouch();
-	info.pharos.ly.C_GameMain.cTouch.ReadTouch();
+	//info.pharos.ly.C_GameMain.cTouch.ReadTouch();
 }
 // virtual methods
 

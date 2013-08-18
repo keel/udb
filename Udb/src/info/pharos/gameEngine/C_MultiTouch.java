@@ -536,7 +536,16 @@ protected void handleSDK8MultiTouch(android.view.MotionEvent event){
 		}
 }
 
+private boolean isTouchRead = false;
+
+public final void setTouchRead(boolean isTouchRead) {
+	this.isTouchRead = isTouchRead;
+}
+
 public void handleTouch(android.view.MotionEvent event){
+	if (!isTouchRead) {
+		return;
+	}
 	if (info.pharos.gameEngine.OS.API_LEVEL >= 5) {
 	if (info.pharos.gameEngine.OS.API_LEVEL >= 8) {
 	this.handleSDK8MultiTouch(event);

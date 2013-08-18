@@ -86,10 +86,9 @@ public class SpriteManager extends Object {
 		try {
 			this.ACTStructInfo.FileNum = this.spList.getJSONObject(ACTLibId).getJSONArray("sprite").length();
 			this.ACTStructInfo.FileIndexAddr = this.spList.getJSONObject(ACTLibId).getInt("FileIndexAddr");
-			//end of try
-			} catch (org.json.JSONException e/* */) {
-				android.util.Log.e("GetFileHead","JSONException",e);
-			} 
+		} catch (org.json.JSONException e) {
+			android.util.Log.e("GetFileHead","JSONException",e);
+		} 
 		
 		
 //		int nBuffBeg = 0;
@@ -793,6 +792,11 @@ public int resId(String resName,String type){
 }
 	
 	
+	/**
+	 * 初始化某个类别的sprite
+	 * @param ACTLibId
+	 * @param ACTFileName
+	 */
 	public void InitACT(int ACTLibId, int ACTFileName) {
 		ACTLibId = (ACTLibId + this.mACTLibBeg);
 		if (ACTLibId >= this.nMaxSpriteResNum) {
